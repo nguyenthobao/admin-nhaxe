@@ -1,0 +1,248 @@
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/jquery-tags-input/jquery.tagsinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/typeahead/typeahead.css">
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css"/>
+<link href="{$_B['mod_theme']}css/style.css" rel="stylesheet" type="text/css" />
+<link href="{$_B['mod_theme']}css/styleCustomFormNxt.css" rel="stylesheet" type="text/css" />
+
+<!-- END PAGE LEVEL STYLES -->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+	<div class="col-md-12">
+		<form class="form-horizontal form-row-seperated" action="" id="form_slide" enctype="multipart/form-data" method="POST" novalidate="novalidate">
+			<div class="portlet">
+				<div class="portlet-title">
+					<div class="caption">
+					<i class="icon-note"></i>{lang tuy_chinh_form}</div>
+					<!--{temp customFormToolbar}-->
+				</div>
+				<div class="portlet-body">
+					
+					
+					<div class="tabbable">
+						
+						<div class="tab-content no-space">
+							<div class="tab-pane active">
+								<div class="form-body">
+									<div class="note note-warning">
+										<p class="block">Code By NXT</p>
+									</div>
+									<div class="portlet light bordered">
+										<div class="portlet-title">
+											<div class="caption">
+												<i class="icon-equalizer font-red-sunglo"></i>
+												<span class="caption-subject font-red-sunglo bold uppercase">{lang tuy_chinh_form}</span>
+												
+											</div>
+											<div class="tools">
+												<a href="javascript:;" class="collapse"></a>
+											</div>
+										</div>
+										<div class="portlet-body form">
+											<div class="row">
+												<div class="col-md-4">
+													<ul class="nav nav-tabs">
+														<li class="active">
+															<a href="#tab_1_1" data-toggle="tab" aria-expanded="true">
+																Input
+														    </a>
+														</li>
+														
+														<li class="">
+															<a href="#tab_1_2" data-toggle="tab" aria-expanded="false">
+																Select
+															</a>
+														</li>
+														
+														<li class="">
+															<a href="#tab_1_3" data-toggle="tab" aria-expanded="false">
+																Button 
+															</a>
+														</li>
+														
+													</ul>
+													
+													<div class="tab-content NXT_tab_content">
+														<div class="tab-pane fade active in" id="tab_1_1">
+															<div class="borderInput NXT_drag input_1_1" data-class="input_1_1">
+																<div class="form-group">
+																    <label>{lang name}:</label>
+																    <input type="text" value="" placeholder="" class="form-control" name="input_1">
+																</div>
+															</div>
+															
+															<div class="borderInput NXT_drag input_1_2" data-class="input_1_2">
+																<div class="form-group">
+																    <label>{lang matkhau}:</label>
+																    <input type="password" class="form-control"  name="password_1">
+																</div>
+															</div>
+															
+															<div class="borderInput NXT_drag input_1_3" data-class="input_1_3">
+																<div class="form-group">
+																    <label>Số:</label>
+																    <input type="number" min="0" max="100" class="form-control"  name="number_1">
+																</div>
+															</div>
+															
+															<div class="borderInput NXT_drag input_1_4" data-class="input_1_4">
+																<div class="form-group">
+																    <label>{lang doan_van_ban}:</label>
+																    <textarea class="form-control" name="textarea_1"></textarea>
+																</div>
+															</div>
+															<div class="borderInput NXT_drag input_1_5" data-class="input_1_5">
+																<div class="form-group">
+																    <label>{lang ngaythang}:</label>
+																    <input type="date" class="form-control"  name="date_1">
+																</div>
+															</div>
+														</div>
+														<div class="tab-pane fade" id="tab_1_2">
+															<div class="borderInput NXT_drag input_2_1" data-class="input_2_1">
+																<div class="form-group">
+																    <label>{lang luachon}:</label>
+																   <select class="form-control"  name="select_1">
+																   		<option value="select_option_1">{lang luachon} 1</option>
+																   		<option value="select_option_2">{lang luachon} 2</option>
+																   </select>
+																</div>
+															</div>
+															
+															<div class="borderInput NXT_drag input_2_2" data-class="input_2_2">
+																<div class="form-group">
+																    <label>{lang luachonnhieu} :</label>
+																   <select class="form-control" multiple  name="select_2">
+																   		<option value="select_option_1">{lang luachon} 1</option>
+																   		<option value="select_option_2">{lang luachon} 2</option>
+																   </select>
+																</div>
+															</div>
+															
+															<div class="borderInput NXT_drag input_2_3" data-class="input_2_3">
+																<div class="form-group">
+																	<label>Checkbox:</label>
+																	<br/>
+																    <label>Checkbox 1:</label>
+																    <input type="checkbox" class="form-control" value="checkbox_1" name="checkbox_1">
+																</div>
+															</div>
+															 
+															 
+															 <div class="borderInput NXT_drag input_2_4" data-class="input_2_4">
+																<div class="form-group">
+																	<label>Radio:</label>
+																	<br/>
+																    <label>Radio 1:</label>
+																    <input type="radio" value="radio_1" name="radio_1" class="form-control radioNXt">
+																</div>
+															</div>
+															 
+														</div>
+														
+														<div class="tab-pane fade" id="tab_1_3">
+															<div class="borderInput NXT_drag input_3_1" data-class="input_3_1">
+																<button type="button" data-type="submit" class="btn green">{lang send}</button>
+															</div>
+															
+															<div class="borderInput NXT_drag input_3_2"  data-class="input_3_2">
+																<button type="button" data-type="reset" class="btn red">{lang lamlai}</button>
+															</div>
+															
+															<div class="borderInput NXT_drag input_3_3"  data-class="input_3_3">
+																<label>File</label>
+																<input type="file" name="file_1">
+															</div>
+															
+															<div class="borderInput NXT_drag input_3_4"  data-class="input_3_4">
+																<button type="button" data-type="submit" class="btn btn-default">{lang send}</button>
+																<button type="button" data-type="reset" class="btn btn-default">{lang lamlai}</button>
+															</div>
+															
+														</div>
+														
+													</div>
+												</div>
+												
+												<div class="col-md-8 borderLeft">
+													<div id="NXT_sortable">
+														<ul id="NXT_ul">
+															
+															<!--{if isset($_DATA['item'])}-->
+																{$_DATA['item']['form_backend']}
+															<!--{/if}-->
+															
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="portlet-title topline">
+					<!--{temp customFormToolbar}-->
+				</div>
+			</div>
+		</form>
+	</div>
+<input type="hidden" name="NXT_json" value="">
+
+<!-- Modal -->
+<div class="modal fade" id="name_form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Đặt {lang name} cho form</h4>
+      </div>
+      <div class="modal-body">
+      	
+      	<div class="progress NXT_progress" style="display:none;">
+		  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+		    0%
+		  </div>
+		</div>
+      	
+      	<form class="form-horizontal">
+        <div class="form-group">
+		    <label for="inputEmail3" class="col-sm-2 control-label">{lang name}:</label>
+		    <div class="col-sm-10">
+		      <input type="text" name="name_form" value="<!--{if isset($_DATA['item'])}-->{$_DATA['item']['title']}<!--{/if}-->" class="form-control"  placeholder="{lang name} form">
+		      <input type="hidden" name="id_form" value="<!--{if isset($_DATA['item'])}-->{$_DATA['item']['id']}<!--{/if}-->">
+		    </div>
+		  </div>
+		 </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">{lang cancel}</button>
+        <button type="button" class="btn btn-primary NXT_save_form">{lang luu}</button>
+      </div>
+    </div>
+  </div>
+</div>
+ <!--{temp customFormModal}-->
+	
+</div>
+<script type="text/javascript" src="{$_B['mod_theme']}js/customForm/jquery-ui.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery-tags-input/jquery.tagsinput.min.js"></script>
+<script type="text/javascript" src="{$_B['mod_theme']}js/customForm/nxtCustomForm.js"></script>
+<script type="text/javascript" src="{$_B['mod_theme']}js/customForm/toastr.min.js"></script>
+
+
+
+<script type="text/javascript">
+$(function(){
+	nxtCustomForm.init();
+})
+</script>

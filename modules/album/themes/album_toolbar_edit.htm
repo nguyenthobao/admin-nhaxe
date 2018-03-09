@@ -1,0 +1,14 @@
+<div class="actions btn-set">
+    <a href="$_B['home']/album" class="btn default"><i class="fa fa-angle-left"></i> {lang cancel}</a>
+    <button class="btn default" id="btn_reset" type="reset"><i class="fa fa-reply"></i> {lang reset}</button>
+    <button class="btn green continue" data-continue="albums"><i class="fa fa-check"></i> {lang submit}</button>
+    <button class="btn green continue" data-continue="albumNew"><i class="fa fa-check-circle"></i> {lang submit_cont_}</button>
+    <button class="btn green continue" data-continue="albumUpdate"><i class="fa fa-flag"></i> {lang submit_cont_lang}</button>
+    <input type="hidden" name="action" value="updateAlbum">
+    <input type="hidden" name="lang" value="{$get_lang}">
+    
+    <input type="hidden" name="avatar_id" value="{$editItem['avatar_id']}">
+    <input type="hidden" name="avatar" value="{$editItem['avatar']}">
+    <!---->
+    <input type="hidden" name="continue" value="">
+</div>

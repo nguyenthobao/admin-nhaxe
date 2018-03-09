@@ -1,0 +1,31 @@
+<tr id="tr_{$v['id']}" data-key="{$v['id']}" data-lang="{$_GET['lang']}">
+	<td class="highlight">
+			<input type="checkbox" name="name_id[]" class="checkboxes delete_multi"  value="{$v['id']}">
+	</td>
+	<td >
+		 <span><!--{if !empty({$v['space']})}-->{$v['space']}<!--{/if}--></span><span class="catItem nonebottom tooltips" data-pk="{$v['id']}"  data-type="text" data-lang="{$_GET['lang']}"   data-original-title="{lang editsort}"><!--{if !empty({$v['title']})}-->{$v['title']}<!--{/if}--></span>
+	</td>
+	<td class="hidden-xs center">
+		<!-- <span data-pk="{$v['id']}"  data-original-title="{lang sort} ({lang number_error})" data-type="text" data-lang="{$_GET['lang']}" class="editable editable-click sortItem">{$v['sort']}</span> -->
+		<a href="#" data-type="select" data-pk="{$v['id']}" data-value="{$v['sort']}" data-original-title="{lang sort} ({lang number_error})" class="editable editable-click sortItem tooltips">
+							<!--{if !empty({$v['sort']})}-->{$v['sort']}<!--{/if}--> </a>
+	</td>
+	<td class="hidden-xs">
+		<!--{if $v['status']==1}-->
+		<a class="btn default btn-xs green-stripe active_status" data-status="{$v['status']}" style="width:73px">{lang show}</a>
+		<!--{else}-->
+		<a class="btn default btn-xs red-stripe active_status" data-status="{$v['status']}" style="width:73px">{lang hide}</a>
+		<!--{/if}-->
+	</td>
+	<td>
+		<a href="#" class="btn default btn-xs green tooltips" data-placement="top" data-original-title="{lang view}"><i class="fa fa-eye"></i></a>
+		<!-- <a href="#" class="btn default btn-xs grey-cascade tooltips fast-edit" data-placement="top" data-original-title="Sửa nhanh"><i class="fa fa-send"></i></a> -->
+		<a href="video-category-{$v['id']}-{$_GET['lang']}" class="btn default btn-xs yellow tooltips" data-placement="top" data-original-title="{lang edit}"><i class="fa fa-edit"></i></a>
+		<a  class="btn default btn-xs red tooltips delete_category"  data-placement="top" data-original-title="{lang delete}"><i class="fa fa-trash-o"></i></a>
+	</td>
+</tr>
+<!--{if sizeof($v[sub])>0 }-->
+		<!--{loop $v[sub] $k $v}-->
+		<!--{looptemp categorylist_cat_list}-->
+		<!--{/loop}-->		
+<!--{/if}-->

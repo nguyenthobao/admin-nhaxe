@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<config>
+    <name_modue>news</name_modue> 
+    <menus>        
+        <menu>
+            <title>news</title>
+            <link>/news-newslist-lang-vi</link>
+            <icon>icon-docs</icon>
+            <mod>news</mod>
+            <submenu>
+                <title>news_add</title>
+                <link>/news-news-lang-vi</link>
+                <icon>icon-plus</icon>
+            </submenu>
+            <submenu>
+                <title>news_list</title>
+                <link>/news-newslist-lang-vi</link>
+                <icon>icon-list</icon>
+            </submenu>
+            <submenu>
+                <title>category_addnew</title>
+                <link>/news-category-lang-vi</link>
+                <icon>icon-plus</icon>
+            </submenu>
+            <submenu>
+                <title>news_cat</title>
+                <link>/news-categorylist-lang-vi</link>
+                <icon>fa fa-navicon</icon>
+            </submenu> 
+        </menu>        
+    </menus>
+</config>

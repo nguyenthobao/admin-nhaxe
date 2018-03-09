@@ -1,0 +1,224 @@
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/jquery-tags-input/jquery.tagsinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/typeahead/typeahead.css">
+<!-- END PAGE LEVEL STYLES -->
+<!-- BEGIN PAGE CONTENT-->
+<style type="text/css">
+.nxtBorder{
+  padding: 10px;
+  border-left: #BFD4E6 solid 1px;
+  margin: 5px 0px 6px 1px;
+}
+.btnSet{
+	padding-right: 10px !important;
+										float: right !important;
+										margin-top: 10px !important;
+}
+.dotExt{
+    margin-top: 14px;
+    font-size: 15px;
+    margin-left: -22px;
+}
+</style>
+<div class="row">
+	<div class="col-md-12">
+		<form class="form-horizontal form-row-seperated" action="" id="form_contactinfo" class="form-horizontal" method="POST">
+			<div class="portlet">
+				<div class="portlet-body">
+					<div class="tabbable">
+						<div class="tab-content no-space">
+							<div class="tab-pane active">
+								<div class="form-body">
+									<div class="tab-pane active fontawesome-demo" id="tab_1_1">
+		    							<div class="note note-warning" style="text-align: jutsify;">
+		    								<span>
+		    								{lang bat_seo_url}
+											</span>
+		    							</div>
+		    							<div class="clearline">
+                           				</div>
+
+		    							
+    	 								<div class="row">
+    	 									<div class="col-md-3">
+    	 										<div class="ui-state-error ui-corner-all infomation domainw">
+				    								<div class ="domain_checkbox" style ="padding-top: 8px;padding-left: 8px;margin-top: 11px;">
+		               								<label><input class="checkboxes select_category" type="checkbox" name="active_seo_url" <!--{if $active_seo_url==1}-->checked<!--{/if}-->> {lang bat_seo}</label>
+													</div>
+		                                      	</div>
+    	 									</div>
+    	 									<div class="col-md-8">
+    	 										<div class="nxtBorder">
+    	 											
+    	 											
+    	 											
+    	 											<div class="form-group">
+                                            			<label class="col-md-3 control-label">{lang product}:</label>
+			                                            <div class="col-md-7">
+				                                            <div class="input-group">
+																<span class="input-group-addon">{lang trang}-</span>
+																<input type="text" class="form-control" name="product" placeholder="product" value="product">
+																<span class="input-group-addon">.html</span>
+															</div>
+	                                            			
+			                                            </div>
+			                                            <div class="col-md-2">
+			                                            	<button type="button" class="btn red NXTreset" data-defaut="product"><i class="fa fa-refresh"></i> Reset</button>
+			                                            </div>
+			                                        </div>
+			                                        
+			                                        <div class="form-group">
+                                            			<label class="col-md-3 control-label">{lang news}:</label>
+			                                            <div class="col-md-7">
+			                                            	<div class="input-group">
+																<span class="input-group-addon">{lang trang}-</span>
+																<input type="text" class="form-control" name="news" placeholder="news" value="news">
+																<span class="input-group-addon">.html</span>
+															</div>
+			                                            </div>
+			                                           
+			                                            <div class="col-md-2">
+			                                            	<button type="button" class="btn red NXTreset" data-defaut="news"><i class="fa fa-refresh"></i> Reset</button>
+			                                            </div>
+			                                        </div>
+			                                        
+			                                        
+			                                        <div class="form-group">
+                                            			<label class="col-md-3 control-label">Album:</label>
+			                                            <div class="col-md-7">
+			                                            	<div class="input-group">
+																<span class="input-group-addon">{lang trang}-</span>
+																<input type="text" class="form-control" name="album" placeholder="album" value="album">
+																<span class="input-group-addon">.html</span>
+															</div>
+			                                                
+			                                            </div>
+			                                            
+			                                            <div class="col-md-2">
+			                                            	<button type="button" class="btn red NXTreset" data-defaut="album"><i class="fa fa-refresh"></i> Reset</button>
+			                                            </div>
+			                                        </div>
+			                                        
+			                                        <div class="form-group">
+                                            			<label class="col-md-3 control-label">Video:</label>
+			                                            <div class="col-md-7">
+			                                            	<div class="input-group">
+																<span class="input-group-addon">{lang trang}-</span>
+																<input type="text" class="form-control" name="video" placeholder="video" value="video">
+																<span class="input-group-addon">.html</span>
+															</div>
+			                                            </div>
+			                                            
+			                                            <div class="col-md-2">
+			                                            	<button type="button" class="btn red NXTreset" data-defaut="video"><i class="fa fa-refresh"></i> Reset</button>
+			                                            </div>
+			                                        </div>
+			                                        
+			                                        <div class="form-group">
+                                            			<label class="col-md-3 control-label">{lang tuyendung}:</label>
+			                                            <div class="col-md-7">
+			                                            	<div class="input-group">
+																<span class="input-group-addon">{lang trang}-</span>
+																<input type="text" class="form-control" name="recruit" placeholder="recruit" value="recruit">
+																<span class="input-group-addon">.html</span>
+															</div>
+			                                            </div>
+			                                            <div class="col-md-2">
+			                                            	<button type="button" class="btn red NXTreset" data-defaut="recruit"><i class="fa fa-refresh"></i> Reset</button>
+			                                            </div>
+			                                        </div>
+			                                        
+			                                        <div class="form-group">
+                                            			<label class="col-md-3 control-label">{lang hoi_dap}:</label>
+			                                            <div class="col-md-7">
+			                                            	<div class="input-group">
+																<span class="input-group-addon">{lang trang}-</span>
+																<input type="text" class="form-control" name="qaa" placeholder="qaa" value="qaa">
+																<span class="input-group-addon">.html</span>
+															</div>
+			                                                
+			                                            </div>
+			                                            <div class="col-md-2">
+			                                            	<button type="button" class="btn red NXTreset" data-defaut="qaa"><i class="fa fa-refresh"></i> Reset</button>
+			                                            </div>
+			                                        </div>
+			                                        
+			                                        <div class="form-group">
+                                            			<label class="col-md-3 control-label">{lang contact}:</label>
+			                                            <div class="col-md-7">
+			                                            	<div class="input-group">
+																<span class="input-group-addon">{lang trang}-</span>
+																<input type="text" class="form-control" name="contact" placeholder="contact" value="contact">
+																<span class="input-group-addon">.html</span>
+															</div>
+			                                            </div>
+			                                            
+			                                            <div class="col-md-2">
+			                                            	<button type="button" class="btn red NXTreset" data-defaut="contact"><i class="fa fa-refresh"></i> Reset</button>
+			                                            </div>
+			                                        </div>
+			                                        
+			                                        <div class="form-group">
+                                            			<label class="col-md-3 control-label">{lang ban_do}:</label>
+			                                            <div class="col-md-7">
+			                                            	<div class="input-group">
+																<span class="input-group-addon">{lang trang}-</span>
+																<input type="text" class="form-control" name="maps" placeholder="maps" value="maps">
+																<span class="input-group-addon">.html</span>
+															</div>
+			                                                
+			                                            </div>
+			                                            <div class="col-md-2">
+			                                            	<button type="button" class="btn red NXTreset" data-defaut="maps"><i class="fa fa-refresh"></i> Reset</button>
+			                                            </div>
+			                                        </div>
+			                                        <div class="form-group">
+                                            			<label class="col-md-3 control-label">{lang gioi_thieu}:</label>
+			                                            <div class="col-md-7">
+			                                            	<div class="input-group">
+																<span class="input-group-addon">{lang trang}-</span>
+																<input type="text" class="form-control" name="info" placeholder="info" value="info">
+																<span class="input-group-addon">.html</span>
+															</div>
+			                                            </div>
+			                                            <div class="col-md-2">
+			                                            	<button type="button" class="btn red NXTreset" data-defaut="info"><i class="fa fa-refresh"></i> Reset</button>
+			                                            </div>
+			                                        </div>
+    	 										</div>
+    	 									</div>
+    	 									
+    	 								</div>
+    	 								
+    	 								<div class="actions btn-set btnSet">
+    	 								<button class="btn red NXTresetAll"><i class="fa fa-refresh"></i> {lang khoi_phuc_tat_ca}</button>
+										<button class="btn green NXTsave" data-continue="contactlist"><i class="fa fa-save"></i> {lang update_content}</button>
+										
+										</div>
+    	 								                        
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="portlet-title topline">
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<!-- END PAGE CONTENT-->
+
+<script src="{$_B['mod_theme']}js/domain.js" type="text/javascript"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function() {
+		Domain.init();
+	});
+</script>
+
+
+
+

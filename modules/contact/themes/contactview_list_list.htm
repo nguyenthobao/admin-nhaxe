@@ -1,0 +1,35 @@
+
+
+<div id="contactshow">
+<tr   id="tr_{$v['id']}" data-key="{$v['id']}" data-lang="{$_GET['lang']}" data-error="{lang error-delete}"data-error-mail="{lang error_mail}" data-success-mail="{lang success_mail}" data-view="{lang readed}"data-viewa="{lang customers}"data-viewb="{lang email}"data-viewc="{lang phone}"data-viewd="{lang address}"data-viewe="{lang content}" data-content="{$v['content_base64']}"data-answer="{$v['content_answer_base64']}" data-address="{$v['address']}"data-viewf="{lang feedbackmail}"data-title ="{lang title_mail}" data-viewcontact="{lang contactfrom}" datetime="{$v['update_time']}">
+	<td style="text-align:center" >
+			<input type="checkbox" name="name_id[]" class="checkboxes"  value="{$v['id']}">
+	</td>
+	<td class="ct_customers">
+		{$v['customers']}
+	</td>
+	<td class="ct_phone">
+		{$v['phone']}
+	</td>
+	<td class="ct_email">
+		 {$v['email']}
+	</td>
+
+	<td class="ct_datetime">
+		{$v['create_time']}
+	</td>
+	<td style="text-align:center">
+		<!--{if $v['status']==1}-->
+		<span class="btn default btn-xs green-stripe active_status" data-status="{$v['status']}" style="width:73px">{lang view}</span>
+		<!--{else}-->
+		<span class="btn default btn-xs red-stripe active_status" data-status="{$v['status']}" style="width:73px">{lang not_view}</span>
+		<!--{/if}-->
+	</td>
+	<td style="text-align:center" >
+		<a class="btn default btn-xs blue tooltips refesh_news" data-placement="top" data-original-title="{lang view_feedback}"><i class="fa fa-envelope-o"></i></a>
+		<a  class="btn default btn-xs yellow tooltips btn_feedback" data-placement="top" data-original-title="{lang ctfeedback}"><i class="fa fa-mail-reply"></i></a>
+		<a class="btn default btn-xs green tooltips btn_view view_contact" data-original-title="{lang viewdl}"><i class="fa fa-eye" class="btn default"></i></a>
+		<a  class="btn default btn-xs red tooltips delete_contact"  data-placement="top" data-original-title="{lang delete}"><i class="fa fa-trash-o"></i></a>
+	</td>
+</tr>
+</div>

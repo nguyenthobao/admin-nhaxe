@@ -1,0 +1,10 @@
+ 	<select class="form-control" name="wardid" data-error="{lang contactinfo_error}" id="wardid">
+			
+			<option value="">{lang choose_wardid}</option>
+
+			<!--{if isset($information)}-->
+			<!--{loop $information $k $v}-->
+			<option value="{$v['name']}-{$v['wardid']}" data-id="{$v['wardid']}">{$v['name']}</option>
+			<!--{/loop}-->
+			<!--{/if}-->
+	</select>

@@ -1,0 +1,15 @@
+<div class="alert alert-warning">
+	<center>{lang chucnang_note}
+	</center>
+</div>
+<div class="col-md-12">
+<form class="form-horizontal form-row-seperated" id="designthemes" action="designthemes-customize" enctype="multipart/form-data" method="POST">
+	<input type="hidden" name="action" value="customize"> 
+	<center><button type="button" class="btn red">{lang chinhsuagiaodien}</button></center>
+</form>
+</div>
+<script type="text/javascript">
+	$("#designthemes button").click(function () {
+		$("#designthemes").submit();
+	})
+</script>

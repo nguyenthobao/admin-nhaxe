@@ -1,0 +1,2340 @@
+@font-face {
+    font-family: 'Trebuchet MS Italic';
+    font-weight: 'Italic';
+    src: url('../font/trebucit.ttf');
+    src: url('../font/trebucit.ttf') format('truetype');
+}
+ .nxt_0 {
+    font-family: 'Trebuchet MS Italic' !important;
+}
+ @font-face {
+    font-family: 'Trebuchet MS Bold Italic';
+    font-weight: 'Bold Italic';
+    src: url('../font/trebucbi.ttf');
+    src: url('../font/trebucbi.ttf') format('truetype');
+}
+ .nxt_1 {
+    font-family: 'Trebuchet MS Bold Italic' !important;
+}
+ @font-face {
+    font-family: 'Trebuchet MS Bold';
+    font-weight: 'Bold';
+    src: url('../font/trebucbd.ttf');
+    src: url('../font/trebucbd.ttf') format('truetype');
+}
+ .nxt_2 {
+    font-family: 'Trebuchet MS Bold' !important;
+}
+ @font-face {
+    font-family: 'Trebuchet MS';
+    font-weight: 'Regular';
+    src: url('../font/trebuc.ttf');
+    src: url('../font/trebuc.ttf') format('truetype');
+}
+ .nxt_3 {
+    font-family: 'Trebuchet MS' !important;
+}
+ @font-face {
+    font-family: 'Times New Roman Italic';
+    font-weight: 'Italic';
+    src: url('../font/timesi.ttf');
+    src: url('../font/timesi.ttf') format('truetype');
+}
+ .nxt_4 {
+    font-family: 'Times New Roman Italic' !important;
+}
+ @font-face {
+    font-family: 'Times New Roman Bold Italic';
+    font-weight: 'Bold Italic';
+    src: url('../font/timesbi.ttf');
+    src: url('../font/timesbi.ttf') format('truetype');
+}
+ .nxt_5 {
+    font-family: 'Times New Roman Bold Italic' !important;
+}
+ @font-face {
+    font-family: 'Times New Roman Bold';
+    font-weight: 'Bold';
+    src: url('../font/timesbd.ttf');
+    src: url('../font/timesbd.ttf') format('truetype');
+}
+ .nxt_6 {
+    font-family: 'Times New Roman Bold' !important;
+}
+ @font-face {
+    font-family: 'Times New Roman';
+    font-weight: 'Regular';
+    src: url('../font/times.ttf');
+    src: url('../font/times.ttf') format('truetype');
+}
+ .nxt_7 {
+    font-family: 'Times New Roman' !important;
+}
+ @font-face {
+    font-family: 'Tahoma Negreta';
+    font-weight: 'Negreta';
+    src: url('../font/tahomabd.ttf');
+    src: url('../font/tahomabd.ttf') format('truetype');
+}
+ .nxt_8 {
+    font-family: 'Tahoma Negreta' !important;
+}
+ @font-face {
+    font-family: 'Tahoma';
+    font-weight: 'Normal';
+    src: url('../font/tahoma.ttf');
+    src: url('../font/tahoma.ttf') format('truetype');
+}
+ .nxt_9 {
+    font-family: 'Tahoma' !important;
+}
+ @font-face {
+    font-family: 'StarsStripes';
+    font-weight: 'Regular';
+    src: url('../font/starstrp.ttf');
+    src: url('../font/starstrp.ttf') format('truetype');
+}
+ .nxt_10 {
+    font-family: 'StarsStripes' !important;
+}
+ @font-face {
+    font-family: 'Script Italic';
+    font-weight: 'Italic';
+    src: url('../font/scripti.ttf');
+    src: url('../font/scripti.ttf') format('truetype');
+}
+ .nxt_11 {
+    font-family: 'Script Italic' !important;
+}
+ @font-face {
+    font-family: 'Rockstone';
+    font-weight: 'Regular';
+    src: url('../font/rockston.ttf');
+    src: url('../font/rockston.ttf') format('truetype');
+}
+ .nxt_12 {
+    font-family: 'Rockstone' !important;
+}
+ @font-face {
+    font-family: 'Palatino Linotype Italic';
+    font-weight: 'Italic';
+    src: url('../font/palai.ttf');
+    src: url('../font/palai.ttf') format('truetype');
+}
+ .nxt_13 {
+    font-family: 'Palatino Linotype Italic' !important;
+}
+ @font-face {
+    font-family: 'Palatino Linotype Bold Italic';
+    font-weight: 'Bold Italic';
+    src: url('../font/palabi.ttf');
+    src: url('../font/palabi.ttf') format('truetype');
+}
+ .nxt_14 {
+    font-family: 'Palatino Linotype Bold Italic' !important;
+}
+ @font-face {
+    font-family: 'Palatino Linotype Bold';
+    font-weight: 'Bold';
+    src: url('../font/palab.ttf');
+    src: url('../font/palab.ttf') format('truetype');
+}
+ .nxt_15 {
+    font-family: 'Palatino Linotype Bold' !important;
+}
+ @font-face {
+    font-family: 'Palatino Linotype';
+    font-weight: 'Regular';
+    src: url('../font/pala.ttf');
+    src: url('../font/pala.ttf') format('truetype');
+}
+ .nxt_16 {
+    font-family: 'Palatino Linotype' !important;
+}
+ @font-face {
+    font-family: 'Microsoft Sans Serif';
+    font-weight: 'Regular';
+    src: url('../font/microsslv.ttf');
+    src: url('../font/microsslv.ttf') format('truetype');
+}
+ .nxt_17 {
+    font-family: 'Microsoft Sans Serif' !important;
+}
+ @font-face {
+    font-family: 'MercuriusScript Bold';
+    font-weight: 'Bold';
+    src: url('../font/merscrb.ttf');
+    src: url('../font/merscrb.ttf') format('truetype');
+}
+ .nxt_18 {
+    font-family: 'MercuriusScript Bold' !important;
+}
+ @font-face {
+    font-family: 'FlowerDeco';
+    font-weight: 'Regular';
+    src: url('../font/flowdeco.ttf');
+    src: url('../font/flowdeco.ttf') format('truetype');
+}
+ .nxt_19 {
+    font-family: 'FlowerDeco' !important;
+}
+ @font-face {
+    font-family: 'Floral';
+    font-weight: 'Regular';
+    src: url('../font/floral.ttf');
+    src: url('../font/floral.ttf') format('truetype');
+}
+ .nxt_20 {
+    font-family: 'Floral' !important;
+}
+ @font-face {
+    font-family: 'Crystal';
+    font-weight: 'Regular';
+    src: url('../font/crystal.ttf');
+    src: url('../font/crystal.ttf') format('truetype');
+}
+ .nxt_21 {
+    font-family: 'Crystal' !important;
+}
+ @font-face {
+    font-family: 'Courier New Italic';
+    font-weight: 'Italic';
+    src: url('../font/couri.ttf');
+    src: url('../font/couri.ttf') format('truetype');
+}
+ .nxt_22 {
+    font-family: 'Courier New Italic' !important;
+}
+ @font-face {
+    font-family: 'Courier New Bold Italic';
+    font-weight: 'Bold Italic';
+    src: url('../font/courbi.ttf');
+    src: url('../font/courbi.ttf') format('truetype');
+}
+ .nxt_23 {
+    font-family: 'Courier New Bold Italic' !important;
+}
+ @font-face {
+    font-family: 'Courier New Bold';
+    font-weight: 'Bold';
+    src: url('../font/courbd.ttf');
+    src: url('../font/courbd.ttf') format('truetype');
+}
+ .nxt_24 {
+    font-family: 'Courier New Bold' !important;
+}
+ @font-face {
+    font-family: 'Courier New';
+    font-weight: 'Regular';
+    src: url('../font/cour.ttf');
+    src: url('../font/cour.ttf') format('truetype');
+}
+ .nxt_25 {
+    font-family: 'Courier New' !important;
+}
+ @font-face {
+    font-family: 'Comic Sans MS Bold';
+    font-weight: 'Bold';
+    src: url('../font/comicbd.ttf');
+    src: url('../font/comicbd.ttf') format('truetype');
+}
+ .nxt_26 {
+    font-family: 'Comic Sans MS Bold' !important;
+}
+ @font-face {
+    font-family: 'Comic Sans MS';
+    font-weight: 'Regular';
+    src: url('../font/comic.ttf');
+    src: url('../font/comic.ttf') format('truetype');
+}
+ .nxt_27 {
+    font-family: 'Comic Sans MS' !important;
+}
+ @font-face {
+    font-family: 'Circle3D';
+    font-weight: 'Regular';
+    src: url('../font/circle3d.ttf');
+    src: url('../font/circle3d.ttf') format('truetype');
+}
+ .nxt_28 {
+    font-family: 'Circle3D' !important;
+}
+ @font-face {
+    font-family: 'Circle';
+    font-weight: 'Regular';
+    src: url('../font/circle.ttf');
+    src: url('../font/circle.ttf') format('truetype');
+}
+ .nxt_29 {
+    font-family: 'Circle' !important;
+}
+ @font-face {
+    font-family: 'BrushScript BoldItalic';
+    font-weight: 'BoldItalic';
+    src: url('../font/brushsbi.ttf');
+    src: url('../font/brushsbi.ttf') format('truetype');
+}
+ .nxt_30 {
+    font-family: 'BrushScript BoldItalic' !important;
+}
+ @font-face {
+    font-family: 'Broad Bold';
+    font-weight: 'Bold';
+    src: url('../font/broadb.ttf');
+    src: url('../font/broadb.ttf') format('truetype');
+}
+ .nxt_31 {
+    font-family: 'Broad Bold' !important;
+}
+ @font-face {
+    font-family: 'BigApple';
+    font-weight: 'Regular';
+    src: url('../font/bigapple.ttf');
+    src: url('../font/bigapple.ttf') format('truetype');
+}
+ .nxt_32 {
+    font-family: 'BigApple' !important;
+}
+ @font-face {
+    font-family: 'Aztek';
+    font-weight: 'Regular';
+    src: url('../font/aztekb.ttf');
+    src: url('../font/aztekb.ttf') format('truetype');
+}
+ .nxt_33 {
+    font-family: 'Aztek' !important;
+}
+ @font-face {
+    font-family: 'Arrus-Black';
+    font-weight: 'Regular';
+    src: url('../font/arrusb.ttf');
+    src: url('../font/arrusb.ttf') format('truetype');
+}
+ .nxt_34 {
+    font-family: 'Arrus-Black' !important;
+}
+ @font-face {
+    font-family: 'Arial Italic';
+    font-weight: 'Italic';
+    src: url('../font/ariali.ttf');
+    src: url('../font/ariali.ttf') format('truetype');
+}
+ .nxt_35 {
+    font-family: 'Arial Italic' !important;
+}
+ @font-face {
+    font-family: 'Arial Bold Italic';
+    font-weight: 'Bold Italic';
+    src: url('../font/arialbi.ttf');
+    src: url('../font/arialbi.ttf') format('truetype');
+}
+ .nxt_36 {
+    font-family: 'Arial Bold Italic' !important;
+}
+ @font-face {
+    font-family: 'Arial Bold';
+    font-weight: 'Bold';
+    src: url('../font/arialbd.ttf');
+    src: url('../font/arialbd.ttf') format('truetype');
+}
+ .nxt_37 {
+    font-family: 'Arial Bold' !important;
+}
+ @font-face {
+    font-family: 'Arial';
+    font-weight: 'Regular';
+    src: url('../font/arial.ttf');
+    src: url('../font/arial.ttf') format('truetype');
+}
+ .nxt_38 {
+    font-family: 'Arial' !important;
+}
+ @font-face {
+    font-family: 'Architecture';
+    font-weight: 'Regular';
+    src: url('../font/architep.ttf');
+    src: url('../font/architep.ttf') format('truetype');
+}
+ .nxt_39 {
+    font-family: 'Architecture' !important;
+}
+ @font-face {
+    font-family: 'Antique';
+    font-weight: 'Regular';
+    src: url('../font/antique.ttf');
+    src: url('../font/antique.ttf') format('truetype');
+}
+ .nxt_40 {
+    font-family: 'Antique' !important;
+}
+ @font-face {
+    font-family: 'Amazone';
+    font-weight: 'Regular';
+    src: url('../font/amazone.ttf');
+    src: url('../font/amazone.ttf') format('truetype');
+}
+ .nxt_41 {
+    font-family: 'Amazone' !important;
+}
+ @font-face {
+    font-family: 'Akronism';
+    font-weight: 'Regular';
+    src: url('../font/akronism.ttf');
+    src: url('../font/akronism.ttf') format('truetype');
+}
+ .nxt_42 {
+    font-family: 'Akronism' !important;
+}
+ @font-face {
+    font-family: 'AGOldFace-Outline';
+    font-weight: 'Regular';
+    src: url('../font/agoldfac.ttf');
+    src: url('../font/agoldfac.ttf') format('truetype');
+}
+ .nxt_43 {
+    font-family: 'AGOldFace-Outline' !important;
+}
+ @font-face {
+    font-family: 'Aachen Bold';
+    font-weight: 'Bold';
+    src: url('../font/aachenb.ttf');
+    src: url('../font/aachenb.ttf') format('truetype');
+}
+ .nxt_44 {
+    font-family: 'Aachen Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Vung Tau';
+    font-weight: 'Regular';
+    src: url('../font/UVNVungTau.TTF');
+    src: url('../font/UVNVungTau.TTF') format('truetype');
+}
+ .nxt_45 {
+    font-family: 'UVN Vung Tau' !important;
+}
+ @font-face {
+    font-family: 'UVN Viet Sach';
+    font-weight: 'Regular';
+    src: url('../font/UVNVietSach_R.TTF');
+    src: url('../font/UVNVietSach_R.TTF') format('truetype');
+}
+ .nxt_46 {
+    font-family: 'UVN Viet Sach' !important;
+}
+ @font-face {
+    font-family: 'UVN Viet Sach Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNVietSach_I.TTF');
+    src: url('../font/UVNVietSach_I.TTF') format('truetype');
+}
+ .nxt_47 {
+    font-family: 'UVN Viet Sach Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Viet Sach BoldItalic';
+    font-weight: 'BoldItalic';
+    src: url('../font/UVNVietSach_BI.TTF');
+    src: url('../font/UVNVietSach_BI.TTF') format('truetype');
+}
+ .nxt_48 {
+    font-family: 'UVN Viet Sach BoldItalic' !important;
+}
+ @font-face {
+    font-family: 'UVN Viet Sach Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNVietSach_B.TTF');
+    src: url('../font/UVNVietSach_B.TTF') format('truetype');
+}
+ .nxt_49 {
+    font-family: 'UVN Viet Sach Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Vien Du';
+    font-weight: 'Regular';
+    src: url('../font/UVNVienDu.TTF');
+    src: url('../font/UVNVienDu.TTF') format('truetype');
+}
+ .nxt_50 {
+    font-family: 'UVN Vien Du' !important;
+}
+ @font-face {
+    font-family: 'UVN Vi Vi';
+    font-weight: 'Regular';
+    src: url('../font/UVNViVi.TTF');
+    src: url('../font/UVNViVi.TTF') format('truetype');
+}
+ .nxt_51 {
+    font-family: 'UVN Vi Vi' !important;
+}
+ @font-face {
+    font-family: 'UVN Van';
+    font-weight: 'Regular';
+    src: url('../font/UVNVan_R.TTF');
+    src: url('../font/UVNVan_R.TTF') format('truetype');
+}
+ .nxt_52 {
+    font-family: 'UVN Van' !important;
+}
+ @font-face {
+    font-family: 'UVN Van Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNVan_B.TTF');
+    src: url('../font/UVNVan_B.TTF') format('truetype');
+}
+ .nxt_53 {
+    font-family: 'UVN Van Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Van Chuong';
+    font-weight: 'Regular';
+    src: url('../font/UVNVanChuong_R.TTF');
+    src: url('../font/UVNVanChuong_R.TTF') format('truetype');
+}
+ .nxt_54 {
+    font-family: 'UVN Van Chuong' !important;
+}
+ @font-face {
+    font-family: 'UVN Van Chuong Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNVanChuong_I.TTF');
+    src: url('../font/UVNVanChuong_I.TTF') format('truetype');
+}
+ .nxt_55 {
+    font-family: 'UVN Van Chuong Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Van Chuong Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNVanChuong_B.TTF');
+    src: url('../font/UVNVanChuong_B.TTF') format('truetype');
+}
+ .nxt_56 {
+    font-family: 'UVN Van Chuong Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Van Chuong Nang';
+    font-weight: 'Regular';
+    src: url('../font/UVNVanChuongNang_R.TTF');
+    src: url('../font/UVNVanChuongNang_R.TTF') format('truetype');
+}
+ .nxt_57 {
+    font-family: 'UVN Van Chuong Nang' !important;
+}
+ @font-face {
+    font-family: 'UVN Tin Tuc';
+    font-weight: 'Regular';
+    src: url('../font/UVNTinTuc_R.TTF');
+    src: url('../font/UVNTinTuc_R.TTF') format('truetype');
+}
+ .nxt_58 {
+    font-family: 'UVN Tin Tuc' !important;
+}
+ @font-face {
+    font-family: 'UVN Tin Tuc Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNTinTuc_I.TTF');
+    src: url('../font/UVNTinTuc_I.TTF') format('truetype');
+}
+ .nxt_59 {
+    font-family: 'UVN Tin Tuc Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Tin Tuc BoldItalic';
+    font-weight: 'BoldItalic';
+    src: url('../font/UVNTinTuc_BI.TTF');
+    src: url('../font/UVNTinTuc_BI.TTF') format('truetype');
+}
+ .nxt_60 {
+    font-family: 'UVN Tin Tuc BoldItalic' !important;
+}
+ @font-face {
+    font-family: 'UVN Tin Tuc Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNTinTuc_B.TTF');
+    src: url('../font/UVNTinTuc_B.TTF') format('truetype');
+}
+ .nxt_61 {
+    font-family: 'UVN Tin Tuc Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Tin Tuc Nhe';
+    font-weight: 'Regular';
+    src: url('../font/UVNTinTucNhe_R.TTF');
+    src: url('../font/UVNTinTucNhe_R.TTF') format('truetype');
+}
+ .nxt_62 {
+    font-family: 'UVN Tin Tuc Nhe' !important;
+}
+ @font-face {
+    font-family: 'UVN Tin Tuc Nhe Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNTinTucNhe_I.TTF');
+    src: url('../font/UVNTinTucNhe_I.TTF') format('truetype');
+}
+ .nxt_63 {
+    font-family: 'UVN Tin Tuc Nhe Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Tin Tuc Hep';
+    font-weight: 'Regular';
+    src: url('../font/UVNTinTucHep_R.TTF');
+    src: url('../font/UVNTinTucHep_R.TTF') format('truetype');
+}
+ .nxt_64 {
+    font-family: 'UVN Tin Tuc Hep' !important;
+}
+ @font-face {
+    font-family: 'UVN Tin Tuc Hep Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNTinTucHep_I.TTF');
+    src: url('../font/UVNTinTucHep_I.TTF') format('truetype');
+}
+ .nxt_65 {
+    font-family: 'UVN Tin Tuc Hep Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Tin Tuc Hep BoldItalic';
+    font-weight: 'BoldItalic';
+    src: url('../font/UVNTinTucHep_BI.TTF');
+    src: url('../font/UVNTinTucHep_BI.TTF') format('truetype');
+}
+ .nxt_66 {
+    font-family: 'UVN Tin Tuc Hep BoldItalic' !important;
+}
+ @font-face {
+    font-family: 'UVN Tin Tuc Hep Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNTinTucHep_B.TTF');
+    src: url('../font/UVNTinTucHep_B.TTF') format('truetype');
+}
+ .nxt_67 {
+    font-family: 'UVN Tin Tuc Hep Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Tin Tuc Hep Them';
+    font-weight: 'Regular';
+    src: url('../font/UVNTinTucHepThem_R.TTF');
+    src: url('../font/UVNTinTucHepThem_R.TTF') format('truetype');
+}
+ .nxt_68 {
+    font-family: 'UVN Tin Tuc Hep Them' !important;
+}
+ @font-face {
+    font-family: 'UVN Tin Tuc Hep Them Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNTinTucHepThem_B.TTF');
+    src: url('../font/UVNTinTucHepThem_B.TTF') format('truetype');
+}
+ .nxt_69 {
+    font-family: 'UVN Tin Tuc Hep Them Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Thu Tu';
+    font-weight: 'Regular';
+    src: url('../font/UVNThuTu.TTF');
+    src: url('../font/UVNThuTu.TTF') format('truetype');
+}
+ .nxt_70 {
+    font-family: 'UVN Thu Tu' !important;
+}
+ @font-face {
+    font-family: 'UVN Thoi Nay';
+    font-weight: 'Regular';
+    src: url('../font/UVNThoiNay_R.TTF');
+    src: url('../font/UVNThoiNay_R.TTF') format('truetype');
+}
+ .nxt_71 {
+    font-family: 'UVN Thoi Nay' !important;
+}
+ @font-face {
+    font-family: 'UVN Thoi Nay Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNThoiNay_I.TTF');
+    src: url('../font/UVNThoiNay_I.TTF') format('truetype');
+}
+ .nxt_72 {
+    font-family: 'UVN Thoi Nay Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Thoi Nay BoldItalic';
+    font-weight: 'BoldItalic';
+    src: url('../font/UVNThoiNay_BI.TTF');
+    src: url('../font/UVNThoiNay_BI.TTF') format('truetype');
+}
+ .nxt_73 {
+    font-family: 'UVN Thoi Nay BoldItalic' !important;
+}
+ @font-face {
+    font-family: 'UVN Thoi Nay Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNThoiNay_B.TTF');
+    src: url('../font/UVNThoiNay_B.TTF') format('truetype');
+}
+ .nxt_74 {
+    font-family: 'UVN Thoi Nay Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Thoi Nay Nang';
+    font-weight: 'Regular';
+    src: url('../font/UVNThoiNayNang_R.TTF');
+    src: url('../font/UVNThoiNayNang_R.TTF') format('truetype');
+}
+ .nxt_75 {
+    font-family: 'UVN Thoi Nay Nang' !important;
+}
+ @font-face {
+    font-family: 'UVN Thoi Nay Nang Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNThoiNayNang_I.TTF');
+    src: url('../font/UVNThoiNayNang_I.TTF') format('truetype');
+}
+ .nxt_76 {
+    font-family: 'UVN Thoi Nay Nang Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Thoi Dai 2';
+    font-weight: 'Regular';
+    src: url('../font/UVNThoiDai2.TTF');
+    src: url('../font/UVNThoiDai2.TTF') format('truetype');
+}
+ .nxt_77 {
+    font-family: 'UVN Thoi Dai 2' !important;
+}
+ @font-face {
+    font-family: 'UVN Thoi Dai';
+    font-weight: 'Regular';
+    src: url('../font/UVNThoiDai1.TTF');
+    src: url('../font/UVNThoiDai1.TTF') format('truetype');
+}
+ .nxt_78 {
+    font-family: 'UVN Thoi Dai' !important;
+}
+ @font-face {
+    font-family: 'UVN Thay Giao';
+    font-weight: 'Regular';
+    src: url('../font/UVNThayGiao_R.TTF');
+    src: url('../font/UVNThayGiao_R.TTF') format('truetype');
+}
+ .nxt_79 {
+    font-family: 'UVN Thay Giao' !important;
+}
+ @font-face {
+    font-family: 'UVN Thay Giao Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNThayGiao_I.TTF');
+    src: url('../font/UVNThayGiao_I.TTF') format('truetype');
+}
+ .nxt_80 {
+    font-family: 'UVN Thay Giao Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Thay Giao BoldItalic';
+    font-weight: 'BoldItalic';
+    src: url('../font/UVNThayGiao_BI.TTF');
+    src: url('../font/UVNThayGiao_BI.TTF') format('truetype');
+}
+ .nxt_81 {
+    font-family: 'UVN Thay Giao BoldItalic' !important;
+}
+ @font-face {
+    font-family: 'UVN Thay Giao Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNThayGiao_B.TTF');
+    src: url('../font/UVNThayGiao_B.TTF') format('truetype');
+}
+ .nxt_82 {
+    font-family: 'UVN Thay Giao Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Thay Giao Nhe';
+    font-weight: 'Regular';
+    src: url('../font/UVNThayGiaoNhe_R.TTF');
+    src: url('../font/UVNThayGiaoNhe_R.TTF') format('truetype');
+}
+ .nxt_83 {
+    font-family: 'UVN Thay Giao Nhe' !important;
+}
+ @font-face {
+    font-family: 'UVN Thay Giao Nhe Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNThayGiaoNhe_I.TTF');
+    src: url('../font/UVNThayGiaoNhe_I.TTF') format('truetype');
+}
+ .nxt_84 {
+    font-family: 'UVN Thay Giao Nhe Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Thay Giao Nang';
+    font-weight: 'Regular';
+    src: url('../font/UVNThayGiaoNang_R.TTF');
+    src: url('../font/UVNThayGiaoNang_R.TTF') format('truetype');
+}
+ .nxt_85 {
+    font-family: 'UVN Thay Giao Nang' !important;
+}
+ @font-face {
+    font-family: 'UVN Thay Giao Nang Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNThayGiaoNang_I.TTF');
+    src: url('../font/UVNThayGiaoNang_I.TTF') format('truetype');
+}
+ .nxt_86 {
+    font-family: 'UVN Thay Giao Nang Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Thanh Pho';
+    font-weight: 'Regular';
+    src: url('../font/UVNThanhPho_R.TTF');
+    src: url('../font/UVNThanhPho_R.TTF') format('truetype');
+}
+ .nxt_87 {
+    font-family: 'UVN Thanh Pho' !important;
+}
+ @font-face {
+    font-family: 'UVN Thanh Pho Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNThanhPho_B.TTF');
+    src: url('../font/UVNThanhPho_B.TTF') format('truetype');
+}
+ .nxt_88 {
+    font-family: 'UVN Thanh Pho Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Thanh Pho Nang';
+    font-weight: 'Regular';
+    src: url('../font/UVNThanhPhoNang.TTF');
+    src: url('../font/UVNThanhPhoNang.TTF') format('truetype');
+}
+ .nxt_89 {
+    font-family: 'UVN Thanh Pho Nang' !important;
+}
+ @font-face {
+    font-family: 'UVN Thanh Binh';
+    font-weight: 'Regular';
+    src: url('../font/UVNThanhBinh.TTF');
+    src: url('../font/UVNThanhBinh.TTF') format('truetype');
+}
+ .nxt_90 {
+    font-family: 'UVN Thanh Binh' !important;
+}
+ @font-face {
+    font-family: 'UVN Thang Vu';
+    font-weight: 'Regular';
+    src: url('../font/UVNThangVu.TTF');
+    src: url('../font/UVNThangVu.TTF') format('truetype');
+}
+ .nxt_91 {
+    font-family: 'UVN Thang Vu' !important;
+}
+ @font-face {
+    font-family: 'UVN Thang Gieng';
+    font-weight: 'Regular';
+    src: url('../font/UVNThangGieng_R.TTF');
+    src: url('../font/UVNThangGieng_R.TTF') format('truetype');
+}
+ .nxt_92 {
+    font-family: 'UVN Thang Gieng' !important;
+}
+ @font-face {
+    font-family: 'UVN Thang Gieng Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNThangGieng_I.TTF');
+    src: url('../font/UVNThangGieng_I.TTF') format('truetype');
+}
+ .nxt_93 {
+    font-family: 'UVN Thang Gieng Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Sang Song';
+    font-weight: 'Regular';
+    src: url('../font/UVNSangSong_R.TTF');
+    src: url('../font/UVNSangSong_R.TTF') format('truetype');
+}
+ .nxt_94 {
+    font-family: 'UVN Sang Song' !important;
+}
+ @font-face {
+    font-family: 'UVN Sang Song Nang';
+    font-weight: 'Regular';
+    src: url('../font/UVNSangSong_N.TTF');
+    src: url('../font/UVNSangSong_N.TTF') format('truetype');
+}
+ .nxt_95 {
+    font-family: 'UVN Sang Song Nang' !important;
+}
+ @font-face {
+    font-family: 'UVN Sang Song Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNSangSong_B.TTF');
+    src: url('../font/UVNSangSong_B.TTF') format('truetype');
+}
+ .nxt_96 {
+    font-family: 'UVN Sang Song Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Saigon';
+    font-weight: 'Regular';
+    src: url('../font/UVNSaigon_R.TTF');
+    src: url('../font/UVNSaigon_R.TTF') format('truetype');
+}
+ .nxt_97 {
+    font-family: 'UVN Saigon' !important;
+}
+ @font-face {
+    font-family: 'UVN Saigon Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNSaigon_I.TTF');
+    src: url('../font/UVNSaigon_I.TTF') format('truetype');
+}
+ .nxt_98 {
+    font-family: 'UVN Saigon Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Saigon BoldItalic';
+    font-weight: 'BoldItalic';
+    src: url('../font/UVNSaigon_BI.TTF');
+    src: url('../font/UVNSaigon_BI.TTF') format('truetype');
+}
+ .nxt_99 {
+    font-family: 'UVN Saigon BoldItalic' !important;
+}
+ @font-face {
+    font-family: 'UVN Saigon Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNSaigon_B.TTF');
+    src: url('../font/UVNSaigon_B.TTF') format('truetype');
+}
+ .nxt_100 {
+    font-family: 'UVN Saigon Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Sach Vo';
+    font-weight: 'Regular';
+    src: url('../font/UVNSachVo_R.TTF');
+    src: url('../font/UVNSachVo_R.TTF') format('truetype');
+}
+ .nxt_101 {
+    font-family: 'UVN Sach Vo' !important;
+}
+ @font-face {
+    font-family: 'UVN Sach Vo Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNSachVo_I.TTF');
+    src: url('../font/UVNSachVo_I.TTF') format('truetype');
+}
+ .nxt_102 {
+    font-family: 'UVN Sach Vo Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Sach Vo BoldItalic';
+    font-weight: 'BoldItalic';
+    src: url('../font/UVNSachVo_BI.TTF');
+    src: url('../font/UVNSachVo_BI.TTF') format('truetype');
+}
+ .nxt_103 {
+    font-family: 'UVN Sach Vo BoldItalic' !important;
+}
+ @font-face {
+    font-family: 'UVN Sach Vo Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNSachVo_B.TTF');
+    src: url('../font/UVNSachVo_B.TTF') format('truetype');
+}
+ .nxt_104 {
+    font-family: 'UVN Sach Vo Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Phuong Tay';
+    font-weight: 'Regular';
+    src: url('../font/UVNPhuongTay.TTF');
+    src: url('../font/UVNPhuongTay.TTF') format('truetype');
+}
+ .nxt_105 {
+    font-family: 'UVN Phuong Tay' !important;
+}
+ @font-face {
+    font-family: 'UVN Nhat Ky';
+    font-weight: 'Regular';
+    src: url('../font/UVNNhatKy_R.TTF');
+    src: url('../font/UVNNhatKy_R.TTF') format('truetype');
+}
+ .nxt_106 {
+    font-family: 'UVN Nhat Ky' !important;
+}
+ @font-face {
+    font-family: 'UVN Nhat Ky Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNNhatKy_I.TTF');
+    src: url('../font/UVNNhatKy_I.TTF') format('truetype');
+}
+ .nxt_107 {
+    font-family: 'UVN Nhat Ky Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Nhat Ky BoldItalic';
+    font-weight: 'BoldItalic';
+    src: url('../font/UVNNhatKy_BI.TTF');
+    src: url('../font/UVNNhatKy_BI.TTF') format('truetype');
+}
+ .nxt_108 {
+    font-family: 'UVN Nhat Ky BoldItalic' !important;
+}
+ @font-face {
+    font-family: 'UVN Nhat Ky Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNNhatKy_B.TTF');
+    src: url('../font/UVNNhatKy_B.TTF') format('truetype');
+}
+ .nxt_109 {
+    font-family: 'UVN Nhat Ky Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Nhan';
+    font-weight: 'Regular';
+    src: url('../font/UVNNhan_R.TTF');
+    src: url('../font/UVNNhan_R.TTF') format('truetype');
+}
+ .nxt_110 {
+    font-family: 'UVN Nhan' !important;
+}
+ @font-face {
+    font-family: 'UVN Nhan Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNNhan_I.TTF');
+    src: url('../font/UVNNhan_I.TTF') format('truetype');
+}
+ .nxt_111 {
+    font-family: 'UVN Nhan Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Nhan BoldItalic';
+    font-weight: 'BoldItalic';
+    src: url('../font/UVNNhan_BI.TTF');
+    src: url('../font/UVNNhan_BI.TTF') format('truetype');
+}
+ .nxt_112 {
+    font-family: 'UVN Nhan BoldItalic' !important;
+}
+ @font-face {
+    font-family: 'UVN Nhan Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNNhan_B.TTF');
+    src: url('../font/UVNNhan_B.TTF') format('truetype');
+}
+ .nxt_113 {
+    font-family: 'UVN Nhan Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Nhan Nang';
+    font-weight: 'Regular';
+    src: url('../font/UVNNhanNang_R.TTF');
+    src: url('../font/UVNNhanNang_R.TTF') format('truetype');
+}
+ .nxt_114 {
+    font-family: 'UVN Nhan Nang' !important;
+}
+ @font-face {
+    font-family: 'UVN Nhan Nang Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNNhanNang_I.TTF');
+    src: url('../font/UVNNhanNang_I.TTF') format('truetype');
+}
+ .nxt_115 {
+    font-family: 'UVN Nhan Nang Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Nguyen Du';
+    font-weight: 'Regular';
+    src: url('../font/UVNNguyenDu.TTF');
+    src: url('../font/UVNNguyenDu.TTF') format('truetype');
+}
+ .nxt_116 {
+    font-family: 'UVN Nguyen Du' !important;
+}
+ @font-face {
+    font-family: 'UVN Muc Cham';
+    font-weight: 'Regular';
+    src: url('../font/UVNMucCham.TTF');
+    src: url('../font/UVNMucCham.TTF') format('truetype');
+}
+ .nxt_117 {
+    font-family: 'UVN Muc Cham' !important;
+}
+ @font-face {
+    font-family: 'UVN Mua Thu';
+    font-weight: 'Regular';
+    src: url('../font/UVNMuaThu.TTF');
+    src: url('../font/UVNMuaThu.TTF') format('truetype');
+}
+ .nxt_118 {
+    font-family: 'UVN Mua Thu' !important;
+}
+ @font-face {
+    font-family: 'UVN Mot Moi';
+    font-weight: 'Regular';
+    src: url('../font/UVNMotMoi.TTF');
+    src: url('../font/UVNMotMoi.TTF') format('truetype');
+}
+ .nxt_119 {
+    font-family: 'UVN Mot Moi' !important;
+}
+ @font-face {
+    font-family: 'UVN Moi Hong';
+    font-weight: 'Regular';
+    src: url('../font/UVNMoiHong.TTF');
+    src: url('../font/UVNMoiHong.TTF') format('truetype');
+}
+ .nxt_120 {
+    font-family: 'UVN Moi Hong' !important;
+}
+ @font-face {
+    font-family: 'UVN Minh Map';
+    font-weight: 'Regular';
+    src: url('../font/UVNMinhMap.TTF');
+    src: url('../font/UVNMinhMap.TTF') format('truetype');
+}
+ .nxt_121 {
+    font-family: 'UVN Minh Map' !important;
+}
+ @font-face {
+    font-family: 'UVN May Chu P12';
+    font-weight: 'Regular';
+    src: url('../font/UVNMayChuP_R.TTF');
+    src: url('../font/UVNMayChuP_R.TTF') format('truetype');
+}
+ .nxt_122 {
+    font-family: 'UVN May Chu P12' !important;
+}
+ @font-face {
+    font-family: 'UVN May Chu P12 Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNMayChuP_I.TTF');
+    src: url('../font/UVNMayChuP_I.TTF') format('truetype');
+}
+ .nxt_123 {
+    font-family: 'UVN May Chu P12 Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN May Chu P12 BoldItalic';
+    font-weight: 'BoldItalic';
+    src: url('../font/UVNMayChuP_BI.TTF');
+    src: url('../font/UVNMayChuP_BI.TTF') format('truetype');
+}
+ .nxt_124 {
+    font-family: 'UVN May Chu P12 BoldItalic' !important;
+}
+ @font-face {
+    font-family: 'UVN May Chu P12 Bold';
+    font-weight: ' Bold';
+    src: url('../font/UVNMayChuP_B.TTF');
+    src: url('../font/UVNMayChuP_B.TTF') format('truetype');
+}
+ .nxt_125 {
+    font-family: 'UVN May Chu P12 Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Mau Tim 2';
+    font-weight: 'Regular';
+    src: url('../font/UVNMauTim2.TTF');
+    src: url('../font/UVNMauTim2.TTF') format('truetype');
+}
+ .nxt_126 {
+    font-family: 'UVN Mau Tim 2' !important;
+}
+ @font-face {
+    font-family: 'UVN Mau Tim 1';
+    font-weight: 'Regular';
+    src: url('../font/UVNMauTim1.TTF');
+    src: url('../font/UVNMauTim1.TTF') format('truetype');
+}
+ .nxt_127 {
+    font-family: 'UVN Mau Tim 1' !important;
+}
+ @font-face {
+    font-family: 'UVN Mang Tre';
+    font-weight: 'Regular';
+    src: url('../font/UVNMangTre.TTF');
+    src: url('../font/UVNMangTre.TTF') format('truetype');
+}
+ .nxt_128 {
+    font-family: 'UVN Mang Tre' !important;
+}
+ @font-face {
+    font-family: 'UVN Mang Cau';
+    font-weight: 'Regular';
+    src: url('../font/UVNMangCau_R.TTF');
+    src: url('../font/UVNMangCau_R.TTF') format('truetype');
+}
+ .nxt_129 {
+    font-family: 'UVN Mang Cau' !important;
+}
+ @font-face {
+    font-family: 'UVN Mang Cau Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNMangCau_I.TTF');
+    src: url('../font/UVNMangCau_I.TTF') format('truetype');
+}
+ .nxt_130 {
+    font-family: 'UVN Mang Cau Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Mang Cau BoldItalic';
+    font-weight: 'BoldItalic';
+    src: url('../font/UVNMangCau_BI.TTF');
+    src: url('../font/UVNMangCau_BI.TTF') format('truetype');
+}
+ .nxt_131 {
+    font-family: 'UVN Mang Cau BoldItalic' !important;
+}
+ @font-face {
+    font-family: 'UVN Mang Cau Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNMangCau_B.TTF');
+    src: url('../font/UVNMangCau_B.TTF') format('truetype');
+}
+ .nxt_132 {
+    font-family: 'UVN Mang Cau Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Mang Cau Nang';
+    font-weight: 'Regular';
+    src: url('../font/UVNMangCauNang_R.TTF');
+    src: url('../font/UVNMangCauNang_R.TTF') format('truetype');
+}
+ .nxt_133 {
+    font-family: 'UVN Mang Cau Nang' !important;
+}
+ @font-face {
+    font-family: 'UVN Mang Cau Nang Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNMangCauNang_I.TTF');
+    src: url('../font/UVNMangCauNang_I.TTF') format('truetype');
+}
+ .nxt_134 {
+    font-family: 'UVN Mang Cau Nang Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Lac Long Quan';
+    font-weight: 'Regular';
+    src: url('../font/UVNLacLongQuan_R.TTF');
+    src: url('../font/UVNLacLongQuan_R.TTF') format('truetype');
+}
+ .nxt_135 {
+    font-family: 'UVN Lac Long Quan' !important;
+}
+ @font-face {
+    font-family: 'UVN Lac Long Quan Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNLacLongQuan_B.TTF');
+    src: url('../font/UVNLacLongQuan_B.TTF') format('truetype');
+}
+ .nxt_136 {
+    font-family: 'UVN Lac Long Quan Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN La Xanh';
+    font-weight: 'Regular';
+    src: url('../font/UVNLaXanh_R.TTF');
+    src: url('../font/UVNLaXanh_R.TTF') format('truetype');
+}
+ .nxt_137 {
+    font-family: 'UVN La Xanh' !important;
+}
+ @font-face {
+    font-family: 'UVN La Xanh Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNLaXanh_I.TTF');
+    src: url('../font/UVNLaXanh_I.TTF') format('truetype');
+}
+ .nxt_138 {
+    font-family: 'UVN La Xanh Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN La Xanh BoldItalic';
+    font-weight: 'BoldItalic';
+    src: url('../font/UVNLaXanh_BI.TTF');
+    src: url('../font/UVNLaXanh_BI.TTF') format('truetype');
+}
+ .nxt_139 {
+    font-family: 'UVN La Xanh BoldItalic' !important;
+}
+ @font-face {
+    font-family: 'UVN La Xanh Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNLaXanh_B.TTF');
+    src: url('../font/UVNLaXanh_B.TTF') format('truetype');
+}
+ .nxt_140 {
+    font-family: 'UVN La Xanh Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Ly Do';
+    font-weight: 'Regular';
+    src: url('../font/UVNLYDO_.TTF');
+    src: url('../font/UVNLYDO_.TTF') format('truetype');
+}
+ .nxt_141 {
+    font-family: 'UVN Ly Do' !important;
+}
+ @font-face {
+    font-family: 'UVN Ky Thuat';
+    font-weight: 'Regular';
+    src: url('../font/UVNKyThuat.TTF');
+    src: url('../font/UVNKyThuat.TTF') format('truetype');
+}
+ .nxt_142 {
+    font-family: 'UVN Ky Thuat' !important;
+}
+ @font-face {
+    font-family: 'UVN Kieu';
+    font-weight: 'Regular';
+    src: url('../font/UVNKieu_R.TTF');
+    src: url('../font/UVNKieu_R.TTF') format('truetype');
+}
+ .nxt_143 {
+    font-family: 'UVN Kieu' !important;
+}
+ @font-face {
+    font-family: 'UVN Kieu Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNKieu_B.TTF');
+    src: url('../font/UVNKieu_B.TTF') format('truetype');
+}
+ .nxt_144 {
+    font-family: 'UVN Kieu Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Ke Chuyen3';
+    font-weight: 'Regular';
+    src: url('../font/UVNKeChuyen3.TTF');
+    src: url('../font/UVNKeChuyen3.TTF') format('truetype');
+}
+ .nxt_145 {
+    font-family: 'UVN Ke Chuyen3' !important;
+}
+ @font-face {
+    font-family: 'UVN Ke Chuyen2';
+    font-weight: 'Regular';
+    src: url('../font/UVNKeChuyen2.TTF');
+    src: url('../font/UVNKeChuyen2.TTF') format('truetype');
+}
+ .nxt_146 {
+    font-family: 'UVN Ke Chuyen2' !important;
+}
+ @font-face {
+    font-family: 'UVN Ke Chuyen1';
+    font-weight: 'Regular';
+    src: url('../font/UVNKeChuyen1.TTF');
+    src: url('../font/UVNKeChuyen1.TTF') format('truetype');
+}
+ .nxt_147 {
+    font-family: 'UVN Ke Chuyen1' !important;
+}
+ @font-face {
+    font-family: 'UVN Huong Que';
+    font-weight: 'Regular';
+    src: url('../font/UVNHuongQue_R.TTF');
+    src: url('../font/UVNHuongQue_R.TTF') format('truetype');
+}
+ .nxt_148 {
+    font-family: 'UVN Huong Que' !important;
+}
+ @font-face {
+    font-family: 'UVN Huong Que Nang';
+    font-weight: 'Regular';
+    src: url('../font/UVNHuongQue_N.TTF');
+    src: url('../font/UVNHuongQue_N.TTF') format('truetype');
+}
+ .nxt_149 {
+    font-family: 'UVN Huong Que Nang' !important;
+}
+ @font-face {
+    font-family: 'UVN Huong Que Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNHuongQue_B.TTF');
+    src: url('../font/UVNHuongQue_B.TTF') format('truetype');
+}
+ .nxt_150 {
+    font-family: 'UVN Huong Que Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Hong Ha';
+    font-weight: 'Regular';
+    src: url('../font/UVNHongHa_R.TTF');
+    src: url('../font/UVNHongHa_R.TTF') format('truetype');
+}
+ .nxt_151 {
+    font-family: 'UVN Hong Ha' !important;
+}
+ @font-face {
+    font-family: 'UVN Hong Ha Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNHongHa_I.TTF');
+    src: url('../font/UVNHongHa_I.TTF') format('truetype');
+}
+ .nxt_152 {
+    font-family: 'UVN Hong Ha Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Hong Ha BoldItalic';
+    font-weight: 'BoldItalic';
+    src: url('../font/UVNHongHa_BI.TTF');
+    src: url('../font/UVNHongHa_BI.TTF') format('truetype');
+}
+ .nxt_153 {
+    font-family: 'UVN Hong Ha BoldItalic' !important;
+}
+ @font-face {
+    font-family: 'UVN Hong Ha Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNHongHa_B.TTF');
+    src: url('../font/UVNHongHa_B.TTF') format('truetype');
+}
+ .nxt_154 {
+    font-family: 'UVN Hong Ha Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Hong Ha Hep';
+    font-weight: 'Regular';
+    src: url('../font/UVNHongHaHep_R.TTF');
+    src: url('../font/UVNHongHaHep_R.TTF') format('truetype');
+}
+ .nxt_155 {
+    font-family: 'UVN Hong Ha Hep' !important;
+}
+ @font-face {
+    font-family: 'UVN Hong Ha Hep Italic';
+    font-weight: ' Italic';
+    src: url('../font/UVNHongHaHep_I.TTF');
+    src: url('../font/UVNHongHaHep_I.TTF') format('truetype');
+}
+ .nxt_156 {
+    font-family: 'UVN Hong Ha Hep Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Hong Ha Hep BoldItalic';
+    font-weight: ' BoldItalic';
+    src: url('../font/UVNHongHaHep_BI.TTF');
+    src: url('../font/UVNHongHaHep_BI.TTF') format('truetype');
+}
+ .nxt_157 {
+    font-family: 'UVN Hong Ha Hep BoldItalic' !important;
+}
+ @font-face {
+    font-family: 'UVN Hong Ha Hep Bold';
+    font-weight: ' Bold';
+    src: url('../font/UVNHongHaHep_B.TTF');
+    src: url('../font/UVNHongHaHep_B.TTF') format('truetype');
+}
+ .nxt_158 {
+    font-family: 'UVN Hong Ha Hep Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Hoa Tay 1';
+    font-weight: 'Regular';
+    src: url('../font/UVNHoaTay1.TTF');
+    src: url('../font/UVNHoaTay1.TTF') format('truetype');
+}
+ .nxt_159 {
+    font-family: 'UVN Hoa Tay 1' !important;
+}
+ @font-face {
+    font-family: 'UVN Hoa Dao';
+    font-weight: 'Regular';
+    src: url('../font/UVNHoaDao.TTF');
+    src: url('../font/UVNHoaDao.TTF') format('truetype');
+}
+ .nxt_160 {
+    font-family: 'UVN Hoa Dao' !important;
+}
+ @font-face {
+    font-family: 'UVN Han Viet';
+    font-weight: 'Regular';
+    src: url('../font/UVNHanViet.TTF');
+    src: url('../font/UVNHanViet.TTF') format('truetype');
+}
+ .nxt_161 {
+    font-family: 'UVN Han Viet' !important;
+}
+ @font-face {
+    font-family: 'UVN Hai Long';
+    font-weight: 'Regular';
+    src: url('../font/UVNHaiLong.TTF');
+    src: url('../font/UVNHaiLong.TTF') format('truetype');
+}
+ .nxt_162 {
+    font-family: 'UVN Hai Long' !important;
+}
+ @font-face {
+    font-family: 'UVN Hai Ba Trung';
+    font-weight: 'Regular';
+    src: url('../font/UVNHaiBaTrung.TTF');
+    src: url('../font/UVNHaiBaTrung.TTF') format('truetype');
+}
+ .nxt_163 {
+    font-family: 'UVN Hai Ba Trung' !important;
+}
+ @font-face {
+    font-family: 'UVN Hoa Ky';
+    font-weight: 'Regular';
+    src: url('../font/UVNHOAKY.TTF');
+    src: url('../font/UVNHOAKY.TTF') format('truetype');
+}
+ .nxt_164 {
+    font-family: 'UVN Hoa Ky' !important;
+}
+ @font-face {
+    font-family: 'UVN Giong Song';
+    font-weight: 'Regular';
+    src: url('../font/UVNGiongSong_R.TTF');
+    src: url('../font/UVNGiongSong_R.TTF') format('truetype');
+}
+ .nxt_165 {
+    font-family: 'UVN Giong Song' !important;
+}
+ @font-face {
+    font-family: 'UVN Giong Song Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNGiongSong_I.TTF');
+    src: url('../font/UVNGiongSong_I.TTF') format('truetype');
+}
+ .nxt_166 {
+    font-family: 'UVN Giong Song Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Giong Song BoldItalic';
+    font-weight: 'BoldItalic';
+    src: url('../font/UVNGiongSong_BI.TTF');
+    src: url('../font/UVNGiongSong_BI.TTF') format('truetype');
+}
+ .nxt_167 {
+    font-family: 'UVN Giong Song BoldItalic' !important;
+}
+ @font-face {
+    font-family: 'UVN Giong Song Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNGiongSong_B.TTF');
+    src: url('../font/UVNGiongSong_B.TTF') format('truetype');
+}
+ .nxt_168 {
+    font-family: 'UVN Giong Song Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Gio May';
+    font-weight: 'Regular';
+    src: url('../font/UVNGioMay_R.TTF');
+    src: url('../font/UVNGioMay_R.TTF') format('truetype');
+}
+ .nxt_169 {
+    font-family: 'UVN Gio May' !important;
+}
+ @font-face {
+    font-family: 'UVN Gio May Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNGioMay_I.TTF');
+    src: url('../font/UVNGioMay_I.TTF') format('truetype');
+}
+ .nxt_170 {
+    font-family: 'UVN Gio May Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Gio May BoldItalic';
+    font-weight: 'BoldItalic';
+    src: url('../font/UVNGioMay_BI.TTF');
+    src: url('../font/UVNGioMay_BI.TTF') format('truetype');
+}
+ .nxt_171 {
+    font-family: 'UVN Gio May BoldItalic' !important;
+}
+ @font-face {
+    font-family: 'UVN Gio May Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNGioMay_B.TTF');
+    src: url('../font/UVNGioMay_B.TTF') format('truetype');
+}
+ .nxt_172 {
+    font-family: 'UVN Gio May Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Gio May Nhe';
+    font-weight: 'Regular';
+    src: url('../font/UVNGioMayNhe_R.TTF');
+    src: url('../font/UVNGioMayNhe_R.TTF') format('truetype');
+}
+ .nxt_173 {
+    font-family: 'UVN Gio May Nhe' !important;
+}
+ @font-face {
+    font-family: 'UVN Gio May Nhe Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNGioMayNhe_I.TTF');
+    src: url('../font/UVNGioMayNhe_I.TTF') format('truetype');
+}
+ .nxt_174 {
+    font-family: 'UVN Gio May Nhe Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Giay Trang';
+    font-weight: 'Regular';
+    src: url('../font/UVNGiayTrang_R.TTF');
+    src: url('../font/UVNGiayTrang_R.TTF') format('truetype');
+}
+ .nxt_175 {
+    font-family: 'UVN Giay Trang' !important;
+}
+ @font-face {
+    font-family: 'UVN Giay Trang Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNGiayTrang_B.TTF');
+    src: url('../font/UVNGiayTrang_B.TTF') format('truetype');
+}
+ .nxt_176 {
+    font-family: 'UVN Giay Trang Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Gia Dinh';
+    font-weight: 'Regular';
+    src: url('../font/UVNGiaDinh_R.TTF');
+    src: url('../font/UVNGiaDinh_R.TTF') format('truetype');
+}
+ .nxt_177 {
+    font-family: 'UVN Gia Dinh' !important;
+}
+ @font-face {
+    font-family: 'UVN Gia Dinh Italic';
+    font-weight: ' Italic';
+    src: url('../font/UVNGiaDinh_I.TTF');
+    src: url('../font/UVNGiaDinh_I.TTF') format('truetype');
+}
+ .nxt_178 {
+    font-family: 'UVN Gia Dinh Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Gia Dinh Bold Italic';
+    font-weight: ' Bold Italic';
+    src: url('../font/UVNGiaDinh_BI.TTF');
+    src: url('../font/UVNGiaDinh_BI.TTF') format('truetype');
+}
+ .nxt_179 {
+    font-family: 'UVN Gia Dinh Bold Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Gia Dinh Bold';
+    font-weight: ' Bold';
+    src: url('../font/UVNGiaDinh_B.TTF');
+    src: url('../font/UVNGiaDinh_B.TTF') format('truetype');
+}
+ .nxt_180 {
+    font-family: 'UVN Gia Dinh Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Gia Dinh Hep';
+    font-weight: 'Regular';
+    src: url('../font/UVNGiaDinhHep_R.TTF');
+    src: url('../font/UVNGiaDinhHep_R.TTF') format('truetype');
+}
+ .nxt_181 {
+    font-family: 'UVN Gia Dinh Hep' !important;
+}
+ @font-face {
+    font-family: 'UVN Gia Dinh Hep Italic';
+    font-weight: ' Italic';
+    src: url('../font/UVNGiaDinhHep_I.TTF');
+    src: url('../font/UVNGiaDinhHep_I.TTF') format('truetype');
+}
+ .nxt_182 {
+    font-family: 'UVN Gia Dinh Hep Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Gia Dinh Hep BoldItalic';
+    font-weight: ' BoldItalic';
+    src: url('../font/UVNGiaDinhHep_BI.TTF');
+    src: url('../font/UVNGiaDinhHep_BI.TTF') format('truetype');
+}
+ .nxt_183 {
+    font-family: 'UVN Gia Dinh Hep BoldItalic' !important;
+}
+ @font-face {
+    font-family: 'UVN Gia Dinh Hep Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNGiaDinhHep_B.TTF');
+    src: url('../font/UVNGiaDinhHep_B.TTF') format('truetype');
+}
+ .nxt_184 {
+    font-family: 'UVN Gia Dinh Hep Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Dzung Dakao';
+    font-weight: 'Regular';
+    src: url('../font/UVNDzungDakao.TTF');
+    src: url('../font/UVNDzungDakao.TTF') format('truetype');
+}
+ .nxt_185 {
+    font-family: 'UVN Dzung Dakao' !important;
+}
+ @font-face {
+    font-family: 'UVN Dung Dan';
+    font-weight: 'Regular';
+    src: url('../font/UVNDungDan.TTF');
+    src: url('../font/UVNDungDan.TTF') format('truetype');
+}
+ .nxt_186 {
+    font-family: 'UVN Dung Dan' !important;
+}
+ @font-face {
+    font-family: 'UVN Doi Moi';
+    font-weight: 'Regular';
+    src: url('../font/UVNDoiMoi.TTF');
+    src: url('../font/UVNDoiMoi.TTF') format('truetype');
+}
+ .nxt_187 {
+    font-family: 'UVN Doi Moi' !important;
+}
+ @font-face {
+    font-family: 'UVN Dinh Hon';
+    font-weight: 'Regular';
+    src: url('../font/UVNDinhHon.TTF');
+    src: url('../font/UVNDinhHon.TTF') format('truetype');
+}
+ .nxt_188 {
+    font-family: 'UVN Dinh Hon' !important;
+}
+ @font-face {
+    font-family: 'UVN Dam Cuoi';
+    font-weight: 'Regular';
+    src: url('../font/UVNDamCuoi_R.TTF');
+    src: url('../font/UVNDamCuoi_R.TTF') format('truetype');
+}
+ .nxt_189 {
+    font-family: 'UVN Dam Cuoi' !important;
+}
+ @font-face {
+    font-family: 'UVN Dam Cuoi Hep';
+    font-weight: 'Regular';
+    src: url('../font/UVNDamCuoi_H.TTF');
+    src: url('../font/UVNDamCuoi_H.TTF') format('truetype');
+}
+ .nxt_190 {
+    font-family: 'UVN Dam Cuoi Hep' !important;
+}
+ @font-face {
+    font-family: 'UVN Da Lat';
+    font-weight: 'Regular';
+    src: url('../font/UVNDaLat_R.TTF');
+    src: url('../font/UVNDaLat_R.TTF') format('truetype');
+}
+ .nxt_191 {
+    font-family: 'UVN Da Lat' !important;
+}
+ @font-face {
+    font-family: 'UVN Da Lat Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNDaLat_B.TTF');
+    src: url('../font/UVNDaLat_B.TTF') format('truetype');
+}
+ .nxt_192 {
+    font-family: 'UVN Da Lat Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Con Thuy';
+    font-weight: 'Regular';
+    src: url('../font/UVNConThuy.TTF');
+    src: url('../font/UVNConThuy.TTF') format('truetype');
+}
+ .nxt_193 {
+    font-family: 'UVN Con Thuy' !important;
+}
+ @font-face {
+    font-family: 'UVN Co Dien';
+    font-weight: 'Regular';
+    src: url('../font/UVNCoDien_R.TTF');
+    src: url('../font/UVNCoDien_R.TTF') format('truetype');
+}
+ .nxt_194 {
+    font-family: 'UVN Co Dien' !important;
+}
+ @font-face {
+    font-family: 'UVN Co Dien Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNCoDien_B.TTF');
+    src: url('../font/UVNCoDien_B.TTF') format('truetype');
+}
+ .nxt_195 {
+    font-family: 'UVN Co Dien Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Chinh Luan';
+    font-weight: 'Regular';
+    src: url('../font/UVNChinhLuan_R.TTF');
+    src: url('../font/UVNChinhLuan_R.TTF') format('truetype');
+}
+ .nxt_196 {
+    font-family: 'UVN Chinh Luan' !important;
+}
+ @font-face {
+    font-family: 'UVN Chinh Luan Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNChinhLuan_I.TTF');
+    src: url('../font/UVNChinhLuan_I.TTF') format('truetype');
+}
+ .nxt_197 {
+    font-family: 'UVN Chinh Luan Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Chinh Luan BoldItalic';
+    font-weight: 'BoldItalic';
+    src: url('../font/UVNChinhLuan_BI.TTF');
+    src: url('../font/UVNChinhLuan_BI.TTF') format('truetype');
+}
+ .nxt_198 {
+    font-family: 'UVN Chinh Luan BoldItalic' !important;
+}
+ @font-face {
+    font-family: 'UVN Chinh Luan Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNChinhLuan_B.TTF');
+    src: url('../font/UVNChinhLuan_B.TTF') format('truetype');
+}
+ .nxt_199 {
+    font-family: 'UVN Chinh Luan Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Chim Bien';
+    font-weight: 'Regular';
+    src: url('../font/UVNChimBien_R.TTF');
+    src: url('../font/UVNChimBien_R.TTF') format('truetype');
+}
+ .nxt_200 {
+    font-family: 'UVN Chim Bien' !important;
+}
+ @font-face {
+    font-family: 'UVN Chim Bien Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNChimBien_B.TTF');
+    src: url('../font/UVNChimBien_B.TTF') format('truetype');
+}
+ .nxt_201 {
+    font-family: 'UVN Chim Bien Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Chim Bien Nhe';
+    font-weight: 'Regular';
+    src: url('../font/UVNChimBienNhe.TTF');
+    src: url('../font/UVNChimBienNhe.TTF') format('truetype');
+}
+ .nxt_202 {
+    font-family: 'UVN Chim Bien Nhe' !important;
+}
+ @font-face {
+    font-family: 'UVN Chim Bien Nang';
+    font-weight: 'Regular';
+    src: url('../font/UVNChimBienNang.TTF');
+    src: url('../font/UVNChimBienNang.TTF') format('truetype');
+}
+ .nxt_203 {
+    font-family: 'UVN Chim Bien Nang' !important;
+}
+ @font-face {
+    font-family: 'UVN Cat Bien';
+    font-weight: 'Regular';
+    src: url('../font/UVNCatBien_R.TTF');
+    src: url('../font/UVNCatBien_R.TTF') format('truetype');
+}
+ .nxt_204 {
+    font-family: 'UVN Cat Bien' !important;
+}
+ @font-face {
+    font-family: 'UVN Cat Bien Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNCatBien_I.TTF');
+    src: url('../font/UVNCatBien_I.TTF') format('truetype');
+}
+ .nxt_205 {
+    font-family: 'UVN Cat Bien Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Cat Bien BoldItalic';
+    font-weight: 'BoldItalic';
+    src: url('../font/UVNCatBien_BI.TTF');
+    src: url('../font/UVNCatBien_BI.TTF') format('truetype');
+}
+ .nxt_206 {
+    font-family: 'UVN Cat Bien BoldItalic' !important;
+}
+ @font-face {
+    font-family: 'UVN Cat Bien Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNCatBien_B.TTF');
+    src: url('../font/UVNCatBien_B.TTF') format('truetype');
+}
+ .nxt_207 {
+    font-family: 'UVN Cat Bien Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Cat Bien Nhe';
+    font-weight: 'Regular';
+    src: url('../font/UVNCatBienNhe_R.TTF');
+    src: url('../font/UVNCatBienNhe_R.TTF') format('truetype');
+}
+ .nxt_208 {
+    font-family: 'UVN Cat Bien Nhe' !important;
+}
+ @font-face {
+    font-family: 'UVN Cat Bien Nhe Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNCatBienNhe_I.TTF');
+    src: url('../font/UVNCatBienNhe_I.TTF') format('truetype');
+}
+ .nxt_209 {
+    font-family: 'UVN Cat Bien Nhe Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Chu Ky';
+    font-weight: 'Regular';
+    src: url('../font/UVNCHUKY.TTF');
+    src: url('../font/UVNCHUKY.TTF') format('truetype');
+}
+ .nxt_210 {
+    font-family: 'UVN Chu Ky' !important;
+}
+ @font-face {
+    font-family: 'UVN But Long 2';
+    font-weight: 'Regular';
+    src: url('../font/UVNButLong2.TTF');
+    src: url('../font/UVNButLong2.TTF') format('truetype');
+}
+ .nxt_211 {
+    font-family: 'UVN But Long 2' !important;
+}
+ @font-face {
+    font-family: 'UVN But Long 1';
+    font-weight: 'Regular';
+    src: url('../font/UVNButLong1.TTF');
+    src: url('../font/UVNButLong1.TTF') format('truetype');
+}
+ .nxt_212 {
+    font-family: 'UVN But Long 1' !important;
+}
+ @font-face {
+    font-family: 'UVN Bui Doi';
+    font-weight: 'Regular';
+    src: url('../font/UVNBuiDoi.TTF');
+    src: url('../font/UVNBuiDoi.TTF') format('truetype');
+}
+ .nxt_213 {
+    font-family: 'UVN Bui Doi' !important;
+}
+ @font-face {
+    font-family: 'UVN Buc Thu';
+    font-weight: 'Regular';
+    src: url('../font/UVNBucThu.TTF');
+    src: url('../font/UVNBucThu.TTF') format('truetype');
+}
+ .nxt_214 {
+    font-family: 'UVN Buc Thu' !important;
+}
+ @font-face {
+    font-family: 'UVN Bo Quen';
+    font-weight: 'Regular';
+    src: url('../font/UVNBoQuen.TTF');
+    src: url('../font/UVNBoQuen.TTF') format('truetype');
+}
+ .nxt_215 {
+    font-family: 'UVN Bo Quen' !important;
+}
+ @font-face {
+    font-family: 'UVN Binh Duong';
+    font-weight: 'Regular';
+    src: url('../font/UVNBinhDuong.TTF');
+    src: url('../font/UVNBinhDuong.TTF') format('truetype');
+}
+ .nxt_216 {
+    font-family: 'UVN Binh Duong' !important;
+}
+ @font-face {
+    font-family: 'UVN Ben Xuan';
+    font-weight: 'Regular';
+    src: url('../font/UVNBenXuan_R.TTF');
+    src: url('../font/UVNBenXuan_R.TTF') format('truetype');
+}
+ .nxt_217 {
+    font-family: 'UVN Ben Xuan' !important;
+}
+ @font-face {
+    font-family: 'UVN Ben Xuan Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNBenXuan_B.TTF');
+    src: url('../font/UVNBenXuan_B.TTF') format('truetype');
+}
+ .nxt_218 {
+    font-family: 'UVN Ben Xuan Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Bay Buom';
+    font-weight: 'Regular';
+    src: url('../font/UVNBayBuom_R.TTF');
+    src: url('../font/UVNBayBuom_R.TTF') format('truetype');
+}
+ .nxt_219 {
+    font-family: 'UVN Bay Buom' !important;
+}
+ @font-face {
+    font-family: 'UVN Bay Buom Nang';
+    font-weight: 'Regular';
+    src: url('../font/UVNBayBuom_N.TTF');
+    src: url('../font/UVNBayBuom_N.TTF') format('truetype');
+}
+ .nxt_220 {
+    font-family: 'UVN Bay Buom Nang' !important;
+}
+ @font-face {
+    font-family: 'UVN Bay Buom Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNBayBuom_B.TTF');
+    src: url('../font/UVNBayBuom_B.TTF') format('truetype');
+}
+ .nxt_221 {
+    font-family: 'UVN Bay Buom Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Bay Buom Hep';
+    font-weight: 'Regular';
+    src: url('../font/UVNBayBuomHep_R.TTF');
+    src: url('../font/UVNBayBuomHep_R.TTF') format('truetype');
+}
+ .nxt_222 {
+    font-family: 'UVN Bay Buom Hep' !important;
+}
+ @font-face {
+    font-family: 'UVN Bay Buom Hep Nang';
+    font-weight: 'Regular';
+    src: url('../font/UVNBayBuomHep_N.TTF');
+    src: url('../font/UVNBayBuomHep_N.TTF') format('truetype');
+}
+ .nxt_223 {
+    font-family: 'UVN Bay Buom Hep Nang' !important;
+}
+ @font-face {
+    font-family: 'UVN Bay Buom Hep Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNBayBuomHep_B.TTF');
+    src: url('../font/UVNBayBuomHep_B.TTF') format('truetype');
+}
+ .nxt_224 {
+    font-family: 'UVN Bay Buom Hep Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Banh Mi';
+    font-weight: 'Regular';
+    src: url('../font/UVNBanhMi.TTF');
+    src: url('../font/UVNBanhMi.TTF') format('truetype');
+}
+ .nxt_225 {
+    font-family: 'UVN Banh Mi' !important;
+}
+ @font-face {
+    font-family: 'UVN Ban Tay';
+    font-weight: 'Regular';
+    src: url('../font/UVNBanTay.TTF');
+    src: url('../font/UVNBanTay.TTF') format('truetype');
+}
+ .nxt_226 {
+    font-family: 'UVN Ban Tay' !important;
+}
+ @font-face {
+    font-family: 'UVN Bai Sau';
+    font-weight: 'Regular';
+    src: url('../font/UVNBaiSau_R.TTF');
+    src: url('../font/UVNBaiSau_R.TTF') format('truetype');
+}
+ .nxt_227 {
+    font-family: 'UVN Bai Sau' !important;
+}
+ @font-face {
+    font-family: 'UVN Bai Sau Nhe';
+    font-weight: 'Regular';
+    src: url('../font/UVNBaiSau_Nh.TTF');
+    src: url('../font/UVNBaiSau_Nh.TTF') format('truetype');
+}
+ .nxt_228 {
+    font-family: 'UVN Bai Sau Nhe' !important;
+}
+ @font-face {
+    font-family: 'UVN Bai Sau Nang';
+    font-weight: 'Regular';
+    src: url('../font/UVNBaiSau_N.TTF');
+    src: url('../font/UVNBaiSau_N.TTF') format('truetype');
+}
+ .nxt_229 {
+    font-family: 'UVN Bai Sau Nang' !important;
+}
+ @font-face {
+    font-family: 'UVN Bai Sau Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNBaiSau_B.TTF');
+    src: url('../font/UVNBaiSau_B.TTF') format('truetype');
+}
+ .nxt_230 {
+    font-family: 'UVN Bai Sau Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Bai Hoc';
+    font-weight: 'Regular';
+    src: url('../font/UVNBaiHoc_R.TTF');
+    src: url('../font/UVNBaiHoc_R.TTF') format('truetype');
+}
+ .nxt_231 {
+    font-family: 'UVN Bai Hoc' !important;
+}
+ @font-face {
+    font-family: 'UVN Bai Hoc Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNBaiHoc_I.TTF');
+    src: url('../font/UVNBaiHoc_I.TTF') format('truetype');
+}
+ .nxt_232 {
+    font-family: 'UVN Bai Hoc Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Bai Hoc BoldItalic';
+    font-weight: 'BoldItalic';
+    src: url('../font/UVNBaiHoc_BI.TTF');
+    src: url('../font/UVNBaiHoc_BI.TTF') format('truetype');
+}
+ .nxt_233 {
+    font-family: 'UVN Bai Hoc BoldItalic' !important;
+}
+ @font-face {
+    font-family: 'UVN Bai Hoc Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNBaiHoc_B.TTF');
+    src: url('../font/UVNBaiHoc_B.TTF') format('truetype');
+}
+ .nxt_234 {
+    font-family: 'UVN Bai Hoc Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Bach Tuyet';
+    font-weight: 'Regular';
+    src: url('../font/UVNBachTuyet_R.TTF');
+    src: url('../font/UVNBachTuyet_R.TTF') format('truetype');
+}
+ .nxt_235 {
+    font-family: 'UVN Bach Tuyet' !important;
+}
+ @font-face {
+    font-family: 'UVN Bach Tuyet Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNBachTuyet_I.TTF');
+    src: url('../font/UVNBachTuyet_I.TTF') format('truetype');
+}
+ .nxt_236 {
+    font-family: 'UVN Bach Tuyet Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Bach Tuyet BoldItalic';
+    font-weight: 'BoldItalic';
+    src: url('../font/UVNBachTuyet_BI.TTF');
+    src: url('../font/UVNBachTuyet_BI.TTF') format('truetype');
+}
+ .nxt_237 {
+    font-family: 'UVN Bach Tuyet BoldItalic' !important;
+}
+ @font-face {
+    font-family: 'UVN Bach Tuyet Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNBachTuyet_B.TTF');
+    src: url('../font/UVNBachTuyet_B.TTF') format('truetype');
+}
+ .nxt_238 {
+    font-family: 'UVN Bach Tuyet Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Bach Tuyet Nang';
+    font-weight: 'Regular';
+    src: url('../font/UVNBachTuyetNang_R.TTF');
+    src: url('../font/UVNBachTuyetNang_R.TTF') format('truetype');
+}
+ .nxt_239 {
+    font-family: 'UVN Bach Tuyet Nang' !important;
+}
+ @font-face {
+    font-family: 'UVN Bach Tuyet Nang Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNBachTuyetNang_I.TTF');
+    src: url('../font/UVNBachTuyetNang_I.TTF') format('truetype');
+}
+ .nxt_240 {
+    font-family: 'UVN Bach Tuyet Nang Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Bach Dang';
+    font-weight: 'Regular';
+    src: url('../font/UVNBachDang_R.TTF');
+    src: url('../font/UVNBachDang_R.TTF') format('truetype');
+}
+ .nxt_241 {
+    font-family: 'UVN Bach Dang' !important;
+}
+ @font-face {
+    font-family: 'UVN Bach Dang Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNBachDang_I.TTF');
+    src: url('../font/UVNBachDang_I.TTF') format('truetype');
+}
+ .nxt_242 {
+    font-family: 'UVN Bach Dang Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Bach Dang BoldItalic';
+    font-weight: 'BoldItalic';
+    src: url('../font/UVNBachDang_BI.TTF');
+    src: url('../font/UVNBachDang_BI.TTF') format('truetype');
+}
+ .nxt_243 {
+    font-family: 'UVN Bach Dang BoldItalic' !important;
+}
+ @font-face {
+    font-family: 'UVN Bach Dang Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNBachDang_B.TTF');
+    src: url('../font/UVNBachDang_B.TTF') format('truetype');
+}
+ .nxt_244 {
+    font-family: 'UVN Bach Dang Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Bach Dang Nang';
+    font-weight: 'Regular';
+    src: url('../font/UVNBachDangNang_R.TTF');
+    src: url('../font/UVNBachDangNang_R.TTF') format('truetype');
+}
+ .nxt_245 {
+    font-family: 'UVN Bach Dang Nang' !important;
+}
+ @font-face {
+    font-family: 'UVN Bach Dang Nang Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNBachDangNang_I.TTF');
+    src: url('../font/UVNBachDangNang_I.TTF') format('truetype');
+}
+ .nxt_246 {
+    font-family: 'UVN Bach Dang Nang Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Ba Le';
+    font-weight: 'Regular';
+    src: url('../font/UVNBaLe.TTF');
+    src: url('../font/UVNBaLe.TTF') format('truetype');
+}
+ .nxt_247 {
+    font-family: 'UVN Ba Le' !important;
+}
+ @font-face {
+    font-family: 'UVN Anh Sang';
+    font-weight: 'Regular';
+    src: url('../font/UVNAnhSang.TTF');
+    src: url('../font/UVNAnhSang.TTF') format('truetype');
+}
+ .nxt_248 {
+    font-family: 'UVN Anh Sang' !important;
+}
+ @font-face {
+    font-family: 'UVN Anh Hai';
+    font-weight: 'Regular';
+    src: url('../font/UVNAnhHai_R.TTF');
+    src: url('../font/UVNAnhHai_R.TTF') format('truetype');
+}
+ .nxt_249 {
+    font-family: 'UVN Anh Hai' !important;
+}
+ @font-face {
+    font-family: 'UVN Anh Hai Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNAnhHai_I.TTF');
+    src: url('../font/UVNAnhHai_I.TTF') format('truetype');
+}
+ .nxt_250 {
+    font-family: 'UVN Anh Hai Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Anh Hai BoldItalic';
+    font-weight: 'BoldItalic';
+    src: url('../font/UVNAnhHai_BI.TTF');
+    src: url('../font/UVNAnhHai_BI.TTF') format('truetype');
+}
+ .nxt_251 {
+    font-family: 'UVN Anh Hai BoldItalic' !important;
+}
+ @font-face {
+    font-family: 'UVN Anh Hai Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNAnhHai_B.TTF');
+    src: url('../font/UVNAnhHai_B.TTF') format('truetype');
+}
+ .nxt_252 {
+    font-family: 'UVN Anh Hai Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Anh Hai Nhe';
+    font-weight: 'Regular';
+    src: url('../font/UVNAnhHaiNhe_R.TTF');
+    src: url('../font/UVNAnhHaiNhe_R.TTF') format('truetype');
+}
+ .nxt_253 {
+    font-family: 'UVN Anh Hai Nhe' !important;
+}
+ @font-face {
+    font-family: 'UVN Anh Hai Nhe Italic';
+    font-weight: 'Italic';
+    src: url('../font/UVNAnhHaiNhe_I.TTF');
+    src: url('../font/UVNAnhHaiNhe_I.TTF') format('truetype');
+}
+ .nxt_254 {
+    font-family: 'UVN Anh Hai Nhe Italic' !important;
+}
+ @font-face {
+    font-family: 'UVN Ai Cap';
+    font-weight: 'Regular';
+    src: url('../font/UVNAiCap_R.TTF');
+    src: url('../font/UVNAiCap_R.TTF') format('truetype');
+}
+ .nxt_255 {
+    font-family: 'UVN Ai Cap' !important;
+}
+ @font-face {
+    font-family: 'UVN Ai Cap Bold';
+    font-weight: 'Bold';
+    src: url('../font/UVNAiCap_B.TTF');
+    src: url('../font/UVNAiCap_B.TTF') format('truetype');
+}
+ .nxt_256 {
+    font-family: 'UVN Ai Cap Bold' !important;
+}
+ @font-face {
+    font-family: 'UVN Ai Cap Nhe';
+    font-weight: 'Regular';
+    src: url('../font/UVNAiCapNhe.TTF');
+    src: url('../font/UVNAiCapNhe.TTF') format('truetype');
+}
+ .nxt_257 {
+    font-family: 'UVN Ai Cap Nhe' !important;
+}
+ @font-face {
+    font-family: 'UVN Ai Cap Nang';
+    font-weight: 'Regular';
+    src: url('../font/UVNAiCapNang.TTF');
+    src: url('../font/UVNAiCapNang.TTF') format('truetype');
+}
+ .nxt_258 {
+    font-family: 'UVN Ai Cap Nang' !important;
+}
+ @font-face {
+    font-family: 'Georgia Ref';
+    font-weight: 'Regular';
+    src: url('../font/GRGAREF.TTF');
+    src: url('../font/GRGAREF.TTF') format('truetype');
+}
+ .nxt_259 {
+    font-family: 'Georgia Ref' !important;
+}

@@ -1,0 +1,6 @@
+<option value="{$v['id']}" {$cat['id']}  <!--{if $v['id']==$cat['parent_id']}-->selected="selected"<!--{/if}--> <!--{if $v['id']==$_POST['cat_id']}-->selected="selected"<!--{/if}--> >{$v['title']}</option>
+<!--{if sizeof($v[sub])>0 }-->
+		<!--{loop $v[sub] $k $v}-->
+		<!--{looptemp category_cat_list}-->
+		<!--{/loop}-->		
+<!--{/if}-->

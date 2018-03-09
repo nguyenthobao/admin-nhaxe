@@ -1,0 +1,118 @@
+/*! X-editable - v1.4.5 
+* In-place editing with Twitter Bootstrap, jQuery UI or pure jQuery
+* http://github.com/vitalets/x-editable
+* Copyright (c) 2013 Vitaliy Potapov; Licensed MIT */
+
+/**
+Form with single input element, two buttons and two states: normal/loading.
+Applied as jQuery method to DIV tag (not to form tag!). This is because form can be in loading state when spinner shown.
+Editableform is linked with one of input types, e.g. 'text', 'select' etc.
+
+@class editableform
+@uses text
+@uses textarea
+**/
+(function ($) {
+    "use strict";
+    
+    var EditableForm = function (div, options) {
+        this.options = $.extend({}, $.fn.editableform.defaults, options);
+        this.$div = $(div); //div, containing form. Not form tag. Not editable-element.
+        if(!this.options.scope) {
+            this.options.scope = this;
+        }
+        //nothing shown after init
+    };
+
+    EditableForm.prototype = {
+        constructor: EditableForm,
+        initInput: function() {  //called once
+            //take input from options (as it is created in editable-element)
+            this.input = this.options.input;
+            
+            //set initial value
+            //todo: may be add check: typeof str === 'string' ? 
+            this.value = this.input.str2value(this.options.value); 
+        },
+        initTemplate: function() {
+            this.$form = $($.fn.editableform.template); 
+        },
+        initButtons: function() {
+            var $btn = this.$form.find('.editable-buttons');
+            $btn.append($.fn.editableform.buttons);
+            if(this.options.showbuttons === 'bottom') {
+                $btn.addClass('editable-buttons-bottom');
+            }
+        },
+        /**
+        Renders editableform
+
+        @method render
+        **/        
+        render: function() {
+            //init loader
+            this.$loading = $($.fn.editableform.loading);        
+            this.$div.empty().append(this.$loading);
+            
+            //init form template and buttons
+            this.initTemplate();
+            if(this.options.showbuttons) {
+                this.initButtons();
+            } else {
+                this.$form.find('.editable-buttons').remove();
+            }
+
+            //show loading state
+            this.showLoading();            
+            
+            //flag showing is form now saving value to server. 
+            //It is needed to wait when closing form.
+            this.isSaving = false;
+            
+            /**        
+            Fired when rendering starts
+            @event rendering 
+            @param {Object} event event object
+            **/            
+            this.$div.triggerHandler('rendering');
+            
+            //init input
+            this.initInput();
+            
+            //append input to form
+            this.input.prerender();
+            this.$form.find('div.editable-input').append(this.input.$tpl);            
+
+            //append form to container
+            this.$div.append(this.$form);
+            
+            //render input
+            $.when(this.input.render())
+            .then($.proxy(function () {
+                //setup input to submit automatically when no buttons shown
+                if(!this.options.showbuttons) {
+                    this.input.autosubmit(); 
+                }
+                 
+                //attach 'cancel' handler
+                this.$form.find('.editable-cancel').click($.proxy(this.cancel, this));
+                
+                if(this.input.error) {
+                    this.error(this.input.error);
+                    this.$form.find('.editable-submit').attr('disabled', true);
+                    this.input.$input.attr('disabled', true);
+                    //prevent form from submitting
+                    this.$form.submit(function(e){ e.preventDefault(); });
+                } else {
+                    this.error(false);
+                    this.input.$input.removeAttr('disabled');
+                    this.$form.find('.editable-submit').removeAttr('disabled');
+                    this.input.value2input(this.value);
+                    //attach submit handler
+                    this.$form.submit($.proxy(this.submit, this));
+                }
+
+                /**        
+                Fired when form is rendered
+                @event rendered
+                @param {Ob

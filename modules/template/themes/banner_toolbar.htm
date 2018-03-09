@@ -1,0 +1,11 @@
+<div class="actions btn-set">
+	<a href="$_B['home']/template-bannerlist-lang-vi" class="btn default"><i class="fa fa-angle-left"></i> {lang cancel}</a>
+	<button class="btn default" id="btn_reset" type="reset"><i class="fa fa-reply"></i> {lang reset}</button>
+	<button class="btn green continue" data-continue="bannerlist"><i class="fa fa-check"></i> {lang submit}</button>
+	<button class="btn green continue" data-continue="banner"><i class="fa fa-check-circle"></i> {lang submit_cont_}</button>
+	<button class="btn green continue" data-continue="banner_lang"><i class="fa fa-flag"></i> {lang submit_cont_lang}</button>
+	<input type="hidden" name="action" value="addBanner">
+	<input type="hidden" name="lang" value="vi">
+	<input type="hidden" name="continue" value="">
+	<input type="hidden" name="issetLangDefault" <!--{if !empty($banner[id])}-->value="exist"<!--{/if}-->>
+</div>

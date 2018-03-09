@@ -1,0 +1,55 @@
+<form class="form-horizontal form-row-seperated" action="" id="form_audio" class="form-horizontal" enctype="multipart/form-data" method="POST">
+	<input type="hidden" value="<!--{if isset({$audio_edit['id']})}-->{$audio_edit['id']}<!--{/if}-->" name="idaudio" id="idaudio"/>
+	<div class="tabbable">
+		<div class="tab-content no-space">
+			<div class="tab-pane active">
+				<div class="form-body">					
+					<div class="form-group row-title-check">
+						<label class="control-label col-md-3">{lang choose_file} </label>						
+						<div class="col-md-8">							
+							<input type="file" name="file_audio" id="file_audio" class="bg_audio" value="<!--{if isset({$audio_edit['audio']})}-->{$_B['upload_path']}{$audio_edit['audio']}<!--{/if}-->" />
+							<!--{if !empty($audio_edit['audio'])}-->
+							<input type="hidden" value="1" name="file_exists"/>
+							<audio controls class="play_file">
+							  	<source src="{$_B['upload_path']}{$audio_edit['audio']}" type="audio/mpeg">	
+							</audio>
+							<!--{/if}-->
+						</div>
+					</div>
+					<div class="form-group row-title-check">
+						<label class="control-label col-md-3">{lang play_home}</label>
+						<div class="col-md-8">
+							<input type="checkbox" name="play_home" <!--{if isset($audio_edit['is_home'])&&($audio_edit['is_home'] == 1)}--> checked <!--{/if}--> />
+						</div>
+					</div>
+					<div class="form-group row-title-check">
+						<label class="control-label col-md-3">{lang play_page}</label>
+						<div class="col-md-8">
+							<input type="checkbox" name="play_page" <!--{if isset($audio_edit['is_page'])&&($audio_edit['is_page'] == 1)}--> checked <!--{/if}--> />
+						</div>
+					</div>
+					<div class="form-group row-title-check">
+						<label class="control-label col-md-3">{lang on_audio}</label>
+						<div class="col-md-8">
+							<input type="checkbox" name="on_audio" <!--{if isset($audio_edit['status'])&&($audio_edit['status'] == 1)}--> checked <!--{/if}--> />
+						</div>
+					</div>
+					<div class="form-group row-title-check">
+						<label class="control-label col-md-3">{lang play_again}</label>
+						<div class="col-md-8">
+							<input type="checkbox" name="play_again" <!--{if isset($audio_edit['play_again'])&&($audio_edit['play_again'] == 1)}--> checked <!--{/if}--> />
+						</div>
+					</div>
+					<div class="btn_topline">						
+						<div class="btn_actions">
+							<button class="btn green continue" data-continue="template"><i class="fa fa-check"></i> {lang submit}</button>
+						</div>
+						<input type="hidden" name="action" value="addAudio">
+						<input type="hidden" name="lang" value="vi">
+						<input type="hidden" name="continue" value="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

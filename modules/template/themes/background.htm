@@ -1,0 +1,69 @@
+<form class="form-horizontal form-row-seperated" action="" id="form_background" class="form-horizontal" enctype="multipart/form-data" method="POST">
+	<input type="hidden" value="<!--{if isset({$bg_edit['id']})}-->{$bg_edit['id']}<!--{/if}-->" name="idbg" id="idbg"/>
+	<div class="tabbable">
+		<div class="tab-content no-space">
+			<div class="tab-pane active">
+				<div class="form-body">
+					<div class="form-group">
+						<label class="control-label col-md-2">{lang color_page} </label>
+						<div class="col-md-2">
+							<div class="input-group color colorpicker-default" data-color="<!--{if isset({$bg_edit['color']})}-->{$bg_edit['color']}<!--{/if}-->" data-color-format="rgba">
+								<input type="text" name="color_background" class="form-control" value="<!--{if isset({$bg_edit['color']})}-->{$bg_edit['color']}<!--{/if}-->">
+								<span class="input-group-btn">
+									<button class="btn default" type="button"><i style="background-color: <!--{if isset({$bg_edit['color']})}-->{$bg_edit['color']}<!--{/if}-->;"></i>&nbsp;</button>
+								</span>
+							</div>							
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-2">{lang img_background} </label>
+						<div class="col-md-8">
+							<div class="fileinput <!--{if !empty($bg_edit['img'])}-->fileinput-exists<!--{else}-->fileinput-new<!--{/if}-->" data-provides="fileinput">
+								<!--{if !empty($bg_edit['img'])}-->
+								<input type="hidden" value="1" name="img_bg"/>
+								<!--{/if}-->
+								<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+									<img src="{$_B['home_theme']}assets/no_image.gif" alt="Avatar"/>
+								</div>
+								<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+									<img src="<!--{if isset({$bg_edit['img']})}-->{$_B['upload_path']}{$bg_edit['img']}<!--{/if}-->" onerror="this.onerror=null;this.src='{$_B['home_theme']}assets/no_image.gif'" alt="" />
+								</div>
+								<div>
+									<span class="btn default btn-file">
+									<span class="fileinput-new">
+									{lang select_img} </span>
+									<span class="fileinput-exists">
+									{lang change_img} </span>
+									<input type="file" name="img_bg" id="img_bg">
+									</span>
+									<a href="#" class="btn default fileinput-exists" data-dismiss="fileinput">{lang delete} </a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-2 control-label">{lang repeat_background}</label>
+						<div class="col-md-3 margin-bt-10">
+							<select class="form-control" name="repeat" data-error="">
+								<option value="1" <!--{if isset($bg_edit['repeat']) && $bg_edit['repeat']==1}-->selected="selected"<!--{/if}-->>{lang bg_repeat_1}</option>
+								<option value="2" <!--{if isset($bg_edit['repeat']) && $bg_edit['repeat']==2}-->selected="selected"<!--{/if}-->>{lang bg_repeat_2}</option>
+								<option value="3" <!--{if isset($bg_edit['repeat']) && $bg_edit['repeat']==3}-->selected="selected"<!--{/if}-->>{lang bg_repeat_3}</option>
+								<option value="4" <!--{if isset($bg_edit['repeat']) && $bg_edit['repeat']==4}-->selected="selected"<!--{/if}-->>{lang bg_repeat_4}</option>
+								<option value="5" <!--{if isset($bg_edit['repeat']) && $bg_edit['repeat']==5}-->selected="selected"<!--{/if}-->>{lang bg_repeat_5}</option>
+							</select>
+						</div>
+					</div>
+					<div class="btn_topline">
+						<a class="btn btn-sm blue continue set_default"><i class="fa fa-reply"></i> {lang default_now}</a>
+						<div class="btn_actions">
+							<button class="btn green continue" data-continue="template"><i class="fa fa-check"></i> {lang submit}</button>
+						</div>
+						<input type="hidden" name="action" value="addBackground">
+						<input type="hidden" name="lang" value="vi">
+						<input type="hidden" name="continue" value="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

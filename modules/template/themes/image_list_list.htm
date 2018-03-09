@@ -1,0 +1,46 @@
+<tr id="tr_{$v['id']}" data-key="{$v['id']}" data-lang="{$_GET['lang']}">
+	<td class="highlight">
+		<input type="checkbox" name="name_id[]" class="checkboxes"  value="{$v['id']}">
+	</td>
+	<td>
+		<div class="list-cat-img">
+			<div class="<!--{if !empty({$v['src_link']})}-->fileinput-exists<!--{else}-->fileinput-new<!--{/if}-->" data-provides="fileinput">
+				<div class="fileinput-new thumbnail" style="width: 190px; height: 120px;">
+					<img class="img-responsive" src="{$_B['home_theme']}assets/no_image.gif" alt="Avatar"/>
+				</div>
+				<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 190px; max-height: 120px;">
+					<img class="img-responsive" src="<!--{if isset({$v['src_link']})}-->{$_B['upload_path']}{$v['src_link']} <!--{/if}-->" onerror="this.onerror=null;this.src='{$_B['home_theme']}assets/no_image.gif'" alt="" />
+				</div>
+				<div class="btn-all">
+					<span class="btn btn-xs default btn-file btn-change" style="display:none">
+					<span class="fileinput-new">
+					{lang select_img} </span>
+					<span class="fileinput-exists">
+					{lang change_img} </span>
+					<input type="file" name="img_slide_{$v['id']}">
+					</span>
+				</div>
+			</div>
+		</div>
+	</td>
+	<td>
+		<span data-pk="{$v['id']}"  data-type="text" data-lang="{$_GET['lang']}" class="editable editable-click tooltips imageItem" data-original-title="{lang click_edit}">{$v['title']}</span>		
+	</td>
+	
+	<td class="hidden-xs">		
+		<a href="#" data-type="select" data-pk="{$v['id']}" data-value="{$v['sort']}" data-original-title="{lang sort}" class="editable editable-click tooltips sortImage">
+			<!--{if isset({$v['sort']})}-->{$v['sort']} <!--{/if}-->
+		</a>
+	</td>
+	<td>		
+		<!--{if $v['status']==1}-->
+		<a class="btn default btn-xs green-stripe active_status_image" data-status="{$v['status']}" style="width:73px">{lang showing}</a>
+		<!--{else}-->
+		<a class="btn default btn-xs red-stripe active_status_image" data-status="{$v['status']}" style="width:73px">{lang hiding}</a>
+		<!--{/if}-->
+	</td>
+	<td class="icon_btn">		
+		<a href="template-image-{$v['id']}-{$_GET['lang']}" class="btn default btn-xs yellow tooltips" data-placement="top" data-original-title="{lang edit}"><i class="fa fa-edit"></i></a>
+		<a  class="btn default btn-xs red tooltips delete_image"  data-placement="top" data-original-title="{lang delete}"><i class="fa fa-trash-o"></i></a>
+	</td>
+</tr>

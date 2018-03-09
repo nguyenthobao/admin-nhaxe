@@ -1,0 +1,10 @@
+<li>
+    <label><input class="checkboxes chil" <!--{if is_array($category_id) && in_array($v['id'], $category_id) }-->checked="checked"  <!--{/if}-->data-error-container="" type="checkbox" name="category_id[]" value="{$v['id']}">{$v['title']}</label>
+<!--{if sizeof($v[sub])>0 }-->
+<ul class="list-unstyled">
+    <!--{loop $v[sub] $k $v}-->
+    <!--{looptemp category_album_list_edit}-->
+    <!--{/loop}-->
+</ul>
+<!--{/if}-->
+</li>

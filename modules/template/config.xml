@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<config>
+    <name_modue>template</name_modue> 
+    <menus>        
+        <menu>
+            <title>template</title>
+            <link>/template-template-lang-vi</link>
+            <icon>icon-star</icon>
+            <mod>template</mod>
+            <submenu>
+                <title>infomation_basic</title>
+                <link>/template-template-lang-vi</link>
+                <icon>icon-settings</icon>
+            </submenu>
+            <submenu>
+                <title>slide_managers</title>
+                <link>/template-slide-lang-vi</link>
+                <icon>icon-plus</icon>
+                <submenu>
+                    <title>slide_new</title>
+                    <link>/template-slide-lang-vi</link>
+                    <icon>icon-plus</icon>
+                </submenu>
+                <submenu>
+                    <title>slide_list</title>
+                    <link>/template-slidelist-lang-vi</link>
+                    <icon>fa fa-navicon</icon>
+                </submenu>
+                <submenu>
+                    <title>image_new</title>
+                    <link>/template-image-lang-vi</link>
+                    <icon>icon-plus</icon>
+                </submenu>
+                <submenu>
+                    <title>image_list</title>
+                    <link>/template-imagelist-lang-vi</link>
+                    <icon>fa fa-navicon</icon>
+                </submenu>
+            </submenu> 
+            
+            
+              
+            
+        </menu>
+    </menus>
+</config>

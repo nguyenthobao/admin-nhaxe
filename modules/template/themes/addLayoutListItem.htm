@@ -1,0 +1,21 @@
+<tr id="tr_{$v['id']}" data-key="{$v['id']}" data-lang="{$_GET['lang']}">
+	<td class="highlight">
+		<input type="checkbox" name="name_id[]" class="checkboxes"  value="{$v['id']}">
+	</td>
+	
+	<td >
+		<span data-pk="{$v['id']}"  data-type="text" data-lang="{$_GET['lang']}" class="editable tooltips slideItem" data-original-title="{lang click_edit}">{$v['title']}</span>
+		 
+	</td>
+	<td class="hidden-xs">		
+		<span data-pk="{$v['id']}"  data-type="text" data-lang="{$_GET['lang']}" class="editable editable-click tooltips aslideItem" data-original-title="{lang click_edit}">{$v['layout_name']}</span>
+		
+	</td>
+	<td class="hidden-xs">		
+		<span data-pk="{$v['id']}"  data-type="text" data-lang="{$_GET['lang']}" class="editable editable-click tooltips bslideItem" data-original-title="{lang click_edit}">{$v['router']}</span>
+	</td>
+	
+	<td class="icon_btn">
+		<a  class="btn default btn-xs red tooltips delete_slide"  data-placement="top" data-original-title="{lang delete}"><i class="fa fa-trash-o"></i></a>
+	</td>
+</tr>

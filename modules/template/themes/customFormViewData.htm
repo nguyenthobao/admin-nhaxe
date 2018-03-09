@@ -1,0 +1,99 @@
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/jquery-tags-input/jquery.tagsinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/typeahead/typeahead.css">
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css"/>
+<link href="{$_B['mod_theme']}css/style.css" rel="stylesheet" type="text/css" />
+<link href="{$_B['mod_theme']}css/styleCustomFormNxt.css" rel="stylesheet" type="text/css" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" type="text/css" />
+<!-- END PAGE LEVEL STYLES -->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+	<div class="col-md-12">
+		<form class="form-horizontal form-row-seperated" action="" id="form_slide" enctype="multipart/form-data" method="POST" novalidate="novalidate">
+			<div class="portlet">
+				<div class="portlet-title">
+					<div class="caption">
+					<i class="icon-note"></i>{lang dulieuform}</div>
+					<div class="actions btn-set btn-del">
+						<a  class="btn red continue delete_slide_select disabled"><i class="fa fa-trash-o"></i> {lang delete}</a>
+					</div>
+					<div class="actions btn-set">
+						
+						<a href="/template-customForm-listForm-lang-vi" class="btn default"><i class="fa fa-reply"></i> {lang trolai}</a>
+					</div>
+				</div>
+				
+				
+				<ul class="nav nav-tabs">
+					<!--{loop $_DATA['lang_use'] $k $v}-->
+					<li <!--{if $v['lang'] == $_GET['lang']}-->class="active"<!--{/if}-->>
+						<a href="{$v['url']}">{lang lang_{$v['lang']}}</a>
+					</li>
+					<!--{/loop}-->
+				</ul>
+				
+				<div class="portlet-body">
+					
+					
+					<!--{if !empty($_DATA['content'])}-->
+					<div class="table-scrollable">
+						<table id="slidelist" data-lang="{$_GET['lang']}" class="table table-striped table-bordered table-advance table-hover ">
+							<thead>
+							<tr>
+								<th width="20">
+									<input type="checkbox" id="checkboxAll">
+								</th>
+								<!--{loop $_DATA['field'] $k $v}-->
+									<th>
+										{$v}
+									</th>
+								<!--{/loop}-->
+								
+								<th class="hidden-xs" width="120">
+									{lang trangthai}
+								</th>
+								<th width="120">
+									{lang action}
+								</th>
+							</tr>
+							</thead>
+							<tbody>								
+								<!--{loop $_DATA['content'] $k $v}-->
+									<!--{temp customFormViewDataItem}-->
+								<!--{/loop}-->
+							</tbody>
+						</table>
+					</div>
+					<!--{if !empty($_DATA['pagination'])}-->
+						{$_DATA['pagination']['pagination']}
+					<!--{/if}-->
+					<!--{else}-->
+					<div class="alert alert-warning">
+						<center> {lang notfound} </center>
+					</div>
+					<!--{/if}-->
+				
+					
+				</div>
+				<div class="portlet-title topline">
+					
+				</div>
+			</div>
+		</form>
+	</div>
+	
+
+	
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="{$_B['mod_theme']}js/FormViewList.js"></script>
+<script type="text/javascript" laguage="javascript">
+    jQuery(document).ready(function() {    
+       FormViewList.init();       
+    });
+</script>
+<!-- END JAVASCRIPTS -->

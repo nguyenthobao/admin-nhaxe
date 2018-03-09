@@ -1,0 +1,136 @@
+<div class="portlet light bordered">
+	<div class="portlet-title">
+		<div class="caption">
+			<i class="icon-equalizer font-red-sunglo"></i>
+			<span class="caption-subject font-red-sunglo bold uppercase">{lang breadcrumb_contact}</span>
+			<span class="caption-helper"></span>
+		</div>
+		<div class="tools">
+			<a href="javascript:;" class="expand"></a>
+			<a href="#portlet-config" data-toggle="modal" class="config"></a>
+			<a href="javascript:;" class="reload"></a>
+			<a href="javascript:;" class="remove"></a>
+		</div>
+	</div>
+	<div class="portlet-body form" >
+		
+		
+								<div class="form-group">
+										<label class="col-md-2 control-label">{lang addinfo}<span class="required">
+										* </span> 
+										</label>
+										<div class="col-md-10">
+											<textarea class="span12 ckeditor m-wrap" name="info" rows="6" data-error-container="#editor2_error"><!--{if isset({$info_data['info']})}-->{$info_data['info']}<!--{/if}--></textarea>
+										</div>
+									</div>
+
+								<div class="form-group">
+                                                <label class="control-label col-md-2 label-img">Ảnh</label>
+                                                <div class="col-md-8">
+                                                    <div class="fileinput <!--{if !empty($info_data['img'])}-->fileinput-exists<!--{else}-->fileinput-new<!--{/if}-->" data-provides="fileinput">
+                                                        <p class="label2">{lang title_img}</p>
+                                                        <!--{if !empty($info_data['img'])}-->
+                                                        <input type="hidden" value="1" name="img_cat"/>
+                                                        <!--{/if}-->
+                                                        <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                                            <img src="{$_B['home_theme']}assets/no_image.gif" alt="Avatar"/>
+                                                        </div>
+                                                        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+                                                            <img src="<!--{if isset({$info_data['img']})}-->{$_B['upload_path']}{$info_data['img']}<!--{/if}-->" onerror="this.onerror=null;this.src='{$_B['home_theme']}assets/no_image.gif'" alt="" />
+                                                        </div>
+                                                        <div>
+                                                            <span class="btn default btn-file">
+                                                            <span class="fileinput-new">
+                                                            {lang select_img} </span>
+                                                            <span class="fileinput-exists">
+                                                            {lang change_img} </span>
+                                                            <input type="file" name="img_cat" id="img_cat">
+                                                            </span>
+                                                            <a href="#" class="btn default fileinput-exists" data-dismiss="fileinput">
+                                                            {lang delete} </a>
+                                                        </div>
+                                                    </div>
+                                                    
+                        
+                                                    <div class="fileinput <!--{if !empty($info_data['icon'])}-->fileinput-exists<!--{else}-->fileinput-new<!--{/if}-->" data-provides="fileinput">
+                                                        <p class="label2">{lang bieutuong}</p>
+                                                        <!--{if !empty($info_data['icon'])}-->
+                                                        <input type="hidden" value="1" name="icon_cat"/>
+                                                        <!--{/if}-->
+                                                        <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                                            <img src="{$_B['home_theme']}assets/no_image.gif" alt="Avatar"/>
+                                                        </div>
+                                                        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+                                                            <img src="<!--{if isset({$info_data['icon']})}-->{$_B['upload_path']}{$info_data['icon']}<!--{/if}-->" onerror="this.onerror=null;this.src='{$_B['home_theme']}assets/no_image.gif'" alt="" />
+                                                        </div>
+                                                        <div>
+                                                            <span class="btn default btn-file">
+                                                            <span class="fileinput-new">
+                                                            {lang select_img} </span>
+                                                            <span class="fileinput-exists">
+                                                            {lang change_img} </span>
+                                                            <input type="file" name="icon_cat" id="icon_cat">
+                                                            </span>
+                                                            <a href="#" class="btn default fileinput-exists" data-dismiss="fileinput">
+                                                            {lang delete} </a>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="fileinput <!--{if !empty($info_data['bg'])}-->fileinput-exists<!--{else}-->fileinput-new<!--{/if}-->" data-provides="fileinput">
+                                                        <p class="label2">{lang anhnen}</p>
+                                                        <!--{if !empty($info_data['bg'])}-->
+                                                        <input type="hidden" value="1" name="bg_cat"/>
+                                                        <!--{/if}-->
+                                                        <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                                            <img src="{$_B['home_theme']}assets/no_image.gif" alt="Avatar"/>
+                                                        </div>
+                                                        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+                                                            <img src="<!--{if isset({$info_data['bg']})}-->{$_B['upload_path']}{$info_data['bg']}<!--{/if}-->" onerror="this.onerror=null;this.src='{$_B['home_theme']}assets/no_image.gif'" alt="" />
+                                                        </div>
+                                                        <div>
+                                                            <span class="btn default btn-file">
+                                                            <span class="fileinput-new">
+                                                            {lang select_img} </span>
+                                                            <span class="fileinput-exists">
+                                                            {lang change_img} </span>
+                                                            <input type="file" name="bg_cat" id="bg_cat">
+                                                            </span>
+                                                            <a href="#" class="btn default fileinput-exists" data-dismiss="fileinput">
+                                                            {lang delete} </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+								<div class="form-group">
+										<label class="col-md-2 control-label">{lang manhungbando}<span class="required">
+										* </span> 
+										</label>
+										<div class="col-md-10">
+											<textarea class="form-control" name="maps" rows="6" ><!--{if isset({$info_data['maps']})}-->{$info_data['maps']}<!--{/if}--></textarea>
+										</div>
+									</div>
+
+								<div class="form-group">
+										<label class="control-label col-md-2">{lang active} <span class="required">
+										* </span>
+										</label>
+										<div class="col-md-3">
+											<select class="form-control" name="status" data-error="{lang contactinfo_error}">
+												<option value="1" <!--{if $info_data['status']==1}-->selected="selected"<!--{/if}-->>{lang active}</option>
+												<option value="0"  <!--{if $info_data['status']==0}-->selected="selected"<!--{/if}-->>{lang non_active}</option>
+											</select>
+										</div>
+									</div>
+
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2">Email <span class="required">
+                                            * </span>
+                                        </label>
+                                        <div class="col-md-3">
+                                            <input class="form-control" name="email" value="<!--{if isset({$info_data['email']})}-->{$info_data['email']}<!--{/if}-->" data-error="{lang contactinfo_error}">
+                                        </div>
+                                    </div>
+	</div>
+</div>

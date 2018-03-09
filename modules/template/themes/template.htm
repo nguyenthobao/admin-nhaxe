@@ -1,0 +1,100 @@
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/select2/select2.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-editable/bootstrap-editable/css/bootstrap-editable.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-editable/inputs-ext/address/address.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-colorpicker/css/colorpicker.css"/>
+
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+	<div class="col-md-12">
+
+		<div class="portlet">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="fa fa-navicon"></i>{lang title_setting_basic}
+				</div>					
+			</div>
+			<div class="portlet box box-template">					
+				<div class="portlet-title">
+					<ul class="nav nav-tabs tabs-template">					
+						<li class="active">
+							<a href="#tab_2" data-toggle="tab">{lang logo}</a>
+						</li>
+						<li class="">
+							<a href="#tab_3" data-toggle="tab">{lang background_page}</a>
+						</li>							
+						<li class="">
+							<a href="#tab_4" data-toggle="tab">{lang sound_page}</a>
+						</li>						
+						<li class="">
+							<a href="#tab_5" data-toggle="tab">Giao diện</a>
+						</li>
+						 
+					</ul>
+				</div>
+				<div class="portlet-body util-btn-margin-bottom-5">
+					<div class="tab-content">
+						
+						<div class="tab-pane active" id="tab_2">
+							<div class="clearfix">
+								<!--{temp logo}-->
+							</div>
+						</div>
+						<div class="tab-pane" id="tab_3">
+							<div class="clearfix">
+								<!--{temp background}-->
+							</div>
+						</div>
+						<div class="tab-pane" id="tab_4">
+							<div class="clearfix">
+								<!--{temp audio}-->
+							</div>
+						</div> 
+						<div class="tab-pane" id="tab_5">
+							<div class="clearfix"> 
+								<!--{temp giaodien}-->
+							</div>
+						</div> 
+					</div>
+				</div>
+			</div>
+							
+		</div>
+
+	</div>
+</div>
+
+<!-- BEGIN PLUGINS USED BY X-EDITABLE -->
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/moment.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery.mockjax.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-editable/bootstrap-editable/js/bootstrap-editable.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-editable/inputs-ext/address/address.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-editable/inputs-ext/wysihtml5/wysihtml5.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+
+
+<link href="{$_B['mod_theme']}css/style.css" rel="stylesheet" type="text/css" />
+<!-- END X-EDITABLE PLUGIN -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="{$_B['mod_theme']}js/template.js"></script>
+<script type="text/javascript" laguage="javascript">
+    jQuery(document).ready(function() {
+       Template.init();       
+    });
+</script>
+<script type="text/javascript">
+function validate(evt) {
+  	var theEvent = evt || window.event;
+  	var key = theEvent.keyCode || theEvent.which;
+  	key = String.fromCharCode( key );
+  	var regex = /[0-9]|\./;
+  	if( !regex.test(key) ) {
+    	theEvent.returnValue = false;
+    	if(theEvent.preventDefault) theEvent.preventDefault();
+  	}
+}
+</script>
+<!-- END JAVASCRIPTS -->

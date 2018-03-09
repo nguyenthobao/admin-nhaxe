@@ -1,0 +1,23 @@
+
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<config>
+    <name_modue>contact</name_modue> 
+    <menus>        
+        <menu>
+            <title>contact</title>
+            <link>/contact-contactview-lang-vi</link>
+            <icon>icon-docs</icon>
+            <mod>contact</mod>
+            <submenu>
+                <title>contact_add</title>
+                <link>/contact-contactlist-lang-vi</link>
+                <icon>icon-plus</icon>
+            </submenu>
+            <submenu>
+                <title>contact_view</title>
+                <link>/contact-contactview-lang-vi</link>
+                <icon>icon-list</icon>
+            </submenu>
+        </menu>        
+    </menus>
+</config>

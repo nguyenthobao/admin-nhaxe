@@ -1,0 +1,1735 @@
+<!-- <form method="post" action="/news-demophantrang" enctype="multipart/form-data">
+up ảnh <input type="file" name="img" />
+<input type="submit" name="submit" value="sub"/>
+</form>
+
+
+<form method="post" action="/news-demophantrang" enctype="multipart/form-data">
+Xoá ảnh
+<input value="" type="text" name="link">
+<input type="submit" name="submit" value="sub"/>
+</form> -->
+
+
+<form method="post" action="/news-demophantrang" id="formular" name="formular" enctype="multipart/form-data" onsubmit="return form_validate();">
+
+	
+	<div class="ai_header">Thông tin liên hệ&nbsp;<span class="ai_header_notice">(Vui lòng điền đầy đủ tất cả các mục)</span></div>
+	
+	<div class="QUICKFILLIN_TITLE" id="QUICKFILLIN_TITLE">
+		<span>Bạn đã từng bán với Chợ Tốt? <b>Dùng thông tin trước đây để điền nhanh hơn</b>.</span>
+		<a onclick="openQuickFillInForm(); " href="javascript:;" id="QuickFillInLink">ĐIỀN NHANH</a>
+		<div class="clear"></div>
+	</div>
+	
+	<div class="ai_row">
+		<div class="ai_label">Tên:</div>
+		<div class="ai_element">
+			<input id="name" name="name" class="vietuni input_short" size="35" maxlength="50" value="huong nguyen" type="text">
+			
+
+
+
+
+			<div id="name_tooltip" class="tooltip" style="display: none;">
+				<div id="name_tooltip_triangle" class="triangle">&nbsp;</div>
+				<span></span>
+				<div class="tooltip_content">
+					<span id="tooltip_content">Khách hàng cá nhân được đăng tối đa 3 tin mỗi chuyên mục. Chọn 'công ty' nếu bạn muốn đăng nhiều hơn. Mỗi công ty được đăng 30 tin miễn phí.</span>
+				</div>
+				<div class="clear"></div>
+			</div>
+
+
+			
+			<div id="name_warntip" class="warntip" style="display: none;">
+				<div id="name_warntip_triangle" class="triangle">&nbsp;</div>
+				<span></span>
+				<div class="warntip_content">
+					<span id="warntip_content">Thiếu tên</span>
+				</div>
+				<div class="clear"></div>
+			</div>
+			
+
+
+			<div class="tip_sign sprite_ai_good" id="name_good_sign" style="display: inline;"></div>
+
+			<div class="tip_sign sprite_ai_warn" id="name_bad_sign" style="display: none;"></div>
+
+
+
+			<div id="err_name" style="display: none">
+				<span class="warning nohistory"></span>
+			</div>
+
+			
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="ai_row">
+		<div class="ai_label">E-mail:</div>
+		<div class="ai_element">
+			<input name="email" type="text" id="email" class="input_short" value="huongnb@webbnc.vn" size="35" maxlength="60">
+			
+
+
+
+
+			<div id="email_tooltip" class="tooltip" style="display:none">
+				<div id="email_tooltip_triangle" class="triangle">&nbsp;</div>
+				<span></span>
+				<div class="tooltip_content">
+					<span id="tooltip_content">Chúng tôi sẽ liên hệ với bạn qua email này</span>
+				</div>
+				<div class="clear"></div>
+			</div>
+
+
+			
+			<div id="email_warntip" class="warntip" style="display: none;">
+				<div id="email_warntip_triangle" class="triangle">&nbsp;</div>
+				<span></span>
+				<div class="warntip_content">
+					<span id="warntip_content">Email bạn điền chưa hợp lệ.</span>
+				</div>
+				<div class="clear"></div>
+			</div>
+			
+
+
+			<div class="tip_sign sprite_ai_good" id="email_good_sign" style="display: none;"></div>
+
+			<div class="tip_sign sprite_ai_warn" id="email_bad_sign" style="display: none;"></div>
+
+
+
+			<div id="email_info" class="Info">Email của bạn sẽ không được hiển thị trong nội dung tin</div>
+			<div id="err_email" style="display: none">
+				<span class="warning nohistory"></span>
+			</div>
+
+			
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="ai_row">
+		<div class="ai_label">Số điện thoại:</div>
+		<div class="ai_element">
+			<input id="phone" name="phone" class="input_short" size="17" maxlength="13" value="0975989598" type="text">
+				<!--<input id="phone_hidden" name="phone_hidden" value="1" type="checkbox"  />
+				<label for="phone_hidden">Ẩn số điện thoại</label>-->
+				
+
+
+
+
+				<div id="phone_tooltip" class="tooltip" style="display:none">
+					<div id="phone_tooltip_triangle" class="triangle">&nbsp;</div>
+					<span></span>
+					<div class="tooltip_content">
+						<span id="tooltip_content">Điền đầy đủ mã vùng nếu là số điện thoại cố định.<br>Ví dụ: 01234567890 hoặc 0812345678</span>
+					</div>
+					<div class="clear"></div>
+				</div>
+
+
+				
+				<div id="phone_warntip" class="warntip" style="display: none;">
+					<div id="phone_warntip_triangle" class="triangle">&nbsp;</div>
+					<span></span>
+					<div class="warntip_content">
+						<span id="warntip_content">Thiếu số điện thoại</span>
+					</div>
+					<div class="clear"></div>
+				</div>
+				
+
+
+				<div class="tip_sign sprite_ai_good" id="phone_good_sign" style="display: none;"></div>
+
+				<div class="tip_sign sprite_ai_warn" id="phone_bad_sign" style="display: none;"></div>
+
+
+
+				<div id="err_phone" style="display: none">
+					<span class="warning nohistory"></span>
+				</div>
+
+				
+			</div>
+			<div class="clear"></div>
+		</div>
+		
+		<div class="ai_row">
+			<div class="ai_label">Địa chỉ:</div>
+			<div class="ai_element">
+				<input name="seller_addr" type="text" id="seller_addr" class="input_short" value="51 le dai hanh" size="35" maxlength="60">
+				
+
+
+
+
+
+				
+				<div class="tip_sign sprite_ai_warn" id="seller_addr_warntip" style="display: none;"></div>
+				
+				
+
+
+				<div class="tip_sign sprite_ai_good" id="seller_addr_good_sign" style="display: none;"></div>
+
+				<div class="tip_sign sprite_ai_warn" id="seller_addr_bad_sign" style="display: none;"></div>
+
+
+
+				<div id="seller_addr_info" class="Info">AI_SELLER_ADDR_WILL_NOT_SHOW</div>
+				
+
+
+
+
+
+				
+				<div class="tip_sign sprite_ai_warn" id="seller_addr_warntip" style="display:none"></div>
+				
+				
+
+
+				<div class="tip_sign sprite_ai_good" id="seller_addr_good_sign" style="display:none"></div>
+
+				<div class="tip_sign sprite_ai_warn" id="seller_addr_bad_sign" style="display:none"></div>
+
+
+
+				<div id="err_seller_addr" style="display: none">
+					<span class="warning nohistory"></span>
+				</div>
+
+				
+			</div>
+			<div class="clear"></div>
+		</div>
+
+
+		
+
+		<div class="ai_header">Nội dung tin&nbsp;<span class="ai_header_notice">(Vui lòng điền đầy đủ tất cả các mục)</span></div>
+		
+		<input name="check_type_diff" id="check_type_diff" value="0" type="hidden">
+		<div class="ai_row">
+			<div class="ai_label">Chuyên mục:</div>
+			<div class="ai_element">
+				
+				<div class="div_select_long">
+					
+
+
+
+					<select name="category_group" id="category_group" sel_id="">
+						<option value="0" selected="selected">«Chọn danh mục»</option>
+						
+						<option value="2000" style="background-color:#dcdcc3;font-weight:bold;" disabled="disabled" id="cat2000">
+							
+							-- Xe --
+							
+						</option> 
+						
+						<option value="2020" id="cat2020" selected="selected">
+							Xe máy
+							
+						</option> 
+						
+						<option value="2010" id="cat2010">
+							Ô tô
+							
+						</option> 
+						
+						<option value="2060" id="cat2060">
+							Xe đạp
+							
+						</option> 
+						
+						<option value="2050" id="cat2050">
+							Xe tải, xe khác
+							
+						</option> 
+						
+						<option value="2030" id="cat2030">
+							Phụ tùng, phụ kiện xe
+							
+						</option> 
+						
+						<option value="1000" style="background-color:#dcdcc3;font-weight:bold;" disabled="disabled" id="cat1000">
+							
+							-- Bất động sản --
+							
+						</option> 
+						
+						<option value="1010" id="cat1010">
+							Căn hộ/Chung cư
+							
+						</option> 
+						
+						<option value="1020" id="cat1020">
+							Nhà &amp; Đất ở
+							
+						</option> 
+						
+						<option value="1030" id="cat1030">
+							Cơ sở thương mại
+							
+						</option> 
+						
+						<option value="1040" id="cat1040">
+							Đất nông nghiệp &amp; trang trại
+							
+						</option> 
+						
+						<option value="1050" id="cat1050">
+							Phòng cho thuê
+							
+						</option> 
+						
+						<option value="5000" style="background-color:#dcdcc3;font-weight:bold;" disabled="disabled" id="cat5000">
+							
+							-- Đồ điện tử --
+							
+						</option> 
+						
+						<option value="5010" id="cat5010">
+							Điện thoại và thiết bị di động
+							
+						</option> 
+						
+						<option value="5020" id="cat5020">
+							TV / Audio / Video / Camera
+							
+						</option> 
+						
+						<option value="5030" id="cat5030">
+							Máy tính và Phụ kiện
+							
+						</option> 
+						
+						<option value="3000" style="background-color:#dcdcc3;font-weight:bold;" disabled="disabled" id="cat3000">
+							
+							-- Nhà cửa &amp; Vật dụng cá nhân --
+							
+						</option> 
+						
+						<option value="3020" id="cat3020">
+							Đồ gia dụng &amp; sân vườn
+							
+						</option> 
+						
+						<option value="3040" id="cat3040">
+							Đồng hồ/Trang sức
+							
+						</option> 
+						
+						<option value="3030" id="cat3030">
+							Quần áo
+							
+						</option> 
+						
+						<option value="3010" id="cat3010">
+							Đồ trẻ em
+							
+						</option> 
+						
+						<option value="4000" style="background-color:#dcdcc3;font-weight:bold;" disabled="disabled" id="cat4000">
+							
+							-- Giải trí/Thể thao/Sở thích --
+							
+						</option> 
+						
+						<option value="4020" id="cat4020">
+							Thể thao &amp; Hoạt động ngoài trời
+							
+						</option> 
+						
+						<option value="4010" id="cat4010">
+							Sở thích &amp; Sưu tầm
+							
+						</option> 
+						
+						<option value="4040" id="cat4040">
+							Âm nhạc/Phim/Sách
+							
+						</option> 
+						
+						<option value="4030" id="cat4030">
+							Vật nuôi
+							
+						</option> 
+						
+						<option value="8000" style="background-color:#dcdcc3;font-weight:bold;" disabled="disabled" id="cat8000">
+							
+							-- Cơ hội kinh doanh --
+							
+						</option> 
+						
+						<option value="8010" id="cat8010">
+							Dụng cụ chuyên dụng/Đồ dùng văn phòng
+							
+						</option> 
+						
+						<option value="8020" id="cat8020">
+							Mua &amp; sang nhượng doanh nghiệp
+							
+						</option> 
+						
+						<option value="6000" style="background-color:#dcdcc3;font-weight:bold;" disabled="disabled" id="cat6000">
+							
+							-- Việc làm &amp; Dịch vụ --
+							
+						</option> 
+						
+						<option value="6010" id="cat6010">
+							Việc làm
+							
+						</option> 
+						
+						<option value="6020" id="cat6020">
+							Dịch vụ
+							
+						</option> 
+						
+						<option value="9000" style="background-color:#dcdcc3;font-weight:bold;" disabled="disabled" id="cat9000">
+							
+							-- Du lịch --
+							
+						</option> 
+						
+						<option value="9010" id="cat9010">
+							Phòng khách sạn
+							
+						</option> 
+						
+						<option value="9020" id="cat9020">
+							Du lịch nước ngoài/trong nước
+							
+						</option> 
+						
+						<option value="7000" style="background-color:#dcdcc3;font-weight:bold;" disabled="disabled" id="cat7000">
+							
+							-- Các loại khác --
+							
+						</option> 
+						
+						<option value="7010" id="cat7010">
+							Các loại khác
+							
+						</option> 
+						
+					</select>
+
+					<select class="sub_category_drop" name="sub_category" id="sub_category" sel_id="" style="display:none;">
+						<option value="0" selected="selected">«Chọn danh mục»</option>
+						
+					</select>
+
+				</div>
+				
+
+
+
+
+
+				
+				<div id="category_group_warntip" class="warntip" style="display: none;">
+					<div id="category_group_warntip_triangle" class="triangle">&nbsp;</div>
+					<span></span>
+					<div class="warntip_content">
+						<span id="warntip_content">Bạn chưa chọn danh mục của tin</span>
+					</div>
+					<div class="clear"></div>
+				</div>
+				
+
+
+				<div class="tip_sign sprite_ai_good" id="category_group_good_sign" style="display: none;"></div>
+
+				<div class="tip_sign sprite_ai_warn" id="category_group_bad_sign" style="display: none;"></div>
+
+
+
+				<div id="err_category" style="display: none">
+					<span class="warning nohistory"></span>
+				</div>
+
+				
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="ai_row">
+			<div class="ai_label">Vùng:</div>
+			<div class="ai_element">
+				<div class="div_select_long">
+					<select name="region" id="region">
+						<option value="0">«Chọn»</option>
+						<option value="12" selected="selected"> Hà Nội</option>
+						<option value="13"> Tp Hồ Chí Minh</option>
+						<option value="10"> Đông Bắc Bộ</option>
+						<option value="11"> Tây Bắc Bộ</option>
+						<option value="1"> Các tỉnh lân cận Hà Nội</option>
+						<option value="4"> Hải Phòng Nam Định Thái Bình</option>
+						<option value="8"> Thanh Nghệ Tĩnh</option>
+						<option value="6"> Bình Trị Thừa Thiên Huế</option>
+						<option value="3"> Quảng Nam Đà Nẵng</option>
+						<option value="9"> Tây Nguyên</option>
+						<option value="7"> Nam Trung Bộ</option>
+						<option value="2"> Đông Nam Bộ</option>
+						<option value="5"> Cần Thơ - Tây Nam Bộ</option>
+
+					</select>
+				</div>
+				
+
+
+
+
+
+				
+				<div class="tip_sign sprite_ai_warn" id="region_warntip" style="display: none;"></div>
+				
+				
+
+
+				<div class="tip_sign sprite_ai_good" id="region_good_sign" style="display: none;"></div>
+
+				<div class="tip_sign sprite_ai_warn" id="region_bad_sign" style="display: none;"></div>
+
+
+
+				<div id="err_region" style="display: none">
+					<span class="warning nohistory"></span>
+				</div>
+
+				<div class="warning" id="region_tips" style="display:none; clear:both; float:none">
+					
+				</div>
+				
+			</div>
+			<div class="clear"></div>
+		</div>
+		
+		<div class="ai_row">
+			<div class="ai_label" id="area_label" style="display:none">Tỉnh thành phố:</div>
+			<div class="ai_element">
+				<div id="area_div" class="div_select_long" style="display:none">
+					<select id="area" name="area" style="display:none">
+						<option value="">«Chọn tỉnh thành phố»</option> 
+						
+						<option value="73"> 
+							Quận Hoàn Kiếm</option>
+							<option value="74"> 
+								Quận Ba Đình</option>
+								<option value="75"> 
+									Quận Đống Đa</option>
+									<option value="76"> 
+										Quận Hai Bà Trưng</option>
+										<option value="77"> 
+											Quận Thanh Xuân</option>
+											<option value="78"> 
+												Quận Tây Hồ</option>
+												<option value="79"> 
+													Quận Cầu Giấy</option>
+													<option value="80"> 
+														Quận Hoàng Mai</option>
+														<option value="81"> 
+															Quận Long Biên</option>
+															<option value="82"> 
+																Huyện Đông Anh</option>
+																<option value="83"> 
+																	Huyện Sóc Sơn</option>
+																	<option value="84"> 
+																		Huyện Thanh Trì</option>
+																		<option value="85"> 
+																			Huyện Từ Liêm</option>
+																			<option value="86"> 
+																				Quận Hà Đông</option>
+																				<option value="87"> 
+																					Thị Xã Sơn Tây</option>
+																					<option value="88"> 
+																						Huyện Đan Phượng</option>
+																						<option value="89"> 
+																							Huyện Hoài Đức</option>
+																							<option value="90"> 
+																								Huyện Quốc Oai</option>
+																								<option value="91"> 
+																									Huyện Thạch Thất</option>
+																									<option value="92"> 
+																										Huyện Chương Mỹ</option>
+																										<option value="93"> 
+																											Huyện Thường Tín</option>
+																											<option value="94"> 
+																												Huyện Phú Xuyên</option>
+																												<option value="95"> 
+																													Quận huyện khác</option>
+
+																													
+																													
+																												</select>
+																											</div>
+																											<span style="position: relative; top: 2px" id="area_fixed"></span>
+																											<div id="info_area" class="warning" style="display:none; clear:both; float:none"></div>
+																											
+
+
+
+
+
+																											
+																											<div class="tip_sign sprite_ai_warn" id="area_warntip" style="display:none"></div>
+																											
+																											
+
+
+																											<div class="tip_sign sprite_ai_good" id="area_good_sign" style="display:none"></div>
+
+																											<div class="tip_sign sprite_ai_warn" id="area_bad_sign" style="display:none"></div>
+
+
+
+																											<div id="err_area" style="display: none">
+																												<span class="warning nohistory"></span>
+																											</div>
+
+																											
+																										</div>
+																										<div class="clear"></div>
+																									</div>	
+																									
+																									<div class="ai_row">
+																										<div class="ai_label">Bạn là:</div>
+																										<div class="ai_element radio_group" name="company_ad">
+																											<div class="dradio_group">
+																												<div class="ai_radio_group">
+																													<input id="p_ad" name="company_ad" value="0" checked="checked" type="radio">
+																													<label for="p_ad">Cá nhân</label>&nbsp;&nbsp;
+																												</div>
+																												<div class="ai_radio_group">
+																													<input id="c_ad" name="company_ad" value="1" type="radio">
+																													<label for="c_ad">Công ty</label>
+																												</div>
+																												<div id="company_ad_error"></div>
+																											</div>
+																											<div class="dradio_group_tip">
+																												<div style="display: none;" id="type_warntip" class="tip_sign sprite_ai_warn"></div>
+																												<div style="display: none;" id="type_good_sign" class="tip_sign sprite_ai_good"></div>
+																												<div style="display: none;" id="type_bad_sign" class="tip_sign sprite_ai_warn"></div>
+																											</div>
+																											<div class="dradio_group_tip">
+																												<div id="adtype_tip" class="tooltip_spec">
+																													<div class="triangle_spec">&nbsp;</div>
+																													<span></span>
+																													<div class="tooltip_content">
+																														<span id="tooltip_content" class="warning warning_spec">Khách hàng cá nhân được đăng tối đa 3 tin mỗi chuyên mục. Chọn 'công ty' nếu bạn muốn đăng nhiều hơn. Mỗi công ty được đăng 30 tin miễn phí.</span>
+																													</div>
+																													<div class="clear"></div>
+																												</div>
+																											</div>
+																											
+																										</div>
+																										<div class="clear"></div>
+																									</div>
+
+																									<div class="ai_row">
+																										<div class="ai_label">Bạn đăng tin:</div>
+																										<div class="ai_element radio_group" id="type_container" name="type">
+																											<div class="dradio_group">
+																												
+																												<div class="ai_radio_group">
+																													<input id="rs" type="radio" name="type" value="s" checked="checked">
+																													<label for="rs"> Cần bán</label>
+																												</div>
+																												
+																												<div class="ai_radio_group">
+																													<input id="rk" type="radio" name="type" value="k">
+																													<label for="rk"> Cần mua</label>
+																												</div>
+																												
+																												
+																											</div>
+																										</div>
+																										<div class="dradio_group_tip">
+																											
+
+
+
+
+
+																											
+																											<div class="tip_sign sprite_ai_warn" id="type_warntip" style="display:none"></div>
+																											
+																											
+
+
+																											<div class="tip_sign sprite_ai_good" id="type_good_sign" style="display:none"></div>
+
+																											<div class="tip_sign sprite_ai_warn" id="type_bad_sign" style="display:none"></div>
+
+
+
+																										</div>
+																										<div class="clear"></div>
+																									</div>
+
+																									<div id="category_contents" class="maintext">
+																										
+																										
+																										
+																										<div class="form_table margin_bottom cat_data">
+																											
+																											<div class="ai_row cat_data">
+																												<div class="ai_label">Tình trạng:</div>
+																												<div class="ai_element radio_group" name="condition_ad">
+																													<div class="dradio_group">
+																														<div class="ai_radio_group">
+																															<input id="condition_ad_used" name="condition_ad" value="1" checked="checked" type="radio">
+																															<label for="condition_ad_used">Đã sử dụng</label>
+																														</div>
+																														<div class="ai_radio_group">
+																															<input id="condition_ad_new" name="condition_ad" value="2" type="radio">
+																															<label for="condition_ad_new">Mới</label>
+																														</div>
+																														<div id="err_condition_ad" style="display: none">
+																															<span class="warning nohistory"></span>
+																														</div>
+
+																													</div>
+																													<div class="dradio_group_tip">
+																														
+
+
+
+
+
+																														
+																														<div class="tip_sign sprite_ai_warn" id="condition_ad_warntip" style="display: none;"></div>
+																														
+																														
+
+
+																														<div class="tip_sign sprite_ai_good" id="condition_ad_good_sign" style="display: inline;"></div>
+
+																														<div class="tip_sign sprite_ai_warn" id="condition_ad_bad_sign" style="display: none;"></div>
+
+
+
+																													</div>
+																												</div>
+																												<div class="clear"></div>
+																											</div>
+
+
+																											
+																											
+																											
+																											
+																											
+																											
+
+
+
+
+
+																											<div style="display:none" id="zipcode_">
+																												<div class="ParamContainer">
+																													<div class="param_label" style="display:none">Mã vùng:</div>
+																													<div style="display:none" class="param_cell_zipcode param_content">
+																														
+																														<div class="warning" style="display:none; clear:both; float:none; white-space:nowrap">
+																															
+																														</div>
+																													</div>
+																													
+																													<div class="clear"></div>
+																												</div>
+																												<div class="tips_long" style="display:none;" id="tips_long_zipcode_">
+																													<div style="display:none;">
+																														<div class="warning mis_lef">
+																															
+																														</div>
+																													</div>
+																													
+																												</div>
+																											</div>
+
+																											
+																											<div class="ai_row" id="hide_address_row" style="display:none">
+																												<div class="ai_label"></div>
+																												<div class="ai_element">
+																													<input type="checkbox" id="hide_address" name="hide_address" value="1">
+																													<label for="hide_address">XLATE Dölj kommun och kartlänk i annonsen</label>
+																												</div>
+																												<div class="clear"></div>
+																											</div>
+
+																										</div>
+																										<div class="form_table cat_data">
+																											
+																											
+																											
+																											
+																											
+																											
+																											
+																											
+
+																											
+																											
+																											
+																											
+
+
+
+
+																											
+																											
+
+																											
+																											
+
+																											<div style="display:table-row" id="regdate_mileage_">
+																												<div class="ParamContainer">
+																													<div class="param_label" style="display:table-cell">Năm đăng ký:</div>
+																													<div style="display:table-cell" class="param_cell_regdate param_content">
+																														<div class="div_select_short">
+																															<select name="regdate" id="regdate">
+																																<option value="">«Chọn năm đăng ký»</option>
+																																<option value="1980">trước năm 1980</option>
+
+																																<option value="1981">1981</option>
+
+																																<option value="1982">1982</option>
+
+																																<option value="1983">1983</option>
+
+																																<option value="1984">1984</option>
+
+																																<option value="1985">1985</option>
+
+																																<option value="1986">1986</option>
+
+																																<option value="1987">1987</option>
+
+																																<option value="1988">1988</option>
+
+																																<option value="1989">1989</option>
+
+																																<option value="1990" selected="selected">1990</option>
+
+																																<option value="1991">1991</option>
+
+																																<option value="1992">1992</option>
+
+																																<option value="1993">1993</option>
+
+																																<option value="1994">1994</option>
+
+																																<option value="1995">1995</option>
+
+																																<option value="1996">1996</option>
+
+																																<option value="1997">1997</option>
+
+																																<option value="1998">1998</option>
+
+																																<option value="1999">1999</option>
+
+																																<option value="2000">2000</option>
+
+																																<option value="2001">2001</option>
+
+																																<option value="2002">2002</option>
+
+																																<option value="2003">2003</option>
+
+																																<option value="2004">2004</option>
+
+																																<option value="2005">2005</option>
+
+																																<option value="2006">2006</option>
+
+																																<option value="2007">2007</option>
+
+																																<option value="2008">2008</option>
+
+																																<option value="2009">2009</option>
+
+																																<option value="2010">2010</option>
+
+																																<option value="2011">2011</option>
+
+																																<option value="2012">2012</option>
+
+																																<option value="2013">2013</option>
+
+																																<option value="2014">2014</option>
+
+																																
+																															</select>
+																														</div>
+																														<div class="dradio_group_tip">
+
+
+
+
+
+																															
+																															<div class="tip_sign sprite_ai_warn" id="regdate_warntip" style="display: none;"></div>
+																															
+																															
+
+
+																															<div class="tip_sign sprite_ai_good" id="regdate_good_sign" style="display: none;"></div>
+
+																															<div class="tip_sign sprite_ai_warn" id="regdate_bad_sign" style="display: none;"></div>
+
+
+																														</div>
+																														<div class="clear"></div>
+																														<div id="err_regdate" style="display: none">
+																															<span class="warning nohistory"></span>
+																														</div>
+
+
+																														<div class="warning" style="display:none; clear:both; float:none; white-space:nowrap">
+																															
+																														</div>
+																													</div>
+																													<div class="param_label" style="display:table-cell">Số Km đã đi:</div>
+																													<div style="display:table-cell" class="param_cell_mileage param_content">
+																														<div class="div_select_short">
+																															<select name="mileage" id="mileage">
+																																<option value="">«Chọn số km đã đi»</option>
+																																<option value="1">0 - 4 999</option>
+
+																																<option value="2">5 000 - 9 999</option>
+
+																																<option value="3">10 000 - 14 999</option>
+
+																																<option value="4" selected="selected">15 000 - 19 999</option>
+
+																																<option value="5">20 000 - 24 999</option>
+
+																																<option value="6">25 000 - 29 999</option>
+
+																																<option value="7">30 000 - 34 999</option>
+
+																																<option value="8">35 000 - 39 999</option>
+
+																																<option value="9">40 000 - 44 999</option>
+
+																																<option value="10">45 000 - 49 999</option>
+
+																																<option value="11">50 000 - 54 999</option>
+
+																																<option value="12">55 000 - 59 999</option>
+
+																																<option value="13">60 000 - 64 999</option>
+
+																																<option value="14">65 000 - 69 999</option>
+
+																																<option value="15">70 000 - 74 999</option>
+
+																																<option value="16">75 000 - 79 999</option>
+
+																																<option value="17">80 000 - 84 999</option>
+
+																																<option value="18">85 000 - 89 999</option>
+
+																																<option value="19">90 000 - 94 999</option>
+
+																																<option value="20">95 000 - 99 999</option>
+
+																																<option value="21">100 000 - 109 999</option>
+
+																																<option value="22">110 000 - 119 999</option>
+
+																																<option value="23">120 000 - 129 999</option>
+
+																																<option value="24">130 000 - 139 999</option>
+
+																																<option value="25">140 000 - 149 999</option>
+
+																																<option value="26">150 000 - 159 999</option>
+
+																																<option value="27">160 000 - 169 999</option>
+
+																																<option value="28">170 000 - 179 999</option>
+
+																																<option value="29">180 000 - 189 999</option>
+
+																																<option value="30">190 000 - 199 999</option>
+
+																																<option value="31">200 000 - 249 999</option>
+
+																																<option value="32">250 000 - 299 999</option>
+
+																																<option value="33">300 000 - 349 999</option>
+
+																																<option value="34">350 000 - 399 999</option>
+
+																																<option value="35">400 000 - 449 999</option>
+
+																																<option value="36">450 000 - 499 999</option>
+
+																																<option value="37">nhiều hơn 500 ngàn</option>
+
+																																<option value="desc"></option>
+
+																																
+																															</select>
+																														</div>
+																														<div class="dradio_group_tip">
+
+
+
+
+
+																															
+																															<div class="tip_sign sprite_ai_warn" id="mileage_warntip" style="display: none;"></div>
+																															
+																															
+
+
+																															<div class="tip_sign sprite_ai_good" id="mileage_good_sign" style="display: none;"></div>
+
+																															<div class="tip_sign sprite_ai_warn" id="mileage_bad_sign" style="display: none;"></div>
+
+
+																														</div>
+																														<div class="clear"></div>
+																														<div id="err_mileage" style="display: none">
+																															<span class="warning nohistory"></span>
+																														</div>
+
+
+
+																														<div class="warning" style="display:none; clear:both; float:none; white-space:nowrap">
+																															
+																														</div>
+																													</div>
+																													
+																													<div class="clear"></div>
+																												</div>
+																												<div class="tips_long" style="display:none;" id="tips_long_regdate_mileage_">
+																													<div style="display:none;">
+																														<div class="warning mis_lef">
+																															
+																														</div>
+																													</div>
+																													<div style="display:none;">
+																														<div class="warning mis_lef">
+																															
+																														</div>
+																													</div>
+																													
+																												</div>
+																											</div>
+
+																											
+
+																										</div>
+																										<div class="form_table cat_data">
+																											
+																											<input type="hidden" name="lang" value="vi">
+																											
+																											
+
+
+																											<div class="ai_row">
+																												<div class="ai_label ai_label_subject">Tựa đề:
+																													<small class="input_count">
+																														<span id="subject_counter" class="normal_counter">21/50</span>
+																													</small>
+																												</div>
+																												<div class="ai_element">
+																													
+																													
+																													<input class="input_long" type="text" id="subject" name="subject" size="46" maxlength="50" value="Xe máy chất lượng cao" title="Dùng tiếng việt có dấu." placeholder="Dùng tiếng việt có dấu.">
+																													
+																													
+
+
+
+
+																													<div id="subject_tooltip" class="tooltip" style="display:none">
+																														<div id="subject_tooltip_triangle" class="triangle">&nbsp;</div>
+																														<span></span>
+																														<div class="tooltip_content">
+																															<span id="tooltip_content">Tựa đề dài ít nhất 2 kí tự và không được có những từ "mua", "bán", "cần thuê", "muốn thuê" hoặc năm đăng ký xe và số điện thoại.</span>
+																														</div>
+																														<div class="clear"></div>
+																													</div>
+
+
+																													
+																													<div id="subject_warntip" class="warntip" style="display: none;">
+																														<div id="subject_warntip_triangle" class="triangle">&nbsp;</div>
+																														<span></span>
+																														<div class="warntip_content">
+																															<span id="warntip_content">Tựa đề phải dài ít nhất 2 kí tự và không được có những từ "mua", "bán", "cần thuê", "muốn thuê" hoặc năm đăng ký xe và số điện thoại.</span>
+																														</div>
+																														<div class="clear"></div>
+																													</div>
+																													
+
+
+																													<div class="tip_sign sprite_ai_good" id="subject_good_sign" style="display: none;"></div>
+
+																													<div class="tip_sign sprite_ai_warn" id="subject_bad_sign" style="display: none;"></div>
+
+
+
+																													<span id="subject_info" class="Info clear">Tựa đề không được có những từ "cần bán", "bán", "mua","thuê"</span>
+																													<div id="err_subject" style="display: none">
+																														<span class="warning nohistory"></span>
+																													</div>
+
+																													<div class="warning" style="display:none; clear:both; float:none">
+																														
+																													</div>
+																												</div>
+																												<div class="clear"></div>
+																											</div>
+
+																											<div class="ai_row">
+																												<div class="ai_label">Nội dung tin:
+																													<small class="input_count">
+																														<span id="body_counter" class="normal_counter">21/2000</span>
+																													</small>
+																												</div>
+																												<div class="ai_element">
+																													<textarea cols="43" rows="10" name="body" maxlength="2000" class="vietuni placeholder input_long_textarea" id="body" title="Điền nội dung tin chi tiết bạn muốn rao bằng tiếng việt có dấu." placeholder="Điền nội dung tin chi tiết bạn muốn rao bằng tiếng việt có dấu.">Xe máy chất lượng cao</textarea>
+																													
+
+
+
+
+																													<div id="body_tooltip" class="tooltip" style="display:none">
+																														<div id="body_tooltip_triangle" class="triangle">&nbsp;</div>
+																														<span></span>
+																														<div class="tooltip_content">
+																															<span id="tooltip_content">Vui lòng không điền số điện thoại trong nội dung. Người mua sẽ tìm số trong mục Thông tin liên hệ.</span>
+																														</div>
+																														<div class="clear"></div>
+																													</div>
+
+
+																													
+																													<div id="body_warntip" class="warntip" style="display: none;">
+																														<div id="body_warntip_triangle" class="triangle">&nbsp;</div>
+																														<span></span>
+																														<div class="warntip_content">
+																															<span id="warntip_content">Nội dung dài ít nhất 2 từ.</span>
+																														</div>
+																														<div class="clear"></div>
+																													</div>
+																													
+
+
+																													<div class="tip_sign sprite_ai_good" id="body_good_sign" style="display: none;"></div>
+
+																													<div class="tip_sign sprite_ai_warn" id="body_bad_sign" style="display: none;"></div>
+
+
+																													
+																													<div id="body_info" class="Info"></div>
+																													<div id="err_body" style="display: none">
+																														<span class="warning nohistory"></span>
+																													</div>
+
+																													<div id="body_warning" class="warning" style="display:none; clear:both; float:none">
+																														
+																													</div>
+																												</div>
+																												<div class="clear"></div>
+																											</div>
+
+																											<div class="ai_row">
+																												<div class="ai_label">&nbsp;</div>
+																												<div class="ai_element"><div class="typer_vuni">
+																													<span>BỘ GÕ: </span>
+																													<input type="radio" id="typer_mode_4" name="typer_method" value="4" checked="checked" tabindex="-1">
+																													<label for="typer_mode_4">TỰ ĐỘNG</label>&nbsp;
+																													<input type="radio" id="typer_mode_1" name="typer_method" value="1" tabindex="-1">
+																													<label for="typer_mode_1">TELEX</label>&nbsp;
+																													<input type="radio" id="typer_mode_2" name="typer_method" value="2" tabindex="-1">
+																													<label for="typer_mode_2">VNI</label>&nbsp;
+																													<input type="radio" id="typer_mode_3" name="typer_method" value="3" tabindex="-1">
+																													<label for="typer_mode_3">VIQR</label>&nbsp;
+																													<input type="radio" id="typer_mode_0" name="typer_method" value="0" tabindex="-1">
+																													<label for="typer_mode_0">TẮT</label>
+																													<script type="text/javascript">
+        // Switchs Vietnamese typing method
+        $("input[name=typer_method]").change(function() { vUni.setMethod(parseInt($(this).val())); });
+        </script>
+    </div>
+</div>
+<div class="clear"></div>
+</div>
+
+
+
+<div class="ai_row" id="price_box" style="display: table-row;">
+	<div class="ai_label">Giá:
+	</div>
+	<div class="ai_element">
+		
+		<input name="price" class="input_short" size="12" maxlength="19" value="6 000 000" id="price" type="text">
+		<div class="fleft">&nbsp;đ</div>
+		
+
+
+
+
+		<div id="price_tooltip" class="tooltip" style="display:none">
+			<div id="price_tooltip_triangle" class="triangle">&nbsp;</div>
+			<span></span>
+			<div class="tooltip_content">
+				<span id="tooltip_content">Điền tổng giá tiền VNĐ</span>
+			</div>
+			<div class="clear"></div>
+		</div>
+
+
+		
+		<div id="price_warntip" class="warntip" style="display: none;">
+			<div id="price_warntip_triangle" class="triangle">&nbsp;</div>
+			<span></span>
+			<div class="warntip_content">
+				<span id="warntip_content">Thiếu giá tiền</span>
+			</div>
+			<div class="clear"></div>
+		</div>
+		
+
+
+		<div class="tip_sign sprite_ai_good" id="price_good_sign" style="display: none;"></div>
+
+		<div class="tip_sign sprite_ai_warn" id="price_bad_sign" style="display: none;"></div>
+
+
+
+		
+		
+		
+		
+		<div id="err_price" style="display: none">
+			<span class="warning nohistory"></span>
+		</div>
+
+		
+	</div>
+	<div class="clear"></div>
+	<div class="trans_price" id="tprice"></div>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="ai_row">
+	<div class="ai_label">Hình:</div>
+	<div class="ai_element" style="width:663px;margin-bottom: -23px;">
+		<script type="text/javascript">
+		$(document).ready(function () {
+			
+			if(extra_images==0) {
+				$("#dummy_image_"+extra_images).addClass('image-placeholder-show');
+				$("#dummy_image_"+extra_images).removeClass('image-placeholder-hide');
+			}
+			
+			sxiti = xtn2;
+			
+			var dropZone = document.getElementById('drop_zone');
+			dropZone.addEventListener('dragover', cancel, false);
+			dropZone.addEventListener('dragenter', cancel, false);
+			dropZone.addEventListener('drop', filesDrop, true);
+			
+			
+			upfiles = new Array();
+			upstatus = new Array();
+			usedholder = new Array();
+			var lholder = $('.image-placeholder').length;
+			initVar();
+			function initVar(){
+				for(var i=0; i<lholder; i++){
+					upstatus[i] = 0;
+					usedholder[i] = 0;
+				}
+			}
+
+			function cancel(event) {
+				if (event.preventDefault) {
+					event.preventDefault();
+				}
+				if (event.stopPropagation) {
+					event.stopPropagation();
+				}
+				return false;
+			}
+
+			function filesDrop(e){
+				cancel(e);
+				xt_click(this,'C',sxiti,'drop_images','A');
+				if (e.dataTransfer.files.length == 0){
+					return false;
+				}
+				var startPoint = getsPoint();
+				var runningP = cRunning();
+				if (!runningP && startPoint != -1 && e.dataTransfer.files.length > 0){
+					$('#dummy_image_'+startPoint).fileupload(
+						'add', {files: e.dataTransfer.files, drop: 1}
+						);
+				}
+				if (runningP && startPoint != -1 && e.dataTransfer.files.length > 0){
+					for(var i=0; i<e.dataTransfer.files.length; i++){
+						upfiles.push(e.dataTransfer.files[i]);
+						if (upfiles.length >= lholder)
+							break;
+					}
+				}
+				showGoinTouse();
+			}
+			
+		});
+</script>
+
+<div id="drop_zone">
+	
+	<div id="ai_image_tip">“Trăm nghe không bằng mắt thấy”. Tin có hình được xem nhiều gấp 7 lần.<br><b>ĐĂNG HÌNH ĐỂ BÁN CHẠY HƠN!</b></div>
+	<div style="clear:both"></div>
+	<div align="center" style="float:left; margin-right:10px;margin-left:7px;" data-sequence="0" class="im_upload nohistory image-placeholder image-placeholder-show" id="dummy_image_0">
+		<input tabindex="-1" data-url="https://www2.chotot.vn/upload_image.json" data-sequence="0" type="file" multiple="multiple" size="1" class="ai-general-input" id="image_0" style="display: block; cursor: pointer;">
+		<span class="validation-message" style=""></span>
+		<div class="thumb-container thumb-container-empty">
+			<div id="thumb-camera" class="thumb-camera sprite_ai_camera" style="display: block;"></div>
+			<input type="hidden" class="image_value" id="image0" value="">
+			<input type="hidden" name="image_rotate[]" class="rotate_value" id="image0_rotate" value="0">
+			<span class="image-label">Đăng hình</span>
+		</div>
+		
+	</div>
+	<div align="center" style="float:left; margin-right:10px;" data-sequence="1" class="im_upload nohistory image-placeholder image-placeholder-show" id="dummy_image_1">
+		<input tabindex="-1" data-url="https://www2.chotot.vn/upload_image.json" data-sequence="1" type="file" multiple="multiple" size="1" class="ai-general-input" id="image_1" style="display: block; cursor: pointer;">
+		<span class="validation-message" style=""></span>
+		<div class="thumb-container thumb-container-empty">
+			<div id="thumb-camera" class="thumb-camera sprite_ai_camera" style="display: block;"></div>
+			<input type="hidden" class="image_value" id="image1" value="">
+			<input type="hidden" name="image_rotate[]" class="rotate_value" id="image1_rotate" value="0">
+			<span class="image-label">Đăng hình</span>
+		</div>
+		
+	</div>
+	<div align="center" style="float:left; margin-right:10px;" data-sequence="2" class="im_upload nohistory image-placeholder image-placeholder-show" id="dummy_image_2">
+		<input tabindex="-1" data-url="https://www2.chotot.vn/upload_image.json" data-sequence="2" type="file" multiple="multiple" size="1" class="ai-general-input" id="image_2" style="display: block; cursor: pointer;">
+		<span class="validation-message" style=""></span>
+		<div class="thumb-container thumb-container-empty">
+			<div id="thumb-camera" class="thumb-camera sprite_ai_camera" style="display: block;"></div>
+			<input type="hidden" class="image_value" id="image2" value="">
+			<input type="hidden" name="image_rotate[]" class="rotate_value" id="image2_rotate" value="0">
+			<span class="image-label">Đăng hình</span>
+		</div>
+		
+	</div>
+	<div align="center" style="float:left; margin-right:10px;margin-left:7px;" data-sequence="3" class="im_upload nohistory image-placeholder image-placeholder-show" id="dummy_image_3">
+		<input tabindex="-1" data-url="https://www2.chotot.vn/upload_image.json" data-sequence="3" type="file" multiple="multiple" size="1" class="ai-general-input" id="image_3" style="display: block; cursor: pointer;">
+		<span class="validation-message" style=""></span>
+		<div class="thumb-container thumb-container-empty">
+			<div id="thumb-camera" class="thumb-camera sprite_ai_camera" style="display: block;"></div>
+			<input type="hidden" class="image_value" id="image3" value="">
+			<input type="hidden" name="image_rotate[]" class="rotate_value" id="image3_rotate" value="0">
+			<span class="image-label">Đăng hình</span>
+		</div>
+		
+	</div>
+	<div align="center" style="float:left; margin-right:10px;" data-sequence="4" class="im_upload nohistory image-placeholder image-placeholder-show" id="dummy_image_4">
+		<input tabindex="-1" data-url="https://www2.chotot.vn/upload_image.json" data-sequence="4" type="file" multiple="multiple" size="1" class="ai-general-input" id="image_4" style="display: block; cursor: pointer;">
+		<span class="validation-message" style=""></span>
+		<div class="thumb-container thumb-container-empty">
+			<div id="thumb-camera" class="thumb-camera sprite_ai_camera" style="display: block;"></div>
+			<input type="hidden" class="image_value" id="image4" value="">
+			<input type="hidden" name="image_rotate[]" class="rotate_value" id="image4_rotate" value="0">
+			<span class="image-label">Đăng hình</span>
+		</div>
+		
+	</div>
+	<div align="center" style="float:left; margin-right:10px;" data-sequence="5" class="im_upload nohistory image-placeholder image-placeholder-show" id="dummy_image_5">
+		<input tabindex="-1" data-url="https://www2.chotot.vn/upload_image.json" data-sequence="5" type="file" multiple="multiple" size="1" class="ai-general-input" id="image_5" style="display: block; cursor: pointer;">
+		<span class="validation-message" style=""></span>
+		<div class="thumb-container thumb-container-empty">
+			<div id="thumb-camera" class="thumb-camera sprite_ai_camera" style="display: block;"></div>
+			<input type="hidden" class="image_value" id="image5" value="">
+			<input type="hidden" name="image_rotate[]" class="rotate_value" id="image5_rotate" value="0">
+			<span class="image-label">Đăng hình</span>
+		</div>
+		
+	</div>
+	
+	
+	<span id="more_img"> Đăng nhiều hình thật nhanh bằng cách kéo và thả hình vào khung này hoặc nhấn nút phía trên rồi chọn nhiều hình cùng lúc</span>
+</div>
+
+<div class="aiupload-right">
+	<div class="triangle">&nbsp;</div>
+	<span></span>
+	<div class="aiupload-cloud">
+
+		
+		<span id="minimum_images" class="warning" style="margin-top:0px;">Bạn nên đăng ít nhất 1 ảnh.</span>
+		<br>
+		
+		<span id="ai_image_tip_des" class="aiupload-text">Chỉ hình thật của sản phẩm mới được duyệt. Lưu ý không dùng hình có dán kèm số điện thoại hoặc địa chỉ website.</span>
+		<div class="aiupload-img sprite_ai_ex_ads"></div>
+		<div class="clear"></div>
+	</div>
+	<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+
+<div class="ai_row">
+	<div class="ai_label">&nbsp;</div>
+	<div class="ai_element">
+	</div>
+	<div class="clear"></div>
+</div>
+
+<div class="ai_row">
+	<div class="ai_row">
+		<div class="ai_label">Cách thanh toán:</div>
+		<div class="ai_element_text">
+			&nbsp;
+			Người bán và người mua tự thoả thuận
+		</div>
+		<div class="clear"></div>
+	</div>
+
+	<div class="ai_label">Quy trình<br>vận chuyển &amp;<br>giao nhận:
+		<small class="input_count">
+			<span id="payment_delivery_counter" class="min_counter">0/2000</span>
+		</small>
+	</div>
+	<div class="ai_element ai_element_top">
+		<textarea maxlength="2000" cols="43" rows="4" name="payment_delivery" class="vietuni placeholder input_long_textarea payment_delivery" id="payment_delivery"></textarea>
+		
+
+
+
+
+
+		
+		<div class="tip_sign sprite_ai_warn" id="payment_delivery_warntip" style="display:none"></div>
+		
+		
+
+
+		<div class="tip_sign sprite_ai_good" id="payment_delivery_good_sign" style="display:none"></div>
+
+		<div class="tip_sign sprite_ai_warn" id="payment_delivery_bad_sign" style="display:none"></div>
+
+
+
+		<div id="payment_delivery_info" class="Info">AI_PAYMENT_DELIVERY_WILL_NOT_SHOW</div>
+		<div id="err_payment_delivery" style="display: none">
+			<span class="warning nohistory"></span>
+		</div>
+
+	</div>
+	<div class="clear"></div>
+</div>
+
+
+
+<div class="ai_row">
+	<div class="ai_label">&nbsp;</div>
+	<div class="ai_element">
+		
+		<input class="ai_submit" name="validate" type="submit" doan="" value="TIẾP TỤC »" onclick="showProgressBar(this);">
+		
+		
+		<span id="minimum_images2" class="warning" style="margin-top:0px;">Bạn nên đăng ít nhất 1 ảnh.</span>
+		
+	</div>
+	<div class="clear"></div>
+</div>
+</form>
+
+<form method="post" action="/ai/create/1" name="formular" enctype="multipart/form-data">
+	
+	<div class="AI_TITLE">
+		
+		<h2>Đặt mật khẩu để đăng tin</h2>
+		
+		
+	</div>
+	<div id="form_preview">
+		<div id="fgpass_msg"></div>
+		<table border="0" cellspacing="1" cellpadding="1" class="preview_table" id="form_preview_table">
+			
+			<tbody><tr>
+				<th>Mật khẩu:</th>
+				<td class="ai_link_preview">
+					<input type="password" name="passwd" id="passwd" maxlength="30" autocomplete="off"> 
+				</td>
+			</tr>
+			
+			<tr>
+				<th>Nhập lại mật khẩu:</th>
+				<td class="ai_link_preview">
+					<input id="passwd_ver" type="password" name="passwd_ver" maxlength="30" autocomplete="off">
+					
+					<div id="err_passwd" style="display: none">
+						<span class="warning nohistory"></span>
+					</div>
+
+				</td>
+			</tr>
+			
+		</tbody></table>
+		
+		<div class="ai_auto_create_account">
+			<input type="checkbox" name="ua_agree" id="ua_agree" value="yes" checked="">
+			Tạo tài khoản miễn phí với thông tin này
+		</div>
+		
+		<div class="ai_preview_button">
+			<a onclick="return go_back(document.formular);" href="javascript:void();" id="ai_preview_cancel">
+				<span style="vertical-align: middle;">
+					QUAY LẠI ĐỂ SỬA
+				</span>
+			</a>
+			<a onclick="return ai_submit_handler.handle_preview_submit(this);" href="javascript:void();" id="ai_preview_submit">
+				<span style="vertical-align: middle;">
+					ĐĂNG
+				</span>
+			</a>	
+		</div>
+		<div class="ai_preview_rule">
+			<br>
+			
+			
+			Bằng việc ấn vào "đăng" <a href="javascript:void(0);" onclick="window.open('https://www.chotot.vn/quy_che_hoat_dong.htm?ca=12','Rules','toolbar=yes, location=yes, status=yes, scrollbars=yes, resizable=yes, width=850, height=600')"> Tôi đồng ý với Quy chế hoạt động </a> của chotot.vn.<br><br>Tôi đồng ý tin sẽ được đăng theo <a href="javascript:void(0);" onclick="window.open('https://www.chotot.vn/quy_dinh_dang_tin.htm','Rules','toolbar=yes, location=yes, status=yes, scrollbars=yes, resizable=yes, width=850, height=600')"> quy định đăng tin của chotot.vn.
+		</a></div><a href="javascript:void(0);" onclick="window.open('https://www.chotot.vn/quy_dinh_dang_tin.htm','Rules','toolbar=yes, location=yes, status=yes, scrollbars=yes, resizable=yes, width=850, height=600')">
+	</a></div><a href="javascript:void(0);" onclick="window.open('https://www.chotot.vn/quy_dinh_dang_tin.htm','Rules','toolbar=yes, location=yes, status=yes, scrollbars=yes, resizable=yes, width=850, height=600')">
+	<div class="AI_TITLE">
+		<h2>Xem trước mẫu tin sẽ được đăng</h2>
+	</div>
+	<table border="0" cellspacing="1" cellpadding="1" class="preview_table">
+		<tbody><tr>
+			<th style="width: 50%;">Tên:</th>
+			<td>
+				huong nguyen
+			</td>
+		</tr>
+		
+		
+		<tr>
+			<th>E-mail:</th>
+			<td>
+				huongnb2@webbnc.vn	
+			</td>
+		</tr>
+		
+		
+		
+		<tr>
+			<th>Số điện thoại:</th>
+			<td>
+				0975989597
+				
+			</td>
+		</tr>
+
+		
+		<tr>
+			<th>Chuyên mục:</th>
+			<td>
+				Xe máy
+			</td>
+		</tr>
+		<tr>
+			<th>Bạn đăng tin:</th>
+			<td>
+				Cần bán
+			</td>
+		</tr>
+		<tr>
+			<th>Vùng:</th>
+			<td>
+				Hà Nội
+			</td>
+		</tr>
+		
+		<tr>
+			<th>Tựa đề:</th>
+			<td>
+				Xe máy chất lượng cao
+			</td>
+		</tr>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<tr>
+			<th>Số Km đã đi:</th>
+			<td>
+				15 000 - 19 999
+			</td>
+		</tr>	
+
+
+
+		
+		
+		
+		<tr>
+			<th>Năm đăng ký:</th>
+			<td>
+				1990
+			</td>
+		</tr>	
+
+
+
+		
+		
+		
+		<tr>
+			<th>Tình trạng:</th>
+			<td>
+				
+				Đã sử dụng
+				
+				
+			</td>
+		</tr>	
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<tr>
+			<th>Nội dung tin:</th>
+			<td>
+				Xe máy chất lượng cao
+			</td>
+		</tr>
+		
+		
+		<tr>
+			<th>Giá:</th>
+			<td>
+				6 000 000 
+				đ
+				
+				
+				
+			</td>
+		</tr>
+		
+		
+		
+		
+		
+		
+	</tbody></table>
+	<br>
+	<table border="0" cellspacing="0" cellpadding="0">
+		
+		<tbody><tr>
+			<td>	
+				<table border="0" cellspacing="1" cellpadding="1" class="preview_table">
+				</table>
+			</td>
+		</tr>
+	</tbody></table>	
+	
+	<script type="text/javascript" language="Javascript">progressBar('');</script><div id="loading" class="progressBar"><span id="loading_dots"></span></div>
+	<script type="text/javascript">scrollToError('passwd')</script>
+	
+
+
+	<script type="text/javascript">
+	
+
+	//register_events(jsevents.ai, document);
+	scrollToError('email_confirm');
+	setFocus("email_confirm");
+	
+	</script>
+
+
+	<script type="text/javascript">
+	<!--
+	xt_form = "&f1=0";
+//do not modify below
+if (window.xtparam!=null){window.xtparam+=xt_form;}
+else{window.xtparam =xt_form;};
+//-->
+</script>
+</a></form>

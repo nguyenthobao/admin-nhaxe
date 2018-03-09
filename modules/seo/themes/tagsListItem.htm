@@ -1,0 +1,19 @@
+<tr id="tr_{$v['id']}" data-key="{$v['id']}" data-lang="{$_GET['lang']}">
+	<td class="highlight">
+		<input type="checkbox" name="name_id[]" class="checkboxes"  value="{$v['id']}">
+	</td>
+	 
+	<td >
+		<span data-pk="{$v['id']}"  data-type="text" data-lang="{$_GET['lang']}" class="editable" >{$v['tag']}</span>
+	</td>
+	<td >
+		<span data-pk="{$v['id']}"  data-type="text" data-lang="{$_GET['lang']}" class="editable tooltips meta_title" data-original-title="{lang click_edit}">{$v['meta_title']}</span>
+	</td>
+	<td >
+		<span data-pk="{$v['id']}"  data-type="textarea" data-lang="{$_GET['lang']}" class="editable tooltips description" data-original-title="{lang click_edit}">{$v['description']}</span>
+	</td>
+	
+	<td class="icon_btn">
+		<a  class="btn default btn-xs red tooltips delete_slide"  data-placement="top" data-original-title="{lang delete}"><i class="fa fa-trash-o"></i></a>
+	</td>
+</tr>

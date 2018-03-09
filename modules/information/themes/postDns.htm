@@ -1,0 +1,72 @@
+<!--{if isset($dns)}-->
+<!--{eval $i = 1}-->
+	<div class="tab-pane">
+		<div class="table-scrollable ">
+			<table class="table table-striped table-bordered table-advance table-hover">
+				<thead>
+					<tr>
+						<th>STT</th>
+						<th>Tên</th>
+						<th>Loại record</th>
+						<th>Địa chỉ IP</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!--{loop $dns $k $v}-->
+					<tr>
+						<td >
+							<!--{$i}-->
+						</td>
+						<td>
+							{$v['name']}
+						</td>
+						<td>
+							{$v['type']}
+						</td>
+						<td>
+							{$v['content']}
+						</td>
+					</tr>
+					<!--{eval $i++}-->
+					<!--{/loop}-->
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+	<!--{else}-->
+	<div>
+		<div class="table-scrollable">
+			<table class="table table-striped table-bordered table-advance table-hover">
+				<thead>
+					<tr>
+						<th>STT</th>
+						<th>Tên</th>
+						<th>Loại record</th>
+						<th>Địa chỉ IP</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>nguyenbahuong.com</td>
+						<td>A</td>
+						<td>123.30.212.168</td>						
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>nguyenbahuong.com</td>
+						<td>A</td>
+						<td>123.30.212.168</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>nguyenbahuong.com</td>
+						<td>MX</td>
+						<td>aspmx2.googlemail.com</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+<!--{/if}-->

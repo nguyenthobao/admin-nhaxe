@@ -1,0 +1,478 @@
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/jquery-tags-input/jquery.tagsinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/typeahead/typeahead.css">
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css"/>
+
+<link href="{$_B['mod_theme']}css/style.css" rel="stylesheet" type="text/css" />
+
+<!-- END PAGE LEVEL STYLES -->
+<!-- BEGIN PAGE CONTENT-->
+<input type="hidden" name="getLang" value="vi"/>
+<div class="row row_setting">
+	<div class="tabbable">
+		<ul class="nav nav-tabs">
+			<!--{loop $url_lang $k_lang $v_lang}-->
+				<li <!--{if $k_lang==$_GET['lang']}-->class="active"<!--{/if}-->>
+					<a class="select_lang" href="{$v_lang['url']}">
+						{lang lang_{$k_lang}}
+					</a>
+				</li>
+			<!--{/loop}-->			
+			<input type="hidden" name="popup" data-title="{lang pop_title}" data-yes="{lang pop_yes}" data-cancel="{lang pop_cancel}" data-message="{lang pop_message}" data-close="{lang pop_close}">
+			<input type="hidden" name="popup_df" data-title="{lang pop_df_title}" data-yes="{lang pop_yes}" data-cancel="{lang pop_cancel}" data-message="{lang pop_df_message}" data-close="{lang pop_close}">		
+			<input type="hidden" value="" name="idlogo" id="idlogo"/>
+		</ul>
+		<div class="tab-content no-space">
+			<div class="tab-pane active" id="lang_{$v_lang}">
+				<div class="form-body">
+					<div class="note note-warning">
+						<p class="block">{lang select_lang lang_{$_GET['lang']} }</p>
+					</div>
+					<!-- <a class="btn btn-sm blue continue reset_setting"><i class="fa fa-reply"></i> {lang back_default_setting}</a> -->	
+					<form id="saveSettingNewsPage"  class="form-horizontal form-row-seperated" class="form-horizontal" enctype="multipart/form-data" method="POST">
+						<input type="hidden" class="view_lang" name="view_lang" value="$_GET['lang']">
+						<div class="portlet">
+							<div class="portlet-body">
+								<div class="form-body">
+									<div class="portlet light bordered">
+										<div class="portlet-title">
+											<div class="caption">
+												<i class="icon-equalizer font-red-sunglo"></i>
+												<span class="caption-subject font-red-sunglo bold uppercase">{lang setting_page_news}</span>
+												<span class="caption-helper">{lang noti_setting_page_news}</span>
+											</div>
+											<div class="tools">
+												<a href="javascript:;" class="collapse"></a>
+											</div>
+											<div class="actions btn-save">
+												<button class="btn green continue" data-continue="saveSettingNewsPage"><i class="fa fa-check"></i> {lang submit}</button>
+												<input type="hidden" name="action" value="saveSettingNewsPage">
+												<input type="hidden" name="lang" value="vi">
+												<input type="hidden" name="continue" value="">
+											</div>
+										</div>
+										<div class="portlet-body form">
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang title}: <span class="required">
+												* </span>
+												</label>
+												<div class="col-md-8 row_input_title">
+													<input type="text" class="form-control maxlength-handler" name="title" maxlength="225" value="<!--{if isset({$settings[setting_page][title]})}-->{$settings[setting_page][title]}<!--{/if}-->" placeholder="" data-error="{lang title_error}">
+													<span class="help-block">{lang maxlength 225}</span>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang description}</label>
+												<div class="col-md-8">
+													<textarea class="form-control " minlength="5" rows="6" name="description"><!--{if isset({$settings[setting_page][description]})}-->{$settings[setting_page][description]}<!--{/if}--></textarea>
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="col-md-2">
+													<label class="control-label">{lang setting_img}</label>	
+												</div>
+												<div class="col-md-3">
+													<label class="control-label" style="margin-bottom: 5px;">{lang title_img}</label>
+													<div class="fileinput <!--{if !empty($settings[setting_page][img])}-->fileinput-exists<!--{else}-->fileinput-new<!--{/if}-->" data-provides="fileinput">
+														<!--{if isset({$settings[setting_page][img]})}-->
+														<input type="hidden" value="{$settings[setting_page][img]}" name="val_img_page"/>
+														<!--{/if}-->
+														<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+															<img src="{$_B['home_theme']}assets/no_image.gif" alt="Avatar"/>
+														</div>
+														<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+															<img src="<!--{if isset({$settings[setting_page][img]})}-->{$_B['upload_path']}{$settings[setting_page][img]}<!--{/if}-->" alt="" />
+														</div>
+														<div>
+															<span class="btn default btn-file">
+															<span class="fileinput-new">
+															{lang select_img} </span>
+															<span class="fileinput-exists">
+															{lang change_img} </span>
+															<input type="file" name="img_page_news">
+															</span>
+															<a href="#" class="del_img btn default fileinput-exists" data-dismiss="fileinput">
+															Remove </a>
+														</div>
+													</div>
+												</div>									
+												<div class="col-md-3">
+													<label class="control-label" style="margin-bottom: 5px;">{lang icon_img}</label>	
+													<div class="fileinput <!--{if !empty($settings[setting_page][icon])}-->fileinput-exists<!--{else}-->fileinput-new<!--{/if}-->" data-provides="fileinput">
+														<!--{if isset({$settings[setting_page][icon]})}-->
+														<input type="hidden" value="{$settings[setting_page][icon]}" name="val_icon_page"/>
+														<!--{/if}-->
+														<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+															<img src="{$_B['home_theme']}assets/no_image.gif" alt="Avatar"/>
+														</div>
+														<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+															<img src="<!--{if isset({$settings[setting_page][icon]})}-->{$_B['upload_path']}{$settings[setting_page][icon]}<!--{/if}-->" alt="" />
+														</div>
+														<div>
+															<span class="btn default btn-file">
+															<span class="fileinput-new">
+															{lang select_img} </span>
+															<span class="fileinput-exists">
+															{lang change_img} </span>
+															<input type="file" name="icon_page_news">
+															</span>
+															<a href="#" class="del_icon btn default fileinput-exists" data-dismiss="fileinput">
+															Remove </a>
+														</div>
+													</div>
+												</div>
+												<div class="col-md-3">
+													<label class="control-label" style="margin-bottom: 5px;">{lang bg_img}</label>
+													<div class="fileinput <!--{if !empty($settings[setting_page][bg])}-->fileinput-exists<!--{else}-->fileinput-new<!--{/if}-->" data-provides="fileinput">
+														<!--{if isset({$settings[setting_page][bg]})}-->
+														<input type="hidden" value="{$settings[setting_page][bg]}" name="val_bg_page"/>
+														<!--{/if}-->
+														<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+															<img src="{$_B['home_theme']}assets/no_image.gif" alt="Avatar"/>
+														</div>
+														<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+															<img src="<!--{if isset({$settings[setting_page][bg]})}-->{$_B['upload_path']}{$settings[setting_page][bg]}<!--{/if}-->" alt="" />
+														</div>
+														<div>
+															<span class="btn default btn-file">
+															<span class="fileinput-new">
+															{lang select_img} </span>
+															<span class="fileinput-exists">
+															{lang change_img} </span>
+															<input type="file" name="bg_page_news">
+															</span>
+															<a href="#" class="del_bg btn default fileinput-exists" data-dismiss="fileinput">
+															Remove </a>
+														</div>
+													</div>
+												</div>
+											</div>
+											
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang meta_title}</label>
+												<div class="col-md-8">
+												<input type="text" class="form-control maxlength-handler" name="meta_title" maxlength="170" value="<!--{if isset({$settings[setting_page][meta_title]})}-->{$settings[setting_page][meta_title]}<!--{/if}-->" placeholder="" data-error="">
+												<span class="help-block">
+												{lang maxlength 170}</span>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang meta_keyword}</label>
+												<div class="col-md-8">
+													<input id="meta_keyword" name="meta_keyword" type="text" class="form-control tags" value="<!--{if isset({$settings[setting_page][meta_keyword]})}-->{$settings[setting_page][meta_keyword]}<!--{/if}-->"/>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang meta_description}</label>
+												<div class="col-md-8">
+												<textarea class="form-control maxlength-handler" rows="4" name="meta_description" maxlength="500"><!--{if isset({$settings[setting_page][meta_description]})}-->{$settings[setting_page][meta_description]}<!--{/if}--></textarea>
+												<span class="help-block">
+												{lang maxlength 500} </span>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-2 control-label">Số lượng hiển thị</label>
+												<div class="col-md-2">
+												<input type="text" class="form-control" name="quantity_news" value="<!--{if isset({$settings[setting_page][quantity_news]})}-->{$settings[setting_page][quantity_news]}<!--{/if}-->" placeholder="" data-error="">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+					<form id="saveSettingNewsHome"  class="form-horizontal form-row-seperated" class="form-horizontal" enctype="multipart/form-data" method="POST">
+						<div class="portlet">
+							<div class="portlet-body">
+								<div class="form-body">
+									<div class="portlet light bordered">
+										<div class="portlet-title">
+											<div class="caption">
+												<i class="icon-equalizer font-red-sunglo"></i>
+												<span class="caption-subject font-red-sunglo bold uppercase">{lang setting_tab_home}</span>
+												
+											</div>
+											<div class="tools">
+												<a href="javascript:;" class="collapse"></a>
+											</div>
+											<div class="actions btn-save">
+												<button class="btn green continue" data-continue="saveSettingNewsHome"><i class="fa fa-check"></i> {lang submit}</button>
+												<input type="hidden" name="action" value="saveSettingNewsHome">
+												<input type="hidden" name="lang" value="vi">
+												<input type="hidden" name="continue" value="">
+											</div>
+										</div>
+										<div class="portlet-body form">
+											<div id="sortable">
+												<div class="form-group ui-state-default">
+													<label class="col-md-2 control-label" style="cursor:move">{lang tintinmoi}</label>
+													<div class="col-md-4">
+														<input type="text" class="form-control" name="title_new" value="<!--{if isset({$settings[setting_home][title_new]})}-->{$settings[setting_home][title_new]}<!--{/if}-->" placeholder="{lang title_tab}" />
+													</div>
+													<div class="col-md-2">
+														<select class="form-control" name="status_new">
+															<option value="9" <!--{if isset({$settings[setting_home][status_new]}) && $settings[setting_home][status_new]==9}-->selected<!--{/if}-->>{lang status}</option>
+															<option value="1" <!--{if isset({$settings[setting_home][status_new]}) && $settings[setting_home][status_new]==1}-->selected<!--{/if}-->>{lang is_show}</option>
+															<option value="0" <!--{if isset({$settings[setting_home][status_new]}) && $settings[setting_home][status_new]==0}-->selected<!--{/if}-->>{lang is_hide}</option>
+														</select>
+													</div>
+													<div class="col-md-2">
+														<input type="text" class="form-control" name="quantity_new"  value="<!--{if isset({$settings[setting_home][quantity_new]})}-->{$settings[setting_home][quantity_new]}<!--{/if}-->" placeholder="số lượng" />
+													</div>
+												</div>
+												<div class="form-group ui-state-default">
+													<label class="col-md-2 control-label" style="cursor:move">{lang tintinnoibat}</label>
+													<div class="col-md-4">
+														<input type="text" class="form-control" name="title_hot" value="<!--{if isset({$settings[setting_home][title_hot]})}-->{$settings[setting_home][title_hot]}<!--{/if}-->" placeholder="{lang title_tab}" />
+													</div>
+													<div class="col-md-2">
+														<select class="form-control" name="status_hot">
+															<option value="9" <!--{if isset({$settings[setting_home][status_hot]}) && $settings[setting_home][status_hot]==9}-->selected<!--{/if}-->>{lang status}</option>
+															<option value="1" <!--{if isset({$settings[setting_home][status_hot]}) && $settings[setting_home][status_hot]==1}-->selected<!--{/if}-->>{lang is_show}</option>
+															<option value="0" <!--{if isset({$settings[setting_home][status_hot]}) && $settings[setting_home][status_hot]==0}-->selected<!--{/if}-->>{lang is_hide}</option>
+														</select>
+													</div>
+													<div class="col-md-2">
+														<input type="text" class="form-control" name="quantity_hot" value="<!--{if isset({$settings[setting_home][quantity_hot]})}-->{$settings[setting_home][quantity_hot]}<!--{/if}-->" placeholder="số lượng" />
+													</div>
+												</div>
+												<div class="form-group ui-state-default">
+													<label class="col-md-2 control-label" style="cursor:move">Tin tức Vip</label>
+													<div class="col-md-4">
+														<input type="text" class="form-control" name="title_vip" value="<!--{if isset({$settings[setting_home][title_vip]})}-->{$settings[setting_home][title_vip]}<!--{/if}-->" placeholder="{lang title_tab}" />
+													</div>
+													<div class="col-md-2">
+														<select class="form-control" name="status_vip">
+															<option value="9" <!--{if isset({$settings[setting_home][status_vip]}) && $settings[setting_home][status_vip]==9}-->selected<!--{/if}-->>{lang status}</option>
+															<option value="1" <!--{if isset({$settings[setting_home][status_vip]}) && $settings[setting_home][status_vip]==1}-->selected<!--{/if}-->>{lang is_show}</option>
+															<option value="0" <!--{if isset({$settings[setting_home][status_vip]}) && $settings[setting_home][status_vip]==0}-->selected<!--{/if}-->>{lang is_hide}</option>
+														</select>
+													</div>
+													<div class="col-md-2">
+														<input type="text" class="form-control" name="quantity_vip" value="<!--{if isset({$settings[setting_home][quantity_vip]})}-->{$settings[setting_home][quantity_vip]}<!--{/if}-->" placeholder="số lượng" />
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+					
+					<!--CAI DAT HIEN THI TIN TUC LIEN QUAN-->
+					
+					<form class="form-horizontal form-row-seperated" action="" id="form_setting" class="form-horizontal" enctype="multipart/form-data" method="POST">
+						<div class="portlet">
+							<div class="portlet-body">
+								<div class="form-body">
+									<div class="portlet light bordered">
+										<div class="portlet-title">
+											<div class="caption">
+												<i class="icon-equalizer font-red-sunglo"></i>
+												<span class="caption-subject font-red-sunglo bold uppercase">{lang setting_news}</span>
+											</div>
+											<div class="tools">
+											<a href="javascript:;" class="collapse"></a>
+											</div>
+											<div class="actions btn-save">
+												<button class="btn green continue" data-continue="setting"><i class="fa fa-check"></i> {lang submit}</button>								
+												<input type="hidden" name="action" value="addSetting">
+												<input type="hidden" name="lang" value="vi">
+												<input type="hidden" name="continue" value="">
+											</div>
+										</div>
+										<div class="portlet-body form">
+											<div class="form-group">
+												<div class="form-control height-auto row-setting">
+													<div class="force-over">
+														<ul class="list-unstyled">
+															<li class="row_check_all">
+																<label class="lbl_active">
+																	<input type="checkbox" name="setting[news_related][status]" <!--{if isset($settings[news_relateds][news_related][status])&&($settings[news_relateds][news_related][status] == 'on')}--> checked <!--{/if}-->>
+																	{lang news_option_show}
+																</label>
+															</li>
+														</ul>
+														<label class="col-md-label margin-bt-10 control-label">{lang show_quantity}</label>
+														<div class="col-md-1 margin-bt-10">
+															<input type="text" class="form-control show_quantity" name="setting[news_related][quantity]" onkeypress='validate(event)' data-error="{lang number_error}" value="<!--{if isset({$settings[news_relateds][news_related][quantity]})}-->{$settings[news_relateds][news_related][quantity]}<!--{/if}-->">
+														</div>	
+														<label class="col-md-label margin-bt-10 control-label">{lang sort}</label>
+														<div class="col-md-1 margin-bt-10">												
+															<input type="text" class="form-control show_quantity" name="setting[news_related][sort]" onkeypress='validate(event)' data-error="{lang number_error}" value="<!--{if isset({$settings[news_relateds][news_related][sort]})}-->{$settings[news_relateds][news_related][sort]}<!--{/if}-->">
+														</div>
+														<label class="col-md-2 margin-bt-10 control-label">{lang show_type}</label>
+														<div class="col-md-2 margin-bt-10">
+															<select class="form-control" name="setting[news_related][show_type]" data-error="">
+																<option value="list" <!--{if (isset($settings[news_relateds][news_related][show_type])&& $settings[news_relateds][news_related][show_type]=='list')||empty($_GET['id'])}-->selected="selected"<!--{/if}--> >{lang show_list}</option>
+																<option value="slide" <!--{if isset($settings[news_relateds][news_related][show_type]) && $settings[news_relateds][news_related][show_type]=='slide'}-->selected="selected"<!--{/if}-->>{lang show_slide}</option>
+															</select>
+														</div>
+														<label class="col-md-2 margin-bt-10 control-label">{lang show_news}</label>
+														<div class="col-md-2 margin-bt-10">
+															<select class="form-control" name="setting[news_related][show_news]" data-error="">
+																<option value="tin_moi" <!--{if (isset($settings[news_relateds][news_related][show_news])&& $settings[news_relateds][news_related][show_news]=='tin_moi')||empty($_GET['id'])}-->selected="selected"<!--{/if}--> >{lang news_new}</option>
+																<option value="tin_noibat" <!--{if isset($settings[news_relateds][news_related][show_news]) && $settings[news_relateds][news_related][show_news]=='tin_noibat'}-->selected="selected"<!--{/if}-->>{lang news_hot}</option>
+																<option value="tin_ngaunhien" <!--{if isset($settings[news_relateds][news_related][show_news]) && $settings[news_relateds][news_related][show_news]=='tin_ngaunhien'}-->selected="selected"<!--{/if}-->>{lang news_random}</option>
+															</select>
+														</div>
+													</div>			
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="form-control height-auto row-setting">
+													<div class="force-over">
+														<ul class="list-unstyled">
+															<li class="row_check_all">
+																<label class="lbl_active">
+																	<input type="checkbox" name="setting[news_cate][status]" <!--{if isset($settings[news_relateds][news_cate][status])&&($settings[news_relateds][news_cate][status] == 'on')}--> checked <!--{/if}-->>
+																	{lang news_category_show}
+																</label>
+															</li>												
+														</ul>
+														<label class="col-md-label margin-bt-10 control-label">{lang show_quantity}</label>
+														<div class="col-md-1 margin-bt-10">
+															<input type="text" class="form-control show_quantity" name="setting[news_cate][quantity]" onkeypress='validate(event)' data-error="{lang number_error}" value="<!--{if isset({$settings[news_relateds][news_cate][quantity]})}-->{$settings[news_relateds][news_cate][quantity]}<!--{/if}-->">
+														</div>
+														<label class="col-md-label margin-bt-10 control-label">{lang sort}</label>
+														<div class="col-md-1 margin-bt-10">
+															<input type="text" class="form-control show_quantity" name="setting[news_cate][sort]" onkeypress='validate(event)' data-error="{lang number_error}" value="<!--{if isset({$settings[news_relateds][news_cate][sort]})}-->{$settings[news_relateds][news_cate][sort]}<!--{/if}-->">
+														</div>
+														<label class="col-md-2 margin-bt-10 control-label">{lang show_type}</label>
+														<div class="col-md-2 margin-bt-10">
+															<select class="form-control" name="setting[news_cate][show_type]" data-error="">
+																<option value="list" <!--{if (isset($settings[news_relateds][news_cate][show_type])&& $settings[news_relateds][news_cate][show_type]=='list')||empty($_GET['id'])}-->selected="selected"<!--{/if}--> >{lang show_list}</option>
+																<option value="slide" <!--{if isset($settings[news_relateds][news_cate][show_type]) && $settings[news_relateds][news_cate][show_type]=='slide'}-->selected="selected"<!--{/if}-->>{lang show_slide}</option>
+															</select>
+														</div>
+														<label class="col-md-2 margin-bt-10 control-label">{lang show_news}</label>
+														<div class="col-md-2 margin-bt-10">
+															<select class="form-control" name="setting[news_cate][show_news]" data-error="">
+																<option value="tin_moi" <!--{if (isset($settings[news_relateds][news_cate][show_news])&& $settings[news_relateds][news_cate][show_news]=='tin_moi')||empty($_GET['id'])}-->selected="selected"<!--{/if}--> >{lang news_new}</option>
+																<option value="tin_noibat" <!--{if isset($settings[news_relateds][news_cate][show_news]) && $settings[news_relateds][news_cate][show_news]=='tin_noibat'}-->selected="selected"<!--{/if}-->>{lang news_hot}</option>
+																<option value="tin_ngaunhien" <!--{if isset($settings[news_relateds][news_cate][show_news]) && $settings[news_relateds][news_cate][show_news]=='tin_ngaunhien'}-->selected="selected"<!--{/if}-->>{lang news_random}</option>
+															</select>
+														</div>
+													</div>			
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="form-control height-auto row-setting">
+													<div class="force-over">
+														<ul class="list-unstyled">
+															<li class="row_check_all">
+																<label class="lbl_active">
+																	<input type="checkbox" name="setting[news_latest][status]" <!--{if isset($settings[news_relateds][news_latest][status])&&($settings[news_relateds][news_latest][status] == 'on')}--> checked <!--{/if}-->>
+																	{lang news_best_show}
+																</label>
+															</li>												
+														</ul>
+														<label class="col-md-label margin-bt-10 control-label">{lang show_quantity}</label>
+														<div class="col-md-1 margin-bt-10">
+															<input type="text" class="form-control show_quantity" name="setting[news_latest][quantity]" onkeypress='validate(event)' data-error="{lang number_error}" value="<!--{if isset({$settings[news_relateds][news_latest][quantity]})}-->{$settings[news_relateds][news_latest][quantity]}<!--{/if}-->">
+														</div>
+														<label class="col-md-label margin-bt-10 control-label">{lang sort}</label>
+														<div class="col-md-1 margin-bt-10">
+															<input type="text" class="form-control show_quantity" name="setting[news_latest][sort]" onkeypress='validate(event)' data-error="{lang number_error}" value="<!--{if isset({$settings[news_relateds][news_latest][sort]})}-->{$settings[news_relateds][news_latest][sort]}<!--{/if}-->">
+														</div>
+														<label class="col-md-2 margin-bt-10 control-label">{lang show_type}</label>
+														<div class="col-md-3 margin-bt-10">
+															<select class="form-control" name="setting[news_latest][show_type]" data-error="">
+																<option value="list" <!--{if (isset($settings[news_relateds][news_latest][show_type])&& $settings[news_relateds][news_latest][show_type]=='list')||empty($_GET['id'])}-->selected="selected"<!--{/if}--> >{lang show_list}</option>
+																<option value="slide" <!--{if isset($settings[news_relateds][news_latest][show_type]) && $settings[news_relateds][news_latest][show_type]=='slide'}-->selected="selected"<!--{/if}-->>{lang show_slide}</option>
+															</select>
+														</div>
+													</div>			
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="form-control height-auto row-setting">
+													<div class="force-over">
+														<ul class="list-unstyled">
+															<li class="row_check_all">
+																<label class="lbl_active">
+																	<input type="checkbox" name="setting[news_newer][status]" <!--{if isset($settings[news_relateds][news_newer][status])&&($settings[news_relateds][news_newer][status] == 'on')}--> checked <!--{/if}-->>
+																	{lang news_new_show}
+																</label>
+															</li>												
+														</ul>
+														<label class="col-md-label margin-bt-10 control-label">{lang show_quantity}</label>
+														<div class="col-md-1 margin-bt-10">
+															<input type="text" class="form-control show_quantity" name="setting[news_newer][quantity]" onkeypress='validate(event)' data-error="{lang number_error}" value="<!--{if isset({$settings[news_relateds][news_newer][quantity]})}-->{$settings[news_relateds][news_newer][quantity]}<!--{/if}-->">
+														</div>
+														<label class="col-md-label margin-bt-10 control-label">{lang sort}</label>
+														<div class="col-md-1 margin-bt-10">
+															<input type="text" class="form-control show_quantity" name="setting[news_newer][sort]" onkeypress='validate(event)' data-error="{lang number_error}" value="<!--{if isset({$settings[news_relateds][news_newer][sort]})}-->{$settings[news_relateds][news_newer][sort]}<!--{/if}-->">
+														</div>
+														<label class="col-md-2 margin-bt-10 control-label">{lang show_type}</label>
+														<div class="col-md-3 margin-bt-10">
+															<select class="form-control" name="setting[news_newer][show_type]" data-error="">
+																<option value="list" <!--{if (isset($settings[news_relateds][news_newer][show_type])&& $settings[news_relateds][news_newer][show_type]=='list')||empty($_GET['id'])}-->selected="selected"<!--{/if}--> >{lang show_list}</option>
+																<option value="slide" <!--{if isset($settings[news_relateds][news_newer][show_type]) && $settings[news_relateds][news_newer][show_type]=='slide'}-->selected="selected"<!--{/if}-->>{lang show_slide}</option>
+															</select>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="form-control height-auto row-setting">
+													<div class="force-over">
+														<ul class="list-unstyled">
+															<li class="row_check_all">
+																<label class="lbl_active">
+																	<input type="checkbox" name="setting[news_old][status]" <!--{if isset($settings[news_relateds][news_old][status])&&($settings[news_relateds][news_old][status] == 'on')}--> checked <!--{/if}-->>
+																	{lang news_old_show}
+																</label>
+
+															</li>												
+														</ul>
+														<label class="col-md-label margin-bt-10 control-label">{lang show_quantity}</label>
+														<div class="col-md-1 margin-bt-10">
+															<input type="text" class="form-control show_quantity" name="setting[news_old][quantity]" onkeypress='validate(event)' data-error="{lang number_error}" value="<!--{if isset({$settings[news_relateds][news_old][quantity]})}-->{$settings[news_relateds][news_old][quantity]}<!--{/if}-->">
+														</div>
+														<label class="col-md-label margin-bt-10 control-label">{lang sort}</label>
+														<div class="col-md-1 margin-bt-10">
+															<input type="text" class="form-control show_quantity" name="setting[news_old][sort]" onkeypress='validate(event)' data-error="{lang number_error}" value="<!--{if isset({$settings[news_relateds][news_old][sort]})}-->{$settings[news_relateds][news_old][sort]}<!--{/if}-->">
+														</div>
+														<label class="col-md-2 margin-bt-10 control-label">{lang show_type}</label>
+														<div class="col-md-3 margin-bt-10">
+															<select class="form-control" name="setting[news_old][show_type]" data-error="">
+																<option value="list" <!--{if (isset($settings[news_relateds][news_old][show_type])&& $settings[news_relateds][news_old][show_type]=='list')||empty($_GET['id'])}-->selected="selected"<!--{/if}--> >{lang show_list}</option>
+																<option value="slide" <!--{if isset($settings[news_relateds][news_old][show_type]) && $settings[news_relateds][news_old][show_type]=='slide'}-->selected="selected"<!--{/if}-->>{lang show_slide}</option>
+															</select>
+														</div>											
+													</div>			
+												</div>
+											</div>
+										</div>						
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</form>
+					
+					<!--CAI DAT HIEN THI TIN TUC LIEN QUAN-->
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- END PAGE CONTENT-->
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery-tags-input/jquery.tagsinput.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/scripts/metronic.js"></script>
+<script type="text/javascript" src="{$_B['mod_theme']}js/setting.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+       FormSetting.init();
+    });
+</script>

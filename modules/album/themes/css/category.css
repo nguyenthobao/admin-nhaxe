@@ -1,0 +1,62 @@
+.form-horizontal .form-group {
+  margin: 0;
+}
+.form-control-order-input{
+    width: 60px !important;
+    background-color: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    border-radius: 0;
+    box-shadow: none;
+    color: #333333;
+    font-size: 14px;
+    font-weight: normal;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    padding: 7px
+}
+.row-search {
+  background: none repeat scroll 0 0 #F7F7F7;
+  margin-bottom: 10px !important;
+  padding: 10px 0 !important;
+}
+.btn-set {
+  float: right;
+}
+.btn-del {
+  margin: 0 0 0 10px;
+}
+.width-100{
+    width: 100%
+}
+.row-search {
+  background: none repeat scroll 0 0 #F7F7F7;
+  margin-bottom: 10px !important;
+  padding: 10px 0 !important;
+}
+.sort-wr .btn {
+    width: 78px;
+}
+.sort-wr, .atc-wr{
+    text-align: center;
+}
+.max559{
+    max-width: 559px;
+}
+.ovhide{
+    -ms-word-break: break-all;
+    word-break: break-all;
+
+ /* Non standard for webkit */
+     word-break: break-word;
+
+    -webkit-hyphens: auto;
+       -moz-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+}
+.hidden-xs{
+    text-align: center;
+}
+.editable-click, a.editable-click, a.editable-click:hover {
+  border-bottom: medium none;
+  cursor: pointer;
+}

@@ -1,0 +1,11 @@
+     <select class="form-control" name="districtid" data-error="{lang contactinfo_error}" id="districtid">
+
+			<option value="<!--{if !empty($advertisers_edit['district'])}-->{$advertisers_edit['district']}-{$advertisers_edit['districtid']}<!--{else}--><!--{/if}-->"><!--{if !empty($advertisers_edit['district'])}-->{$advertisers_edit['district']}<!--{else}-->{lang choose_districtid}<!--{/if}--></option>
+
+			<!--{if isset($information)}-->
+			<!--{loop $information $k $v}-->
+			<option value="{$v['name']}-{$v['districtid']}" data-id="{$v['districtid']}">{$v['name']}</option>
+			<!--{/loop}-->
+			<!--{/if}-->
+	</select>
+

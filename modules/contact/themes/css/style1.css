@@ -1,0 +1,101 @@
+
+
+.col-md-12{
+	border: 1px;
+}
+.col-mk-3{
+	padding-top:1px;
+	padding-left: 10px;
+	float: left;
+	width: 150px;
+	text-align: right;
+
+}
+.col-md-7{
+	padding-top:1px;
+	padding-left: 15px;
+	width: 350px;
+	
+}
+
+#a12{
+	padding-top:15px;
+
+}
+.btn-xs {
+padding: 0px 5px !important;
+}
+
+}
+.btn-a{
+	width: 60px !important;
+	border: 0px !important;
+	height: 23px !important;
+}
+.abc{
+text-shadow: none;
+color: #FAFCFD;
+}
+.row-search
+{
+	margin-bottom: 10px !important;
+	padding: 10px 0 !important;
+	background: #f7f7f7;
+	padding-left: 10px !important;
+	width: 100%;
+}
+.col-padding-10
+{
+	padding-left: 10px !important;
+	padding-right: 0px !important;
+}
+.width-100
+{
+	width: 100%;
+}
+.btn_action
+{
+	width: 100% !important;
+	float: right !important;
+}
+.btn-set
+{
+	float: right;
+}
+.col-width-1{
+	width: 130px !important;
+}
+.btn-del {
+margin: 0 ;
+}
+.form-horizontal .form-group {
+margin-right: 0px !important; 
+margin-left: 0px !important; 
+}
+.col-b-del{
+
+}
+.col-del-1{
+	float: right !important;
+	padding-right: 10px !important;
+
+}
+.col-dt-1{
+	padding-left: 16px !important;
+}
+.textareafeed{ width: 100%;} 
+.bootbox-body .form-group {
+ margin-bottom: 10px !important;
+    }
+.btn-set {
+padding-right: 5px !important;
+}
+.active_status {
+
+cursor: auto !important;
+}
+
+
+
+
+

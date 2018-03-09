@@ -1,0 +1,298 @@
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/jquery-tags-input/jquery.tagsinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/typeahead/typeahead.css">
+<!-- END PAGE LEVEL STYLES -->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+	<div class="col-md-12">
+		<form class="form-horizontal form-row-seperated" action="" id="form_category" class="form-horizontal" enctype="multipart/form-data" method="POST">
+			<div class="portlet">
+				<div class="portlet-title">
+					<div class="caption col-md-4">
+						<!--{if isset({$cat['title']})}-->
+							<i class="icon-note"></i>{lang breadcrumb_edit_category}
+						<!--{else}-->
+							<i class="icon-note"></i>{lang breadcrumb_add_category}
+						<!--{/if}-->						
+					</div>
+					<!--{temp category_toolbar}-->
+				</div>
+				<div class="portlet-body">
+					<!--{temp notify_action}-->
+					<div class="tabbable">
+						<ul class="nav nav-tabs">
+							<!--{loop $url_lang $k_lang $v_lang}-->
+								<li <!--{if $k_lang==$_GET['lang']}-->class="active"<!--{/if}-->>
+									<a class="select_lang" href="{$v_lang['url']}" data-exist="{$v_lang['exist']}">
+										{lang lang_{$k_lang}}
+									</a>
+								</li>
+							<!--{/loop}-->
+							<input type="hidden" name="popup" data-title="{lang pop_title}" data-yes="{lang pop_yes}" data-cancel="{lang pop_cancel}" data-message="{lang pop_message}" data-close="{lang pop_close}">
+							<input type="hidden" name="popup_df" data-title="{lang pop_df_title}" data-yes="{lang pop_yes}" data-cancel="{lang pop_cancel}" data-message="{lang pop_df_message}" data-close="{lang pop_close}">
+						</ul>
+						
+						<div class="tab-content no-space">
+							<div class="tab-pane active" id="lang_{$v_lang}">
+								<div class="form-body">
+									<div class="note note-warning">
+										<p class="block">{lang select_lang lang_{$_GET['lang']} }</p>
+									</div>
+									<div class="portlet light bordered">
+										<div class="portlet-title">
+											<div class="caption">
+												<i class="icon-equalizer font-red-sunglo"></i>
+												<span class="caption-subject font-red-sunglo bold uppercase">{lang basic_information}</span>
+												<span class="caption-helper">{lang noti_information}</span>
+											</div>
+											<div class="tools">
+											<a href="javascript:;" class="collapse"></a>
+											</div>
+										</div>
+										<div class="portlet-body form">
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang title} <span class="required">
+												* </span>
+												</label>
+												<div class="col-md-8 row_input_title">
+													<input type="text" class="form-control maxlength-handler" id="seo_url" onkeyup="trim_name(this);" name="title" maxlength="100" value="{$cat['title']}" placeholder="" data-error="{lang title_error}">
+													<span class="help-block">{lang maxlength 100}</span>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-2 control-label">SEO URL </label>
+												<div class="col-md-8">
+													<input class="form-control maxlength-handler" maxlength="225" <!--{if isset({$cat['alias']})}--> value="{$cat['alias']}" <!--{else}--> value="" <!--{/if}--> name="alias" value="" id="seo_keyword" >
+													<span class="help-block">{lang maxlength 225}</span>													
+													<script type="text/javascript">
+													 function trim_name(input_name){
+													  var txtname_trim=erase($("#seo_url").val());
+													  $("#seo_keyword").val(nbh_seo_write(txtname_trim));
+													 }
+													</script>
+												</div>
+											</div>
+											<!--{if isset({$cat['title']})}-->
+											<div class="form-group">
+												<label class="col-md-2 control-label"></label>
+												<div class="col-md-8">
+													<label>
+													<input type="checkbox" name="is_save" >
+													{lang noti_change}
+													</label>
+													<input type="hidden" name="title_alias" value="{$cat['alias']}">
+												</div>
+											</div>
+											<!--{/if}-->
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang description}</label>
+												<div class="col-md-8">
+													<div class="text_aria">
+														<textarea class="form-control " minlength="5" rows="6" name="description"  id="description" data-error="{lang description_error}">{$cat['description']}</textarea>
+													</div>
+												</div>
+											</div>
+											<!--{if isset($category)}-->
+											<div class="form-group">
+												<label class="control-label col-md-2">{lang category}</label>
+												<div class="col-md-8">
+													<input type="hidden" id="cat_select" name_id="{$cat['id']}" value="{$cat['id']}">
+													<select class="form-control" id="cat_parent" name="cat_id" data-error="">
+														<option value="0">{lang category_default}</option>
+														<!--{loop $category $k $v}-->
+														<!--{temp category_cat_list}-->
+														<!--{/loop}-->
+													</select>
+													<div class="warning" id="selectError"  style="display:none" ><span style="color: red;">{lang selectError}</span></div>
+												</div>
+											</div>
+											<!--{/if}-->
+											<div class="form-group">
+												<label class="control-label col-md-2 label-img">{lang image}</label>
+												<div class="col-md-8">
+													<div class="fileinput <!--{if !empty($cat['img'])}-->fileinput-exists<!--{else}-->fileinput-new<!--{/if}-->" data-provides="fileinput">
+														<p class="label2">{lang title_img}</p>
+														<!--{if !empty($cat['img'])}-->
+														<input type="hidden" value="1" name="img_cat"/>
+														<!--{/if}-->
+														<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+															<img src="{$_B['home_theme']}assets/no_image.gif" alt="Avatar"/>
+														</div>
+														<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+															<img src="<!--{if isset({$cat['img']})}-->{$_B['upload_path']}{$cat['img']}<!--{/if}-->" onerror="this.onerror=null;this.src='{$_B['home_theme']}assets/no_image.gif'" alt="" />
+														</div>
+														<div>
+															<span class="btn default btn-file">
+															<span class="fileinput-new">
+															{lang select_img} </span>
+															<span class="fileinput-exists">
+															{lang change_img} </span>
+															<input type="file" name="img_cat" id="img_cat">
+															</span>
+															<a href="#" class="btn default fileinput-exists" data-dismiss="fileinput">
+															{lang delete} </a>
+														</div>
+													</div>
+													
+													
+													<div class="fileinput <!--{if !empty($cat['icon'])}-->fileinput-exists<!--{else}-->fileinput-new<!--{/if}-->" data-provides="fileinput">
+														<p class="label2">{lang icon_img}</p>
+														<!--{if !empty($cat['icon'])}-->
+														<input type="hidden" value="1" name="icon_cat"/>
+														<!--{/if}-->
+														<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+															<img src="{$_B['home_theme']}assets/no_image.gif" alt="Avatar"/>
+														</div>
+														<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+															<img src="<!--{if isset({$cat['icon']})}-->{$_B['upload_path']}{$cat['icon']}<!--{/if}-->" onerror="this.onerror=null;this.src='{$_B['home_theme']}assets/no_image.gif'" alt="" />
+														</div>
+														<div>
+															<span class="btn default btn-file">
+															<span class="fileinput-new">
+															{lang select_img} </span>
+															<span class="fileinput-exists">
+															{lang change_img} </span>
+															<input type="file" name="icon_cat" id="icon_cat">
+															</span>
+															<a href="#" class="btn default fileinput-exists" data-dismiss="fileinput">
+															{lang delete} </a>
+														</div>
+													</div>
+													
+													<div class="fileinput <!--{if !empty($cat['bg'])}-->fileinput-exists<!--{else}-->fileinput-new<!--{/if}-->" data-provides="fileinput">
+														<p class="label2">{lang bg_img}</p>
+														<!--{if !empty($cat['bg'])}-->
+														<input type="hidden" value="1" name="bg_cat"/>
+														<!--{/if}-->
+														<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+															<img src="{$_B['home_theme']}assets/no_image.gif" alt="Avatar"/>
+														</div>
+														<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+															<img src="<!--{if isset({$cat['bg']})}-->{$_B['upload_path']}{$cat['bg']}<!--{/if}-->" onerror="this.onerror=null;this.src='{$_B['home_theme']}assets/no_image.gif'" alt="" />
+														</div>
+														<div>
+															<span class="btn default btn-file">
+															<span class="fileinput-new">
+															{lang select_img} </span>
+															<span class="fileinput-exists">
+															{lang change_img} </span>
+															<input type="file" name="bg_cat" id="bg_cat">
+															</span>
+															<a href="#" class="btn default fileinput-exists" data-dismiss="fileinput">
+															{lang delete} </a>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="form-group row-title-check">
+												<label class="col-md-2 control-label">{lang is_home} </label>
+												<div class="col-md-8">
+													<input type="checkbox" name="is_home" <!--{if isset($cat['is_home'])&&($cat['is_home'] == 1)}--> checked <!--{/if}-->>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang number_home}</label>
+												<div class="col-md-2">
+													<input type="text" class="form-control" name="number_home" value="{$cat['number_home']}" >
+												</div>
+												<label class="col-md-3 control-label">({lang noti_news_cat})</label>
+											</div>
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang sort} </label>
+												<div class="col-md-2">
+													<input type="text" class="form-control" name="sort" onkeypress='validate(event)' data-error="{lang number_error}" value="{$cat['sort']}" >
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-md-2">{lang active}</label>
+												<div class="col-md-2">
+													<select class="form-control" name="status" data-error="{lang category_error}">
+														<option value="1" <!--{if (isset($cat['status'])&& $cat['status']==1)}-->selected="selected"<!--{/if}--> >{lang is_show}</option>
+														<option value="0" <!--{if isset($cat['status']) && $cat['status']==0}-->selected="selected"<!--{/if}-->>{lang is_hide}</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="portlet light bordered">
+										<div class="portlet-title">
+											<div class="caption">
+												<i class="icon-equalizer font-red-sunglo"></i>
+												<span class="caption-subject font-red-sunglo bold uppercase">{lang meta_information}</span>
+												<span class="caption-helper">{lang meta_define}</span>
+											</div>
+											<div class="tools">
+											<a href="javascript:;" class="collapse"></a>
+											</div>
+										</div>
+										<div class="portlet-body form">
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang meta_title} </label>
+												<div class="col-md-8">
+													<input type="text" class="form-control maxlength-handler" name="meta_title" maxlength="100" value="{$cat['meta_title']}" placeholder="" data-error="{lang meta_title}">
+													<span class="help-block">
+													{lang maxlength 100} </span>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang meta_keyword}  </label>
+												<div class="col-md-8">
+														<input id="meta_keyword" name="meta_keyword" type="text" class="form-control tags" value="{$cat['meta_keyword']}"/>
+													</div>
+
+											</div>
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang meta_description} </label>
+												<div class="col-md-8">
+													<textarea class="form-control maxlength-handler" rows="4" name="meta_description" maxlength="500">{$cat['meta_description']}</textarea>
+													<span class="help-block">
+													{lang maxlength 500 } </span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				<div class="portlet-title topline">
+					<!--{temp category_toolbar}-->
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<!-- END PAGE CONTENT-->
+
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+<script src="{$_B['home_theme']}assets/global/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
+<script src="{$_B['home_theme']}assets/global/plugins/jquery-tags-input/jquery.tagsinput.min.js" type="text/javascript"></script>
+
+<script src="{$_B['mod_theme']}js/category.js" type="text/javascript"></script>
+<script type="text/javascript" src="{$_B['mod_theme']}js/nbh_seo_rewrite.js"></script>
+<link href="{$_B['mod_theme']}css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{$_B['home_theme']}/assets/global/plugins/ckeditor/ckeditor.js"></script>
+<script>
+jQuery(document).ready(function() {
+   NewsCategory.init();
+   CKEDITOR.replace('description');
+});
+</script>
+<script type="text/javascript">
+function validate(evt) {
+  	var theEvent = evt || window.event;
+  	var key = theEvent.keyCode || theEvent.which;
+  	key = String.fromCharCode( key );
+  	var regex = /[0-9]|\./;
+  	if( !regex.test(key) ) {
+    	theEvent.returnValue = false;
+    	if(theEvent.preventDefault) theEvent.preventDefault();
+  	}
+}
+</script>

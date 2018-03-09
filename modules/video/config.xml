@@ -1,0 +1,36 @@
+
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<config>
+    <name_modue>video</name_modue> 
+    <menus>
+        <menu>
+            <title>video</title>
+            <link>/video-videolist-lang-vi</link>
+            <icon>icon-social-youtube</icon>
+            <mod>video</mod>
+            <submenu>
+                <title>video_add</title>
+                <link>/video-video-lang-vi</link> 
+                <icon>icon-plus</icon>
+            </submenu>         
+            <submenu>
+                <title>video_list</title>
+                <link>/video-videolist-lang-vi</link>
+                <icon>fa fa-navicon</icon>
+            </submenu>
+            <submenu>
+                <title>video_category</title>
+                <link>/video-category-lang-vi</link> 
+                <icon>icon-plus</icon>
+            </submenu>
+            <submenu>
+                <title>video_cat</title>
+                <link>/video-categorylist-lang-vi</link>
+                <icon>icon-list</icon>
+            </submenu> 
+             
+            
+        </menu> 
+    </menus> 
+
+</config>

@@ -1,0 +1,6 @@
+<select class="form-control" name="parent_id" data-error="">
+	<option value="0" <!--{if isset($_DATA['content']) && $_DATA['content']['parent_id']==0}-->selected<!--{/if}-->>Không chọn</option>
+	<!--{loop $_DATA['menu'] $k $v}-->
+		<option value="{$v['id']}" <!--{if isset($_DATA['content']) && $_DATA['content']['parent_id']==$v['id']}-->selected<!--{/if}-->>{$v['line']} {$v['namemenu']}</option>
+	<!--{/loop}-->
+</select>

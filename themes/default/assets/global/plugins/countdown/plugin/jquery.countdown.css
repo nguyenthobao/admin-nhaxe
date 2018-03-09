@@ -1,0 +1,70 @@
+/* jQuery Countdown styles 1.6.3. */
+.hasCountdown {
+  	color: #ccc;
+  	height: auto;
+  	overflow: hidden;
+  	width: 100% !important;
+}
+.countdown_rtl {
+	direction: rtl;
+}
+.countdown_holding span {
+	color: #333;
+}
+.countdown_row {
+	clear: both;
+	width: 100%;
+	padding: 0px 2px;
+	text-align: center;
+  	/*color: #428BCA;*/
+  	color: #333;
+}
+
+.countdown_show4 .countdown_section {
+	width:21.5%;
+
+}
+.countdown_section {
+	display: block;
+	float: left;
+	font-size: 55%;
+	text-align: center;
+	
+	  
+	  display: inline-block;
+	  text-align: center;
+	  position: relative;
+	  
+	  width: 35px;
+
+	  -webkit-perspective: 500px;
+	  -moz-perspective: 500px;
+	  -ms-perspective: 500px;
+	  -o-perspective: 500px;
+	  perspective: 500px;
+
+	  -webkit-backface-visibility: hidden;
+	  -moz-backface-visibility: hidden;
+	  -ms-backface-visibility: hidden;
+	  -o-backface-visibility: hidden;
+	  backface-visibility: hidden;
+
+	  -webkit-transform: translateZ(0);
+	  -moz-transform: translateZ(0);
+	  -ms-transform: translateZ(0);
+	  -o-transform: translateZ(0);
+	  transform: translateZ(0);
+
+	  -webkit-transform: translate3d(0,0,0);
+	  -moz-transform: translate3d(0,0,0);
+	  -ms-transform: translate3d(0,0,0);
+	  -o-transform: translate3d(0,0,0);
+	  transform: translate3d(0,0,0);
+}
+.countdown_amount {
+	font-size: 200%;
+}
+.countdown_descr {
+	display: block;
+	width: 100%;
+}

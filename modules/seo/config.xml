@@ -1,0 +1,45 @@
+
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<config>
+    <name_modue>seo</name_modue> 
+    <menus>        
+        <menu>
+            <title>seo</title>
+            <link>/seo-seo-lang-vi</link>
+            <icon>icon-docs</icon>
+            <mod>seo</mod>
+            
+            <submenu>
+                <title>meta_all</title>
+                <link>/seo-meta-lang-vi</link>
+                <icon>icon-link</icon>
+            </submenu>
+         
+     
+            <submenu>
+                <title>google_authorship</title>
+                <link>/seo-seo-lang-vi#tab_3</link>
+                <icon>icon-globe</icon>
+            </submenu>
+            
+             <submenu>
+                <title>manager_robots</title>
+                <link>/seo-seo-lang-vi#tab_4</link>
+                <icon>icon-pencil</icon>
+            </submenu>
+            
+            
+            <submenu>
+                <title>google_analytics</title>
+                <link>/seo-seo-lang-vi#tab_5</link>
+                <icon>icon-pie-chart</icon>
+            </submenu>
+            
+           
+            
+            
+        </menu>    
+        
+           
+    </menus>
+</config>

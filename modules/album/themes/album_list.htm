@@ -1,0 +1,36 @@
+<tr id="tr_{$v['id']}" data-key="{$v['id']}" data-lang="{$get_lang}">
+    <td class="highlight">
+    <input type="checkbox" name="name_id[]" class="checkboxes"  value="{$v['id']}">
+    </td>
+    <td><div class="album_avatar">
+        <img id="{$v['avatar_id']}" class="pic" src="{$_B['upload_path']}{$v['avatar']}" />
+        <button data-avatar="{$v['avatar_id']}" data-id="{$v['id']}" data-title="{$v['title']}" class="choose-avatar" type="button" data-toggle="modal">{lang chon_anh_dai_dien}</button>
+        </div></td>
+    <td class="ovhide"><span data-pk="{$v['id']}"  data-type="text" data-lang="{$get_lang}"  class="ajaxItem editable editable-click tooltips" data-original-title="{lang click_to_edit}">{$v['title']}</span></td>
+    <td class="hidden-xs">
+        <a href="#" data-type="select" data-pk="{$v['id']}" data-lang="{$get_lang}" ({lang number_error})" class="editable editable-click sortItem tooltips" data-original-title="{lang click_to_edit_order}"> {$v['order_by']} </a>
+        </td>
+    <td class="sort-wr">
+    <!--{if $_B['user_perm']!='boss'}-->
+        Không có quyền
+    <!--{else}-->
+        <!--{if $v['hide_by_cate']}-->
+            <span class="glyphicon glyphicon-eye-close tooltips" data-original-title="{lang alert_hide_by_cate}"></span>
+        <!--{else}-->
+        <!--{if $v['post_time'] > $time_now}-->
+                 <a class="btn default btn-xs yellow-stripe active_status tooltips" data-title="{lang click_to_change_status}" data-status="2">{lang hen_dang}</a>
+        <!--{else}-->
+            <!--{if $v['status']==1}-->
+            <a class="btn default btn-xs green-stripe active_status tooltips" data-title="{lang click_to_change_status}" data-status="{$v['status']}">{lang showing}</a>
+            <!--{else}--><a class="btn default btn-xs red-stripe active_status tooltips" data-title="{lang click_to_change_status}" data-status="{$v['status']}">{lang hiding}</a><!--{/if}-->
+            <!--{/if}-->
+        <!--{/if}-->
+      <!--{/if}-->   
+    </td>
+    <td class="atc-wr">
+        <a data-id="{$v['id']}" class="btn default btn-xs blue tooltips refesh_new" data-placement="top" data-original-title="{lang go_new}"><i class="fa fa-history"></i></a>
+        <a href="{$v['link']}" target="_blank" class="btn default btn-xs green tooltips" data-placement="top" data-original-title="{lang view_details}"><i class="fa fa-eye"></i></a>
+        <a href="$_B['home']/album-albumUpdate-{$v['id']}-{$get_lang}" class="btn default btn-xs yellow tooltips" data-placement="top" data-original-title="{lang edit}"><i class="fa fa-edit"></i></a>
+        <a class="btn default btn-xs red tooltips delete_category" style="margin-right: 0" data-placement="top" data-original-title="{lang delete}"><i class="fa fa-trash-o"></i></a>
+        </td>
+</tr>

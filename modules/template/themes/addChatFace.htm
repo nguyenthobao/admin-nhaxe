@@ -1,0 +1,77 @@
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link href="{$_B['mod_theme']}css/style.css" rel="stylesheet" type="text/css" />
+<!-- END PAGE LEVEL STYLES -->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+	<div class="col-md-12">
+		<form class="form-horizontal form-row-seperated" action="" id="form_slide" enctype="multipart/form-data" method="POST" novalidate="novalidate">
+			<div class="portlet">
+				<div class="portlet-title">
+					<div class="caption">
+					<i class="icon-note"></i>Block chat Facebook</div> 
+					<!--{temp addChatFaceToolbar}-->
+				</div>
+				<div class="portlet-body">
+					<!--{temp notify_action}-->
+					<div class="tabbable">
+						<ul class="nav nav-tabs">
+							<!--{loop $_DATA['lang_tab'] $k_lang $v_lang}-->
+								<li <!--{if $k_lang==$_DATA['lang']}-->class="active"<!--{/if}--> >
+									<a href="{$v_lang['url']}" data-lang="{$k_lang}">{lang lang_{$k_lang}} </a>
+								</li>
+							<!--{/loop}-->
+						</ul>
+					</div>
+					<div class="tabbable">
+						<div class="tab-content no-space">
+							<div class="tab-pane active">
+								<div class="form-body">
+									<div class="note note-warning">
+										<p class="block">Hãy truy cập <a href="https://developers.facebook.com/docs/plugins?locale=vi_VN">Link</a> và lấy mã code để chèn vào khung dưới đây</p>
+									</div>
+									<div class="portlet light bordered">
+										<div class="portlet-title">
+											<div class="caption">
+												<i class="icon-equalizer font-red-sunglo"></i>
+												<span class="caption-subject font-red-sunglo bold uppercase">Block Chat Facebook</span>
+												
+											</div>
+											<div class="tools">
+												<a href="javascript:;" class="collapse"></a>
+											</div>
+										</div>
+										<div class="portlet-body form">
+											
+											<div class="form-group">
+												<label class="col-md-2 control-label">Tên block <span class="required" aria-required="true">* </span></label>
+												<div class="col-md-4">
+													<input type="text" class="form-control" name="title" value="<!--{if isset($_DATA['item'])}-->{$_DATA['item']['title']}<!--{/if}-->" data-error="Vui lòng nhập trường này" placeholder="Facebook">
+												</div>
+											</div>
+											
+											<div class="form-group">
+												<label class="col-md-2 control-label">Fan Page <span class="required" aria-required="true">* </span></label>
+												
+												<div class="col-md-4">
+													<input type="text" class="form-control" name="url" value="<!--{if isset($_DATA['item'])}-->{$_DATA['item']['data_custome']}<!--{else}-->webbnc.net<!--{/if}-->"  data-error="Vui lòng nhập trường này">
+													<small>Ví dụ:https://www.facebook.com/<strong>facebook</strong></small>
+												</div>
+											</div>
+											
+																					
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="portlet-title topline">
+					<input type="hidden" name="id" value="<!--{if isset($_DATA['item'])}-->{$_DATA['item']['id']}<!--{else}-->0<!--{/if}-->">
+					<!--{temp addChatFaceToolbar}-->
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="{$_B['mod_theme']}js/addsocial.js"></script> 

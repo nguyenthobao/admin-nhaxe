@@ -1,0 +1,68 @@
+<tr id="tr_{$v['id']}" data-key="{$v['id']}" data-lang="{$_GET['lang']}">
+	<td class="highlight">
+			<input type="checkbox" name="nameid[]" class="checkboxes delete_multi_video"  value="<!--{if !empty({$v['id']})}-->{$v['id']}<!--{/if}-->">
+	</td>
+	<td class="hidden-xs">
+		<div class="list-cat-img">
+			<div class="<!--{if !empty({$v['img']})}-->fileinput-exists<!--{else}-->fileinput-new<!--{/if}-->" data-provides="fileinput">
+				<div class="fileinput-new thumbnail">
+					<img src="{$_B['home_theme']}assets/no_image.gif" alt="Avatar" class="imgkhung"/>
+				</div>
+				<div class="fileinput-preview fileinput-exists thumbnail">
+					<img src="{$_B['upload_path']}{$v['img']}" onerror="this.onerror=null;this.src='{$_B['home_theme']}assets/no_image.gif'" alt="" class="imgkhung"/>
+				</div>
+				<div class="btn-all">
+					<span class="btn btn-xs default btn-file btn-change" style="display:none">
+					<span class="fileinput-new">
+					{lang select_img} </span>
+					<span class="fileinput-exists">
+					{lang select_img} </span>
+					<input type="file" name="img_video_{$v['id']}">
+					</span>
+				</div>
+			</div>	
+		</div>
+	</td>
+	</td>
+	<td >
+		 <span><!--{if !empty({$v['space']})}-->{$v['space']}<!--{/if}--></span><span class="catItem editable editable-click nonebottom tooltips btn" data-pk="<!--{if !empty({$v['id']})}-->{$v['id']}<!--{/if}-->"  data-type="text" data-lang="{$_GET['lang']}" data-original-title="{lang editsort}"><!--{if !empty({$v['title']})}-->{$v['title']}<!--{/if}--></span>
+	
+	</td>
+	<td class="hidden-xs center">
+		<!-- <span data-pk="{$v['id']}"  data-original-title="{lang sort} ({lang number_error})" data-type="text" data-lang="{$_GET['lang']}" class="editable editable-click sortItem">{$v['sort']}</span> -->
+		<a href="#" data-type="select" data-pk="{$v['id']}" data-value="{$v['sort']}" data-original-title="{lang clickedit} ({lang number_error})" class="editable editable-click orderItem tooltips">
+							<!--{if isset({$v['sort']})}-->{$v['sort']} <!--{/if}--></a>
+	</td>
+	<td class="hidden-xs">
+		<!--{if $v['is_vip']==0}-->
+		<a class="btn default btn-xs green-stripe active_vip" data-vip="{$v['is_vip']}" style="width:73px">{lang thuong}</a>
+		<!--{else}-->
+		<a class="btn default btn-xs yellow-stripe active_vip" data-vip="{$v['is_vip']}" style="width:73px">{lang vip}</a>
+		<!--{/if}-->
+		<!--{if $v['is_hot']==0}-->
+		<a class="btn default btn-xs green-stripe active_hot" data-hot="{$v['is_hot']}" style="width:73px">{lang thuong}</a>
+		<!--{else}-->
+		<a class="btn default btn-xs yellow-stripe active_hot" data-hot="{$v['is_hot']}" style="width:73px">{lang hot}</a>
+		<!--{/if}-->
+	</td>
+	
+	<td class="hidden-xs">
+		<!--{if $v['status']==2}-->
+		<a class="btn default btn-xs yellow-stripe active_post tooltips" data-status="{$v['status']}" style="width:73px" data-title="{lang postclick}">{lang status_clock}</a>
+		<!--{else}-->
+		<!--{if $v['status']==1}-->
+		<a class="btn default btn-xs green-stripe active_status" data-status="{$v['status']}" style="width:73px">{lang show}</a>
+		<!--{else}-->
+		<a class="btn default btn-xs red-stripe active_status" data-status="{$v['status']}" style="width:73px">{lang hide}</a>
+		<!--{/if}-->
+		<!--{/if}-->
+	</td>
+	<td>
+		<a  class="btn default btn-xs blue tooltips refesh_video" data-placement="top" data-original-title="{lang refesh}"><i class="fa fa-history"></i></a>
+
+		<a href="{$v['link']}" target="_blank" class="btn default btn-xs green tooltips" data-placement="top" data-original-title="{lang view}"><i class="fa fa-eye"></i></a>
+		<!-- <a href="#" class="btn default btn-xs grey-cascade tooltips fast-edit" data-placement="top" data-original-title="Sửa nhanh"><i class="fa fa-send"></i></a> -->
+		<a href="video-video-{$v['id']}-{$_GET['lang']}" class="btn default btn-xs yellow tooltips" data-placement="top" data-original-title="{lang edit}"><i class="fa fa-edit"></i></a>
+		<a  class="btn default btn-xs red tooltips delete_video"  data-placement="top" data-original-title="{lang delete}"><i class="fa fa-trash-o"></i></a>
+	</td>
+</tr>

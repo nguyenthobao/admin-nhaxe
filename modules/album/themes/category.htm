@@ -1,0 +1,174 @@
+<!-- <link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css"/> -->
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/select2/select2.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-editable/bootstrap-editable/css/bootstrap-editable.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css"/>
+
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-editable/inputs-ext/address/address.css"/>
+
+<!-- BEGIN PAGE CONTENT deleteMultiID -->
+<div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal form-row-seperated" action="" id="formList" class="form-horizontal" enctype="multipart/form-data" method="POST">
+            <input type="hidden" value="" name="action">
+            <div class="portlet">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-list"></i>{lang title_manager_category}
+                    </div>
+            
+                </div>
+                <div class="portlet-body">
+                    <!--{temp notify_action}-->
+                    <div class="tabbable">
+                        <ul class="nav nav-tabs">
+                            <!--{loop $url_lang $k_lang $v_lang}-->
+                                <li <!--{if $k_lang==$get_lang}-->class="active"<!--{/if}--> >
+                                    <a href="$_B['home']/album-category-lang-$k_lang" class="select_lang" data-lang="{$k_lang}">{lang lang_{$k_lang}} </a>
+                                </li>
+                            <!--{/loop}-->
+                        </ul>
+                    </div>
+<!--search-->
+<div class="form-group row-search">
+<div class="col-md-3 col-padding-10">
+<input type="text" id="form-filter" class="form-control form-filter input-sm" name="title" placeholder="{lang search_title}" <!--{if isset($value['title']) && $value['title']!=''}-->value="$value['title']"<!--{/if}-->>
+</div>
+
+<div class="col-md-2 col-padding-10">
+<select name="status" class="form-filter table-group-action-input form-control input-inline input-sm width-100">
+<option selected value="">{lang status}</option>
+<option value="0" <!--{if isset($value['status']) && $value['status']=='0'}-->selected<!--{/if}-->>{lang hiding}</option>
+<option value="1" <!--{if isset($value['status']) && $value['status']==1}-->selected<!--{/if}-->>{lang showing}</option>
+
+</select>
+</div>
+<div class="col-md-2 col-padding-10">
+<button id="bnt_search" class="btn btn-sm green table-group-action-submit" data-continue="category"><i class="fa fa-search"></i> {lang search}</button>
+</div>
+<div class="col-md- col-padding-10" style="padding-right: 15px">
+<div class="actions btn-set btn-del">
+<a  class="btn btn-sm red continue delete_category_select disabled" data-continue="delete_category_select"><i class="fa fa-trash-o"></i> {lang delete}</a>
+</div>
+<div class="actions btn-set copy_category_lang" style="margin-left:10px;">
+                                    <a class="btn btn-sm blue continue copyCatsLang"><i class="fa fa-copy"></i> Sao chép ngôn ngữ</a>
+</div>
+<div class="actions btn-set">
+<a href="$_B['home']/album-categoryNew-lang-{$get_lang}" class="btn btn-sm green continue"><i class="fa fa-plus"></i> {lang add}</a>
+</div>
+</div>
+
+</div>
+<!--{if $cateList}-->
+<div class="table-scrollable">
+<table id="categoryList" data-lang="{$get_lang}" class="table table-striped table-bordered table-advance table-hover">
+<thead>
+<tr >
+<th width="20">
+<input type="checkbox" id="checkboxAll" value="">
+</th>
+<th class="highlight max559">
+{lang category_name}
+</th>
+<th class="hidden-xs" width="20">
+{lang sort}
+</th>
+<th width="100">
+{lang status}
+</th>
+<th width="115">{lang action}
+</th>
+</tr>
+</thead>
+<tbody>
+
+<!--{loop $cateList $k $v}-->
+<!--{temp category_list}-->
+<!--{/loop}-->
+
+</tbody>
+</table>
+</div>
+<!--{else}-->
+<div class="alert alert-warning">
+<center>{lang no_data}</center>
+</div>
+<!--{/if}-->
+<!--search end-->
+                
+            <!--{if $paging}-->
+            $paging
+            <!--{/if}-->
+                </div>
+                
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal fade" id="copyCat" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+        <form role="form" id="formCopy" action="/album-category-ajaxCopyCategory-lang-{$_GET['lang']}">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel">{lang copy_cate}</h4>
+              </div>
+              <div class="modal-body">
+                <div class="note note-warning">
+                    <p class="block">
+                        {lang copy_cate_note}.<br>
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>{lang select_lang}</label>
+                        <select name="langData" class="form-control">
+                            <!--{loop $_DATA['lang_use'] $k $v}-->
+                                
+                                    <option value="{$v}">{lang lang_{$v}}</option>
+                                
+                            <!--{/loop}-->
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label>{lang delete_all_cate}</label> <br>
+                        <input class="form-control" value="1" type="checkbox" name="emptyData"> {lang empty_for_copy}
+                    </div>
+                    <input type="hidden" name="currentLang" value="$_GET['lang']">
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">{lang close}</button>
+                <button type="submit" class="btn btn-primary">{lang ok}</button>
+              </div>
+            </div>
+          </div>
+          </form>
+</div>
+<div id="deleteItemDialog" style="display: none"><li class="list-group-item list-group-item-warning">{lang delete_item_dialog}</li></div>
+<div id="deleteAllDialog" style="display: none"><li class="list-group-item list-group-item-warning">{lang delete_all_dialog}</li></div>
+<!-- BEGIN PLUGINS USED BY X-EDITABLE -->
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/moment.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery.mockjax.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-editable/bootstrap-editable/js/bootstrap-editable.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-editable/inputs-ext/address/address.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-editable/inputs-ext/wysihtml5/wysihtml5.js"></script>
+<link href="{$_B['mod_theme']}css/category.css?rs={$reload}" rel="stylesheet" type="text/css" />
+<!-- END X-EDITABLE PLUGIN -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="{$_B['mod_theme']}js/category.js?rs={$reload}"></script>
+<script type="text/javascript">
+jQuery(document).ready(function() { 
+var person = new Array()
+    person["ok"] = "{lang ok}";
+    person["cancel"] = "{lang cancel}";  
+    person["hiding"] = "{lang hiding}"; 
+    person["showing"] = "{lang showing}"; 
+    person["alert"] = "{lang alert}"; 
+   category.init(person);
+});
+</script>
+<!-- END JAVASCRIPTS -->
+

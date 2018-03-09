@@ -1,0 +1,8 @@
+<!--{eval $v['line'] = str_replace('-', '&nbsp;&nbsp;&nbsp;', $v['line'])}-->
+<!--{eval $str_id = '|'.$v['str_id'].$v['id'].'|'}-->
+<li>
+	<label>
+		{$v['line']}<input class="checkboxes select_category" type="checkbox" name="cat_name[]" value="<!--{if !empty({$v['id']})}--> {$v['id']} <!--{/if}-->" data-id="{$str_id}" value="{$v['id']}"> -- {$v['title']}
+	</label> 
+
+</li>

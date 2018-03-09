@@ -1,0 +1,11 @@
+<li  <!--{if $v['type']=='f'}--> data-jstree='{ "type" : "file","opened" : true }' <!--{/if}--> >
+  <!--{$v['name']}-->
+  <!--{if sizeof($v[sub])>0 }-->
+  <ul>
+      <!--{loop $v[sub] $k $v}-->
+      <!--{looptemp designthemes_tree_list}-->
+      <!--{/loop}-->    
+   </ul>
+  <!--{/if}-->
+
+</li>

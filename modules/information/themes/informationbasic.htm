@@ -1,0 +1,236 @@
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/jquery-tags-input/jquery.tagsinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/typeahead/typeahead.css">
+<!-- END PAGE LEVEL STYLES -->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+	<div class="col-md-12">
+		<form class="form-horizontal form-row-seperated" action="" id="form_informationbasic" class="form-horizontal" enctype="multipart/form-data" method="POST">
+			<div class="portlet">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-cog"></i>{lang breadcrumb_information}
+					</div>
+					<!--{temp informationbasic_toolbar}-->
+				</div>
+				<div class="portlet-body">
+					<!--{temp notify_action}-->
+					<div class="tabbable">
+						 
+						
+						<div class="tab-content no-space" id="information" data-lang="{$_GET['lang']}">
+							<div class="tab-pane active" id="lang_{$get_lang}">
+								<div class="form-body">
+									 
+									
+									
+									<div class="form-group">
+										<label class="col-md-2 control-label">{lang name_business}: <span class="required">
+										*</span>
+										</label>
+										<div class="col-md-5 row_input_title">
+											<input type="text" class="form-control maxlength-handler" maxlength="100" name="business" data-error="{lang name_business_error}" value="<!--{if isset({$advertisers_edit['business']})}-->{$advertisers_edit['business']}<!--{/if}-->">
+											
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-2">{lang title_img} </label>
+										<div class="col-md-8">
+											<div class="fileinput <!--{if !empty($advertisers_edit['img'])}-->fileinput-exists<!--{else}-->fileinput-new<!--{/if}-->" data-provides="fileinput">
+												<!--{if !empty($advertisers_edit['img'])}-->
+												<input type="hidden" value="1" name="img_news"/>
+												<!--{/if}-->
+												<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+													<img src="{$_B['home_theme']}assets/no_image.gif" alt="Avatar"/>
+												</div>
+												<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+													<img src="{$_B['upload_path']}{$advertisers_edit['img']}" onerror="this.onerror=null;this.src='{$_B['home_theme']}assets/no_image.gif'" alt="" />
+												</div>
+												<div>
+													<span class="btn default btn-file">
+													<span class="fileinput-new">
+													{lang select_img} </span>
+													<span class="fileinput-exists">
+													{lang change_img} </span>
+													<input type="file" name="img_news">
+													</span>
+													<a href="#" class="btn default fileinput-exists" data-dismiss="fileinput">
+													Xóa </a>
+												</div>
+											</div>	
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-2">{lang favicon} </label>
+										<div class="col-md-8">
+											<div class="fileinput <!--{if !empty($advertisers_edit['icon'])}-->fileinput-exists<!--{else}-->fileinput-new<!--{/if}-->" data-provides="fileinput">
+												<!--{if !empty($advertisers_edit['icon'])}-->
+												<input type="hidden" value="1" name="favicon_news"/>
+												<!--{/if}-->
+												<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+													<img src="{$_B['home_theme']}assets/no_image.gif" alt="Avatar"/>
+												</div>
+												<div class="fileinput-preview fileinput-exists thumbnail" style="width: 200px;height: 150px;">
+													<img src="<!--{if isset({$advertisers_edit['icon']})}-->{$_B['upload_path']}{$advertisers_edit['icon']}<!--{/if}-->" onerror="this.onerror=null;this.src='{$_B['home_theme']}assets/no_image.gif'" alt="" />
+												</div>
+												<div>
+													<span class="btn default btn-file">
+													<span class="fileinput-new">
+													{lang select_img} </span>
+													<span class="fileinput-exists">
+													{lang change_img} </span>
+													<input type="file" name="favicon_news">
+													</span>
+													<a href="#" class="btn default fileinput-exists" data-dismiss="fileinput">
+													{lang remove} </a>
+												</div>
+											</div>	
+										</div>
+									</div>
+
+									<div class="form-group get_id_province"<!--{if !empty({$advertisers_edit['provinceid']})}-->key="{$advertisers_edit['provinceid']}"<!--{else}-->key="0"<!--{/if}--> >
+										<label class="control-label col-md-2">{lang provinces}<span class="required">*
+										</span>
+										</label>
+										<div class="col-md-3">
+											<select class="form-control" name="provinces" data-error="{lang provinces_error}" id="provinces">
+												<option value="" >{lang choose_provinces}</option>
+												<!--{if isset($information)}-->
+												<!--{loop $information $k $v}-->
+												<option value="{$v['name']}-{$v['provinceid']}"<!--{if $advertisers_edit['provinces'] == $v['name']}-->selected<!--{/if}--> data-id="{$v['provinceid']}"> {$v['name']}</option>
+												<!--{/loop}-->
+												<!--{/if}-->
+											</select>
+										</div>
+									</div>
+									<div <!--{if empty($advertisers_edit['district'])}-->style ="display:none"<!--{else}-->style =""<!--{/if}-->class="form-group get_id_district "  id="show_district" <!--{if !empty({$advertisers_edit['districtid']})}-->key="{$advertisers_edit['districtid']}"<!--{else}-->key="0"<!--{/if}-->>
+										<label class="control-label col-md-2">{lang districtid}<span class="required">*
+										</span>
+										</label>
+										<div class="col-md-3" id="district">
+											<select class="form-control" name="districtid" data-error="{lang contactinfo_error}" id="districtid">
+									
+												<!--{if isset({$advertisers_edit['district']})}-->
+												<option value="{$advertisers_edit['district']}" >{$advertisers_edit['district']}</option>
+												<!--{else}-->
+												<option value="0">{lang districtid}</option>
+												<!--{/if}-->
+												
+											</select>
+										</div>
+									</div>
+
+
+									<div class="form-group wardid" id="show_wardid" <!--{if empty($advertisers_edit['ward'])}-->style ="display:none"<!--{else}-->style =""<!--{/if}-->>
+										<label class="control-label col-md-2">{lang wardid}<span class="required">
+										</span>
+										</label>
+										<div class="col-md-3" id="wardid">
+											<select class="form-control" name="wardid" data-error="{lang contactinfo_error}" >
+												<!--{if isset({$advertisers_edit['ward']})}-->
+												<option value="{$advertisers_edit['ward']}" >{$advertisers_edit['ward']}</option>
+												<!--{else}-->
+												<option value="0">{lang wardid}</option>
+												<!--{/if}-->
+											</select>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-md-2 control-label">{lang phone_number} <span class="required">*
+										</span>
+										</label>
+										<div class="col-md-3">
+											<input type="text" value="<!--{if isset({$advertisers_edit['phone']})}-->{$advertisers_edit['phone']}<!--{/if}-->" class="form-control" name="phone" data-error="{lang phone_error}">
+											
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-2 control-label">{lang address}<span class="required">*
+										</span>
+										</label>
+										<div class="col-md-5">
+											<input type="text" value="<!--{if isset({$advertisers_edit['address']})}-->{$advertisers_edit['address']}<!--{/if}-->" class="form-control" name="address" data-error="{lang address_error}" >
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-md-2 control-label">{lang email}<span class="required">*
+										</span>
+										</label>
+										<div class="col-md-5">
+											<input type="text" value="<!--{if isset({$advertisers_edit['email']})}-->{$advertisers_edit['email']}<!--{/if}-->" class="form-control" name="email" data-error="{lang email_error}" >
+										</div>
+									</div>	
+									<div class="form-group">
+										<label class="col-md-2 control-label">{lang user_name}<span class="required">
+										</span>
+										</label>
+										<div class="col-md-5">
+											<input type="text" value="<!--{if isset({$advertisers_edit['name']})}-->{$advertisers_edit['name']}<!--{/if}-->" class="form-control" name="name" data-error="{lang user_error}" >
+										</div>
+									</div>
+									
+									<div class="portlet light bordered">
+										<div class="portlet-title">
+											<div class="caption">
+												<i class="icon-equalizer font-red-sunglo"></i>
+												<span class="caption-subject font-red-sunglo bold uppercase">{lang meta_information}</span>
+												<span class="caption-helper">{lang meta_define}</span>
+											</div>
+											<div class="tools">
+											<a href="javascript:;" class="collapse"></a>
+											</div>
+										</div>
+										<div class="portlet-body form">
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang meta_title} </label>
+												<div class="col-md-8">
+													<input type="text" class="form-control maxlength-handler" name="meta_title" maxlength="170" value="<!--{if isset({$advertisers_edit['meta_title']})}-->{$advertisers_edit['meta_title']}<!--{/if}-->" placeholder="" data-error="{lang meta_title}">
+													<span class="help-block">
+													{lang maxlength 170} </span>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang meta_keyword} </label>
+												<div class="col-md-8">
+													<input id="meta_keyword" name="meta_keyword" type="text" class="form-control tags" value="<!--{if isset({$advertisers_edit['meta_keyword']})}-->{$advertisers_edit['meta_keyword']}<!--{/if}-->"/>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang meta_description} </label>
+												<div class="col-md-8">
+													<textarea class="form-control maxlength-handler" rows="4" name="meta_description" maxlength="500"><!--{if isset({$advertisers_edit['meta_description']})}-->{$advertisers_edit['meta_description']}<!--{/if}--></textarea>
+													<span class="help-block">
+													{lang maxlength 500 } </span>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+						</div>						
+					</div>
+				</div>
+				<div class="portlet-title topline">
+					<!--{temp informationbasic_toolbar}-->
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<!-- END PAGE CONTENT-->
+
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+
+<script type="text/javascript" src="{$_B['mod_theme']}js/informationbasic.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {    
+       InformationBasic.init();
+    });        
+</script>
+

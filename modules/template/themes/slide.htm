@@ -1,0 +1,205 @@
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/jquery-tags-input/jquery.tagsinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/typeahead/typeahead.css">
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css"/>
+
+<link href="{$_B['mod_theme']}css/style.css" rel="stylesheet" type="text/css" />
+
+<!-- END PAGE LEVEL STYLES -->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+	<div class="col-md-12">
+		<form class="form-horizontal form-row-seperated" action="" id="form_slide" class="form-horizontal" enctype="multipart/form-data" method="POST">
+			<div class="portlet">
+				<div class="portlet-title">
+					<div class="caption">
+						<!--{if isset({$slide_edit['title']})}-->
+							<i class="icon-note"></i>{lang breadcrumb_edit_slide}
+						<!--{else}-->
+							<i class="icon-note"></i>{lang breadcrumb_add_slide}
+						<!--{/if}-->
+					</div>
+					<!--{temp slide_toolbar}-->
+				</div>
+				<div class="portlet-body">
+					<!--{temp notify_action}-->
+					<div class="tabbable">
+						<ul class="nav nav-tabs">
+							<!--{loop $url_lang $k_lang $v_lang}-->
+								<li <!--{if $k_lang==$_GET['lang']}-->class="active"<!--{/if}-->>
+									<a class="select_lang" href="{$v_lang['url']}" data-exist="{$v_lang['exist']}">
+										{lang lang_{$k_lang}}  
+									</a>
+								</li>
+							<!--{/loop}-->
+							<input type="hidden" name="popup" data-title="{lang pop_title}" data-yes="{lang pop_yes}" data-cancel="{lang pop_cancel}" data-message="{lang pop_message}" data-close="{lang pop_close}">
+							<input type="hidden" name="popup_df" data-title="{lang pop_df_title}" data-yes="{lang pop_yes}" data-cancel="{lang pop_cancel}" data-message="{lang pop_df_message}" data-close="{lang pop_close}">
+							<input type="hidden" value="$_GET['id']" name="idslide" id="idslide"/>
+						</ul>						
+						<div class="tab-content no-space">
+							<div class="tab-pane active" id="lang_{$v_lang}">
+								<div class="form-body">
+									<div class="note note-warning">
+										<p class="block">{lang select_lang lang_{$_GET['lang']} }</p>
+									</div>
+									<div class="portlet light bordered">
+										<div class="portlet-title">
+											<div class="caption">
+												<i class="icon-equalizer font-red-sunglo"></i>
+												<span class="caption-subject font-red-sunglo bold uppercase">{lang basic_information}</span>
+												<span class="caption-helper">{lang noti_information}</span>
+											</div>
+											<div class="tools">
+											<a href="javascript:;" class="collapse"></a>
+											</div>
+										</div>
+										<div class="portlet-body form">
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang title}<span class="required">
+												* </span>
+												</label>
+												<div class="col-md-8 row_input_title">
+													<input type="text" class="form-control maxlength-handler" name="title" maxlength="225" value="<!--{if isset({$slide_edit['title']})}-->{$slide_edit['title']}<!--{/if}-->" placeholder="" data-error="{lang title_error}">
+													<span class="help-block">{lang maxlength 225}</span>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang description}</label>
+												<div class="col-md-8">
+													<textarea class="form-control " id="description" minlength="5" rows="6" name="description">
+													<!--{if isset({$slide_edit['description']})}-->{$slide_edit['description']}<!--{/if}-->
+													</textarea>
+												</div>
+											</div>
+											
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang sort}</label>
+												<div class="col-md-4">
+													<input type="text" class="form-control" name="sort" onkeypress='validate(event)' data-error="{lang number_error}" value="<!--{if isset({$slide_edit['sort']})}-->{$slide_edit['sort']}<!--{/if}-->" />
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-md-2">{lang status}</label>
+												<div class="col-md-4">
+													<select class="form-control" name="status" data-error="{lang news_error}">
+														<option value="1" <!--{if (isset($slide_edit['status'])&& $slide_edit['status']==1)||empty($_GET['id'])}-->selected="selected"<!--{/if}--> >{lang is_show}</option>
+														<option value="0" <!--{if isset($slide_edit['status']) && $slide_edit['status']==0}-->selected="selected"<!--{/if}-->>{lang is_hide}</option>
+													</select>
+												</div>
+											</div>
+											<div class="form-group">
+                                                <label class="control-label col-md-2">{lang position_block}<span class="required">
+												* </span></label>
+                                                <div class="col-md-4">
+                                                    <select class="form-control" name="position" data-error="{lang position_error}">
+                                                    	<!--{loop $positions $k $v}-->
+                                                    		<option value="{$k}" <!--{if isset($slide_edit['position']) && $slide_edit['position']==$k}-->selected="selected"  <!--{/if}-->>{$v}</option>
+                                                    	<!--{/loop}-->
+                                                        
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+										<label class="col-md-2 control-label">{lang module_hienthi} </label>
+										<div class="col-md-8">
+											<div class="form-control height-auto thr-col">
+												<div class="scrollbar">
+													<ul class="list-unstyled">
+														<!--{loop $mod_in_home $km $vm}-->
+															<li>
+																<label><input class="form-control"  <!--{if !isset($active_mod)}-->checked<!--{elseif isset($active_mod) && in_array($vm,$active_mod)}-->checked<!--{/if}--> type="checkbox" name="active_mod[]" value="{$vm}">{lang {$vm}}</label>
+															</li>
+														<!--{/loop}-->
+													</ul>
+												</div>
+											</div>
+										</div>
+										
+									</div>
+                                            
+										</div>
+									</div>									
+
+									<div class="portlet light bordered">
+										<div class="portlet-title">
+											<div class="caption">
+												<i class="icon-equalizer font-red-sunglo"></i>
+												<span class="caption-subject font-red-sunglo bold uppercase">{lang meta_information}</span>
+												<span class="caption-helper">{lang meta_define}</span>
+											</div>
+											<div class="tools">
+											<a href="javascript:;" class="collapse"></a>
+											</div>
+										</div>
+										<div class="portlet-body form">
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang meta_title} </label>
+												<div class="col-md-8">
+													<input type="text" class="form-control maxlength-handler" name="meta_title" maxlength="170" value="<!--{if isset({$slide_edit['meta_title']})}-->{$slide_edit['meta_title']}<!--{/if}-->" placeholder="" data-error="{lang meta_title}">
+													<span class="help-block">
+													{lang maxlength 170} </span>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang meta_keyword}  </label>
+												<div class="col-md-8">
+													<input id="meta_keywords" name="meta_keywords" type="text" class="form-control tags" value="<!--{if isset({$slide_edit['meta_keywords']})}-->{$slide_edit['meta_keywords']}<!--{/if}-->"/>
+												</div>												
+											</div>
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang meta_description} </label>
+												<div class="col-md-8">
+													<textarea class="form-control maxlength-handler" rows="4" name="meta_description" maxlength="500"><!--{if isset({$slide_edit['meta_description']})}-->{$slide_edit['meta_description']}<!--{/if}--></textarea>
+													<span class="help-block">
+													{lang maxlength 500 } </span>
+												</div>
+											</div>
+										</div>
+									</div>									
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="portlet-title topline">
+					<!--{temp slide_toolbar}-->
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<!-- END PAGE CONTENT-->
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery-tags-input/jquery.tagsinput.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/scripts/metronic.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+
+<script type="text/javascript" src="{$_B['mod_theme']}js/slide.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+       FormSlide.init();
+        CKEDITOR.replace('description');
+    });        
+</script>
+<script type="text/javascript">
+function validate(evt) {
+  	var theEvent = evt || window.event;
+  	var key = theEvent.keyCode || theEvent.which;
+  	key = String.fromCharCode( key );
+  	var regex = /[0-9]|\./;
+  	if( !regex.test(key) ) {
+    	theEvent.returnValue = false;
+    	if(theEvent.preventDefault) theEvent.preventDefault();
+  	}
+}
+</script>

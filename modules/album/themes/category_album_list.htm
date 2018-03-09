@@ -1,0 +1,10 @@
+<li>
+    <label><input class="checkboxes chil" data-error-container="" type="checkbox" name="category_id[]" value="{$v['id']}">{$v['title']}</label>
+<!--{if sizeof($v[sub])>0 }-->
+<ul class="list-unstyled">
+    <!--{loop $v[sub] $k $v}-->
+    <!--{looptemp category_album_list}-->
+    <!--{/loop}-->
+</ul>
+<!--{/if}-->
+</li>

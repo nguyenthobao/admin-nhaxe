@@ -1,0 +1,275 @@
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/jquery-tags-input/jquery.tagsinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/typeahead/typeahead.css">
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css"/>
+
+<link href="{$_B['mod_theme']}css/style.css" rel="stylesheet" type="text/css" />
+
+<!-- END PAGE LEVEL STYLES -->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+	<div class="col-md-12">
+		<form class="form-horizontal form-row-seperated" action="" id="form_info" class="form-horizontal" enctype="multipart/form-data" method="POST">
+			<div class="portlet">
+				<div class="portlet-title">
+					<div class="caption">
+						<!--{if isset({$info_edit['title']})}-->
+							<i class="icon-note"></i>{lang breadcrumb_edit_info}
+						<!--{else}-->
+							<i class="icon-note"></i>{lang breadcrumb_add_info}
+						<!--{/if}-->
+					</div>
+					<!--{temp info_toolbar}-->
+				</div>
+				<div class="portlet-body">
+					<!--{temp notify_action}-->
+					<div class="tabbable">
+						<ul class="nav nav-tabs">
+							<!--{loop $url_lang $k_lang $v_lang}-->
+								<li <!--{if $k_lang==$_GET['lang']}-->class="active"<!--{/if}-->>
+									<a class="select_lang" href="{$v_lang['url']}" data-exist="{$v_lang['exist']}">
+										{lang lang_{$k_lang}}  
+									</a>
+								</li>
+							<!--{/loop}-->
+							<input type="hidden" name="popup" data-title="{lang pop_title}" data-yes="{lang pop_yes}" data-cancel="{lang pop_cancel}" data-message="{lang pop_message}" data-close="{lang pop_close}">
+							<input type="hidden" name="popup_df" data-title="{lang pop_df_title}" data-yes="{lang pop_yes}" data-cancel="{lang pop_cancel}" data-message="{lang pop_df_message}" data-close="{lang pop_close}">
+							<input type="hidden" value="$_GET['id']" name="idinfo" id="idinfo"/>
+							<input type="hidden" value="<!--{if isset({$info_edit['title']})}-->{$info_edit['title']}<!--{/if}-->" name="title_check" id="title_check"/>
+						</ul>						
+						<div class="tab-content no-space">
+							<div class="tab-pane active" id="lang_{$v_lang}">
+								<div class="form-body">
+									<div class="note note-warning">
+										<p class="block">{lang select_lang lang_{$_GET['lang']} }</p>
+									</div>
+									<div class="portlet light bordered">
+										<div class="portlet-title">
+											<div class="caption">
+												<i class="icon-equalizer font-red-sunglo"></i>
+												<span class="caption-subject font-red-sunglo bold uppercase">{lang basic_information}</span>
+												<span class="caption-helper">{lang noti_information}</span>
+											</div>
+											<div class="tools">
+											<a href="javascript:;" class="collapse"></a>
+											</div>
+										</div>
+										<div class="portlet-body form">
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang title}: <span class="required">
+												* </span>
+												</label>
+												<div class="col-md-8 row_input_title">
+													<input type="text" class="form-control maxlength-handler" id="seo_url" onkeyup="trim_name(this);" name="title" maxlength="225" value="<!--{if isset({$info_edit['title']})}-->{$info_edit['title']}<!--{/if}-->" placeholder="" data-error="{lang title_error}">
+													<span class="help-block">{lang maxlength 225}</span>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-2 control-label">SEO URL </label>
+												<div class="col-md-8">
+													<input class="form-control maxlength-handler" maxlength="225" <!--{if isset({$info_edit['alias']})}--> value="{$info_edit['alias']}" <!--{else}--> value="" <!--{/if}--> name="alias" value="" id="seo_keyword" >
+													<span class="help-block">{lang maxlength 225}</span>													
+													<script type="text/javascript">
+													 function trim_name(input_name){
+													  var txtname_trim=erase($("#seo_url").val());
+													  $("#seo_keyword").val(nbh_seo_write(txtname_trim));
+													 }
+													</script>
+												</div>
+											</div>
+											<!--{if isset({$info_edit['title']})}-->
+											<div class="form-group">
+												<label class="col-md-2 control-label"></label>
+												<div class="col-md-8">
+													<label>
+													<input type="checkbox" name="is_save" >
+													{lang noti_change}
+													</label>
+													<input type="hidden" name="title_alias" value="{$info_edit['alias']}">
+												</div>
+											</div>
+											<!--{/if}-->
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang description}</label>
+												<div class="col-md-10">
+													<textarea class="form-control ckeditor m-wrap" minlength="5" rows="6" name="description">
+													<!--{if isset({$info_edit['short']})}-->{$info_edit['short']}<!--{/if}-->
+													</textarea>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang content}</label>
+												<div class="col-md-10">
+													<textarea class="span12 ckeditor m-wrap" name="content" rows="6">
+														<!--{if isset({$info_edit['details']})}-->{$info_edit['details']}<!--{/if}-->
+													</textarea>
+													
+												</div>
+											</div>									
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang tags} </label>
+												<div class="col-md-8">
+													<input id="tags" name="tags" type="text" class="form-control tags" value="<!--{if isset({$info_edit['tags']})}-->{$info_edit['tags']}<!--{/if}-->"/>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-md-2">{lang title_img} </label>
+												<div class="col-md-8">
+													<div class="fileinput <!--{if !empty($info_edit['img'])}-->fileinput-exists<!--{else}-->fileinput-new<!--{/if}-->" data-provides="fileinput">
+														<!--{if !empty($info_edit['img'])}-->
+														<input type="hidden" value="1" name="img_info"/>
+														<input type="hidden" value="{$info_edit['img']}" name="src_img_info"/>
+														<!--{/if}-->
+														<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+															<img src="{$_B['home_theme']}assets/no_image.gif" alt="Avatar"/>
+														</div>
+														<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+															<img src="<!--{if isset({$info_edit['img']})}-->{$_B['upload_path']}{$info_edit['img']}<!--{/if}-->" onerror="this.onerror=null;this.src='{$_B['home_theme']}assets/no_image.gif'" alt="" />
+														</div>
+														<div>
+															<span class="btn default btn-file">
+															<span class="fileinput-new">
+															{lang select_img} </span>
+															<span class="fileinput-exists">
+															{lang change_img} </span>
+															<input type="file" name="img_info" id="img_info">
+															</span>
+															<a href="#" class="btn default fileinput-exists" data-dismiss="fileinput">
+															{lang delete} </a>
+														</div>
+													</div>	
+												</div>
+											</div>
+											
+											<div class="form-group row-title-check">
+												<label class="col-md-2 control-label">{lang info_hot} </label>
+												<div class="col-md-8">
+													<input type="checkbox" name="info_hot" <!--{if isset($info_edit['is_hot'])&&($info_edit['is_hot'] == 1)}--> checked <!--{/if}--> />
+												</div>
+											</div>
+											
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang sort}</label>
+												<div class="col-md-2">
+													<input type="text" class="form-control" name="sort" onkeypress='validate(event)' data-error="{lang number_error}" value="<!--{if isset({$info_edit['sort']})}-->{$info_edit['sort']}<!--{/if}-->" />
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-md-2">{lang status}</label>
+												<div class="col-md-2">
+													<select class="form-control" name="status" data-error="{lang news_error}">
+														<option value="">{lang status}</option>
+														<option value="1" <!--{if (isset($info_edit['status'])&& $info_edit['status']==1)||empty($_GET['id'])}-->selected="selected"<!--{/if}--> >{lang is_show}</option>
+														<option value="0" <!--{if isset($info_edit['status']) && $info_edit['status']==0}-->selected="selected"<!--{/if}-->>{lang is_hide}</option>
+													</select>
+												</div>
+											</div>
+											
+										</div>
+									</div>									
+
+									<div class="portlet light bordered">
+										<div class="portlet-title">
+											<div class="caption">
+												<i class="icon-equalizer font-red-sunglo"></i>
+												<span class="caption-subject font-red-sunglo bold uppercase">{lang meta_information}</span>
+												<span class="caption-helper">{lang meta_define}</span>
+											</div>
+											<div class="tools">
+											<a href="javascript:;" class="collapse"></a>
+											</div>
+										</div>
+										<div class="portlet-body form">
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang meta_title} </label>
+												<div class="col-md-8">
+													<input type="text" class="form-control maxlength-handler" name="meta_title" maxlength="170" value="<!--{if isset({$info_edit['meta_title']})}-->{$info_edit['meta_title']}<!--{/if}-->" placeholder="" data-error="{lang meta_title}">
+													<span class="help-block">
+													{lang maxlength 170} </span>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang meta_keyword}  </label>
+												<div class="col-md-8">
+													<input id="meta_keyword" name="meta_keyword" type="text" class="form-control tags" value="<!--{if isset({$info_edit['meta_keyword']})}-->{$info_edit['meta_keyword']}<!--{/if}-->"/>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang meta_description} </label>
+												<div class="col-md-8">
+													<textarea class="form-control maxlength-handler" rows="4" name="meta_description" maxlength="500"><!--{if isset({$info_edit['meta_description']})}-->{$info_edit['meta_description']}<!--{/if}--></textarea>
+													<span class="help-block">
+													{lang maxlength 500 } </span>
+												</div>
+											</div>
+										</div>
+									</div>									
+									<div class="portlet light bordered">
+										<div class="portlet-title">
+											<div class="caption">
+												<i class="icon-equalizer font-red-sunglo"></i>
+												<span class="caption-subject font-red-sunglo bold uppercase">{lang option_post}</span>												
+											</div>
+											<div class="tools">
+											<a href="javascript:;" class="collapse"></a>
+											</div>
+										</div>
+										<div class="portlet-body form">
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang time_post}</label>
+												<div class="col-md-4">
+													<div class="input-group input-medium date form_datetime" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+														<input type="text" class="form-control" readonly name="time_up" value="<!--{if isset({$info_edit['time_up']})}-->{$info_edit['time_up']}<!--{/if}-->">
+														<span class="input-group-btn">
+														<button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+														</span>
+													</div>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="portlet-title topline">
+					<!--{temp info_toolbar}-->
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<!-- END PAGE CONTENT-->
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery-tags-input/jquery.tagsinput.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/scripts/metronic.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+
+<script type="text/javascript" src="{$_B['mod_theme']}js/info.js"></script>
+<script type="text/javascript" src="{$_B['mod_theme']}js/nbh_seo_rewrite.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+       FormInfo.init();
+    });        
+</script>
+<script type="text/javascript">
+function validate(evt) {
+  	var theEvent = evt || window.event;
+  	var key = theEvent.keyCode || theEvent.which;
+  	key = String.fromCharCode( key );
+  	var regex = /[0-9]|\./;
+  	if( !regex.test(key) ) {
+    	theEvent.returnValue = false;
+    	if(theEvent.preventDefault) theEvent.preventDefault();
+  	}
+}
+</script>

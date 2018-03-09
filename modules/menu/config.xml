@@ -1,0 +1,23 @@
+
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<config>
+    <name_modue>menu</name_modue> 
+    <menus>        
+        <menu>
+            <title>menu</title>
+            <link>/menu-menu-menutop-lang-vi</link>
+            <icon>icon-list</icon>
+            <mod>menu</mod>
+            <submenu>
+                <title>menu_above</title>
+                <link>/menu-menu-menutop-lang-vi</link>
+                <icon>icon-list</icon>
+            </submenu>
+            <submenu>
+                <title>menu_below</title>
+                <link>/menu-menu-menubottom-lang-vi</link>
+                <icon>icon-list</icon>
+            </submenu> 
+        </menu>        
+    </menus>
+</config>

@@ -1,0 +1,105 @@
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/select2/select2.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-editable/bootstrap-editable/css/bootstrap-editable.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-editable/inputs-ext/address/address.css"/>
+
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+	<div class="col-md-12">
+		<form class="form-horizontal form-row-seperated" action="" id="form_menulistabove" class="form-horizontal" enctype="multipart/form-data" method="POST">
+			
+			<input type="hidden" value="deleteMultiID" name="action">
+			<div class="portlet">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-navicon"></i>{$_DATA['menu_br']}
+					</div>
+					<div class="actions btn-set btn-del">
+						<a  class="btn red continue delete_contactview_select disabled"><i class="fa fa-trash-o"></i> {lang delete}</a>
+					</div>
+					<div class="actions btn-set copy_category">
+						<a class="btn blue continue disabled copyCats"><i class="fa fa-copy"></i> {lang copy}</a>
+					</div>
+					<div class="actions btn-set copy_category_product" style="margin-left: 10px">
+						<a class="btn blue continue copyCatsProduct"><i class="fa fa-copy"></i> Sao chép danh mục sản phẩm</a>
+					</div>
+					<div class="actions btn-set btn-add">
+						<a href="{$_DATA['link_add']}" class="btn green continue"><i class="fa fa-plus"></i> {lang add}</a>
+					</div>	
+					
+				</div>
+				<div class="portlet-body">
+					<!--{temp notify_action}-->
+					<div class="tabbable">
+						<ul class="nav nav-tabs">
+							<!--{loop $_DATA['lang_tab'] $k_lang $v_lang}-->
+								<li <!--{if $k_lang==$_DATA['lang']}-->class="active"<!--{/if}--> >
+									<a href="{$v_lang['url']}" data-lang="{$k_lang}">{lang lang_{$k_lang}} </a>
+								</li>
+							<!--{/loop}-->
+						</ul>
+					</div>
+					<!--{if !empty($_DATA['data'])}-->
+					<div class="table-scrollable">
+						<table id="menulist" data-lang="{$_DATA['lang']}" class="table table-striped table-bordered table-advance table-hover" data-lang-j='{lang delete_feedback_add}' data-lang-a='{lang delete_feedback}'data-lang-title="{lang delete_js_title}">
+							<thead>
+							<tr >
+								<th width="20">
+									<input type="checkbox" id="checkboxAll">
+								</th>
+								<th >
+										{lang name}
+								</th>
+								<th width="250" style="display:none;">
+										{lang linktoct}
+								</th>
+								
+								<th width="60">
+										{lang sort}
+								</th>
+								<th width="60" style="text-align:center">
+										Nofollow
+								</th>
+								<th width="95" style="text-align:center">
+									{lang status}
+								</th>
+								<th width="110" style="text-align:center">
+									{lang action}
+								</th>
+								<th width="10" style="display:none">
+								</th>
+								<th width="10" style="display:none">
+								</th>
+							</tr>
+							</thead>
+							<tbody>
+								<!--{if !empty($_DATA['data'])}-->
+									<!--{loop $_DATA['data'] $k $v}-->
+										<!--{temp menulist_listfix}-->
+									<!--{/loop}-->
+								<!--{else}-->
+							<!--{/if}-->
+							</tbody>
+						</table>
+					</div>
+					<!--{else}-->
+						<div class="alert alert-warning">
+							<center>{lang notfound}</center>
+						</div>
+					<!--{/if}-->
+					
+				</div>
+				
+			</div>
+		</form>
+	</div>
+</div>
+
+<!-- BEGIN PLUGINS USED BY X-EDITABLE -->
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-editable/bootstrap-editable/js/bootstrap-editable.js"></script>
+<link href="{$_B['mod_theme']}css/style.css" rel="stylesheet" type="text/css" />
+<!-- END X-EDITABLE PLUGIN -->
+<script src="{$_B['mod_theme']}js/menulisttopfix.js"></script>
+
+

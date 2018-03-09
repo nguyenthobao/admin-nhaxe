@@ -1,0 +1,297 @@
+html {overflow: hidden;
+width: 100%;
+height: 100%
+}
+@font-face {
+    font-family: 'Avo-N';
+    src: url('fonts/utm-avo.eot');
+    src: local('☺'), url('../fonts/utm-avo.woff') format('woff'), url('../fonts/utm-avo.ttf') format('truetype'), url('../fonts/utm-avo.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.home i {
+    font-size: 20px;
+    width: 36px;
+    height: 36px;
+    border: 2px solid #3BCAF2;
+    color: #3BCAF2;
+    text-align: center;
+    border-radius: 60%;
+    line-height: 31px;
+}
+.menu-top {
+    padding: 27px 0 0 0;
+}
+.menu-top ul li a {
+    font: normal 14px/35px Avo-N;
+    text-transform: uppercase;
+    padding: 0px 10px;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.29);
+    color: #494949;
+}
+.menu-top ul li:hover {
+    border: 2px solid #7BDBFD;
+    border-radius: 22px;
+    -webkit-border-radius: 22px;
+    -moz-border-radius: 22px;
+}
+.menu-top ul li {
+    border: 2px solid #fff;
+    border-radius: 22px;
+    -moz-border-radius: 22px;
+    -webkit-border-radius: 22px;
+    transition: border 1s;
+    -webkit-transition: border 1s;
+    margin: 0 3px;
+}
+.menu-top ul li:first-child {border: 0;}
+.menu-top ul li a:hover {
+    background-color: inherit;
+}
+.menu-top1 {
+    padding: 27px 0 0 0;
+}
+.menu-top1 ul li a {
+    font: normal 14px/35px Avo-N;
+    text-transform: uppercase;
+    padding: 0px 10px;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.29);
+    color: #494949;
+}
+.menu-top1 ul li:hover {
+    border: 2px solid #7BDBFD;
+    border-radius: 22px;
+    -webkit-border-radius: 22px;
+    -moz-border-radius: 22px;
+}
+.menu-top1 ul li {
+    border: 2px solid #fff;
+    border-radius: 22px;
+    -moz-border-radius: 22px;
+    -webkit-border-radius: 22px;
+    transition: border 1s;
+    -webkit-transition: border 1s;
+    margin: 0 3px;
+}
+.menu-top1 ul li:first-child {border: 0;}
+.menu-top1 ul li a:hover {
+    background-color: inherit;
+}
+.login {
+    padding: 27px 0 0 0}
+.login ul li a {
+    padding: 0;
+    margin: 0 5px;
+    font: normal 14px/35px Avo-N;
+    color: #fff;
+    text-transform: uppercase;
+    background-color: #0093c8;
+    padding: 0 5px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+}
+.login ul li a:hover {
+    background-color: red;
+    transition: background-color 1s;
+    -webkit-transition: background-color 1s;
+}
+/**************END HEADER************************/
+#main {
+    background: url(../images/dangnhap.jpg) no-repeat;
+    background-size: cover;
+    height: 700px;
+    margin-top: 10px;
+}
+.bnc .label {
+    background-color: inherit;
+    color: #747474;
+    font: bold 12px Avo-N;
+    margin: 20px 0 3px 0;
+    display: block;
+    text-align: left;
+    background: none;
+}
+.bnc h2 {
+    color: #007cdc !important;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.main-bnc h2,.main-bnc a, .main-bnc span {
+    font-family: Avo-N;
+    color: #747474;
+}
+.main-bnc h2:hover,.main-bnc a:hover, .main-bnc span:hover {
+    color: #007cdc;
+}
+.idbnc h2,.idbnc a, .idbnc span {
+    font-family: Avo-N;
+    color: #747474;
+}
+.pass {
+    display: block;
+    text-align: right;
+    margin-top: 10px;
+    font-size: 12px;
+    float: right;
+}
+.bnc {
+    background: rgba(180, 191, 200, 0.87);
+    padding: 0 45px 10px 45px;
+    width: 64%;
+    float: right;
+    height: 325px;
+    margin: 15% 10px 0 0;
+    border: 1px solid #fff;
+}
+.tk {
+    clear: both;
+    display: block;
+    float: left;
+    margin: 10px;
+}
+.dangnhap {
+    float: left;
+    background-color: #ed2100;
+    background-image: none;
+    border-radius: 0;
+    border: 0;
+    padding: 7px 25px;
+    clear: both;
+}
+.check {
+    float: left;
+}
+.check label {
+    font-size: 12px;
+    color: #747474;
+}
+.check label input {
+    margin-top: 2px;
+}
+.register {
+    margin: 10px;
+    float: left;
+    font-weight: bold;
+    color: #505050 !important;
+}
+.idbnc {
+    background: rgba(180, 191, 200, 0.87);
+    padding: 0 10px 10px 10px;
+    width: 64%;
+    float: left;
+    margin: 15% 0 0 10px;
+    height: 325px;
+    border: 1px solid #fff;
+}
+.idbnc button {
+    padding: 8px 66px;
+    margin: auto;
+    display: block;
+    margin-top: 20px;
+    background: #007cdc;
+    color: #fff;
+    border-radius: 0;
+    border: 0;
+    box-shadow: inherit;
+    transition: background-color 0.2s;
+    -webkit-transition: background-color 0.2s;
+    font-family: Avo-N;
+    text-shadow: inherit;
+    text-transform: uppercase;
+}
+.idbnc button:hover {
+    background-color: #0C73C3;
+    color: #fff;
+}
+.or {
+    display: block;
+    margin: 10px 0;
+    text-align: center;
+}
+.codelogin {
+    background: url(../images/codelogin.jpg) no-repeat center;
+    display: block;
+    width: auto;
+    height: 155px;
+    margin: auto;
+}
+.quet {
+    display: block;
+    text-align: center;
+    margin: 20px 0 0 0;
+}
+.menu-click {display: none;cursor: pointer;}
+.menu-top1 {display: none;}
+@media (min-width: 992px) and (max-width: 1199px){ 
+    .login ul li a {margin: 0 1px !important;
+        font-size: 12px !important;
+
+    }
+    .menu-top ul li a{
+        font-size: 12px !important;
+        padding: 0px 7px !important;
+    }
+    .bnc h2 {font-size: 18px !important;}
+    .idbnc button {padding: 8px 48px !important;}
+    .pass {margin-top: 15px !important;
+        font-size: 9px !important;
+
+    }
+    .check label {font-size: 10px !important}
+    .quet {font-size: 12px !important;}
+}
+/*********END 992px  -     1199px ************/
+@media (min-width: 768px) and (max-width: 991px){ 
+.login ul li a {margin: 0 3px !important;
+
+    }
+.menu-top {display: none;}
+
+
+
+.menu-top ul li {float: none }
+.idbnc {width: 86% !important}
+.bnc {width: 86% !important}
+
+
+}
+
+/*********END 768px  -     991px ************/
+@media (max-width: 991px){ 
+    .menu-top {display: none;}
+    .menu-click {display: block;margin-top: 25px;}
+    .menu-click span {font-size: 37px}
+    .menu-top ul li:hover {border: 0;}
+    .menu-top ul li {border: 0;}
+    .menuoff {display: none}
+    .menu-click {text-align: right;}
+    .menu-top1 {display: none;width: 100%;padding-top: 10px;}
+    .menu-top1 ul li {float: none !important;border: 0;border-bottom: 1px dotted #fff;
+border-radius: 0;}
+    .menu-top1 ul li:hover {border-radius: 0;border-bottom: 1px dotted #fff;border-top: 0;border-left: 0;border-right: 0}
+    .menu-top1 ul {float: none !important;background: #0093C8;}
+    .home {display: none !important}
+    .menu-top1 ul li a {color: #fff;}
+    .idbnc button {padding: 8px 54px !important}
+    
+}
+/*********END max 991px ************/
+@media (max-width: 767px){
+    .login ul li {margin-bottom: 5px;}
+    .login ul {margin: 0 ;}
+    .menu-top1 {padding: 10px;}
+    .bnc {float: none;margin: auto;height: 240px !important;margin-top: 28px;width: 96% !important}
+    .bnc h2 {font-size: 16px !important;margin: 5px 0 !important;}
+    .bnc .label {margin:0px 0 3px 0 !important;}
+    .idbnc {float: none;margin: auto;height: 240px !important;width: 96% !important;margin-top: 5px;}
+    .codelogin {background-size: 188px 120px ;height: 120px !important;}
+    .or {margin: 5px 0 !important;}
+    .quet {margin: 8px 0 0 0 !important;}
+    .idbnc button {margin-top: 11px !important;padding: 8px 30px !important}
+    .pass {margin-top: 15px !important;font-size: 9px !important}
+    .check label {font-size: 9px !important}
+    .login ul li a {font-size: 11px !important}
+ }

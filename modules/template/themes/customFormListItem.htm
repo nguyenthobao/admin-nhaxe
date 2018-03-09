@@ -1,0 +1,28 @@
+<tr id="tr_{$v['id']}" data-key="{$v['id']}" data-lang="{$_GET['lang']}">
+	<td class="highlight">
+		<input type="checkbox" name="name_id[]" class="checkboxes"  value="{$v['id']}">
+	</td>
+	 
+	<td >
+		<span data-pk="{$v['id']}"  data-type="text" data-lang="{$_GET['lang']}" class="editable tooltips slideItem" data-original-title="{lang click_edit}">{$v['title']}</span>
+		 
+	</td>
+	<td style="text-align:center">
+		<!--{if $v['status'] == 1}-->
+		<a class="btn default btn-xs green-stripe status_item" data-status="{$v['status']}" data-id="{$v['id']}" data-text="{lang button_hide}" data-type="status">{lang button_show}</a>
+		<!--{else}-->
+		<a class="btn default btn-xs red-stripe status_item" data-status="{$v['status']}" data-id="{$v['id']}" data-text="{lang button_show}" data-type="status">{lang button_hide}</a>
+		<!--{/if}-->
+	</td>
+	<td class="hidden-xs">		
+		{[form={$v['id_form']}]}
+	</td>
+	
+	<td class="icon_btn">
+		<a href="/template-customForm-listEmail-{$v['id']}-lang-{$_GET['lang']}" class="btn default btn-xs blue tooltips" data-id="{$v['id']}"  data-placement="top" data-original-title="Thêm Email cho form"><i class="fa fa-envelope-o"></i></a>
+		<a href="/template-customForm-viewdata-{$v['id']}-lang-{$_GET['lang']}" class="btn default btn-xs yellow tooltips" data-id="{$v['id']}"  data-placement="top" data-original-title="Dữ liệu của form"><i class="fa fa-eye"></i></a>
+		<a  class="btn default btn-xs green tooltips copy_form" data-id="{$v['id']}"  data-placement="top" data-original-title="Sao chép form sang ngôn ngữ khác"><i class="fa fa-copy"></i></a>
+		<a href="/template-customForm-index-{$v['id']}-lang-{$_GET['lang']}"  class="btn default btn-xs blue tooltips"  data-placement="top" data-original-title="Sửa"><i class="fa fa-edit"></i></a>
+		<a  class="btn default btn-xs red tooltips delete_slide"  data-placement="top" data-original-title="{lang delete}"><i class="fa fa-trash-o"></i></a>
+	</td>
+</tr>

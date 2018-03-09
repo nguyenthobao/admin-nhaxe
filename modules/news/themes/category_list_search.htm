@@ -1,0 +1,6 @@
+<option value="{$v['id']}" <!--{if isset({$news['keySearch']['cat_id']})&&({$news['keySearch']['cat_id']} == {$v['id']})}-->selected<!--{/if}-->>{$v['space']} {$v['title']}</option>
+<!--{if sizeof($v[sub])>0 }-->
+		<!--{loop $v[sub] $k $v}-->
+		<!--{looptemp category_list_search}-->
+		<!--{/loop}-->
+<!--{/if}-->

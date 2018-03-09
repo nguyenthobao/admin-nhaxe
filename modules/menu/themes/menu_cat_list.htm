@@ -1,0 +1,7 @@
+
+	<option value="{$v['id']}" <!--{if $v['id']==$info_data['parent_id']}-->selected="selected"<!--{/if}--> >{$v['space']} {$v['namemenu']}</option>
+<!--{if sizeof($v[sub])>0 }-->
+		<!--{loop $v[sub] $k $v}-->
+		<!--{looptemp menu_cat_list}-->
+		<!--{/loop}-->		
+<!--{/if}-->

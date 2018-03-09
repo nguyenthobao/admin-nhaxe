@@ -1,0 +1,314 @@
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/jquery-tags-input/jquery.tagsinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/typeahead/typeahead.css">
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css"/>
+<link href="{$_B['mod_theme']}css/style.css" rel="stylesheet" type="text/css" />
+<!-- END PAGE LEVEL STYLES -->
+<!-- BEGIN PAGE CONTENT-->
+<!--{temp notify_action}-->
+<input type="hidden" name="getLang" value="vi"/>
+<div class="row">
+	<form id="saveSettingVideoHome"  class="form-horizontal form-row-seperated" class="form-horizontal" enctype="multipart/form-data" method="POST">
+		<div class="portlet">
+			<div class="portlet-body">
+				<div class="form-body">
+					<div class="portlet light bordered">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="icon-equalizer font-red-sunglo"></i>
+								<span class="caption-subject font-red-sunglo bold uppercase">{lang settingvideo}</span>
+								<span class="caption-helper">{lang note_settingvideo}</span>
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="collapse"></a>
+							</div>
+							<div class="actions btn-save">
+								<button class="btn green continue" data-continue="saveSettingVideoHome"><i class="fa fa-check"></i> {lang submit}</button>
+								<input type="hidden" name="action" value="saveSettingVideoHome">
+								<input type="hidden" name="lang" value="vi">
+								<input type="hidden" name="continue" value="">
+							</div>
+						</div>
+						<div class="portlet-body form">
+							
+							<div class="form-group">
+								<label class="col-md-2 control-label">{lang title}: <span class="required">
+								* </span>
+							</label>
+							<div class="col-md-8 row_input_title">
+								<input type="text" class="form-control maxlength-handler" name="title" maxlength="225" value="<!--{if isset({$settings[title]})}-->{$settings[title]}<!--{/if}-->" placeholder="" data-error="{lang title_error}">
+								<span class="help-block">{lang maxlength 225}</span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label">{lang description}</label>
+							<div class="col-md-8">
+								<textarea class="form-control " minlength="5" rows="6" name="description"><!--{if isset({$settings[description]})}-->{$settings[description]}<!--{/if}--></textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-2">
+								<label class="control-label">{lang setting_img}</label>
+							</div>
+							<div class="col-md-3">
+								<label class="control-label">{lang title_img}</label>
+								<div class="fileinput <!--{if !empty($settings[img])}-->fileinput-exists<!--{else}-->fileinput-new<!--{/if}-->" data-provides="fileinput">
+								<!--{if isset({$settings[img]})}-->
+								<input type="hidden" value="1" name="img_page_video"/>
+								<!--{/if}-->
+								<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+									<img src="{$_B['home_theme']}assets/no_image.gif" alt="Avatar"/>
+								</div>
+								<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+									<img src="<!--{if isset({$settings[img]})}-->{$_B['upload_path']}{$settings[img]}<!--{/if}-->" alt="" />
+								</div>
+								<div>
+									<span class="btn default btn-file">
+										<span class="fileinput-new">
+										{lang select_img} </span>
+										<span class="fileinput-exists">
+										{lang change_img} </span>
+										<input type="file" name="img_page_video">
+									</span>
+									<a href="#" class="btn default fileinput-exists" data-dismiss="fileinput">
+									Remove </a>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<label class="control-label">{lang icon_img}</label>
+							<div class="fileinput <!--{if !empty($settings[icon])}-->fileinput-exists<!--{else}-->fileinput-new<!--{/if}-->" data-provides="fileinput">
+							<!--{if isset({$settings[icon]})}-->
+							<input type="hidden" value="1" name="icon_page_video"/>
+							<!--{/if}-->
+							<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+								<img src="{$_B['home_theme']}assets/no_image.gif" alt="Avatar"/>
+							</div>
+							<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+								<img src="<!--{if isset({$settings[icon]})}-->{$_B['upload_path']}{$settings[icon]}<!--{/if}-->" alt="" />
+							</div>
+							<div>
+								<span class="btn default btn-file">
+									<span class="fileinput-new">
+									{lang select_img} </span>
+									<span class="fileinput-exists">
+									{lang change_img} </span>
+									<input type="file" name="icon_page_video">
+								</span>
+								<a href="#" class="btn default fileinput-exists" data-dismiss="fileinput">
+								Remove </a>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<label class="control-label">{lang bg_img}</label>
+						<div class="fileinput <!--{if !empty($settings[bg])}-->fileinput-exists<!--{else}-->fileinput-new<!--{/if}-->" data-provides="fileinput">
+						<!--{if isset({$settings[bg]})}-->
+						<input type="hidden" value="1" name="bg_page_video"/>
+						<!--{/if}-->
+						<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+							<img src="{$_B['home_theme']}assets/no_image.gif" alt="Avatar"/>
+						</div>
+						<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+							<img src="<!--{if isset({$settings[bg]})}-->{$_B['upload_path']}{$settings[bg]}<!--{/if}-->" alt="" />
+						</div>
+						
+						<div>
+							<span class="btn default btn-file">
+								<span class="fileinput-new">
+								{lang select_img} </span>
+								<span class="fileinput-exists">
+								{lang change_img} </span>
+								<input type="file" name="bg_page_video">
+							</span>
+							<a href="#" class="btn default fileinput-exists" data-dismiss="fileinput">
+							Remove </a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-2 control-label">{lang meta_title}</label>
+				<div class="col-md-8">
+					<input type="text" class="form-control maxlength-handler" name="meta_title" maxlength="170" value="<!--{if isset({$settings[meta_title]})}-->{$settings[meta_title]}<!--{/if}-->" placeholder="" data-error="">
+					<span class="help-block">
+					{lang maxlength 170}</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-2 control-label">{lang meta_keyword}</label>
+				<div class="col-md-8">
+					<input id="meta_keyword" name="meta_keyword" type="text" class="form-control tags" value="<!--{if isset({$settings[meta_keyword]})}-->{$settings[meta_keyword]}<!--{/if}-->"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-2 control-label">{lang meta_description}</label>
+				<div class="col-md-8">
+					<textarea class="form-control maxlength-handler" rows="4" name="meta_description" maxlength="500"><!--{if isset({$settings[meta_description]})}-->{$settings[meta_description]}<!--{/if}--></textarea>
+					<span class="help-block">
+					{lang maxlength 500} </span>
+				</div>
+			</div>
+			
+		</div>
+		
+	</div>
+</div>
+</div>
+</div>
+</div>
+</form>
+<form id="saveSettingVideoCat"  class="form-horizontal form-row-seperated"   class="form-horizontal" enctype="multipart/form-data" method="POST">
+<div class="portlet">
+<div class="portlet-body">
+<div class="form-body">
+<div class="portlet light bordered">
+	<div class="portlet-title">
+		<div class="caption">
+			<i class="icon-equalizer font-red-sunglo"></i>
+			<span class="caption-subject font-red-sunglo bold uppercase">{lang setting_video_cat}</span>
+		</div>
+		
+		<div class="tools">
+			<a href="javascript:;" class="collapse"></a>
+		</div>
+		<div class="actions btn-save">
+			<button class="btn green continue" data-continue="saveSettingVideoCat"><i class="fa fa-check"></i> {lang submit}</button>
+			<input type="hidden" name="action" value="saveSettingVideoCat">
+			<input type="hidden" name="lang" value="vi">
+			<input type="hidden" name="continue" value="">
+		</div>
+	</div>
+	<div class="portlet-body form">
+		<div class="form-group">
+			
+			<label class="col-md-2 control-label">
+				{lang setting_limit}
+			</label>
+			
+			<div class="col-md-8"  style="height: 41px;">
+				<div class="form-control height-auto" style="border: none;height: 50px;">
+					<div class="force-over">
+						<ul class="list-unstyled">
+							<input type="text" class="form-control show_quantity" name="limit_video" onkeypress='validate(event)' data-error="{lang number_error}" value="<!--{if isset({$settings[limit_video]})}-->{$settings[limit_video]}<!--{/if}-->">
+						</ul>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<div class="form-group">
+			<label class="col-md-2 control-label">
+				Theo danh mục<span class="required" aria-required="true"></span>
+			</label>
+			<div class="col-md-8">
+				<div class="form-control height-auto">
+					<div class="force-over">
+						<ul class="list-unstyled">
+							<input type="checkbox" <!--{if isset($settings['related']['related_cate']) && $settings['related']['related_cate']['status']=='on'}-->checked<!--{/if}--> class="form-control" name="related_cate[status]">
+						</ul>
+						<label class="col-md-3 control-label">Số lượng</label>
+						<div class="col-md-3 margin-bt-10">
+							<select class="form-control" name="related_cate[quantity]" data-error="" aria-invalid="false">
+								<!--{loopfor $i=5 $i<30 $i++}-->
+									<option value="{$i}" <!--{if isset($settings['related']['related_cate']) && $settings['related']['related_cate']['quantity']==$i}-->selected<!--{/if}-->>{$i}</option>
+								<!--{/loopfor}-->
+							</select>
+						</div>
+						<label class="col-md-2 control-label">Sắp xếp</label>
+						<div class="col-md-3 margin-bt-10">
+							<select class="form-control" name="related_cate[order]" data-error=""> 
+								<option value="1">1</option>
+								<option value="2" <!--{if isset($settings['related']['related_cate']) && $settings['related']['related_cate']['order']==2}-->selected<!--{/if}-->>2</option>
+							</select>
+						</div>
+						<label class="clearboth col-md-3 control-label ">Đang hiện</label>
+						<div class="col-md-3 margin-bt-10">
+							<select class="form-control" name="related_cate[type]" data-error="" aria-invalid="false">
+								<option value="1">Kiểu bảng</option>
+								<option value="2" <!--{if isset($settings['related']['related_cate']) && $settings['related']['related_cate']['type']==2}-->selected<!--{/if}-->>Kiểu slide</option>
+							</select>
+						</div>
+						<label class="col-md-2 control-label ">Sắp xếp</label>
+						<div class="col-md-3 margin-bt-10">
+							<select class="form-control" name="related_cate[orderby]" data-error="">
+								<option value="1">Mới nhất</option>
+								<option value="2" <!--{if isset($settings['related']['related_cate']) && $settings['related']['related_cate']['orderby']==2}-->selected<!--{/if}-->>Nổi bật</option>
+								<option value="3" <!--{if isset($settings['related']['related_cate']) && $settings['related']['related_cate']['orderby']==3}-->selected<!--{/if}-->>Ngẫu nhiên</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="form-group">
+			<label class="col-md-2 control-label">
+				Theo video liên quan<span class="required" aria-required="true"></span>
+			</label>
+			<div class="col-md-8">
+				<div class="form-control height-auto">
+					<div class="force-over">
+						<ul class="list-unstyled">
+							<input type="checkbox" class="form-control" name="related_related[status]" <!--{if isset($settings['related']['related_related']) && $settings['related']['related_related']['status']=='on'}-->checked<!--{/if}-->>
+						</ul>
+						<label class="col-md-3 control-label">Số lượng</label>
+						<div class="col-md-3 margin-bt-10">
+							<select class="form-control" name="related_related[quantity]" data-error="" aria-invalid="false">
+								<!--{loopfor $i=5 $i<30 $i++}-->
+								<option value="{$i}" <!--{if isset($settings['related']['related_related']) && $settings['related']['related_related']['quantity']==$i}-->selected<!--{/if}-->>{$i}</option>
+								<!--{/loopfor}-->
+							</select>
+						</div>
+						<label class="col-md-2 control-label">Sắp xếp</label>
+						<div class="col-md-3 margin-bt-10">
+							<select class="form-control" name="related_related[order]" data-error="">
+								<option value="1">1</option>
+								<option value="2" <!--{if isset($settings['related']['related_related']) && $settings['related']['related_related']['order']==2}-->selected<!--{/if}-->>2</option>
+							</select>
+						</div>
+						<label class="clearboth col-md-3 control-label ">Đang hiện</label>
+						<div class="col-md-3 margin-bt-10">
+							<select class="form-control" name="related_related[type]" data-error="" aria-invalid="false">
+								<option value="1">Kiểu bảng</option>
+								<option value="2" <!--{if isset($settings['related']['related_related']) && $settings['related']['related_related']['type']==2}-->selected<!--{/if}-->>Kiểu slide</option>
+							</select>
+						</div>
+						<label class="col-md-2 control-label ">Sắp xếp</label>
+						<div class="col-md-3 margin-bt-10">
+							<select class="form-control" name="related_related[orderby]" data-error="">
+								<option value="1">Mới nhất</option>
+								<option value="2" <!--{if isset($settings['related']['related_related']) && $settings['related']['related_related']['orderby']==2}-->selected<!--{/if}-->>Nổi bật</option>
+								<option value="3" <!--{if isset($settings['related']['related_related']) && $settings['related']['related_related']['orderby']==3}-->selected<!--{/if}-->>Ngẫu nhiên</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+</div>
+</div>
+</div>
+</form>
+</div>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+<script src="{$_B['home_theme']}assets/global/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
+<script src="{$_B['mod_theme']}js/setting.js" type="text/javascript"></script>
+<script src="{$_B['home_theme']}assets/global/plugins/jquery-tags-input/jquery.tagsinput.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/ckeditor/ckeditor.js"></script>
+<script src="{$_B['home_theme']}assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="{$_B['home_theme']}assets/global/scripts/metronic.js" type="text/javascript"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function() {
+FormSetting.init();
+});
+</script>

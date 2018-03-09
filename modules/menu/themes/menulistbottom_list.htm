@@ -1,0 +1,41 @@
+
+<tr   id="tr_{$v['id']}" data-key="{$v['id']}" data-lang="{$_GET['lang']}" data-error="{lang error-delete}" data-view="{lang readed}"data-viewa="{lang customers}"data-viewb="{lang email}"data-viewc="{lang phone}"data-viewd="{lang address}"data-viewe="{lang content}" data-gmail="{$v['email']}"data-content="{$v['content_base64']}" data-address="{$v['address']}" data-customers="{$v['customers']}"       data-viewcontact="{lang feedbackfrom}">
+	<td class="highlight">
+		<input type="checkbox" name="name_id[]" class="checkboxes"  value="{$v['id']}">
+	</td>
+	<td class="ct_name" >
+		<span>{$v['space']}</span><span class="newsItem editable editable-click nonebottom tooltips btn" data-pk="<!--{if !empty({$v['id']})}-->{$v['id']}<!--{/if}-->"  data-type="text" data-lang="{$_GET['lang']}"data-original-title="{lang editsortname}">{$v['namemenu']}</span>
+	</td> 
+	<td  style="display:none;">
+		<span class="link editable editable-click nonebottom tooltips btn" data-pk="<!--{if !empty({$v['id']})}-->{$v['id']}<!--{/if}-->"  data-type="text" data-lang="{$_GET['lang']}"  data-original-title="{lang editsortlink}" title="{$v['link']}">Link</span> 
+	</td> 
+	<td class="hidden-xs" style="text-align:center">		
+		<a href="#" data-type="select" data-pk="{$v['id']}" data-value="{$v['sort']}" data-original-title="{lang sort} ({lang number_error})" class="editable editable-click nonebottom tooltips btn sortItem">
+			<!--{if isset({$v['sort']})}-->{$v['sort']} <!--{/if}-->
+		</a>
+	</td>
+	<td style="text-align:center">
+		<!--{if $v['nofollow']==1}-->
+		<a class="btn default btn-xs green-stripe active_nofollow" data-nofollow="{$v['nofollow']}" style="width:73px">{lang yes}</a>
+		<!--{else}-->
+		<a class="btn default btn-xs red-stripe active_nofollow" data-nofollow="{$v['nofollow']}" style="width:73px">{lang no}</a>
+		<!--{/if}-->
+	</td>
+	<td style="text-align:center">
+		<!--{if $v['status']==1}-->
+		<a class="btn default btn-xs green-stripe active_status" data-status="{$v['status']}" style="width:73px">{lang show}</a>
+		<!--{else}-->
+		<a class="btn default btn-xs red-stripe active_status" data-status="{$v['status']}" style="width:73px">{lang hide}</a>
+		<!--{/if}-->
+	</td>
+	<td style="text-align:center" >
+	
+		<a href="menu-menubottom-{$v['id']}-{$_GET['lang']}" class="btn default btn-xs yellow tooltips" data-placement="top" data-original-title="{lang edit}"><i class="fa fa-edit"></i></a>
+		<a  class="btn default btn-xs red tooltips delete_menu"  data-placement="top" data-original-title="{lang delete}"><i class="fa fa-trash-o"></i></a>
+	</td>
+</tr>
+<!--{if sizeof($v[sub])>0 }-->
+	<!--{loop $v[sub] $k $v}-->
+	<!--{looptemp menulistbottom_list}-->
+	<!--{/loop}-->		
+<!--{/if}-->

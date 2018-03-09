@@ -1,0 +1,133 @@
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/jquery-tags-input/jquery.tagsinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/typeahead/typeahead.css">
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css"/>
+<link href="{$_B['mod_theme']}css/style.css" rel="stylesheet" type="text/css" />
+<link href="{$_B['mod_theme']}css/styleLanguage.css" rel="stylesheet" type="text/css" />
+<!-- END PAGE LEVEL STYLES -->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+	<div class="col-md-12">
+		<form class="form-horizontal form-row-seperated" action="" id="form_slide" enctype="multipart/form-data" method="POST" novalidate="novalidate">
+			<div class="portlet">
+				<div class="portlet-title">
+					<div class="caption">
+					<i class="icon-note"></i>Tùy biến ngôn ngữ</div>
+					<!--{temp addLayoutToolbar}-->
+				</div>
+				<div class="portlet-body">
+					<!--{temp notify_action}-->
+					<div class="tabbable">
+						<ul class="nav nav-tabs">
+							<li >
+								<a class="select_lang" href="/information-settinglang-index-lang-vi" data-exist="">
+									{lang setting_lang}
+								</a>
+							</li>
+							<li class="active">
+								<a class="select_lang" href="/template-Language-index-lang-vi" data-exist="">
+									{lang transer}
+								</a>
+							</li>
+						</ul>
+						<div class="tab-content no-space">
+							<div class="tab-pane active">
+								<div class="form-body">
+									<div class="note note-warning">
+										<p class="block">{lang transer_note}</p>
+										<p class="block">{lang chucnang_hoatdongtot} <a class="btn btn-xs red result_lang"> Firefox </a></p>
+									</div>
+									<div class="portlet light bordered">
+										<div class="portlet-title">
+											<div class="caption">
+												<i class="icon-equalizer font-red-sunglo"></i>
+												<span class="caption-subject font-red-sunglo bold uppercase">{lang add_layout}</span>
+												
+											</div>
+											<div class="tools">
+												<a href="javascript:;" class="collapse"></a>
+											</div>
+										</div>
+										<div class="portlet-body form">
+											
+											
+											<div class="row">
+												<div class="col-md-3">
+													<div class="form-control height-auto">
+														<div class="scrollbar">
+															
+															<label>{lang transer_hienthi}</label>
+															<select class="form-control" name="lang_display">
+																<option value="0"  >{lang de_fault}</option>
+																<option value="1" <!--{if $_DATA['config']==1}-->selected<!--{/if}--> >{lang tuy_chinh}</option>
+															</select>
+															<hr/>
+															<label>{lang ngonngu_macdinh}</label>
+															<select class="form-control" name="lang_select">
+																<!--{loop $_DATA['all_lang'] $k $v}-->
+																<option value="{$v}" <!--{if $_DATA['lang_default']==$v}-->selected<!--{/if}--> >{$v}</option>
+																<!--{/loop}-->
+															</select>
+															<hr/>
+															<label>{lang ngongu_dich_tudong}</label>
+															<select class="form-control" name="lang_translate">
+																<!--{loop $_DATA['lang_translate'] $k $v}-->
+																<option value="{$k}" >{$v}</option>
+																<!--{/loop}-->
+															</select>
+															<hr/>
+															
+															<label>Module:</label>
+															<ul class="list-unstyled">
+																<!--{loop $mod_in_home $km $vm}-->
+																<li>
+																	<label><input class="form-control"   type="radio" name="mod" value="{$vm}"><div class="label_pad">{lang {$vm}}</div></label>
+																</li>
+																<!--{/loop}-->
+																<li>
+																	<label><input class="form-control"   type="radio" name="mod" value="system"><div class="label_pad">{lang hethong}</div></label>
+																</li>
+															</ul>
+															
+															
+														</div>
+													</div>
+												</div>
+												<div id="nxt_content_left">
+													<div class="col-md-9 borderLeft">
+														
+														<div class="note note-warning">
+															<p class="block">{lang note_ngonngu}</p>
+														</div>
+														
+													</div>
+												</div>
+											</div>
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="portlet-title topline">
+					<!--{temp LanguageToolbar}-->
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery-tags-input/jquery.tagsinput.min.js"></script>
+<script type="text/javascript" src="{$_B['mod_theme']}js/Language.js"></script>
+<script type="text/javascript">
+$(function(){
+	Language.init();
+})
+</script>

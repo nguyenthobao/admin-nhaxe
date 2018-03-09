@@ -1,0 +1,517 @@
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/jquery-tags-input/jquery.tagsinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/typeahead/typeahead.css">
+<link href="{$_B['mod_theme']}css/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css"/>
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+	<div class="col-md-12">
+		<form class="form-horizontal form-row-seperated" action="" id="form_category" class="form-horizontal" enctype="multipart/form-data" method="POST">
+			<div class="portlet">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="icon-note"></i>{$_S['breadcrumb_page_vd']}
+					</div>
+					<!--{temp video_toolbar}-->
+				</div>
+				<!--{temp notify_action}-->
+				<div class="portlet-body">
+					<div class="tabbable">
+						<ul class="nav nav-tabs">
+							
+							<!--{loop $url_lang $k_lang $v_lang}-->
+							<li <!--{if $k_lang==$_GET['lang']}-->class="active"<!--{/if}-->>
+							<a class="select_lang" href="{$v_lang['url']}"
+								data-close="Đóng" data-exist="{$v_lang['exist']}" data-message="{$v_lang['mes']}">
+								{lang lang_{$k_lang}}
+							</a>
+						</li>
+						<!--{/loop}-->
+						<input type="hidden" name="popup" data-title="{lang pop_title}" data-yes="{lang pop_yes}" data-cancel="{lang pop_cancel}" data-message="{lang pop_message}" data-close="{lang pop_close}">
+						<input type="hidden" name="popup_df" data-title="{lang pop_df_title}" data-yes="{lang pop_yes}" data-cancel="{lang pop_cancel}" data-message="{lang pop_df_message}" data-close="{lang pop_close}">
+						<input type="hidden" value="$_GET['id']" name="idvideo" id="idvideo"/>
+					</ul>
+					
+					<div class="tab-content no-space">
+						<div class="tab-pane active" id="lang_{$v_lang}">
+							<div class="form-body">
+								<div class="note note-warning">
+									<p class="block">{lang select_lang lang_{$_GET['lang']} }</p>
+								</div>
+								<div class="portlet light bordered">
+									<div class="portlet-title">
+										<div class="caption">
+											<i class="icon-equalizer font-red-sunglo"></i>
+											<span class="caption-subject font-red-sunglo bold uppercase">{lang basic_information}</span>
+											<span class="caption-helper">{lang noti_information}</span>
+										</div>
+										<div class="tools">
+											<a href="javascript:;" class="collapse"></a>
+										</div>
+									</div>
+									
+									<div class="portlet-body form">
+										<div class="form-group">
+											<label class="col-md-2 control-label">
+												$_L['Video_title']<span class="required">
+												* </span>
+											</label>
+											<div class="col-md-8">
+												<input type="text" class="form-control maxlength-handler" id="seo_url" onkeyup="trim_name(this);" name="title" id="title" maxlength="60" value="<!--{if isset({$cat['title']})}-->{$cat['title']}<!--{/if}-->" placeholder=""  data-error="{lang error_title}">
+												<span class="help-block">{lang maxlength 60}</span>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-2 control-label">SEO URL </label>
+											<div class="col-md-8">
+												<input class="form-control maxlength-handler" maxlength="225" <!--{if isset({$cat['alias']})}--> value="{$cat['alias']}" <!--{else}--> value="" <!--{/if}--> name="alias" value="" id="seo_keyword" >
+												<span class="help-block">{lang maxlength 225}</span>
+												<script type="text/javascript">
+												function trim_name(input_name){
+												var txtname_trim=erase($("#seo_url").val());
+												$("#seo_keyword").val(nbh_seo_write(txtname_trim));
+												}
+												</script>
+											</div>
+										</div>
+										<!--{if isset({$cat['title']})}-->
+										<div class="form-group">
+											<label class="col-md-2 control-label"></label>
+											<div class="col-md-8">
+												<label>
+													<input type="checkbox" name="is_save" >
+													{lang noti_change}
+												</label>
+												<input type="hidden" name="title_alias" value="{$cat['alias']}">
+											</div>
+										</div>
+										<!--{/if}-->
+										<div class="form-group">
+											<label class="col-md-2 control-label">$_L['Video_des']
+											</label>
+											<div class="col-md-8">
+												<textarea class="form-control maxlength-handler" rows="6" name="short" maxlength="500"><!--{if !empty({$cat['short']})}-->{$cat['short']}<!--{/if}--></textarea>
+												<span class="help-block">{lang maxlength 500}</span>
+											</div>
+										</div>
+										
+										<!--{if $category}-->
+										<div class="form-group">
+											<label class="control-label col-md-2">{lang categoryvd} <span class="required">
+											* </span>
+										</label>
+										<div class="col-md-8">
+											<div class="form-control height-auto">
+												<div class="scrollbar" id="style-scroll">
+													<div class="force-overflow">
+														<ul class="list-unstyled" id="list_category">
+															<li class="row_check_all">
+																<label><input id="checkboxAll" type="checkbox" value="">{lang check_alldm} </label>
+															</li>
+															<!--{loop $category $k $v}-->
+															<!--{temp video_cat_list}-->
+															<!--{/loop}-->
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--{/if}-->
+									
+									<div class="form-group">
+										<label class="col-md-2 control-label">
+											$_L['Video_link']<span class="required">
+											* </span>
+										</label>
+										<div class="col-md-8">
+											<input type="text" class="form-control maxlength-handler mrgb10" name="link_video" maxlength="200" value="<!--{if !empty({$cat['link_video']})}-->{$cat['link_video']}<!--{/if}-->" placeholder=""data-error="{lang error_link}">
+											<span class="help-block">{lang maxlength 200}</span>
+											<span class="help-block">{lang linkyou}: http://youtu.be/xbP7AlubtEo</span>
+											<a class="linkyou">{lang hdclick}</a>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-2">{lang title_img} </label>
+										<div class="col-md-8">
+											
+											<div class="fileinput <!--{if !empty($cat['img'])}-->fileinput-exists<!--{else}-->fileinput-new<!--{/if}-->" data-provides="fileinput">
+											<!--{if !empty($cat['img'])}-->
+											<input type="hidden" value="1" name="img_video"/>
+											<!--{/if}-->
+											<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+												<img src="{$_B['home_theme']}assets/no_image.gif" alt="Avatar"/>
+											</div>
+											<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+												<img src="<!--{if isset({$cat['img']})}-->{$_B['upload_path']}{$cat['img']}<!--{else}-->{$_B['home_theme']}assets/no_image.gif<!--{/if}-->" onerror="this.onerror=null;this.src='{$_B['home_theme']}assets/no_image.gif'" alt="" />
+											</div>
+											<div>
+												<span class="btn default btn-file">
+													<span class="fileinput-new">
+													{lang select_img} </span>
+													<span class="fileinput-exists">
+													{lang change_img} </span>
+													<input type="file" name="img_video">
+												</span>
+												<a href="#" class="btn default fileinput-exists" data-dismiss="fileinput">
+												{lang remove}</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-2 control-label">{lang video_content}:
+									</label>
+									<div class="col-md-10">
+										<textarea class="span12 ckeditor m-wrap" name="content" rows="6" data-error-container="#editor2_error"><!--{if !empty({$cat['details']})}-->{$cat['details']}<!--{/if}--></textarea>
+										<div id="editor2_error"></div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-2 control-label">{lang tags}  </label>
+									<div class="col-md-8">
+										<input id="tags" name="tags" type="text" class="form-control tags" value="<!--{if !empty({$cat['tags']})}-->{$cat['tags']}<!--{/if}-->"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-2 control-label">{lang sort}:
+									</label>
+									<div class="col-md-2">
+										<input type="text" class="form-control" name="sort" onkeypress='validate(event)' data-error="{lang number_error}" value="<!--{if !empty({$cat['sort']})}-->{$cat['sort']}<!--{/if}-->" placeholder="{lang inint}" >
+									</div>
+								</div>
+								<div class="form-group row-title-check">
+									<label class="col-md-2 control-label">{lang video_vip} </label>
+									<div class="col-md-8">
+										<input type="checkbox" name="video_vip" <!--{if isset($cat['is_vip'])&&($cat['is_vip'] == 1)}--> checked <!--{/if}-->>
+									</div>
+								</div>
+								<div class="form-group row-title-check">
+									<label class="col-md-2 control-label">{lang video_hot} </label>
+									<div class="col-md-8">
+										<input type="checkbox" name="video_hot" <!--{if isset($cat['is_hot'])&&($cat['is_hot'] == 1)}--> checked <!--{/if}-->>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-2">{lang status}
+									</label>
+									<div class="col-md-2">
+										<select class="form-control" name="status" data-error="{lang category_error}">
+											<!--{if empty($cat['id']) }-->
+											<!--{if $_B['user_perm']!='boss'}-->
+											<!--{else}-->
+											<option value="1" selected="selected">{lang act}</option>
+											<!--{/if}-->
+											<option value="0">{lang none_act}</option>
+											<!--{else}-->
+											<!--{if $_B['user_perm']!='boss'}-->
+											<!--{else}-->
+											<option value="1" <!--{if (isset($_POST['status'])&& $_POST['status']==1)||empty($_GET['id'])}-->selected="selected"<!--{/if}--> >{lang act}</option>
+											<option value="0" <!--{if isset($_POST['status']) && $_POST['status']==0}-->selected="selected"<!--{/if}-->>{lang none_act}</option>
+											<!--{/if}-->
+											<!--{/if}-->
+										</select>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+						<div class="portlet light bordered">
+							<div class="portlet-title">
+								<div class="caption">
+									<i class="icon-equalizer font-red-sunglo"></i>
+									<span class="caption-subject font-red-sunglo bold uppercase">{lang video_lq}</span>
+									<span class="caption-helper">{lang videolq_information}</span>
+								</div>
+								<div class="tools">
+									<a href="javascript:;" class="collapse"></a>
+								</div>
+							</div>
+							
+							<div class="portlet-body form">
+								<div class="form-group">
+									<label class="col-md-2 control-label spanbold">
+										{lang Video_lqdm}
+										<span class="required"></span>
+									</label>
+									<div class="col-md-8">
+										<div class="form-control height-auto">
+											<div class="force-over">
+												<ul class="list-unstyled">
+													<li class="row_check_all">
+														<label>
+															
+															<input type="checkbox" <!--{if isset($cat['video_lqdm']) && $cat['video_lqdm'] == 1}-->checked<!--{elseif isset($configNXT['related_cate']) && $configNXT['related_cate']['status']=='on'}-->checked<!--{/if}--> name="video_lqdm">
+															
+															
+														</label>
+													</li>
+													
+												</ul>
+												<label class="col-md-3 control-label">{lang video_show}</label>
+												<div class="col-md-3 margin-bt-10">
+													<select class="form-control" name="slvddm" data-error="">
+														<!--{eval $temp = array('1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30')}-->
+														<option value="0">{lang video_default}</option>
+														<!--{if !empty($temp)}-->
+														<!--{loop $temp $k $v}-->
+															<option value="$v" <!--{if (!empty($_GET['id'])) && $tempid == true}--> <!--{if $cat['slvddm'] ==$v}--> selected="selected" <!--{/if}--><!--{elseif isset($configNXT['related_cate']) && $configNXT['related_cate']['quantity']==$v}-->selected<!--{/if}-->>$v</option>
+														<!--{/loop}-->
+														<!--{/if}-->
+													</select>
+												</div>
+												<label class="col-md-2 control-label">{lang sort}</label>
+												<div class="col-md-3 margin-bt-10">
+													<select class="form-control" name="sttvdm" data-error="">
+														<option value="1">1</option>
+														<option <!--{if (!empty($_GET['id'])) && $tempid == true}--><!--{if $cat['sttvdm']==2}-->selected="selected"<!--{/if}--> <!--{elseif isset($configNXT['related_cate']) && $configNXT['related_cate']['order']==2}-->selected<!--{/if}-->value="2">2</option>
+													</select>
+												</div>
+												<label class="clearboth col-md-3 control-label ">{lang show}</label>
+												<div class="col-md-3 margin-bt-10">
+													<select class="form-control" name="kieuhtdm" data-error="">
+														<option value="1">{lang show_video}</option>
+														<option value="2"<!--{if (!empty($_GET['id'])) && $tempid == true}--> <!--{if $cat['kieuhtdm'] ==2}--> selected="selected"<!--{/if}--><!--{elseif isset($configNXT['related_cate']) && $configNXT['related_cate']['type']==2}-->selected<!--{/if}-->>{lang show_vd_slide}</option>
+													</select>
+												</div>
+												<label class="col-md-2 control-label ">{lang sortvideo}</label>
+												<div class="col-md-3 margin-bt-10">
+													<select class="form-control" name="kieusxdm" data-error="">
+														<option value="1">{lang newvd}</option>
+														<option value="2" <!--{if (!empty($_GET['id'])) && $tempid == true}--><!--{if $cat['kieusxdm'] ==2}--> selected="selected"<!--{/if}--><!--{elseif isset($configNXT['related_cate']) && $configNXT['related_cate']['orderby']==2}-->selected<!--{/if}-->>{lang hotvd}</option>
+														<option value="3" <!--{if (!empty($_GET['id'])) && $tempid == true}--><!--{if $cat['kieusxdm'] ==3}--> selected="selected"<!--{/if}--><!--{elseif isset($configNXT['related_cate']) && $configNXT['related_cate']['orderby']==3}-->selected<!--{/if}-->>{lang randomvd}</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-2 control-label spanbold">
+										{lang Video_lqtc}
+										<span class="required"></span>
+									</label>
+									<div class="col-md-8">
+										<div class="form-control height-auto">
+											<div class="force-over">
+												<ul class="list-unstyled">
+													<li class="row_check_all">
+														<label>
+															
+															
+															<input type="checkbox" <!--{if isset($cat['video_lqtc'])&&($cat['video_lqtc'] == 1)}--> checked <!--{elseif isset($configNXT['related_related']) && $configNXT['related_related']['status']=='on'}-->checked<!--{/if}--> name="video_lqtc">
+														</li>
+														
+													</ul>
+													<label class="col-md-3 control-label">{lang video_show}</label>
+													<div class="col-md-3 margin-bt-10">
+														<select class="form-control" name="slvdtc" data-error="">
+															<option value="0">{lang video_default}</option>
+															<!--{loopfor $i=1 $i<30 $i++}-->
+																<option value="$i" <!--{if (!empty($_GET['id'])) && $tempid == true}--> <!--{if $cat['slvdtc']==$i}-->selected="selected"<!--{/if}--> <!--{elseif isset($configNXT['related_related']) && $configNXT['related_related']['quantity']==$i}-->selected<!--{/if}-->>$i</option>
+															<!--{/loopfor}-->
+														</select>
+													</div>
+													<label class="col-md-2 control-label ">{lang sort}</label>
+													<div class="col-md-3 margin-bt-10">
+														<select class="form-control" name="sttvtc" data-error="">
+															<option value="2" >2</option>
+															<option value="1" <!--{if (!empty($_GET['id'])) && $tempid == true}--> <!--{if $cat['sttvtc'] ==1}--> selected="selected"<!--{/if}--><!--{elseif isset($configNXT['related_related']) && $configNXT['related_related']['order']==1}-->selected<!--{/if}-->>1</option>
+														</select>
+													</div>
+													<label class="clearboth col-md-3 control-label ">{lang show}</label>
+													<div class="col-md-3 margin-bt-10 ">
+														<select class="form-control" name="kieuhttc" data-error="">
+															<option value="1">{lang show_video}</option>
+															<option value="2"<!--{if (!empty($_GET['id'])) && $tempid == true}--> <!--{if $cat['kieuhttc'] ==2}--> selected="selected"<!--{/if}--><!--{elseif isset($configNXT['related_related']) && $configNXT['related_related']['type']==2}-->selected<!--{/if}-->>{lang show_vd_slide}</option>
+														</select>
+													</div>
+													<label class="col-md-2 control-label ">{lang sortvideo}</label>
+													<div class="col-md-3 margin-bt-10 ">
+														<select class="form-control" name="kieusxtc" data-error="">
+															<option value="1">{lang newvd}</option>
+															<option value="2" <!--{if (!empty($_GET['id'])) && $tempid == true}--> <!--{if $cat['kieusxtc'] ==2}--> selected="selected"<!--{/if}--><!--{elseif isset($configNXT['related_related']) && $configNXT['related_related']['orderby']==2}-->selected<!--{/if}-->>{lang hotvd}</option>
+															<option value="3" <!--{if (!empty($_GET['id'])) && $tempid == true}--><!--{if $cat['kieusxtc'] ==3}--> selected="selected"<!--{/if}--><!--{elseif isset($configNXT['related_related']) && $configNXT['related_related']['orderby']==3}-->selected<!--{/if}-->>{lang randomvd}</option>
+														</select>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-2">{lang related}</label>
+										
+										<div class="col-md-10">
+											<div class="related_form height-auto">
+												<div class="col-md-48 col_left">
+													<div class="cotsearch">
+														<input type="text" class="form-control inputsearch" id="search" name="search" value="" placeholder="{lang search_title}">
+														<input type="hidden" name="langsearch" id="langsearch" value="{$_GET['lang']}">
+														<input type="hidden" id="idsearch" value="{$_GET['id']}">
+														<a class="btn green btn_search" id="btn_search"><i class="fa fa-check" data-lang="{$_GET['lang']}"></i> {lang search}</a>
+														
+													</div>
+													
+													<div>
+														<div class="scrollbar_1" id="style-scroll-1">
+															<div class="force-overflow-1">
+																<ul id="video_left">
+																	<!--{if isset($related_video)}-->
+																	<!--{loop $related_video['data'] $k $v}-->
+																	<!--{if isset($v)}-->
+																	<!--{temp video_list_related}-->
+																	<!--{/if}-->
+																	<!--{/loop}-->
+																	<!--{/if}-->
+																	<!--{if empty($related_video['data'])}-->
+																	<label class="notvideo">Hiện chưa có video nào</label>
+																	<!--{/if}-->
+																	
+																	
+																</ul>
+															</div>
+															<!--{if !empty($related_video['data'])}-->
+															<div id="more">
+																<span class="btn btn-xs grey-cascade">{lang load_more} <i class="glyphicon glyphicon-refresh"></i></span>
+															</div>
+															<!--{/if}-->
+														</div>
+													</div>
+												</div>
+												<div class="col-width-4"><span class="glyphicon glyphicon-arrow-right"></span></div>
+												<div class="col-md-48 col_right">
+													<p>{lang related_list}</p>
+													<div>
+														<div class="scrollbar_1" id="style-scroll-1">
+															<div class="force-overflow-1">
+																<ul id="video_right">
+																	
+																	<!--{if isset($related_video_exist)}-->
+																	<!--{loop $related_video_exist $k $v}-->
+																	<!--{if isset($v)}-->
+																	<!--{temp video_list_related_exist}-->
+																	<!--{/if}-->
+																	<!--{/loop}-->
+																	<!--{/if}-->
+																</ul>
+															</div>
+														</div>
+													</div>
+													<input type='hidden' id='related_select' name='related_select' value=''/>
+													
+												</div>
+											</div>
+										</div>
+										
+									</div>
+								</div>
+							</div>
+							<div class="portlet light bordered">
+								<div class="portlet-title">
+									<div class="caption">
+										<i class="icon-equalizer font-red-sunglo"></i>
+										<span class="caption-subject font-red-sunglo bold uppercase">{lang metainformation}</span>
+										<span class="caption-helper">{lang meta_define}</span>
+									</div>
+									<div class="tools">
+										<a href="javascript:;" class="collapse"></a>
+									</div>
+								</div>
+								<div class="portlet-body form">
+									
+									<div class="form-group">
+										<label class="col-md-2 control-label">{lang meta_title} </label>
+										<div class="col-md-8">
+											<input type="text" class="form-control maxlength-handler" name="meta_title" maxlength="170" value="<!--{if !empty({$cat['meta_title']})}-->{$cat['meta_title']}<!--{/if}-->" placeholder="" data-error="{lang meta_title}">
+											<span class="help-block">
+											{lang maxlength 170} </span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-2 control-label">{lang meta_keyword}  </label>
+										<div class="col-md-8">
+											<input id="meta_keyword" name="meta_keyword" type="text" class="form-control tags" value="<!--{if !empty({$cat['meta_keyword']})}-->{$cat['meta_keyword']}<!--{/if}-->"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-2 control-label">{lang meta_description} </label>
+										<div class="col-md-8">
+											<textarea class="form-control maxlength-handler" rows="4" name="meta_description" maxlength="500"><!--{if !empty({$cat['meta_description']})}-->{$cat['meta_description']}<!--{/if}--></textarea>
+											<span class="help-block">
+											{lang maxlength 500 } </span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="portlet light bordered">
+								<div class="portlet-title">
+									<div class="caption">
+										<i class="icon-equalizer font-red-sunglo"></i>
+										<span class="caption-subject font-red-sunglo bold uppercase">{lang timeupload}</span>
+										<span class="caption-helper">{lang timeuploadinfo}</span>
+									</div>
+									<div class="tools">
+										<a href="javascript:;" class="collapse"></a>
+									</div>
+								</div>
+								<div class="portlet-body form">
+									<div class="form-group">
+										<label class="col-md-2 control-label">$_L['Video_clock']</label>
+										<div class="col-md-4">
+											<div class="input-group date form_datetime">
+												<input type="text" size="16" readonly class="form-control" name="date_up" value="<!--{if (!empty($_GET['id'])) && $tempid == true}--><!--{if $cat['date_up'] != 0}-->$cat['date_up']<!--{/if}--><!--{/if}-->">
+												<span class="input-group-btn">
+													<button class="btn default date-reset" type="button"><i class="fa fa-times"></i></button>
+												</span>
+												<span class="input-group-btn">
+													<button class="btn default date-set" type="button"><i class="fa fa-calendar"></i></button>
+												</span>
+											</div>
+											<span class="help-block">{lang sub_datetime_up}</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<div class="portlet-title topline">
+			<!--{temp video_toolbar}-->
+		</div>
+	</div>
+</form>
+</div>
+</div>
+<!-- END PAGE CONTENT-->
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+<script src="{$_B['home_theme']}assets/global/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
+<script src="{$_B['mod_theme']}js/video.js" type="text/javascript"></script>
+<script src="{$_B['home_theme']}assets/global/plugins/jquery-tags-input/jquery.tagsinput.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/ckeditor/ckeditor.js"></script>
+<script src="{$_B['home_theme']}assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="{$_B['home_theme']}assets/global/scripts/metronic.js" type="text/javascript"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="{$_B['mod_theme']}js/nbh_seo_rewrite.js"></script>
+<script>
+jQuery(document).ready(function() {
+Video.init();
+});
+</script>
+<script>
+function validate(evt) {
+var theEvent = evt || window.event;
+var key = theEvent.keyCode || theEvent.which;
+key = String.fromCharCode( key );
+var regex = /[0-9]|\./;
+if( !regex.test(key) ) {
+theEvent.returnValue = false;
+if(theEvent.preventDefault) theEvent.preventDefault();
+}
+}
+</script>

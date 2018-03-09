@@ -1,0 +1,112 @@
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/jquery-tags-input/jquery.tagsinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/typeahead/typeahead.css">
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css"/>
+
+<link href="{$_B['mod_theme']}css/style_load.css" rel="stylesheet" type="text/css" />
+
+<!-- END PAGE LEVEL STYLES -->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+	<div class="col-md-12">
+		<form class="form-horizontal form-row-seperated" action="" id="form_info" class="form-horizontal" enctype="multipart/form-data" method="POST">
+			
+			<div class="portlet">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="icon-note"></i>{lang breadcrumb_loadnews}
+					</div>
+					<!--{temp btn_toolbar}-->
+				</div>
+				<div class="portlet-body">
+					<!--{temp notify_action}-->
+					<div class="tabbable">
+						<div class="form-body">
+							<div class="form-group">
+								<label class="label_load">{lang tin_tuc_lay_tu_bao} <a href="http://tin12.com" target="_black" >tin12.com</a></label>
+							</div>
+							<div class="form-group">
+								<div class="related_form height-auto">
+									<!-- <div class="col-md-3 col-sm-6 col_left padding-5">
+										<label class="label_title">{lang post_news}</label>
+										<div>
+											<div class="scrollbar_1" id="style-scroll-1">
+												<div class="force-overflow-1">
+													<ul id="news_left">
+														<li data-id="330">
+															<span><img class="tooltips" src="{$_B['mod_theme']}images/tin247.jpg" data-original-title="Tin247.com" alt=""></span>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div> -->
+									<!-- <div class="col-width-1"><span></span></div> -->
+									<div class="col-md-3 col-sm-6 col_right padding-5">
+										<label class="label_title">{lang category}</label>
+										<div>														
+											<div class="scrollbar_1" id="style-scroll-1">
+												<div class="force-overflow-1">
+													<ul class="list-unstyled" id="list_category">
+														
+													</ul>
+												</div>
+											</div>														
+										</div>
+										<input type="hidden" id="related_select" name="related_select" value="">
+									</div>
+									<!-- <div class="col-width-1"><span></span></div> -->
+									<div class="col-md-9 col-sm-12 col_right padding-5">
+										<label class="label_title">{lang news_list}</label>
+										<div>														
+											<div class="scrollbar_1" id="style-scroll-1">
+												<div class="force-overflow-1">
+													<ul class="list-unstyled" id="item-news">
+														<!-- <li class="row_check_all">
+															<label><input id="checkboxAll" type="checkbox" value=""> {lang check_all} </label>
+														</li> -->
+														
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div id="content"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="portlet-title topline">
+					<!--{temp btn_toolbar}-->
+				</div>
+			</div>
+		</form>
+	</div>
+	
+	
+
+		
+	
+</div>
+<!-- END PAGE CONTENT-->
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery-tags-input/jquery.tagsinput.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/scripts/metronic.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="{$_B['mod_theme']}js/load.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+       FormLoad.init();
+    });
+</script>

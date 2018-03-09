@@ -1,0 +1,25 @@
+<tr id="tr_{$v['id']}" data-key="{$v['id']}" data-lang="{$_GET['lang']}">
+	<td class="highlight">
+		<input type="checkbox" name="name_id[]" class="checkboxes"  value="{$v['id']}">
+	</td>
+	 
+	 
+	 <!--{loop $v $k2 $v2}-->
+	 	<!--{if $k2!='id' && $k2!='form_id' && $k2!='status'}-->
+			<td>	
+				{$v2}
+			</td> 
+		<!--{/if}-->
+	 <!--{/loop}-->
+	<td style="text-align:center">
+		<!--{if $v['status'] == 1}-->
+		<a class="btn default btn-xs green-stripe status_item" data-status="{$v['status']}" data-id="{$v['id']}" data-text="{lang button_hide}" data-type="status">{lang button_show}</a>
+		<!--{else}-->
+		<a class="btn default btn-xs red-stripe status_item" data-status="{$v['status']}" data-id="{$v['id']}" data-text="{lang button_show}" data-type="status">{lang button_hide}</a>
+		<!--{/if}-->
+	</td>
+	
+	<td class="icon_btn"> 
+		<a  class="btn default btn-xs red tooltips delete_slide"  data-placement="top" data-original-title="{lang delete}"><i class="fa fa-trash-o"></i></a>
+	</td>
+</tr>

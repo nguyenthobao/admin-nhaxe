@@ -1,0 +1,95 @@
+<div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal form-row-seperated" action="" id="form_slide" class="form-horizontal" enctype="multipart/form-data" method="POST">
+            <div class="portlet">
+                <div class="portlet-title">
+                    <div class="caption"> <i class="fa fa-shopping-cart"></i>{lang breadcrumb_block}</div>
+                    <div class="actions btn-set">
+                        <button type="button" class="btn blue btn-info" data-toggle="modal" data-target="#copyBlock"><i class="fa fa-copy"></i> Sao chép block</button>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <!--{temp notify_action}-->
+                    <div class="tabbable" id="lang_tab_bar">
+                        <ul class="nav nav-tabs">
+                            <!--{loop $url_lang $k_lang $v_lang}-->
+                            <li <!--{if $k_lang==$get_lang}-->class="active"<!--{/if}-->>
+                            <a class="select_lang" href="{$v_lang['url']}" > {lang lang_{$k_lang}} </a>
+                        </li>
+                        <!--{/loop}-->
+                        
+                    </ul>
+                    <div class="tab-content no-space">
+                        <div class="tab-pane active" id="lang_{$get_lang}">
+                            <div class="form-body">
+                                <div class="note note-warning">
+                                    <p class="block">{lang select_lang lang_{$get_lang}}</p>
+                                </div>
+                                <!-- BEGIN PAGE CONTENT-->
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <!--{temp block_store}-->
+                                    </div>
+                                    <div class="col-md-4">
+                                        <!--{temp block_pos}-->
+                                    </div>
+                                </div>
+                                <!-- END PAGE CONTENT-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="copyBlock" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<form role="form" id="formCopy" action="/template-Language-copyBlocks-lang-{$get_lang}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Sao chép blocks</h4>
+      </div>
+      <div class="modal-body">
+        <div class="note note-warning">
+            <p class="block">
+                - Bạn có thể sao chép được toàn bộ blocks sang ngôn ngữ được định sẵn.<br/>
+                - Tất cả dữ liệu từ bên ngôn ngữ gốc sẽ được bảo toàn khi chuyển qua ngôn ngữ mới.<br/>
+            </p>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label>Chọn ngôn ngữ sao chép sang</label>
+                <select name="copy[copyBlocks]" class="form-control">
+                    <!--{loop $url_lang $k_lang $v_lang}-->
+                                <!--{if $k_lang!=$get_lang}-->
+                                    <option value="{$k_lang}">{lang lang_{$k_lang}}</option>
+                                <!--{/if}-->
+                    <!--{/loop}-->
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label>Bạn có muốn xóa tất cả block ?</label> <br/>
+                <input class="form-control" value="1" type="checkbox" name="copy[emptyBlocks]"> Làm rỗng trước khi sao chép
+            </div>
+            <input type="hidden" name="copy[currentLang]" value="{$get_lang}">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+        <button type="submit" class="btn btn-primary">Đồng ý</button>
+      </div>
+    </div>
+  </div>
+  </form>
+</div>
+
+</div>
+<!--{temp block_css}-->
+<link rel="stylesheet" href="{$_B['home_theme']}assets/global/plugins/jquery-ui/jquery-ui.css">
+<script src="{$_B['home_theme']}assets/global/plugins/jquery-ui/jquery-ui.js"></script>
+<script src="{$_B['home_theme']}assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<!--{temp block_js}-->

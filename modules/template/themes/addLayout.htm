@@ -1,0 +1,86 @@
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/jquery-tags-input/jquery.tagsinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/typeahead/typeahead.css">
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css"/>
+<link href="{$_B['mod_theme']}css/style.css" rel="stylesheet" type="text/css" />
+<link href="{$_B['mod_theme']}css/styleCustomFormNxt.css" rel="stylesheet" type="text/css" />
+<!-- END PAGE LEVEL STYLES -->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+	<div class="col-md-12">
+		<form class="form-horizontal form-row-seperated" action="" id="form_slide" enctype="multipart/form-data" method="POST" novalidate="novalidate">
+			<div class="portlet">
+				<div class="portlet-title">
+					<div class="caption">
+					<i class="icon-note"></i>{lang them_layout}</div>
+					<!--{temp addLayoutToolbar}-->
+				</div>
+				<div class="portlet-body">
+					<!--{temp notify_action}-->
+					<div class="tabbable">
+						<div class="tab-content no-space">
+							<div class="tab-pane active">
+								<div class="form-body">
+									<div class="note note-warning">
+										<p class="block">{lang thaydoi_noidung}</p>
+									</div>
+									<div class="portlet light bordered">
+										<div class="portlet-title">
+											<div class="caption">
+												<i class="icon-equalizer font-red-sunglo"></i>
+												<span class="caption-subject font-red-sunglo bold uppercase">{lang them_layout}</span>
+												
+											</div>
+											<div class="tools">
+												<a href="javascript:;" class="collapse"></a>
+											</div>
+										</div>
+										<div class="portlet-body form">
+											
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang name_layout} <span class="required" aria-required="true">* </span></label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" name="title" value="" data-error="Vui lòng nhập trường này" placeholder="Kiểm tra đơn hàng">
+												</div>
+											</div>
+											
+											<div class="form-group">
+												<label class="col-md-2 control-label">Layout <span class="required" aria-required="true">* </span></label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" name="layout" value="" data-error="Vui lòng nhập trường này" placeholder="fastCart">
+												</div>
+											</div>
+											
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang duongdan}<span class="required" aria-required="true">* </span></label>
+												<div class="col-md-8">
+													<input type="text" class="form-control" name="route" value="" data-error="{lang chinhxac_duongdan}" placeholder="product-product-fastCart">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="portlet-title topline">
+					<!--{temp addLayoutToolbar}-->
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery-tags-input/jquery.tagsinput.min.js"></script>
+<script type="text/javascript" src="{$_B['mod_theme']}js/addLayout.js"></script>
+<script type="text/javascript">
+$(function(){
+	addLayout.init();
+})
+</script>

@@ -1,0 +1,119 @@
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/select2/select2.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-editable/bootstrap-editable/css/bootstrap-editable.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-editable/inputs-ext/address/address.css"/>
+
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+	<div class="col-md-12">
+		<form class="form-horizontal form-row-seperated" action="" id="form_infolist" class="form-horizontal" enctype="multipart/form-data" method="POST">
+			<input type="hidden" value="deleteMultiID" name="action">
+			<div class="portlet">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-navicon"></i>{lang title_manager_mod}
+					</div>
+				</div>
+				<div class="portlet-body">
+					<!--{temp notify_action}-->
+					 
+					<div class="form-group row-search">
+						<div class="col-md-3 col-padding-10">
+							<input type="text" class="form-control form-filter input-sm" name="info_title" placeholder="{lang search_title}" value="<!--{if isset({$info['keySearch']})}-->{$info['keySearch']['info_title']}<!--{/if}-->">
+						</div>
+						<div class="col-md-2 col-padding-10">
+							<select name="status_info" class="table-group-action-input form-control input-inline input-sm width-100 form-filter">
+								<option value="all"<!--{if isset({$info['keySearch']['status_info']}) && ({$info['keySearch']['status_info']} == "all")}-->selected<!--{/if}-->>{lang status}</option>
+								<option value="show"<!--{if isset({$info['keySearch']['status_info']})&&({$info['keySearch']['status_info']} == 'show')}-->selected<!--{/if}-->>{lang show}</option>
+								<option value="hide"<!--{if isset({$info['keySearch']['status_info']})&&({$info['keySearch']['status_info']} == 'hide')}-->selected<!--{/if}-->>{lang hide}</option>
+								<option value="time"<!--{if isset({$info['keySearch']['status_info']})&&({$info['keySearch']['status_info']} == 'time')}-->selected<!--{/if}-->>{lang time_up}</option>
+							</select>
+						</div>
+						<div class="col-md-1 col-padding-10">
+							<button id="btn_search" class="btn btn-sm green table-group-action-submit" data-continue="infolist"><i class="fa fa-search"></i> {lang search}</button>
+						</div>
+						<div class="col-md-3 col-padding-10">
+						</div>
+						<div class="col-md-3 col-padding-10">
+							<div class="actions btn-set btn-del">
+								<a  class="btn btn-sm red continue delete_info_select disabled"><i class="fa fa-trash-o"></i> {lang delete}</a>
+							</div>
+							<div class="actions btn-set">
+								<a href="{$addInfo}" class="btn btn-sm green continue"><i class="fa fa-plus"></i> {lang add}</a>
+							</div>
+
+						</div>
+					</div>
+					<!--{if !empty($info['data'])}-->
+					<div class="table-scrollable">
+						<table id="infolist" data-lang="{$_GET['lang']}" class="table table-striped table-bordered table-advance table-hover ">
+							<thead>
+							<tr>
+								<th width="20">
+									<input type="checkbox" id="checkboxAll">
+								</th>
+								<th width="120">
+									{lang ava}
+								</th>
+								<th class="highlight">
+									{lang info_title}
+								</th>
+								<th class="hidden-xs" width="20">
+									{lang sort}
+								</th>
+								<th width="95">
+									{lang status}
+								</th>
+								<th width="150">
+									{lang active}
+								</th>
+							</tr>
+							</thead>
+							<tbody>								
+							<!--{loop $info['data'] $k $v}-->
+								<!--{temp info_list_list}-->
+							<!--{/loop}-->
+							</tbody>
+						</table>
+					</div>
+					<!--{else}-->
+					<div class="alert alert-warning">
+						<center> {lang notfound} </center>
+					</div>
+					<!--{/if}-->
+					<!--{if isset($info['pagination'])}-->
+					{$info['pagination']}
+					<!--{/if}-->
+
+				</div>				
+			</div>
+		</form>
+	</div>
+</div>
+
+<!-- BEGIN PLUGINS USED BY X-EDITABLE -->
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/moment.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery.mockjax.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-editable/bootstrap-editable/js/bootstrap-editable.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-editable/inputs-ext/address/address.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-editable/inputs-ext/wysihtml5/wysihtml5.js"></script>
+
+<link href="{$_B['mod_theme']}css/style.css" rel="stylesheet" type="text/css" />
+<!-- END X-EDITABLE PLUGIN -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="{$_B['mod_theme']}js/infolist.js"></script>
+<script type="text/javascript" laguage="javascript">
+    jQuery(document).ready(function() {    
+       InfoList.init();
+       $('.form-filter').keydown(function(e) {
+			if (e.keyCode == 13) {// mã của phím enter				
+		   	$('input[name="action"]').val("searchInfo");
+            $('#form_infolist').submit();    //submit form có id là: "form"
+		   }
+		});
+    });
+</script>
+<!-- END JAVASCRIPTS -->

@@ -1,0 +1,20 @@
+<?php
+/**
+ * @Project BNC v2 -> Adminuser
+ * @File /model/setting.php 
+ * @Author An Nguyen Huu (annh@webbnc.vn)
+ * @Createdate 08/17/2014, 10:14 AM
+ */
+if(!defined('BNC_CODE')) {
+    exit('Access Denied');
+}
+class Setting extends GlobalNews{
+	public $idw,$r,$newsObj;
+	private $uid;
+	public function __construct(){
+		global $_B;	 
+		$this->r = $_B['r'];
+		$this->idw = $_B['web']['idw'];
+		$this->lang = $_B['cf']['lang'];
+	}
+}

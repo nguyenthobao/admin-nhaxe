@@ -1,0 +1,235 @@
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link rel="stylesheet" type="text/css" href="{$_B['mod_theme']}css/fontCssNxt.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-colorpicker/css/colorpicker.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/jquery-ui/jquery-ui.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['mod_theme']}js/watermark/watermarker.css"/>
+<!-- END PAGE LEVEL STYLES -->
+<div class="row">
+	<div class="col-md-12">
+		<form id="form_watermark" method="post" action="/template-watermark-lang-vi" enctype="multipart/form-data">
+			<div class="portlet">
+				<div class="portlet-body">
+					<div class="tabbable">
+						<div class="tab-content no-space">
+							<div class="tab-pane active">
+								
+								<div class="form-body">
+									<div class="tab-pane active fontawesome-demo" id="tab_1_1">
+										<div class="note note-warning" style="text-align: jutsify;">
+											<span>
+												{lang dong_dau_anh}
+											</span>
+										</div>
+										<div class="clearline">
+										</div>
+										<div class="row">
+											<div class="col-md-3">
+												<div class="form-group">
+													<div class="row">
+														<div class="col-md-4">
+															<label for="exampleInputEmail1">{lang kieudau}</label>
+														</div>
+														<div class="col-md-2">
+															<input type="radio" class="form-control" <!--{if $watermark!=0 && $watermark['type']==1}-->checked<!--{/if}--> <!--{if $watermark==0}-->checked<!--{/if}--> name="type" value="1" style="margin-left: -8px;"> {lang chu}
+														</div>
+														<div class="col-md-2">
+															<input type="radio" class="form-control" <!--{if $watermark!=0 && $watermark['type']==2}-->checked<!--{/if}--> name="type" value="2" style="margin-left: -8px;"> {lang image}
+														</div>
+														
+														<div class="col-md-3">
+															<input type="radio" class="form-control" <!--{if $watermark!=0 && $watermark['type']==0}-->checked<!--{/if}--> name="type" value="0" style="margin-left: -8px;"> {lang khong}
+														</div>
+													</div>
+												</div>
+												
+												<div id="act">
+												<div class="form-group">
+													<div class="row">
+														<div class="col-md-4">
+															<label for="exampleInputEmail1">{lang chu}</label>
+														</div>
+														
+														<div class="col-md-8" style="margin-bottom: 2px;">
+															<input type="text" class="form-control" name="text_watermark" value="<!--{if $watermark!=0 && $watermark['type']==1}-->{$watermark['text']}<!--{else}-->BNC Watermark<!--{/if}-->">
+														</div>
+													</div>
+													
+													<div class="row">
+														<div class="col-md-4">
+															<label for="exampleInputEmail1">{lang color}</label>
+														</div>
+														
+														<div class="col-md-8 input-append">
+														<input type="text" class="form-control" name="text_color" value="<!--{if $watermark!=0 && $watermark['color']!=''}-->{$watermark['color']}<!--{else}-->#FFFFFF<!--{/if}-->"><span class="add-on"><i style="background-color: rgb(255, 146, 180)"></i></span>
+														</div>
+													</div>
+													
+													<div class="row">
+														<div class="col-md-4">
+															<label for="exampleInputEmail1">{lang kichco}</label>
+														</div>
+														
+														<div class="col-md-8">
+															<div class="slider slider-font-size bg-green">
+															</div>
+															<input type="hidden" name="text_size" value="<!--{if $watermark!=0 && $watermark['size']!=''}-->{$watermark['size']}<!--{else}-->12<!--{/if}-->">
+														</div>
+													</div>
+													
+													<div class="row">
+														<div class="col-md-4">
+															<label for="exampleInputEmail1">Font</label>
+														</div>
+														
+														<div class="col-md-8">
+															<select class="form-control" id="font" name="font">
+																<!--{eval $count=0;}-->
+																<!--{loop $name_font $k $v}-->
+																<optgroup class='nxt_{$count}'>
+																	<option  data-font="{$v}"  value="{$k}" <!--{if $watermark!=0 && $watermark['font']==$k}-->selected<!--{/if}--> >{$v}</option>
+																</optgroup>
+																	<!--{eval $count +=1;}-->
+																<!--{/loop}-->
+															</select>
+														</div>
+													</div>
+													
+													
+												</div>
+												<div class="form-group">
+													<div class="row">
+														<label class="col-md-4">{lang Xoay}</label>
+														<div class="col-md-8">
+															<div class="slider slider-basic bg-red">
+															</div>
+															
+															<input type="hidden" name="rotate" value="<!--{if $watermark!=0 && $watermark['rotate']!=''}-->{$watermark['rotate']}<!--{else}-->0<!--{/if}-->">
+														</div>
+													</div>
+												</div>
+												
+												<div class="form-group">
+													<div class="row">
+														<label class="col-md-4">{lang opacity}</label>
+														<div class="col-md-8">
+															<div class="slider slider-opacity bg-blue">
+															</div>
+															
+															<input type="hidden" name="opacity" value="<!--{if $watermark!=0 && $watermark['opacity']!=''}-->{$watermark['opacity']}<!--{else}-->1<!--{/if}-->">
+														</div>
+													</div>
+												</div>
+												
+												<div class="form-group" id="NXT_input_image">
+													<div class="row">
+														<div class="col-md-4">
+															<label for="exampleInputEmail1">{lang image}</label>
+														</div>
+														<div class="col-md-8">
+															<div class="fileinput fileinput-new " data-provides="fileinput">
+															<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+																<img data-src="{$_B['home_theme']}assets/no_image.gif" src="<!--{if $watermark!=0 && $watermark['ori_img']!=''}-->{$_B['path_new']}/{$watermark['ori_img']}<!--{else}-->{$_B['home_theme']}assets/no_image.gif<!--{/if}-->" alt="default">
+																</div>
+																<!--{if $watermark!=0 && $watermark['ori_img']!=''}--><input type="hidden" value="{$watermark['ori_img']}" name="ori_img"><!--{/if}-->
+																<div id="NXT_image_preview" class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+																<div>
+																	<span class="btn btn-default btn-file"><span class="fileinput-new">{lang select_anh}</span><span class="fileinput-exists">{lang Thay}</span><input type="file" name="image_watermark"></span>
+																	<a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">{lang delete}</a>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												
+												
+												
+												<div class="form-group" style="display:none;">
+													<div class="row">
+														<div class="col-md-4">
+															<label for="exampleInputEmail1">{lang dtado}</label>
+														</div>
+														<div class="col-md-4">
+															<input type="text" class="form-control" name="posx" id="posx" value="<!--{if $watermark!=0 && $watermark['x']!=''}-->{$watermark['x']}<!--{else}-->0<!--{/if}-->">
+														</div>
+														<div class="col-md-4">
+															<input type="text" class="form-control" name="posy" id="posy" value="<!--{if $watermark!=0 && $watermark['y']!=''}-->{$watermark['y']}<!--{else}-->0<!--{/if}-->">
+														</div>
+													</div>
+												</div>
+												
+												<div class="form-group" style="display:none;">
+													<div class="row">
+														<div class="col-md-4">
+															<label for="exampleInputEmail1">{lang dairong}</label>
+														</div>
+														<div class="col-md-4">
+															<input type="text" class="form-control" name="width" id="width" value="<!--{if $watermark!=0 && $watermark['width']!=''}-->{$watermark['width']}<!--{else}-->0<!--{/if}-->">
+														</div>
+														<div class="col-md-4">
+															<input type="text" class="form-control" name="height" id="height" value="<!--{if $watermark!=0 && $watermark['height']!=''}-->{$watermark['height']}<!--{else}-->0<!--{/if}-->">
+														</div>
+													</div>
+												</div>
+												</div>
+												
+												
+												
+											</div>
+											<div class="col-md-9">
+												<div class= "image" style="width:800; height:600;" >
+													<img src="{$_B['mod_theme']}js/watermark/images/picture.jpg" id="image" style="width:100%;height:100%;" >
+												</div>
+												
+											</div>
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="btn_topline">						
+					<div class="btn_actions">
+						<button type="submit" class="btn red NXT_refesh"><i class="fa fa-refresh"></i> {lang lamlai}</button>
+						<button class="btn green continue" data-continue="template"><i class="fa fa-check"></i> {lang luu}</button>
+					</div>
+					<input type="hidden" name="action" value="addAudio">
+					<input type="hidden" name="lang" value="vi">
+					<input type="hidden" name="continue" value="">
+					</div>
+			</div>
+		</form>
+	</div>
+</div>
+<!--SCRIPT-->
+<script type="text/javascript">
+var varOnloadType="<!--{if $watermark!=0 && $watermark['type']!=''}-->{$watermark['type']}<!--{else}-->1<!--{/if}-->";
+var path_upload="{$_B['path_new']}";
+</script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery-ui/jquery-ui.js"></script>
+<script type="text/javascript" src="{$_B['mod_theme']}js/watermark/watermarker.js"></script>
+<script type="text/javascript" src="{$_B['mod_theme']}js/watermark/slider.js"></script>
+<script type="text/javascript" src="{$_B['mod_theme']}js/watermark_nxt.js"></script>
+<!--/SCRIPT-->
+<script type="text/javascript">
+
+jQuery(document).ready(function() {
+WaterMarkNXT.init();
+ComponentsjQueryUISliders.init();
+$('input[name="text_color"]').colorpicker();
+ var img_s=$('.watermarker-container');
+ var offset_img_s=img_s.offset();
+ img_s.offset({ top: offset_img_s['top']+20, left: offset_img_s['left']+20 });
+ 
+  
+    $('select > option').hover(function() {
+        $(this).parent().css({fontFamily:$(this).attr('data-font')})    
+	
+	})            
+
+ 
+});
+</script>

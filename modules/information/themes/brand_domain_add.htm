@@ -1,0 +1,51 @@
+﻿<div class="portlet light bordered">
+	<div class="portlet-title">
+		<div class="caption">
+			<i class="icon-equalizer font-red-sunglo"></i>
+			<span class="caption-subject font-red-sunglo bold uppercase">{lang breadcrumb_domain_add}</span>
+			<span class="caption-helper"></span>
+		</div>
+		<div class="tools"></div>
+	</div>
+	<div class="portlet-body form" >
+		<div id="BNC_body_add_domain">
+			<!--{if !empty($_DATA['list_domain_exist'])}-->
+			<!--{loop $_DATA['list_domain_exist'] $k $v}-->
+			<div class="form-group" id="domain-{$v['no_dot']}">
+				<label class="control-label col-md-2">{lang domain}</label>
+				<div class="col-md-3">
+					<span class="form-control">{$v['domain']}</span>
+				</div>
+				 
+				<div class="col-md-1" style="padding:0px">
+					<button href="javascript:void(0)" type="button" class="btn red BNC_remove_domain tooltips" data-original-title="Xóa" data-domain="{$v['domain']}" style="border-radius:3px !important"><i class="fa fa-trash-o"></i></button>
+				</div> 
+			</div>
+			<!--{/loop}-->
+			<!--{else}-->
+			<div class="text-center text-danger">{lang no_domain}</div>
+			<!--{/if}-->
+			<hr/>
+			<div class="form-group">
+				<label class="control-label col-md-2">{lang domain}</label>
+				<div class="col-md-3">
+					<input type="text" class="form-control BNC_infomation_domain" name="info_domain[]" placeholder="Nhập domain..." />
+					<span class="text-danger BNC_error" style="display:none;">{lang please_domain}.</span>
+					<span class="text-danger BNC_exist" style="display:none;">{lang exist_domain}.</span>
+					<span class="text-danger BNC_not_dns" style="display:none;">{lang not_dns}.</span>
+					<span class="text-danger BNC_exist_in_web" style="display:none;">{lang domain_exist_in_web}.</span>
+				</div>
+				 
+				<div class="col-md-1" style="padding:0px">
+					<button href="javascript:void(0)" type="button" class="btn green add_info" style="border-radius:3px !important"><i class="fa fa-plus"></i></button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="{$_B['mod_theme']}js/dns.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {    
+       FormDns.init();
+    });        
+</script>

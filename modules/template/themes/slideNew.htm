@@ -1,0 +1,288 @@
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/jquery-tags-input/jquery.tagsinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/typeahead/typeahead.css">
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css"/>
+<link href="{$_B['mod_theme']}css/addSlide.css?rs={$reload}" rel="stylesheet" type="text/css" />
+<!-- END PAGE LEVEL STYLES -->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal form-row-seperated" action="" id="form_slide" class="form-horizontal" enctype="multipart/form-data" method="POST">
+            <div class="portlet">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-shopping-cart"></i>{lang breadcrumb_slide_new}
+                    </div>
+                    <!--{temp slide_toolbar}-->
+                </div>
+                <div class="portlet-body">
+                    <!--{temp notify_action}-->
+                    <div class="tabbable">
+                        <ul class="nav nav-tabs">
+                            <!--{loop $url_lang $k_lang $v_lang}-->
+                            <li <!--{if $k_lang==$get_lang}-->class="active"<!--{/if}-->>
+                                <a class="select_lang" href="{$v_lang['url']}" data-exist="{$v_lang['exist']}"> {lang lang_{$k_lang}} </a>
+                            </li>
+                            <!--{/loop}-->
+                            <input type="hidden" name="popup" data-title="{lang pop_title}" data-yes="{lang pop_yes}" data-cancel="{lang pop_cancel}" data-message="{lang pop_message}" data-close="{lang pop_close}">
+                            <input type="hidden" name="popup_df" data-title="{lang pop_df_title}" data-yes="{lang pop_yes}" data-cancel="{lang pop_cancel}" data-message="{lang pop_df_message}" data-close="{lang pop_close}">
+                        </ul>
+                        <div class="tab-content no-space">
+                            <div class="tab-pane active" id="lang_{$get_lang}">
+                                <div class="form-body">
+                                    <div class="note note-warning">
+                                        <p class="block">
+                                            {lang select_lang lang_{$get_lang}}
+                                        </p>
+                                    </div>
+                                    <!--slide param-->
+                                    <div class="portlet light bordered">
+                                        <div class="portlet-title">
+                                            <div class="caption">
+                                                <i class="icon-equalizer font-red-sunglo"></i>
+                                                <span class="caption-subject font-red-sunglo bold uppercase">{lang basic_information}</span>
+                                                <span class="caption-helper">{lang noti_information}</span>
+                                            </div>
+                                            <div class="tools">
+                                                <a href="javascript:;" class="collapse"></a>
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body form">
+                                            <div class="form-group titles">
+                                                <label class="col-md-2 control-label">{lang title}: <span class="required"> * </span> </label>
+                                                <div class="col-md-8">
+                                                    <input type="text" class="form-control maxlength-handler" name="title" maxlength="255" value="" placeholder="" data-error="{lang title_error}">
+                                                    <span class="help-block">{lang maxlength 255}</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label">{lang description}</label>
+                                                <div class="col-md-8">
+                                                    <textarea class="form-control " minlength="5" rows="6" name="description"  data-error="{lang contents_description_error}"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label">{lang sort}:</label>
+                                                <div class="col-md-2">
+                                                    <input type="text" class="form-control" name="sort" value="" >
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2">{lang status}<span class="required"> * </span> </label>
+                                                <div class="col-md-2">
+                                                    <select class="form-control" name="status" data-error="">
+                                                        <option value="1" selected="selected">{lang publuc}</option>
+                                                        <option value="0">{lang private}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2">{lang position_block}</label>
+                                                <div class="col-md-2">
+                                                    <select class="form-control" name="position">
+                                                        <option value="1" >{lang is_top}</option>
+                                                        <option value="2" >{lang is_bottom}</option>
+                                                        <option value="3" >{lang is_left}</option>
+                                                        <option value="4" >{lang is_right}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <!--slide param end-->
+                                    <!--images-->
+                                    <div class="portlet light bordered">
+                                        <div class="portlet-title">
+                                            <div class="caption">
+                                                <i class="icon-equalizer font-red-sunglo"></i>
+                                                <span class="caption-subject font-red-sunglo bold uppercase">{lang images}</span>
+                                                <span class="caption-helper">{lang images_noti}</span>
+                                            </div>
+                                            <div class="tools">
+                                                <a href="javascript:;" class="collapse"></a>
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body form album-images overlay_">
+                                            <div class="form-group upload-ft">
+                                                <div style="max-width: 1034px; margin: 0 auto; position: relative; padding-bottom: 69px;" class="form-control-img">
+                                                    <p class="none_avatar" style="color: #E02222; display: none">{lang none_avatar}</p>
+                                                    <div id="slideImagesUpload">Thêm ảnh</div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--images end-->
+                                    <!--meta information-->
+                                    <div class="portlet light bordered">
+                                        <div class="portlet-title">
+                                            <div class="caption">
+                                                <i class="icon-equalizer font-red-sunglo"></i>
+                                                <span class="caption-subject font-red-sunglo bold uppercase">{lang meta_information}</span>
+                                                <span class="caption-helper">{lang meta_define}</span>
+                                            </div>
+                                            <div class="tools">
+                                                <a href="javascript:;" class="collapse"></a>
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body form">
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label">{lang meta_title}</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" class="form-control maxlength-handler" name="meta_title" maxlength="170" value="" placeholder="" data-error="{lang meta_title}">
+                                                    <span class="help-block">{lang maxlength 170} </span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label">{lang meta_keywords}</label>
+                                                <div class="col-md-8">
+                                                    <input id="meta_keywords" name="meta_keywords" maxlength="170" type="text" class="form-control tags" value=""/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label">{lang meta_description}</label>
+                                                <div class="col-md-8">
+                                                    <textarea class="form-control maxlength-handler" rows="4" name="meta_description" maxlength="170"></textarea>
+                                                    <span class="help-block">{lang maxlength 170 }</span>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <!--meta information end-->
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="portlet-title topline">
+                    <!--{temp slide_toolbar}-->
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- END PAGE CONTENT-->
+
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+<script src="{$_B['home_theme']}assets/global/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
+<script src="{$_B['home_theme']}assets/global/plugins/jquery-tags-input/jquery.tagsinput.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+
+<script src="{$_B['mod_theme']}js/slide.js" type="text/javascript"></script>
+<script src="{$_B['mod_theme']}js/jquery.form.js"></script>
+<script src="{$_B['mod_theme']}js/Ft.uploadfile.js?rs={$reload}"></script>
+<script src="{$_B['mod_theme']}js/addSlide.js?rs={$reload}" type="text/javascript"></script>
+<script type="text/javascript">
+jQuery(document).ready(function() {
+    var person = new Array()
+    person["reset"] = "{lang reset}";
+    addSlide.init(person);
+    var settings = {
+        url: "{$_B['home']}/template-uploads-lang-{$get_lang}",
+        method: "POST",
+        allowedTypes:"jpg,jpeg,png,gif",
+        fileName: "Lfile",
+        formData:{tmp_id: {$tmpIdSlide}},
+        multiple: true,
+        showDelete: true,
+        dragDropStr: '<span><b>{lang dragDropStr}</b></span>',
+        abortStr: '{lang abortStr}',
+        deletelStr: '{lang delete}',
+        loadingStr: '{lang loadingStr}',
+        placeholderTextStr: '{lang placeholderTextStr}',
+        placeholderTextAreaStr: '{lang placeholderTextAreaStr}',
+        placeholderTextWidth: '{lang placeholderTextWidth}',
+        placeholderTextHeight: '{lang placeholderTextHeight}',
+        placeholderTextLink: '{lang placeholderTextLink}',
+        onSuccess:function(files,data,xhr)
+        {
+            $('.upload-ft').removeClass('has-error');
+        },
+        onError: function(files,status,errMsg)
+        {       
+            alert('{lang error_just_not_idea}');
+        },
+        deleteCallback: function (e) {
+            var this_ = $(this);
+            var obj = $.parseJSON(e);
+            bootbox.dialog({
+                message : '<li class="list-group-item list-group-item-warning">{lang do_you_really_want_to_delete_pic}</li>',
+                title : "{lang alert}",
+                buttons : {
+                    success : {
+                        label : "{lang ok}",
+                        className : "green",
+                        callback : function() {
+                            $.post("{$_B['home']}/template-ajax-lang-{$get_lang}", { id: obj.id, name: 'pic-delete' }, function( data ) {
+                                if(data.success){
+                                    this_.parent().fadeOut(500, function(){
+                                        $(this).remove();
+                                    });
+                                }
+                                if(data.error){
+                                    alert(data.error);
+                                }
+                            }, "json");
+                        }
+                    },
+                    danger : {
+                        label : "{lang cancel}",
+                        className : "red",
+                        callback : function() {
+                            return;
+                        }
+                    }
+                }
+            });
+        },
+        titleCallback: function (e,val) {
+            var obj = $.parseJSON(e);
+            $.post("{$_B['home']}/template-ajax-lang-{$get_lang}", { id: obj.id, title: val, name: 'pic-update' }, function( data ) {
+                if(data.error){
+                    alert(data.error);
+                }
+            }, "json");
+        },
+        textareaCallback: function (e,val) {
+            var obj = $.parseJSON(e);
+            $.post("{$_B['home']}/template-ajax-lang-{$get_lang}", { id: obj.id, description: val, name: 'pic-update' }, function( data ) {
+                if(data.error){
+                    alert(data.error);
+                }
+            }, "json");
+        },
+        widthCallback: function (e,val) {
+            var obj = $.parseJSON(e);
+            $.post("{$_B['home']}/template-ajax-lang-{$get_lang}", { id: obj.id, width: val, name: 'pic-update' }, function( data ) {
+                if(data.error){
+                    alert(data.error);
+                }
+            }, "json");
+        },
+        heightCallback: function (e,val) {
+            var obj = $.parseJSON(e);
+            $.post("{$_B['home']}/template-ajax-lang-{$get_lang}", { id: obj.id, height: val, name: 'pic-update' }, function( data ) {
+                if(data.error){
+                    alert(data.error);
+                }
+            }, "json");
+        },
+        linkCallback: function (e,val) {
+            var obj = $.parseJSON(e);
+            $.post("{$_B['home']}/template-ajax-lang-{$get_lang}", { id: obj.id, link: val, name: 'pic-update' }, function( data ) {
+                if(data.error){
+                    alert(data.error);
+                }
+            }, "json");
+        },
+    }
+    $("#slideImagesUpload").uploadFile(settings);
+});
+</script>

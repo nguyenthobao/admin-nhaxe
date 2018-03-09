@@ -1,0 +1,50 @@
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/jquery-tags-input/jquery.tagsinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/typeahead/typeahead.css">
+<!-- END PAGE LEVEL STYLES -->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+	<div class="col-md-12">
+		<form class="form-horizontal form-row-seperated" action="" id="form_contactinfo" class="form-horizontal" method="POST">
+			<div class="portlet">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-shopping-cart"></i>{lang breadcrumb_contact}
+					</div>
+					<!--{temp contactinfo_toolbar}-->
+				</div>
+				<div class="portlet-body">
+					<!--{temp notify_action}-->
+					<div class="tabbable">
+						<ul class="nav nav-tabs">
+							<!--{loop $url_lang $k_lang $v_lang}-->
+								<li <!--{if $k_lang==$_GET['lang']}-->class="active"<!--{/if}--> >
+									<a href="$_B['home']/contact-contactlist-lang-$k_lang" class="select_lang" data-lang="{$k_lang}">{lang lang_{$k_lang}} </a>
+								</li>
+							<!--{/loop}-->
+						</ul>
+						<div class="tab-content no-space">
+							<div class="tab-pane active">
+								<div class="form-body">
+									<div class="note note-warning">
+										<p class="block">{lang select_lang lang_{$_GET['lang']} }</p>
+									</div>
+									<!--{temp time_add}-->									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="portlet-title topline">
+					<!--{temp contactinfo_toolbar}-->
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<!-- END PAGE CONTENT-->
+
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/ckeditor/ckeditor.js"></script>
+<script src="{$_B['mod_theme']}js/contactlist.js"></script>

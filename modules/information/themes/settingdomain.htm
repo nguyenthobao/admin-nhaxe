@@ -1,0 +1,117 @@
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/jquery-tags-input/jquery.tagsinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/typeahead/typeahead.css">
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-toastr/toastr.min.css">
+
+<!-- END PAGE LEVEL STYLES -->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+	<div class="col-md-12">
+		<form class="form-horizontal form-row-seperated" action="" id="form_contactinfo" class="form-horizontal" method="POST">
+			<div class="portlet">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-th-list"></i>{lang breadcrumb_domain}
+					</div>
+					<div class="actions btn-set">
+						<a href="/information-dns-lang-vi" class="btn green">
+							<i class="fa fa-indent"></i> {lang manager_dns}</a>
+
+						</div>
+				</div>
+				<div class="portlet-body">
+					<!--{temp notify_action}-->
+					<div class="tabbable">
+						<div class="tab-content no-space">
+							<div class="tab-pane active">
+								<div class="form-body">
+									<div class="tab-pane active fontawesome-demo" id="tab_1_1">
+		    							<div class="note note-warning" style="text-align: jutsify;">
+								
+										<strong>{lang address_id_of_you} :</strong><span style="font-weight: bold; color: red"><!--{$getIP}--></span><br><br>
+
+											<span>{lang note_setting_domain}</span><br><br>
+
+											<span class="badge badge-danger">1</span> <span> {lang note_setting_domain_2}</span> <br><br><br>
+											<span class="badge badge-danger">2</span> <span> {lang note_setting_domain_3}</span> <br><br>
+										
+										
+											<p>
+											{lang note_setting_domain_4}
+											</p>
+		    							</div>
+									</div>
+									<!--{temp brand_domain_add}-->
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="portlet-title topline">
+					<!--{temp settingdomain_toolbar}-->
+				</div>
+			</div>
+		</form>
+	</div>
+
+<!-- Modal -->
+<div class="modal fade" id="BNC_remove_domain_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">{lang delete_domain}</h4>
+      </div>
+      <div class="modal-body">
+        {lang delete_domain_how} <span class="text-danger" id="BNC_remove_domain_modal_body"></span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">{lang close}</button>
+        <button type="button" class="btn btn-primary" id="BNC_remove_domain_button_modal" data-domain="">{lang delete}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="BNC_domain_exist_web_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">{lang domain_exist_in_web}</h4>
+      </div>
+      <div class="modal-body">
+        	{lang domain_exist_in_web_modal}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">{lang close}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<!-- END PAGE CONTENT-->
+<script type="text/javascript">
+	var domainlist="{$_DATA['domainlist']}";
+	var domainlist_array=domainlist.split(',');
+</script>
+
+<script src="{$_B['home_theme']}assets/global/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-toastr/toastr.min.js"></script>
+
+<script src="{$_B['mod_theme']}js/domain.js" type="text/javascript"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function() {
+		Domain.init();
+	});
+</script>
+
+
+

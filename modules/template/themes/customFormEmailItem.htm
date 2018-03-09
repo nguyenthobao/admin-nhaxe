@@ -1,0 +1,18 @@
+<tr id="tr_{$v['id']}" data-key="{$v['id']}" data-lang="{$_GET['lang']}">
+	<td class="highlight">
+		<span><!--{eval echo $k+1}--></span>
+	</td>
+	<td>
+		<span>{$_DATA['name_form']}</span>
+	</td>
+	<td>
+		<span data-pk="{$v['id']}"  data-type="text" data-lang="{$_GET['lang']}" class="editable tooltips nameItem" data-original-title="{lang click_edit}">{$v['name']}</span>
+	</td>
+	<td>
+		<span data-pk="{$v['id']}"  data-type="text" data-lang="{$_GET['lang']}" class="editable tooltips emailItem" data-original-title="{lang click_edit}">{$v['email']}</span>
+	</td>
+	
+	<td class="icon_btn">
+		<a  class="btn default btn-xs red tooltips delete_email"  data-placement="top" data-original-title="{lang delete}"><i class="fa fa-trash-o"></i></a>
+	</td>
+</tr>

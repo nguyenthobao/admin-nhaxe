@@ -1,0 +1,52 @@
+<tr id="tr_{$v['id']}" data-key="{$v['id']}" data-lang="{$_GET['lang']}">
+	<td class="highlight">
+		<input type="checkbox" name="name_id[]" class="checkboxes"  value="{$v['id']}">
+	</td>
+	<td>
+		<div class="list-cat-img">
+			<div class="<!--{if !empty({$v['img']})}-->fileinput-exists<!--{else}-->fileinput-new<!--{/if}-->" data-provides="fileinput">
+				<div class="fileinput-new thumbnail" style="width: 160px; height: 100px;">
+					<img class="img-responsive" src="{$_B['home_theme']}assets/no_image.gif" alt="Avatar"/>
+				</div>
+				<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 160px; max-height: 100px;">
+					<img class="img-responsive" src="<!--{if isset({$v['img']})}-->{$_B['upload_path']}{$v['img']} <!--{/if}-->" onerror="this.onerror=null;this.src='{$_B['home_theme']}assets/no_image.gif'" alt="" />
+				</div>
+				<div class="btn-all">
+					<span class="btn btn-xs default btn-file btn-change" style="display:none">
+					<span class="fileinput-new">
+					{lang select_img} </span>
+					<span class="fileinput-exists">
+					{lang change_img} </span>
+					<input type="file" name="img_info_{$v['id']}">
+					</span>
+				</div>
+			</div>	
+		</div>
+	</td>
+	<td >
+		<span data-pk="{$v['id']}"  data-type="text" data-lang="{$_GET['lang']}" class="editable editable-click tooltips infoItem" data-original-title="{lang click_edit}">{$v['title']}</span>
+		
+	</td>
+	<td class="hidden-xs">		
+		<a href="#" data-type="select" data-pk="{$v['id']}" data-value="{$v['sort']}" data-original-title="{lang sort}" class="editable editable-click tooltips sortItem">
+			<!--{if isset({$v['sort']})}-->{$v['sort']} <!--{/if}-->
+		</a>
+	</td>
+	<td>
+		<!--{if $v['status']==2}-->
+		<a class="btn default btn-xs yellow-stripe tooltips post_info" data-status="{$v['status']}" style="width:73px" data-title="{lang click_up_now}">{lang time_up}</a>
+		<!--{else}-->
+			<!--{if $v['status']==1}-->
+			<a class="btn default btn-xs green-stripe active_status" data-status="{$v['status']}" style="width:73px">{lang show}</a>
+			<!--{else}-->
+			<a class="btn default btn-xs red-stripe active_status" data-status="{$v['status']}" style="width:73px">{lang hide}</a>
+			<!--{/if}-->
+		<!--{/if}-->
+	</td>
+	<td class="icon_btn">
+		<a class="btn default btn-xs blue tooltips refesh_info" data-placement="top" data-original-title="{lang go_new}"><i class="fa fa-history"></i></a>
+		<a href="#" class="btn default btn-xs green tooltips" data-placement="top" data-original-title="Xem chi tiết"><i class="fa fa-eye"></i></a>
+		<a href="info-info-{$v['id']}-{$_GET['lang']}" class="btn default btn-xs yellow tooltips" data-placement="top" data-original-title="{lang edit}"><i class="fa fa-edit"></i></a>
+		<a  class="btn default btn-xs red tooltips delete_info"  data-placement="top" data-original-title="{lang delete}"><i class="fa fa-trash-o"></i></a>
+	</td>
+</tr>

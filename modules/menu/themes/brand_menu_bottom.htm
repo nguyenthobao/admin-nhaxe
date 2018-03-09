@@ -1,0 +1,88 @@
+<div class="portlet light bordered">
+	<div class="portlet-title">
+		<div class="caption">
+			<i class="icon-equalizer font-red-sunglo"></i>
+			<span class="caption-subject font-red-sunglo bold uppercase">{lang breadcrumb_content}</span>
+			<span class="caption-helper"></span>
+		</div>
+		<div class="tools">
+			<a href="javascript:;" class="expand"></a>
+			<a href="#portlet-config" data-toggle="modal" class="config"></a>
+			<a href="javascript:;" class="reload"></a>
+			<a href="javascript:;" class="remove"></a>
+		</div>
+	</div>
+	<div class="portlet-body form" >
+		
+		
+								<div class="form-group">
+										<label class="col-md-2 control-label">{lang name}: <span class="required">
+										* </span>
+										</label>
+										<div class="col-md-6">
+											<input type="text" class="form-control maxlength-handler" name="namemenu" maxlength="100" value="{$info_data['namemenu']}" placeholder="" data-error="{lang title_error_name}">
+											
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-2 control-label">{lang linkto}: <span class="required">
+										</span>
+										</label>
+										<div class="col-md-6">
+											<input type="text" class="form-control maxlength-handler" name="linkto" maxlength="100" value="{$info_data['linkto']}" placeholder="" data-error="{lang title_error}">
+											<span class="help-block"> Ví dụ: http://webbnc.net, nếu link đến trang nội dung bạn để trống phần này</span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-2 control-label">{lang linktoct}: <span class="required">
+										 </span>
+										</label>
+										<div class="col-md-6">
+											<input type="text" class="form-control maxlength-handler" name="linktoct" maxlength="100" value="{$info_data['linktoct']}" placeholder="" data-error="{lang title_error}">
+											<span class="help-block"> Chọn kích hoạt module đến trang tính năng cho website của bạn</span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-2 control-label">{lang parentmenu}: <span class="required">
+										</span>
+										</label>
+										<div class="col-md-6">
+											<select class="form-control" name="parent_id" data-error="">
+												<option value="0">Không chọn</option>
+												<!--{loop $info_data $k $v}-->
+												<!--{temp menu_cat_list}-->
+												<!--{/loop}-->
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-2 control-label">{lang sort}: <span class="required">
+										 </span>
+										</label>
+										<div class="col-md-2">
+											<input type="text" class="form-control maxlength-handler" name="sort" maxlength="100" value="{$info_data['sort']}" data-error="{lang title_error_sort}" placeholder="{lang data_number}">
+										</div>
+									</div>
+									
+
+									<div class="form-group">
+										<label class="control-label col-md-2">{lang action} <span class="required">
+										</span>
+										</label>
+										<div class="col-md-2">
+											<select class="form-control" name="status" data-error="{lang contactinfo_error}">
+												<option value="1" <!--{if $info_data['status']==1}-->selected="selected"<!--{/if}-->>{lang active}</option>
+												<option value="0"  <!--{if $info_data['status']==0}-->selected="selected"<!--{/if}-->>{lang non_active}</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-2">{lang Nofollow} <span class="required">
+										 </span>
+										</label>
+										<div class="col-md-2">
+											<input type="checkbox" name="nofollow" <!--{if isset($info_data['nofollow'])&&($info_data['nofollow'] == 1)}--> checked <!--{/if}-->>
+										</div>
+								</div>
+	</div>
+</div>

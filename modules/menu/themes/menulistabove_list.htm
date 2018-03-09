@@ -1,0 +1,34 @@
+
+<tr   id="tr_{$v['id']}" data-key="{$v['id']}" data-lang="{$_GET['lang']}" data-error="{lang error-delete}" data-view="{lang readed}"data-viewa="{lang customers}"data-viewb="{lang email}"data-viewc="{lang phone}"data-viewd="{lang address}"data-viewe="{lang content}" data-gmail="{$v['email']}"data-content="{$v['content_base64']}" data-address="{$v['address']}" data-customers="{$v['customers']}"       data-viewcontact="{lang feedbackfrom}">
+	<td class="highlight">
+		<input type="checkbox" name="name_id[]" class="checkboxes"  value="{$v['id']}">
+	</td>
+	
+	<td class="ct_name" >
+		<span class="newsItem editable editable-click nonebottom tooltips btn" data-pk="<!--{if !empty({$v['id']})}-->{$v['id']}<!--{/if}-->"  data-type="text" data-lang="{$_GET['lang']}" data-original-title="{lang editsort}">{$v['namemenu']}</span>
+	</td> 
+	<td >
+		 {$v['linktoct']}
+	</td> 
+	<td style ="text-align:center">
+		<a class="btn default btn-xs green tooltips btn_view view_contact" data-original-title="{lang viewdl}"><i class="fa fa-eye" class="btn default"></i></a>
+	</td>
+	<td  style="text-align:center">
+		<span class="newsItem editable editable-click nonebottom tooltips btn">{$v['sort']}</span>
+	</td>
+	<td style="text-align:center">
+		
+	</td>
+
+	<td style="text-align:center">
+		<!--{if $v['status']==1}-->
+		<a class="btn default btn-xs green-stripe active_status" data-status="{$v['status']}" style="width:73px">{lang show}</a>
+		<!--{else}-->
+		<a class="btn default btn-xs red-stripe active_status" data-status="{$v['status']}" style="width:73px">{lang hide}</a>
+		<!--{/if}-->
+	</td>
+	<td style="text-align:center" >
+		<a href="menu-menuabove-{$v['id']}-{$_GET['lang']}" class="btn default btn-xs yellow tooltips" data-placement="top" data-original-title="{lang edit}"><i class="fa fa-edit"></i></a>
+		<a  class="btn default btn-xs red tooltips delete_menu"  data-placement="top" data-original-title="{lang delete}"><i class="fa fa-trash-o"></i></a>
+	</td>
+</tr>

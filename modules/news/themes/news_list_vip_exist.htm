@@ -1,0 +1,6 @@
+<li data-id={$v['id']} >
+	<span><img src="<!--{if isset({$v['img']})}-->{$_B['upload_path']}{$v['img']}<!--{/if}-->" onerror="this.onerror=null;this.src='{$_B['home_theme']}assets/no_image.gif'" alt="" /></span>
+	<a href="javascript:void()"><!--{if isset({$v['title']})}--><!--{cutString $v['title'] 0 150}--><!--{/if}--></a>
+	<i class="cancel-vip glyphicon glyphicon-trash font-red"></i>
+	<input class="related_news_vip" type="hidden" name="news_vip_id[]" value="{$v['id']}">
+</li>

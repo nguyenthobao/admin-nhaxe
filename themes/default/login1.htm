@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Login BNC</title>
+		<link rel="stylesheet" href="{$_B['home_theme']}/login/css/bootstrap.css">
+		<link rel="stylesheet" href="{$_B['home_theme']}/login/css/bootstrap.css.map">
+		<link rel="stylesheet" href="{$_B['home_theme']}/login/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="{$_B['home_theme']}/login/css/style.css">
+		<link rel="stylesheet" href="{$_B['home_theme']}/login/css/font-awesome.css">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    	<link rel="shortcut icon" href="http://id.webbnc.vn/favicon.png"/>
+	</head>
+	<style>
+
+	 @font-face {
+				    font-family: 'icomoonregular';
+				    src: url({$_B['home_theme']}/login/fonts/FontAwesome.otf);			    	 
+				    src: url({$_B['home_theme']}/login/fonts/fontawesome-webfont.eot) format('embedded-opentype'),
+				         url({$_B['home_theme']}/login/fonts/fontawesome-webfont.woff) format('woff'),
+				         url({$_B['home_theme']}/login/fonts/fontawesome-webfont.woff2) format('woff'),
+				         url({$_B['home_theme']}/login/fonts/fontawesome-webfont.ttf) format('truetype'),
+				         url({$_B['home_theme']}/login/fonts/fontawesome-webfont.svg) format('svg');
+				    font-weight: normal;
+				    font-style: normal;
+				}
+	.loginMod{
+		margin-top: 10px;
+		cursor: pointer;
+		color: red;
+		
+	}
+	.container_width{
+		width: 500px !important;
+	}
+	.animate{
+		-webkit-transition: all 1s;
+	    -moz-transition: all 1s;
+	    -o-transition: all 1s;
+	    transition:all 1s;
+	}
+	</style>
+
+	<body>
+		<div class="page">
+
+			<div id="header">
+				<div class="container">
+					<div class="row">
+
+						<div class="col-sm-3 col-lg-2 col-md-2 col-xs-4">
+							<div class="navbar-header logo">
+								<h1><a href="http://webbnc.net"><img src="http://webbnc.net/img/logo_bnc_v2.png" alt="#"></a></h1>
+							</div>
+						</div>
+						<div class="menu-click col-sm-6 col-lg-8 col-md-8 col-xs-4">
+							<span class="fa fa-bars"></span>
+						</div>
+							
+						 
+
+					 
+
+					</div>
+					 
+				</div>
+			</div><!--END HEADER-->
+
+			<div id="main">
+				<div class="content container container_width" >
+					<div class="row">
+						<form class="form-horizontal" action="" method="POST">
+							<div class="col-sm-6 col-xs-12 main-bnc hide">
+								<div class="bnc">
+									<!--{if isset($return['error'])}-->
+									<div class="alert alert-danger" style="margin-top: 5px;" role="alert"> 
+										$return['error']
+									</div>
+									<!--{else}-->
+									<h2>Đăng nhập quản trị</h2>
+									<!--{/if}-->
+									<span class="label label-default">Tên đăng nhập</span>
+									<div class="input-group">
+									  <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i></span>
+									  <input type="email" name="email" id="email" class="form-control" placeholder="Email" aria-describedby="basic-addon1">
+									</div>
+									<span class="label label-default">Mật khẩu</span>
+									<div class="input-group">
+									  <span class="input-group-addon" id="basic-addon1"><i class="fa fa-key"></i></span>
+									  <input type="password" class="form-control" placeholder="Mật khẩu" name="password" id="password" aria-describedby="basic-addon1">
+									</div> 
+									<div class="checkbox check">
+									    <label>
+									      <input type="checkbox" name="save_login" value="1"> Nhớ trạng thái đăng nhập</label>
+									</div>
+									<button type="submit" class="btn btn-danger dangnhap" id="btn_login" >Đăng nhập</button>
+								</div>
+							</div>
+						</form>
+						 
+					</div>
+				</div><!--END CONTENT-->
+			</div><!--END MAIN-->
+
+			<div id="footer"></div><!--END FOOTER-->
+
+		</div>
+
+
+
+		<style type="text/css">
+		.idbnc {
+		  background: rgba(180, 191, 200, 0.87);
+		  padding: 0 10px 10px 10px;
+		  width: 400px !important;
+		  float: left;
+		  margin: 15% 0 0 10px;
+		  height: 360px;
+		  border: 1px solid #fff;
+		}
+		</style>
+
+
+
+
+
+		<script src="{$_B['home_theme']}/login/js/jquery.min.js"></script>
+		<script src="{$_B['home_theme']}/login/js/bootstrap.min.js"></script>
+		<script>
+		jQuery(document).ready(function()
+		{
+		jQuery( ".menu-click" ).click(function() {
+			
+		  jQuery( ".menu-top1" ).slideToggle("slow");
+		});
+		});
+		</script>
+
+
+		<script type="text/javascript">
+ 
+ 
+
+ 
+
+ 
+		$('.main-bnc').toggleClass('hide animate');
+		$('.content').toggleClass('container_width');
+ 
+</script>
+
+
+	</body>
+</html>

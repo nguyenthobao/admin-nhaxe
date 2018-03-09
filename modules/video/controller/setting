@@ -1,0 +1,14 @@
+<?php
+/**
+ * @Project BNC v2 -> Adminuser
+ * @File /controller/setting.php 
+ * @Author Hung Ho Manh (hunghm@webbnc.vn)
+ * @Createdate 11/01/2014, 13:32 PM
+ */  
+if(!defined('BNC_CODE')) {
+    exit('Access Denied');
+}
+$_S['breadcrumb_page'] = lang('breadcrumb_setting');
+$_S['breadcrumb_category']= $_L['breadcrumb_setting'];
+$_S['title'] = lang('title');
+$_S['description'] = lang('description');

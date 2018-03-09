@@ -1,0 +1,89 @@
+
+<tr   id="tr_{$v['id']}" data-key="{$v['id']}" data-lang="{$_GET['lang']}" data-error="{lang error-delete}" data-view="{lang readed}"data-viewa="{lang customers}"data-viewd="{lang address}"data-viewe="{lang content}"data-content="{$v['content_base64']}" data-address="{$v['address']}" data-img="{lang img}" data-menu-img="{lang avaimg}" data-menu-icon="{lang avabg}"
+data-edit-img="" ct-name="{$v['namemenu']}">
+	<td class="highlight">
+		<input type="checkbox" name="name_id[]" class="checkboxes"  value="{$v['id']}">
+	</td>
+	
+	<td class="ct_name" width="350">
+		<span>{$v['space']}</span><span class="newsItem editable editable-click nonebottom tooltips btn" data-pk="<!--{if !empty({$v['id']})}-->{$v['id']}<!--{/if}-->"  data-type="text" data-lang="{$_GET['lang']}"data-original-title="{lang editsortname}" >{$v['namemenu']}</span>
+	</td> 
+
+	<td style="display:none;" width="350" class>
+		<span class="link editable editable-click nonebottom tooltips btn" data-pk="<!--{if !empty({$v['id']})}-->{$v['id']}<!--{/if}-->"  data-type="text" data-lang="{$_GET['lang']}"  data-original-title="{lang editsortlink}" title="{$v['link']}">Link</span> 
+	</td> 
+	<td style ="text-align:center">
+		<a class="btn default btn-xs green tooltips btn_view view_contact" data-original-title="{lang viewdl}"><i class="fa fa-eye" class="btn default"></i></a>
+	</td>
+	<td class="hidden-xs" style ="text-align:center">		
+		<a href="#" data-type="select" data-pk="{$v['id']}" data-value="{$v['sort']}" data-original-title="{lang sort} ({lang number_error})" class="editable editable-click nonebottom tooltips btn sortItem">
+			<!--{if isset({$v['sort']})}-->{$v['sort']} <!--{/if}-->
+		</a>
+	</td>
+	<td style="text-align:center">
+		<!--{if $v['nofollow']==1}-->
+		<a class="btn default btn-xs green-stripe active_nofollow" data-nofollow="{$v['nofollow']}" style="width:73px">{lang yes}</a>
+		<!--{else}-->
+		<a class="btn default btn-xs red-stripe active_nofollow" data-nofollow="{$v['nofollow']}" style="width:73px">{lang no}</a>
+		<!--{/if}-->
+	</td>
+
+	<td style="text-align:center">
+		<!--{if $v['status']==1}-->
+		<a class="btn default btn-xs green-stripe active_status" data-status="{$v['status']}" style="width:73px">{lang show}</a>
+		<!--{else}-->
+		<a class="btn default btn-xs red-stripe active_status" data-status="{$v['status']}" style="width:73px">{lang hide}</a>
+		<!--{/if}-->
+	</td>
+	<td style="text-align:center" >
+		<a href="menu-menutop-{$v['id']}-{$_GET['lang']}" class="btn default btn-xs yellow tooltips" data-placement="top" data-original-title="{lang edit}"><i class="fa fa-edit"></i></a>
+		<a  class="btn default btn-xs red tooltips delete_menu"  data-placement="top" data-original-title="{lang delete}"><i class="fa fa-trash-o"></i></a>
+	</td>
+	<td class="ct_img" style="display:none">	
+		<div class="list-cat-img">
+			<div class="<!--{if !empty({$v['img']})}-->fileinput-exists<!--{else}-->fileinput-new<!--{/if}-->" data-provides="fileinput">
+				<div class="fileinput-new thumbnail" style="width: 160px; height: 120px;">
+					<img class="img-responsive" src="{$_B['home_theme']}assets/no_image.gif" alt="Avatar"/>
+				</div>
+				<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 160px; max-height: 120px;">
+					<img class="img-responsive" src="{$_B['upload_path']}{$v['img']}" onerror="this.onerror=null;this.src='{$_B['home_theme']}assets/no_image.gif'" alt="" />
+				</div>
+				<div class="btn-all">
+					<span class="btn btn-xs default btn-file btn-change" style="display:none">
+					<span class="fileinput-new">
+					{lang select_img} </span>
+					<span class="fileinput-exists">
+					{lang change_img} </span>
+					<input type="file" name="img_news_{$v['id']}">
+					</span>
+				</div>
+			</div>	
+		</div>
+	</td>
+	<td class="ct_icon" style="display:none">	
+		<div class="list-cat-img">
+			<div class="<!--{if !empty({$v['icon']})}-->fileinput-exists<!--{else}-->fileinput-new<!--{/if}-->" data-provides="fileinput">
+				<div class="fileinput-new thumbnail" style="width: 160px; height: 120px;">
+					<img class="img-responsive" src="{$_B['home_theme']}assets/no_image.gif" alt="Avatar"/>
+				</div>
+				<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 160px; max-height: 120px;">
+					<img class="img-responsive" src="{$_B['upload_path']}{$v['icon']}" onerror="this.onerror=null;this.src='{$_B['home_theme']}assets/no_image.gif'" alt="" />
+				</div>
+				<div class="btn-all">
+					<span class="btn btn-xs default btn-file btn-change" style="display:none">
+					<span class="fileinput-new">
+					{lang select_img} </span>
+					<span class="fileinput-exists">
+					{lang change_img} </span>
+					<input type="file" name="img_news_{$v['id']}">
+					</span>
+				</div>
+			</div>	
+		</div>
+	</td> 
+</tr>
+<!--{if sizeof($v[sub])>0 }-->
+	<!--{loop $v[sub] $k $v}-->
+	<!--{looptemp menulisttop_list}-->
+	<!--{/loop}-->		
+<!--{/if}-->

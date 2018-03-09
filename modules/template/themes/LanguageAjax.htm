@@ -1,0 +1,84 @@
+<div id="nxt_content_left">
+	<div class="col-md-9 borderLeft">
+		<!--{if isset($_DATA['lang_nxt'])}-->
+		<ul class="nav nav-tabs" id="NXT_nav_tabs">
+			<!--{eval $count=0;}-->
+			<!--{loop $_DATA['lang_nxt'] $k $v}-->
+			<li class="<!--{if $count==0}-->active<!--{/if}-->">
+			<!--{eval $k_file=str_replace('.php','',$k);}-->
+			<a href="#tab_nxt_lang_{$count}" data-toggle="tab" aria-expanded="true" class="{$k_file}">
+				{$k} <span class="badge badge-success NXT_nxt_count">{$v['NXT_count']}</span>
+			</a>
+		</li>
+		<!--{eval $count +=1;}-->
+		<!--{/loop}-->
+	</ul>
+	
+		<div class="tab-content">
+		
+		<div class="progress" id="NXT_progress" style="display:none;">
+		  <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar"
+		  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+		    0%
+		  </div>
+		</div>
+	
+		
+		<!--{eval $count=0;}-->
+		<!--{loop $_DATA['lang_nxt'] $k $v}-->
+		<div class="tab-pane fade <!--{if $count==0}-->active in<!--{/if}-->" id="tab_nxt_lang_{$count}">
+		<table class="table table-bordered table-striped table-condensed flip-content">
+			<thead class="flip-content">
+				<tr>
+					<th class="fixTd150">
+						Label
+					</th>
+					<th class="fixTd250">
+						{lang de_fault}
+					</th>
+					<th class="fixTd180">
+						{lang tu_dich} <button type="button" class="btn yellow btn-xs NXT_reset_default" data-toggle="tooltip" title="{lang ngonngu_macdinhhethong}"><i class="fa fa-repeat"></i></button> <button type="button" class="btn red btn-xs NXT_empty_all" data-toggle="tooltip" title="{lang khung_nhap_tu_dich}"><i class="fa fa-eraser"></i></button>
+						
+					</th>
+					<th>
+						<button type="button" class="btn blue btn-xs NXT_copy" disabled><i class="fa fa-files-o"></i> Copy</button>
+						<button type="button" class="btn green btn-xs NXT_translate"><i class="fa fa-language"></i> {lang dich}</button>
+					</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<!--{loop $v $k2 $v2}-->
+					<!--{if $k2!='NXT_count'}-->
+						<tr class="{$k2}">
+							<input type="hidden" value="{$v2}" name="{$k2}">
+							<td class="fixTd150">
+								{$k2}
+							</td>
+							<td class="fixTd250">
+								{$v2}
+							</td>
+							<td class="fixTd200">
+								<textarea type="text" value="" class="form-control" name="label[{$k2}]"></textarea>
+							</td>
+							<td class="NXT_google_translate">
+								{lang chua_co}
+							</td>
+						</tr>
+					<!--{/if}-->
+				<!--{/loop}-->
+				
+			</tbody>
+		</table>
+	</div>
+	
+	<!--{eval $count +=1;}-->
+	<!--{/loop}-->
+</div>
+<!--{else}-->
+<div class="note note-danger">
+	<p class="block">{lang module_cho_phep}</p>
+</div>
+<!--{/if}-->
+</div>
+</div>

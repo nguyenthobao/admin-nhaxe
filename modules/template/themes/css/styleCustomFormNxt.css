@@ -1,0 +1,52 @@
+.borderLeft{
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-left-color: bisque;
+    min-height: 700px;
+}
+.borderInput{
+    border: rgba(177, 182, 222, 0.47) dashed 1px;
+    padding: 7px;
+    margin-bottom: 10px;
+    position:relative;
+    
+}
+.radioNXt{
+    margin-left: -10px;
+}
+#NXT_ul{
+	min-height: 700px;
+    border: #ECE0E0 solid 1px;
+    padding: 10px;
+}
+.borderInput .removeNXT{
+ position:absolute;
+ top:0;
+ right:0;
+ background: rgba(195, 217, 237, 0.26);
+ padding: 3px;
+ color: rgba(158, 99, 99, 0.96);
+ box-shadow: black;
+ box-shadow: 1px 2px 2px #888;
+ border-left-style: inset;
+ display: none;
+}
+.borderInput:hover .removeNXT{
+    display: block;
+}
+.borderInput .removeNXT a:hover{
+    color: #D11313;
+}
+
+.borderInput .removeNXT a{
+    color: #A36C6C;
+}
+.redColorNxt{
+    /*color:#CE0505; */
+}
+.fa-15x{
+    font-size: 1.5em;
+}
+.hoverShowAction{
+    
+}

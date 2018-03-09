@@ -1,0 +1,23 @@
+
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<config>
+    <name_modue>info</name_modue> 
+    <menus>        
+        <menu>
+            <title>info</title>
+            <link>/info-infolist-lang-vi</link>
+            <icon>icon-docs</icon>
+            <mod>info</mod>
+            <submenu>
+                <title>info_add</title>
+                <link>/info-info-lang-vi</link>
+                <icon>icon-plus</icon>
+            </submenu>
+            <submenu>
+                <title>menu_info_list</title>
+                <link>/info-infolist-lang-vi</link>
+                <icon>icon-list</icon>
+            </submenu>
+        </menu>        
+    </menus>
+</config>

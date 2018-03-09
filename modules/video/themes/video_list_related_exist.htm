@@ -1,0 +1,6 @@
+<li data-id={$v['id']} >
+	<span><img src="{$_B['upload_path']}{$v['img']}" onerror="this.onerror=null;this.src='{$_B['home_theme']}assets/no_image.gif'" alt="" /></span>
+	<a href="javascript:void()"><!--{if isset({$v['title']})}-->{$v['title']}<!--{/if}--></a>
+	<i class="cancel glyphicon glyphicon-trash font-red"></i>
+	<input class="related_video" type="hidden" name="related_id[]" value="{$v['id']}">
+</li>

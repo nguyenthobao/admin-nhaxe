@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<config>
+    <name_modue>home</name_modue> 
+
+    <menus>
+        <menu>
+            <title>home_home</title>
+            <link>/home</link>
+            <icon>icon-home</icon>
+            <mod>home</mod>
+           
+        </menu> 
+    </menus> 
+
+</config>

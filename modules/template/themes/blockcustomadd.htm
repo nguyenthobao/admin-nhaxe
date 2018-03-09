@@ -1,0 +1,168 @@
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link href="{$_B['mod_theme']}css/style.css" rel="stylesheet" type="text/css" />
+<!-- END PAGE LEVEL STYLES -->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+	<div class="col-md-12">
+		<form class="form-horizontal form-row-seperated" action="" id="blockcustom_form" class="form-horizontal" enctype="multipart/form-data" method="POST">
+			<div class="portlet">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="icon-note"></i>{lang breadcrumb_custom_block}
+					</div>
+					<!--{temp blockcustom_toolbar}-->
+				</div>
+				
+				<div class="portlet-body">
+					<!--{temp notify_action}-->
+					<div class="tabbable">
+						<ul class="nav nav-tabs">
+							<!--{loop $url_lang $k_lang $v_lang}-->
+							<li <!--{if $k_lang==$_GET['lang']}-->class="active"<!--{/if}-->>
+							<a href="{$v_lang['url']}">
+								{lang lang_{$k_lang}}
+							</a>
+							
+						</li>
+						<!--{/loop}-->
+						<input type="hidden" name="popup" data-title="{lang pop_title}" data-yes="{lang pop_yes}" data-cancel="{lang pop_cancel}" data-message="{lang pop_message}" data-close="{lang pop_close}">
+						<input type="hidden" name="popup_df" data-title="{lang pop_df_title}" data-yes="{lang pop_yes}" data-cancel="{lang pop_cancel}" data-message="{lang pop_df_message}" data-close="{lang pop_close}">
+						<input type="hidden" value="$_GET['id']" name="id" id="id"/>
+					</ul>
+					<div class="tab-content no-space">
+						<div class="tab-pane active" id="lang_{$v_lang}">
+							<div class="form-body">
+								<div class="note note-warning">
+									<p class="block">{lang select_lang lang_{$_GET['lang']} }</p>
+								</div>
+								<div class="portlet light bordered">
+									<div class="portlet-title">
+										<div class="caption">
+											<i class="icon-equalizer font-red-sunglo"></i>
+											<span class="caption-subject font-red-sunglo bold uppercase">{lang basic_information}</span>
+											<span class="caption-helper">{lang noti_information}</span>
+										</div>
+										<div class="tools">
+											<a href="javascript:;" class="collapse"></a>
+										</div>
+									</div>
+									<div class="portlet-body form">
+										
+										<div class="form-group">
+											<label class="col-md-2 control-label">{lang label_title_block}<span class="required">* </span>
+										</label>
+										<div class="col-md-10 row_input_title">
+											<input type="text" class="form-control maxlength-handler" autocomplete="off" name="title" id="title" maxlength="225" value="<!--{if isset({$content['title']})}-->{$content['title']}<!--{/if}-->" placeholder="" data-error="{lang error_input_title}">
+											<span class="help-block">{lang maxlength 225}</span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-2 control-label">HTML</label>
+										<div class="col-md-5">
+											<textarea class="form-control" style="min-height:300px;max-width: 380px;"  name="html" data-error="{lang error_input}"><!--{if isset({$content['html']})}-->{$content['html']}<!--{/if}--></textarea>
+										</div>
+										<label class="col-md-1 control-label">CSS</label>
+										<div class="col-md-4">
+											<textarea class="form-control" style="min-height:300px;max-width: 298px;" name="css" data-error="{lang error_input}"><!--{if isset({$content['css']})}-->{$content['css']}<!--{/if}--></textarea>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-md-2 control-label">{lang label_preview_block}</label>
+										<div class="col-md-10 BNC_preview" style="display:none;min-height: 50px;padding: 10px;border: #FAEBD7 solid 1px;width: 81%;margin-left: 13px;">
+											<!--{if isset($content['html'])}-->$content['html']<!--{/if}-->
+											<style type="text/css">
+											<!--{if isset($content['css'])}-->{$content['css']}<!--{/if}-->
+											</style>
+										</div>
+										
+										<iframe scrolling="yes" class="col-md-10" id="iframe" style="min-height: 500px;padding: 10px;border: #FAEBD7 solid 1px;width: 81%;margin-left: 13px;">
+											
+										</iframe>
+										
+									</div>
+									
+								</div>
+							</div>
+							<div class="portlet light bordered">
+								<div class="portlet-title">
+									<div class="caption">
+										<i class="icon-equalizer font-red-sunglo"></i>
+										<span class="caption-subject font-red-sunglo bold uppercase">{lang label_more_infomation}</span>
+									</div>
+									<div class="tools">
+										<a href="javascript:;" class="collapse"></a>
+									</div>
+								</div>
+								
+								
+								<div class="portlet-body form">
+									<div class="form-group">
+										<label class="col-md-2 control-label">{lang sort}</label>
+										<div class="col-md-4">
+											<input type="number" min="0" class="form-control" name="sort" data-error="{lang number_error}" value="<!--{if isset({$content['sort']})}-->{$content['sort']}<!--{else}-->0<!--{/if}-->" />
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-md-2 control-label">Module hiển thị </label>
+										<div class="col-md-8">
+											<div class="form-control thr-col">
+												<div class="scrollbar">
+													<ul class="list-unstyled">
+														<!--{loop $mod_in_home $km $vm}-->
+															<li>
+																<label><input class="form-control"  <!--{if !isset($active_mod)}-->checked<!--{elseif isset($active_mod) && in_array($vm,$active_mod)}-->checked<!--{/if}--> type="checkbox" name="active_mod[]" value="{$vm}">{lang {$vm}}</label>
+															</li>
+														<!--{/loop}-->
+													</ul>
+												</div>
+											</div>
+										</div>
+										
+									</div>
+									
+									<div class="form-group">
+										<label class="control-label col-md-2">{lang position_block}</label>
+										<div class="col-md-4">
+											<select class="form-control" name="position" data-error="{lang position_error}">
+												<!--{loop $position $k $v}-->
+												<option value="{$k}" <!--{if isset($content['position']) && $k==$content['position']}-->selected<!--{/if}--> >{$v}</option>
+												<!--{/loop}-->
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-2">{lang status}</label>
+										<div class="col-md-4">
+											<select class="form-control" name="status" data-error="{lang news_error}">
+												<option value="1" <!--{if (isset($content['status'])&& $content['status']==1)||empty($_GET['id'])}-->selected="selected"<!--{/if}--> >{lang is_show}</option>
+												<option value="0" <!--{if isset($content['status']) && $content['status']==0}-->selected="selected"<!--{/if}-->>{lang is_hide}</option>
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<div class="portlet-title topline">
+			<!--{temp blockcustom_toolbar}-->
+		</div>
+	</div>
+</form>
+</div>
+</div>
+<!-- END PAGE CONTENT-->
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+<script type="text/javascript" src="{$_B['mod_theme']}js/blockcustom.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function() {
+BlockCustom.init();
+});
+</script>

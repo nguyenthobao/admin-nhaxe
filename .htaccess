@@ -1,0 +1,94 @@
+Options All -Indexes
+RemoveHandler .phtml .php .php3 .php4 .php5 .php6 .phps .cgi .pl .asp .aspx .shtml .shtm .fcgi .fpl .jsp .htm .html .wml .py
+AddType application/x-httpd-php-source .phtml .php .php3 .php4 .php5 .php6 .phps .cgi .pl .asp .aspx .shtml .shtm .fcgi .fpl .jsp .htm .html .wml .py
+<Files ~ "\.(inc|sql|php|cgi|pl|asp|aspx|jsp|txt)$">
+order allow,deny
+deny from all
+</Files>
+<IfModule mod_php5.c>
+php_value max_execution_time 2000
+</IfModule>
+<Files *.php> 
+    deny from all
+</Files>
+<Files "index.php">
+    Order Allow,Deny
+    Allow from all
+</Files> 
+<Files "view.php">
+    Order Allow,Deny
+    Allow from all
+</Files> 
+<Files "connector.php">
+    Order Allow,Deny
+    Allow from all
+</Files> 
+
+<Files "memcache.php">
+    Order Allow,Deny
+    Allow from all
+</Files>
+<Files "invoice.html">
+    Order Allow,Deny
+    Allow from all
+</Files> 
+RewriteEngine on 
+Options +FollowSymlinks 
+RewriteBase /
+
+ErrorDocument 404 /404.html
+ErrorDocument 401 /404.html
+ErrorDocument 403 /404.html
+ErrorDocument 500 /404.html
+
+
+RewriteRule ^webuser-logout$ index.php?mod=webuserlogout [L]  
+RewriteRule ^([a-zA-Z0-9]+).admin$ index.php?set_web=$1 [L]  
+RewriteRule ^change.web$ index.php?change_web=1 [L]  
+
+RewriteRule ^([a-zA-Z]+)-([a-zA-Z]+)-lang-([a-z]+)$ index.php?mod=$1&page=$2&lang=$3 [L,QSA]  
+RewriteRule ^([a-zA-Z]+)-([a-zA-Z]+)-([0-9]+)-lang-([a-z]+)$ index.php?mod=$1&page=$2&id=$3&lang=$4 [L]  
+RewriteRule ^([a-zA-Z]+)-([a-zA-Z]+)-lang-([a-z]+)-p([0-9]+)$ index.php?mod=$1&page=$2&lang=$3&p=$4 [L,QSA]     
+RewriteRule ^([a-zA-Z]+)-([a-zA-Z]+)-([0-9]+)-lang-([a-z]+)-p([0-9]+)$ index.php?mod=$1&page=$2&id=$3&lang=$4&p=$5 [L,QSA]
+
+RewriteRule ^([a-zA-Z]+)-([a-zA-Z]+)-([0-9]+)-lang-([a-z]+)-value-([a-zA-Z0-9\+\/\=]+)$ index.php?mod=$1&page=$2&id=$3&lang=$4&value=$5 [L,QSA]
+RewriteRule ^([a-zA-Z]+)-([a-zA-Z]+)-([0-9]+)-lang-([a-z]+)-value-([a-zA-Z0-9\+\/\=]+)-p([0-9]+)$ index.php?mod=$1&page=$2&id=$3&lang=$4&value=$5&p=$6 [L,QSA]
+
+RewriteRule ^([a-zA-Z]+)-([a-zA-Z]+)-([a-zA-Z]+)-lang-([a-z]+)-value-([a-zA-Z0-9\+\/\=]+)$ index.php?mod=$1&page=$2&sub=$3&lang=$4&value=$5 [L,QSA]
+RewriteRule ^([a-zA-Z]+)-([a-zA-Z]+)-([a-zA-Z]+)-lang-([a-z]+)-value-([a-zA-Z0-9\+\/\=]+)-p([0-9]+)$ index.php?mod=$1&page=$2&sub=$3&lang=$4&value=$5&p=$6 [L,QSA]
+ 
+RewriteRule ^quan-ly-tap-tin.htm  index.php?mod=product&page=product&sub=ajaxReloadDownload&lang=vi [L,QSA]
+
+RewriteRule ^([a-zA-Z]+)-([a-zA-Z]+)-lang-([a-z]+)-value-([a-zA-Z0-9\+\/\=]+)-p([0-9]+)$ index.php?mod=$1&page=$2&lang=$3&p=$5&value=$4 [L]    
+RewriteRule ^([a-zA-Z]+)-([a-zA-Z]+)-([a-zA-Z]+)-lang-([a-z]+)-p([0-9]+)$ index.php?mod=$1&page=$2&sub=$3&lang=$4&p=$5 [L]
+RewriteRule ^([a-zA-Z]+)-([a-zA-Z]+)-([a-zA-Z]+)-([0-9]+)-lang-([a-z]+)-p([0-9]+)$ index.php?mod=$1&page=$2&sub=$3&id=$4&lang=$5&p=$6 [L]  
+RewriteRule ^([a-zA-Z]+)-([a-zA-Z]+)-([a-zA-Z]+)-lang-([a-z]+)-value-([a-zA-Z0-9\+\/\=]+)-p([0-9]+)$ index.php?mod=$1&page=$2&sub=$3&lang=$4&p=$6&value=$5 [L]  
+
+RewriteRule ^([a-zA-Z]+)-([a-zA-Z]+)-lang-([a-z]+)$ index.php?mod=$1&page=$2&lang=$3 [L] 
+RewriteRule ^([a-zA-Z]+)-([a-zA-Z]+)-lang-([a-z]+)-value-(.*)$ index.php?mod=$1&page=$2&lang=$3&value=$4 [L] 
+
+RewriteRule ^([a-zA-Z]+)-([a-zA-Z]+)-([a-zA-Z]+)-([0-9]+)-lang-([a-z]+)$ index.php?mod=$1&page=$2&sub=$3&id=$4&lang=$5 [L]    
+RewriteRule ^([a-zA-Z]+)-([a-zA-Z]+)-([a-zA-Z]+)-lang-([a-z]+)$ index.php?mod=$1&page=$2&sub=$3&lang=$4 [L,QSA] 
+
+   
+
+RewriteRule ^([a-zA-Z]+)-([a-zA-Z]+)-value-([a-zA-Z0-9\+\/\=]+)$ index.php?mod=$1&page=$2&value=$3 [L] 
+RewriteRule ^([a-zA-Z]+)-([a-zA-Z]+)$ index.php?mod=$1&page=$2 [L] 
+
+RewriteRule ^([a-zA-Z]+)-([a-zA-Z]+)-([0-9]+)$ index.php?mod=$1&page=$2&id=$3 [L]    
+RewriteRule ^([a-zA-Z]+)-([a-zA-Z]+)-([a-zA-Z]+)$ index.php?mod=$1&page=$2&sub=$3 [L]    
+RewriteRule ^([a-zA-Z]+)-([a-zA-Z]+)-([a-zA-Z]+)-value-([a-zA-Z0-9\+\/\=]+)$ index.php?mod=$1&page=$2&sub=$3&value=$4 [L]    
+RewriteRule ^([a-zA-Z]+)-([a-zA-Z]+)-([a-zA-Z]+)-([0-9]+)$ index.php?mod=$1&page=$2&sub=$3&id=$4 [L]    
+RewriteRule ^([a-zA-Z]+)-([a-zA-Z]+)-([0-9]+)-([a-z]+)$ index.php?mod=$1&page=$2&id=$3&lang=$4 [L]    
+RewriteRule ^([a-zA-Z]+)-([a-zA-Z]+)-([0-9]+)-([a-z]+)-value-([a-zA-Z0-9\+\/\=]+)$ index.php?mod=$1&page=$2&id=$3&lang=$4&value=$5 [L]    
+RewriteRule ^([a-zA-Z]+)-([a-zA-Z]+)-([0-9]+)-([a-z]+)-p([0-9]+)$ index.php?mod=$1&page=$2&id=$3&lang=$4&p=$5 [L]    
+RewriteRule ^([a-zA-Z]+)-([a-zA-Z]+)-([0-9]+)-([a-z]+)-value-([a-zA-Z0-9\+\/\=]+)-p([0-9]+)$ index.php?mod=$1&page=$2&id=$3&lang=$4&value=$5&p=$6 [L]    
+
+RewriteRule ^info$ index.php?mod=info [L]    
+RewriteRule ^info/$ index.php?mod=info [L]    
+RewriteRule ^([a-zA-Z]+)$ index.php?mod=$1 [L,QSA]    
+RewriteRule ^([a-zA-Z]+)-value-([a-zA-Z0-9\+\/\=]+)$ index.php?mod=$1&value=$2 [L]  
+RewriteRule ^api/([a-zA-Z0-9]+)$ index.php?api=$1 [L]  
+RewriteRule ^api/([a-zA-Z0-9]+)/([0-9]+)$ index.php?api=$1&id=$2 [L]  
+
+RewriteRule ^support_plus.html index.php?tran=1[L]  

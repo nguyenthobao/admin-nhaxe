@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<config>
+    <name_modue>category</name_modue> 
+    <menus>
+        <menu>
+            <title>categorys</title>
+            <link>/category-categorylist-lang-vi</link>
+            <icon>icon-note</icon>
+            <mod>category</mod>
+            <submenu>
+                <title>category_add_cat</title>
+                <link>/category-category-lang-vi</link>
+                <icon>icon-pencil</icon>
+            </submenu>
+            <submenu>
+                <title>category_list_cat</title>
+                <link>/category-categorylist-lang-vi</link>
+                <icon>icon-list</icon>
+            </submenu>
+            
+        </menu>
+    </menus> 
+</config>

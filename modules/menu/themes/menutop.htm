@@ -1,0 +1,170 @@
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/jquery-tags-input/jquery.tagsinput.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/typeahead/typeahead.css">
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css">
+<link href="{$_B['mod_theme']}css/style.css" rel="stylesheet" type="text/css" />
+<!-- END PAGE LEVEL STYLES -->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+	<div class="col-md-12">
+		<form class="form-horizontal form-row-seperated" action="" id="form_menuabove" class="form-horizontal" method="POST" enctype="multipart/form-data">
+			<div class="portlet">
+				<div class="portlet-title">
+					<div class="caption">
+						<!--{if isset({$info_data['id']})}-->
+						<i class="icon-note"></i>{lang breadcrumb_edit_menu}
+						<!--{else}-->
+						<i class="icon-note"></i>{lang breadcrumb_new_menu}
+						<!--{/if}-->
+					</div>
+					<!--{temp menutop_toolbar}-->
+				</div>
+				<div class="portlet-body">
+					<!--{temp notify_action}-->
+					<div class="tabbable">
+						<ul class="nav nav-tabs">
+							<!--{loop $url_lang $k_lang $v_lang}-->
+								<li <!--{if $k_lang==$_GET['lang']}-->class="active"<!--{/if}--> >
+									<a href="$_B['home']/menu-menutop-lang-$k_lang" class="select_lang" data-lang="{$k_lang}">{lang lang_{$k_lang}} </a>
+								</li>
+							<!--{/loop}-->
+						</ul>
+						<div class="tab-content no-space" id="menutop" data-lang="{$_GET['lang']}">
+							<div class="tab-pane active">
+								<div class="form-body">
+									<div class="note note-warning">
+										<p class="block">{lang select_lang lang_{$_GET['lang']} }</p>
+									</div>
+									<div class="portlet light bordered">
+									<div class="portlet-title">
+										<div class="caption">
+											<i class="icon-equalizer font-red-sunglo"></i>
+											<span class="caption-subject font-red-sunglo bold uppercase">{lang breadcrumb_information_base}</span>
+											<span class="caption-helper"></span>
+										</div>
+										
+									</div>
+									<div class="portlet-body form" >
+		
+		
+										<div class="form-group">
+											<label class="col-md-2 control-label">{lang name}: <span class="required">
+											* </span>
+											</label>
+											<div class="col-md-5">
+												<input type="text" class="form-control maxlength-handler" name="namemenu" maxlength="40" value="{$info_data['namemenu']}" data-error="{lang title_error_name}">
+												<small class="help-block">Tối đa 40 ký tự</small>
+												
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-2 control-label">{lang linktoct}: <span class="required">
+											 </span>
+											</label>
+											<div class="col-md-5">
+												<select name = "linktoct" id="linktoct" class="form-control">
+													<option value="">Không chọn</option>
+													<!--{loop $list_cat $k $v}-->
+														<optgroup label="{$v['name']}">
+															 <!--{if $k!='basic'}-->
+																<option value="{$k}|||" <!--{if isset($direct_link) && $direct_link['mod']==$k && $direct_link['id']==''}-->selected<!--{/if}--> >{$v['name']}</option>
+															 <!--{/if}-->
+															<!--{loop $v['content'] $k_2 $v_2}-->
+																<!--{if $k!='basic'}-->
+																	<option value="{$v['mod']}|{$v['page']}|{$v['sub']}|{$v_2['id']}" <!--{if isset($direct_link) && $direct_link['mod']==$k && $direct_link['id']==$v_2['id']}-->selected<!--{/if}-->>{$v_2['line']}{$v_2['title']}</option>
+																<!--{else}-->
+																	<option data-basic="1" value="{$v_2['content']}">{$v_2['title']}</option>
+																<!--{/if}-->
+															<!--{/loop}-->
+														</optgroup>
+													<!--{/loop}-->
+												</select>
+												<small class="help-block"> Chọn kích hoạt module đến trang tính năng cho website của bạn</small>
+										</div>
+										</div>
+										<div class="form-group" id="linkto">
+											<label class="col-md-2 control-label">{lang linkto}: <span class="required">
+											* </span>
+											</label>
+											<div class="col-md-5">
+												<input  id="cd-1" type="text" class="form-control" name="linkto" value="<!--{if !isset($direct_link)}-->{$info_data['link']}<!--{/if}-->" data-error="{lang link_error}">
+												<small class="help-block"> Ví dụ: http://webbnc.net, nếu link đến trang nội dung bạn để trống phần này</small>
+												
+											</div> 
+										</div>
+
+									
+										<div class="form-group">
+											<label class="col-md-2 control-label">{lang parentmenu}: <span class="required">
+											</span>
+											</label>
+											<div class="col-md-5">
+												<select class="form-control" name="parent_id" data-error="">
+													<option value="0">Không chọn</option>
+													<!--{loop $menuparent $k $v}-->
+													<!--{temp menu_cat_list}-->
+													<!--{/loop}-->
+												</select>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-2 control-label">{lang sort}: <span class="required">
+											</span>
+											</label>
+											<div class="col-md-2">
+												<input type="text" class="form-control " name="sort"value="{$info_data['sort']}" data-error="{lang title_error_sort}">
+												
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-2">{lang status} <span class="required">
+											</span>
+											</label>
+											<div class="col-md-2">
+												<select class="form-control" name="status" data-error="{lang contactinfo_error}">
+													<option value="1" <!--{if isset($info_data) && $info_data['status']==1}-->selected="selected"<!--{/if}-->>{lang active}</option>
+													<option value="0"  <!--{if isset($info_data) && $info_data['status']==0}-->selected="selected"<!--{/if}-->>{lang non_active}</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-2">{lang Nofollow} <span class="required">
+											 </span>
+											</label>
+											<div class="col-md-2">
+												<input type="checkbox" name="nofollow" <!--{if isset($info_data['nofollow'])&&($info_data['nofollow'] == 1)}--> checked <!--{/if}-->>
+											</div>
+										</div>
+
+
+								 	</div>
+								</div>
+									<!--{temp brand_img}-->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="portlet-title topline">
+					<!--{temp menutop_toolbar}-->
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<!-- END PAGE CONTENT-->
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js">
+</script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+<script src="{$_B['mod_theme']}js/menutop.js" type="text/javascript"></script>
+<script>
+    jQuery(document).ready(function() {    
+       MenuTop.init();
+    });
+</script>
+
+
+

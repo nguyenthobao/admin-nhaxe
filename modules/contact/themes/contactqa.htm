@@ -1,0 +1,118 @@
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-editable/bootstrap-editable/css/bootstrap-editable.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-editable/inputs-ext/address/address.css"/>
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/css/components.css"/>
+<link href="{$_B['mod_theme']}css/style1.css" rel="stylesheet" type="text/css" />
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+	<div class="col-md-12">
+		<form class="form-horizontal form-row-seperated" action="" id="form_contactview" class="form-horizontal" enctype="multipart/form-data" method="POST">
+			<input type="hidden" value="deleteMultiID" name="action">
+
+			<div class="portlet">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-navicon"></i>{lang title_manager_qa}
+					</div>
+					<div>
+						<div class="actions btn-set btn-del  ">
+							<div class="actions btn-set btn-del">
+								<a  href="contact-contactview-lang-vi" class=" col-b-del btn btn-sm green "><i class="fa fa-mail-reply"></i> {lang back}</a>
+							</div>
+							
+						</div>
+
+					</div>
+
+					
+				</div>
+							
+								
+				<div class="portlet-body">
+										<div class="portlet light bordered">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="icon-equalizer font-red-sunglo"></i>
+								<span class="caption-subject font-red-sunglo bold uppercase">{lang title_manager_qa}</span>
+								<span class="caption-helper"></span>
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="expand"></a>
+							</div>
+						</div>
+						<div class="portlet-body form">
+					
+
+								<!--{if !empty($getQA)}-->
+								<!--{loop $getQA $k $v}-->
+								<div id="contactview" data-lang="{$_GET['lang']}" key="{$v['id_mail']}" address = "{$v['email']}" customers="{$v['customers']}" data-error-mail="{lang error_mail}" data-success-mail="{lang success_mail}" question ="{$v['question']}" data-viewf="{lang feedbackmail}"data-title ="{lang title_mail}" data-viewbb="{lang contentmail}">
+								</div>
+								<ul class="chats">
+									<li class="in">
+										
+										<div class="message">
+											<span class="arrow">
+											</span>
+											<a href="#" class="name">
+											{$v['customers']} </a>
+											<span class="datetime">
+											at {$v['create_time']} </span>
+											<span class="body">
+												{$v['question']}
+											</span>
+										</div>
+									</li>
+									<!--{if !empty($v['answer'])}-->
+									<li class="out">
+										
+										<div class="message">
+											<span class="arrow">
+											</span>
+											<a href="#" class="name">
+											Admin </a>
+											<span class="datetime">
+											at {$v['update_time']} </span>
+											<span class="body">
+												{$v['answer']}
+											 </span>
+										</div>
+									</li>
+									<!--{/if}-->
+								
+								</ul>
+								<!--{/loop}-->							
+								<!--{else}-->
+								Chưa có nội dung nào				
+								<!--{/if}-->
+				
+									</div>
+							</div>
+
+				
+			</div>
+		</form>
+			<div class="actions btn-set btn-del">
+				<a class="col-b-del btn btn-sm green answerfeedback "><i class="fa fa-mail-reply"></i> {lang answer}</a>
+			</div>
+		</div>
+</div>
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/moment.min.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/jquery.mockjax.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-editable/bootstrap-editable/js/bootstrap-editable.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-editable/inputs-ext/address/address.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-editable/inputs-ext/wysihtml5/wysihtml5.js"></script>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+<script src="{$_B['mod_theme']}js/contactqa.js"></script>
+
+<script>
+    jQuery(document).ready(function() {    
+       Contactqa.init();
+    });
+</script>
+<!-- END JAVASCRIPTS -->
+

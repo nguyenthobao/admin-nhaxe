@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Chỉnh sửa giao diện</title>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="{$_B['home_theme']}designthemes/lib/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="{$_B['home_theme']}designthemes/addon/display/fullscreen.css" type="text/css" />
+    <link href="{$_B['home_theme']}assets/global/plugins/fonts/css.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="{$_B['home_theme']}designthemes/toastr.css"/>
+
+    <link href="{$_B['home_theme']}assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="{$_B['home_theme']}assets/global/plugins/jstree/dist/themes/default/style.min.css" type="text/css"/>
+    <link href="{$_B['home_theme']}assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="{$_B['home_theme']}dist/jstree.min.js"></script>
+    <script src="{$_B['home_theme']}designthemes/lib/codemirror.js"></script>
+    <script src="{$_B['home_theme']}designthemes/mode/javascript/javascript.js"></script>
+    <script src="{$_B['home_theme']}designthemes/addon/display/fullscreen.js"></script>
+    <script src="{$_B['home_theme']}assets/global/plugins/bootstrap-toastr/toastr.js"></script>
+    
+  
+    
+<style>
+    html, body { background:#ebebeb; font-size:10px; font-family:Verdana; margin:0; padding:0; }
+
+    #container { margin:0px auto 0 auto; background:white; border-radius:0px; padding:0px; overflow:hidden; max-height: 560px;}
+    #tree { float:left; min-width:340px; border-right:1px solid silver; overflow:auto; padding:0px 0;}
+    #tree li{padding:5px 0px 5px 0px;}
+    #tree li a{font-size: 13px;}
+    #data { margin-left:340px; }
+    #data textarea { margin:0; padding:0; height:100%; width:100%; border:0; background:white; display:block; line-height:18px; resize:none; }
+    #data, #code { font: normal normal normal 13px/18px 'monospace', monospace !important; }
+
+    #tree .jstree-open .folder{ background:url('{$_B['home_theme']}dist/themes/default/folder-open.png') right bottom no-repeat; }
+
+    #tree .jstree-closed .folder{ background:url('{$_B['home_theme']}dist/themes/default/folder.png') right bottom no-repeat; }
+    #tree .file-js { background:url('{$_B['home_theme']}dist/themes/default/file-css.png')  0 0 no-repeat; }
+    #tree .file-fla { background:url('{$_B['home_theme']}dist/themes/default/file.png')  0 0 no-repeat; }
+    #tree .file-htm { background:url('{$_B['home_theme']}dist/themes/default/file-htm.png')  0 0 no-repeat; }
+    #tree .file-css { background:url('{$_B['home_theme']}dist/themes/default/file-css.png')  0 0 no-repeat; }
+
+
+    .page-header{
+      width: 100%;
+      padding: 0 20px 0 20px;
+      margin: 0;
+      border: 0px;
+      padding: 0px;
+      box-shadow: none;
+      height: 46px;
+      min-height: 46px;
+      filter: none;
+      background-color: #e1e1e1;
+      background-image: none;}
+      .page-header .page-logo {
+        float: left;
+        display: block;
+        width: 235px;
+        height: 46px;
+        padding-left: 20px;
+        padding-right: 20px;
+        }
+        .page-header .page-logo img{padding-top: 5px;}
+        /*.navbar-fixed-top {
+        position: fixed;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+        -webkit-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        }*/
+        .statusTop{
+        width: 100%;
+        padding: 0px 0px 10px 0px;
+        margin: 0;
+        border: 0px;
+        box-shadow: none;
+        height: 26px;
+        min-height: 26px;
+        filter: none;
+        background-color: #44b6ae;
+        background-image: none;}
+
+        .btn.default {
+          color: #333333;
+          background-color: #e5e5e5;
+          border-color: "";
+          }
+          .util-btn-margin-bottom-5 .btn {
+          margin-bottom: 5px !important;
+          }
+        .btn.default:hover{
+          color: #333333;
+          background-color: #d1d1d1;
+          cursor: pointer;
+          }
+        .btn.green {
+          color: white;
+          background-color: #35aa47;
+        }
+        .btn.green:hover {
+          color: white;
+          background-color: #2b8b3a;
+        }
+        .btn.red {
+          color: white;
+          background-color: #d84a38;
+        }
+        .btn.red:hover {
+          color: white;
+          background-color: #c13726;
+        }
+          .btn {
+          border-width: 0;
+          outline: none !important;
+          background-image: none !important;
+          filter: none;
+          -webkit-box-shadow: none;
+          -moz-box-shadow: none;
+          box-shadow: none;
+          text-shadow: none;
+          text-decoration: none;
+          font-weight: 400;
+          font-family: "Open Sans", sans-serif;
+          padding: 4px 10px;
+          font-size: 13px;
+          line-height: 1.5;
+          text-align: center;
+          white-space: nowrap;
+          vertical-align: middle;
+          cursor: pointer;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+          }
+          .btn:hover{
+            cursor: pointer;
+          }
+          .action,.actionLeft{
+            float: right;
+            padding:5px;
+            padding-right: 20px;
+            right: 0px;
+          }
+          .actionLeft{
+            float: left; 
+            left: 0px;
+          }
+      .nbhToolbar{
+        box-shadow: none;
+        padding-right: 30px;
+        padding-left: 8px;
+        height: 38px;
+        border-bottom: 1px solid #e5e5e5;
+        background-color: #f7f7f7;
+      }
+      .left_toolbar{
+        border-right:  1px solid #e5e5e5;
+        float: left;
+        min-width: 314px;
+      }
+      .right_toolbar{
+       min-width: 300px; 
+      }
+
+</style>
+  </head>
+  <body>
+    <div id="header" class="page-header navbar-fixed-top">
+      <div class="page-logo">
+        <a href="index.php">
+        <img src="http://dev2.webbnc.vn/themes/default/assets/logo-bnc.png" alt="logo" class="logo-default">
+        </a>
+        <div class="menu-toggler sidebar-toggler hide">
+        </div>
+        </div>
+    </div>
+    <div id="container" role="main">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="col-md-6 left_toolbar nbhToolbar">
+            <div class="actionLeft">
+              <button id="btnResetAll" class="btn green">Reset all</button>
+            </div>
+          </div>
+          <div class="col-md-6 right_toolbar nbhToolbar">
+            <div class="action">
+              <a id="btnHoanthanh" href="/designthemes" class="btn green">Hoàn thành</a>
+              <button id="btnResetCopy" class="btn green">Reset file</button>
+              <button id="btnSave" class="btn green">Lưu</button>
+              <button id="btnCancel" class="btn red">Huỷ</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="tree"></div>
+      <div id="data">
+        <!-- <div class="statusTop">
+          <div id="notify"></div>
+          <div class="action">
+          <button id="btnSave" class="btn default">Lưu</button>
+          </div>
+        </div> -->
+        <div class="content code" ><form>
+          <textarea id="code" name="code">
+          </textarea>
+        </form>
+        </div>
+        <div class="content folder" style="display:none;"></div>
+        <div class="content image" style="display:none; position:relative;"><img src="" alt="" style="display:block; position:absolute; left:50%; top:50%; padding:0; max-height:90%; max-width:90%;" /></div>
+        <div class="content default2" style="text-align:center;">Chọn một file từ thư mục bên trái</div>
+      </div>
+    </div>
+
+    
+    <script>
+    $(function () {
+      editor = [];
+      $(window).resize(function () {
+        var h = Math.max($(window).height() - 0, 420);
+        $('#container, #data, #tree, #data .content').height(h).filter('.default').css('lineHeight', h + 'px');
+      }).resize();
+
+      $('#tree')
+        .jstree({
+          'core' : {
+            'data' : {
+              'url' : 'index.php?mod=designthemes&page=ajax&operation=get_node',
+              'data' : function (node) {
+                return { 'id' : node.id };
+              }
+            },
+            'check_callback' : function(o, n, p, i, m) {
+              if(m && m.dnd && m.pos !== 'i') { return false; }
+              if(o === "move_node" || o === "copy_node") {
+                if(this.get_node(n).parent === this.get_node(p).id) { return false; }
+              }
+              return true;
+            },
+            'themes' : {
+              'responsive' : false,
+              'variant' : 'small',
+              'stripes' : true
+            }
+          },
+          'sort' : function(a, b) {
+            return this.get_type(a) === this.get_type(b) ? (this.get_text(a) > this.get_text(b) ? 1 : -1) : (this.get_type(a) >= this.get_type(b) ? 1 : -1);
+          },
+          
+          'types' : {
+            'default' : { 'icon' : 'folder' },
+            'file' : { 'valid_children' : [], 'icon' : 'file' }
+          },
+          'unique' : {
+            'duplicate' : function (name, counter) {
+              return name + ' ' + counter;
+            }
+          },
+          'plugins' : ['state','dnd','sort','types','unique']
+        })
+        .on('changed.jstree', function (e, data) {
+          
+          if(data && data.selected && data.selected.length) {
+            $.get('index.php?mod=designthemes&page=ajax&operation=get_content&id=' + data.selected.join(':'), function (d) {
+              if(d && typeof d.type !== 'undefined') {
+                console.log(data.selected.join(':'));
+                $('#data .content').hide();
+                switch(d.type) {
+                  case 'text':
+                  case 'txt':
+                  case 'md':
+                  case 'htaccess':
+                  case 'log':
+                  case 'sql':
+                  case 'php':
+                  case 'js':
+                  case 'json':
+                  case 'css':
+                  case 'htm':
+                    $('#data .code').show();
+                    $('#code').val(d.content);
+                    $('.CodeMirror').remove();
+                     editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+                      lineNumbers: true,
+                      styleActiveLine: true,
+                      matchBrackets: true,
+                      extraKeys: {
+                        "Ctrl-Space": "autocomplete",
+                        "F11": function(cm) {
+                          cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+                        },
+                        "Esc": function(cm) {
+                          if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+                        }
+                      },
+                      
+                    });
+                    break;
+                  case 'png':
+                  case 'jpg':
+                  case 'jpeg':
+                  case 'bmp':
+                  case 'gif':
+                    $('#data .image img').one('load', function () { $(this).css({'marginTop':'-' + $(this).height()/2 + 'px','marginLeft':'-' + $(this).width()/2 + 'px'}); }).attr('src',d.content);
+                    $('#data .image').show();
+                    break;
+                  default:
+                    //$('#data .default').html(d.content).show();
+                    break;
+                }
+              }
+            });
+          }
+          else {
+            $('#data .content').hide();
+            $('#data .default2').html('Chọn file muốn sửa từ cây thư mục bên trái').show();
+          }
+        })
+        ;
+    });
+    
+    
+    </script>
+    <script type="text/javascript">
+    $('#btnSave').on('click',function () {
+      var id  = $('.jstree-clicked').parents('li').attr('id');
+      $.ajax({
+        url : 'index.php?mod=designthemes&page=ajaxPost',
+        type: 'POST',
+        dataType:'json',
+        data: {action:'save',id:id,content:editor.getValue()},
+        success:function (response) {
+          if (response.status==false) {
+            toastr.error("Ghi file không thành công", "Thông báo");
+          }else if(response.status==true){
+            toastr.success("Ghi file dữ liệu thành công.", "Thông báo");
+          }
+        },
+        error:function (error) {
+            console.log(error);
+          }
+      });
+    });
+    $('#btnCancel').on('click',function () {
+      if (confirm('Dữ liệu chưa được lưu. Bạn thực sự muốn huỷ bỏ ?')) {
+        window.setTimeout('location.reload()', 500);
+      }else{
+        return false;
+      }
+    });
+    $('#btnResetAll').on('click',function () {
+      if (confirm("Reset all sẽ xoá toàn bộ thư mục thiết kế của bạn và copy lại thiết kế mặc định của giao diện. Bạn chắc chắn muốn thực hiện ?")) {
+        alert('hi');
+        $.ajax({
+          url:'index.php?mod=designthemes&page=ajaxPost',
+          type: 'POST',
+          dataType:'json',
+          data: {action:'resetAll'},
+          success:function (response) {
+            if (response.status==false) {
+              toastr.error("Reset không thành công", "Thông báo");
+            }else if(response.status==true){
+              toastr.success("Reset thành công. Hệ thống sẽ tải lại trang.", "Thông báo");
+              window.setTimeout('location.reload()', 2000);
+            }
+          },
+          error:function (error) {
+            console.log(error);
+          }
+        });
+      }
+      return false;
+    })
+    $('#btnResetCopy').on('click',function () {
+      if (confirm("Bạn chắc chắn muốn thực hiện ?")) {
+        var id  = $('.jstree-clicked').parents('li').attr('id');
+        $.ajax({
+          url:'index.php?mod=designthemes&page=ajaxPost',
+          type: 'POST',
+          dataType:'json',
+          data: {action:'resetFile',id:id},
+          success:function (response) {
+            if (response.status==false) {
+              toastr.error("Reset không thành công", "Lỗi reset file");
+            }else if(response.status==true){
+              toastr.success("Reset thành công. Hệ thống sẽ tải lại trang.", "Thông báo");
+              window.setTimeout('location.reload()', 2000);
+            }
+          }
+        });
+      }
+      return false;
+    })
+    </script>
+
+
+  </body>
+</html>

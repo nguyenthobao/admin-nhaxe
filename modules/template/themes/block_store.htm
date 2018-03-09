@@ -1,0 +1,94 @@
+<div class="todo-content">
+    <div class="portlet rio_custom_a">
+        <!-- PROJECT HEAD -->
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="icon-bar-chart font-green-sharp hide"></i>
+                <span class="caption-helper">Danh sách block của :</span>&nbsp;
+                <span class="namemodselect caption-subject font-green-sharp bold uppercase">{lang {$module}}</span>
+            </div>
+            <div class="actions">
+                <div class="btn-group">
+                    <a class="btn green-haze btn-circle btn-sm" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+Chọn module <i class="fa fa-angle-down"></i>
+</a>
+                    <ul class="dropdown-menu pull-right">
+                      
+                        <!--{loop $web['modules'] $k $v}--> 
+                        <li>
+                            <a href="javascript:;" class="select_module" data-name="{lang {$v}}" data-id="{$k}">{lang {$v}}<span class="badge badge-danger">$count['store'][$k]</span> </a>
+                        </li>
+                        <!--{/loop}--> 
+                        
+                       
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- end PROJECT HEAD -->
+        <div class="portlet-body">
+            <div>
+                <div class="rio-list-module">
+                    <style type="text/css">
+                        #loading_store{
+                            text-align: center;
+                            display: none;
+                            margin: 25px; 
+                        } 
+                    </style>
+                    <div id="loading_store">
+                        <img src="http://dev2.webbnc.vn/themes/default/assets/global/img/loading-spinner-default.gif" />
+                    </div>
+                    <ul class="row" id="store_content">
+                        
+                       <!--{loop $blocks $k $v}-->
+                        <li class="col-md-4 block_of_module module_{$v['module']}" id="STORE{$v['id']}" data-file="{$v['file']}" data-module-id="{$v['module']}" data-module="{$v['module_str']}" >
+                            <div class="rlm-item">
+                                <div class="dragTool">
+                                    <div class="rlm-move">
+                                        <span class="fa fa-sort"></span>
+                                    </div>
+                                    <div class="rlm-current"></div>
+                                    <div class="rlm-tool">
+                                        <a title="Lên trên" class="rlm-up">
+                                            <span class="fa fa-arrow-circle-up"></span>
+                                        </a>
+                                        <a title="Xuống dưới" class="rlm-down">
+                                            <span class="fa fa-arrow-circle-down"></span>
+                                        </a>
+                                        <a title="Hiện thị" class="rlm-hidden">
+                                            <span class="fa fa-eye-slash"></span>
+                                        </a>
+                                        <a title="Xóa" class="rlm-del">
+                                            <span class="fa fa-times"></span>
+                                        </a>
+                                        <a title="Cài đặt" class="rlm-set cai_dat" data-toggle="modal" data-target="#blockSetting_{$v['id']}">
+                                            <span class="fa fa-cog"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <a class="rlm-use">Sử dụng</a>
+                                <h2>$v['name']</h2>
+                                <img class="img-responsive" src="{$v['thumb']}" />
+                            </div> 
+
+                        </li>
+                        
+                        <!--{/loop}-->
+                         
+                        
+                        
+                       
+                        
+                       
+                    </ul>
+                    
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>

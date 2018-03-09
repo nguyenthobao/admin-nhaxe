@@ -1,0 +1,487 @@
+<link rel="stylesheet" type="text/css" href="{$_B['home_theme']}assets/global/plugins/bootstrap-toastr/toastr.min.css"/>
+<script type="text/javascript" src="{$_B['home_theme']}assets/global/plugins/bootstrap-toastr/toastr.min.js"></script>
+<script>
+$(document).ajaxStart(function() {
+    Metronic.startPageLoading('Đang khởi tạo dữ liệu....');
+});
+$(document).ajaxStop(function() {
+    Metronic.stopPageLoading();
+});
+$(document).ready(function(){
+
+$(function() {
+
+    $("#formCopy").submit(function(e) {
+            e.preventDefault();
+            var formData = new FormData($(this)[0]);
+            $.ajax({
+                url : $(this).attr("action"),
+                type: 'POST',
+                dataType: 'json',
+                data: formData,
+                cache : false,
+                processData: false,
+                contentType: false
+            }).success(function(response) {
+                $('#copyHome').modal('hide');
+                if(response.status==true){
+                    toastr.success(response.message);
+                }else{
+                    toastr.error('Error');
+                }
+            });
+            return false;
+    });
+
+    $('.select_module').click(function(){
+        var idmod = $(this).attr('data-id');
+        var namemod = $(this).attr('data-name');
+        if(idmod == 0){
+            $('.block_of_module').fadeIn();
+        }
+        else
+        {
+            var element ='.module_'+idmod;
+            $('.block_of_module').fadeOut();
+            $(element).fadeIn();
+        }
+        $('.namemodselect').text(namemod);
+    });
+
+
+    $("#rio-drag ul").sortable({
+        placeholder: "ui-state-highlight",
+        handle: ".rlm-move",
+        stop: function() { 
+
+            $(this).find("li").removeClass("zoomInLeft");
+            $(this).find("li").addClass("pulse");
+            getArray("drag");
+        }
+    });
+
+    $("#rio-drag ul").disableSelection();
+
+    //Ham lay ra vi mang vi tri hien tai
+    function getArray(act,id) {
+        var arr = new Array();
+        $("#rio-drag ul li").each(function(dataIndex) {
+            var old_sort = $(this).attr("data-sort");
+            $(this).attr("data-sort", dataIndex + 1);
+            var id_block = $(this).attr("data-idblock");
+            //var pos_block = $(this).attr("data-position");
+            var current_sort = $(this).attr("data-sort");
+            var name_block = $(this).find('h2').text();
+            var module_name_block = $(this).attr("data-module");
+            var module_id_block = $(this).attr("data-module-id");
+            var file_block =  $(this).attr("data-file");
+             
+
+            arr.push({  
+                idhome: id_block,
+                module: module_id_block,
+                module_str: module_name_block,
+                file: file_block,
+                sort: current_sort,
+                title: name_block
+         
+            });
+
+            
+            //$(this).find(".rlm-current").text("Thứ tự: " + cid + " - Mã: " + bid + " - Vị trí: " + pid);
+            
+        });
+       
+       
+        
+        if (act=='use-block') {
+            var arrJs =JSON.stringify(arr);
+            //Insert and update block
+            save_Data(arrJs);  
+        }
+        else if(act=='del-block')
+        {
+            delete_Data(id);
+
+        }else if (act=='hide-block') 
+        {
+            var sArr = {status:0};
+            var arrJs =JSON.stringify(sArr);
+            update_status_block(arrJs,id,"hide" );
+        }else if (act=='show-block') 
+        {
+            var sArr = {status:1};
+            var arrJs =JSON.stringify(sArr);
+            update_status_block(arrJs,id,"show" );
+        }else if(act=='drag-up-block'){
+             var arrJs =JSON.stringify(arr);
+             save_Data(arrJs,'drag');  
+        }else if(act=='drag-down-block'){
+             var arrJs =JSON.stringify(arr);
+             save_Data(arrJs,'drag');  
+        }else if(act=='drag'){
+             var arrJs =JSON.stringify(arr);
+             save_Data(arrJs,'drag');  
+        };
+
+          
+        //Delete block
+        return arr; 
+    }
+
+    function save_Data(arrJs,pos,action){
+        $.ajax({
+            url: 'template-homes-ajax-lang-{$get_lang}',
+            type: 'POST', 
+            data: {action:'saveposition', arr: arrJs},
+            success: function(data){
+                console.log(data);
+                if (action == 'drag') {
+                    toastr.success("Cập nhập vị trí thành công !");    
+                }else{
+                    toastr.success("Thêm block thành công !");
+                };
+                
+               
+            }
+        });
+    }
+
+    function delete_Data(idhome){
+       //alert(idblock +" - "+idposition);
+        $.ajax({
+            url: 'template-homes-ajax-lang-{$get_lang}',
+            type: 'POST', 
+            data: {action:'delblock',id: idhome},
+            success: function(data){
+                console.log(data);
+                toastr.success("Xóa block thành công !");
+            }
+        });
+    }
+
+    function update_status_block(arrJs,idblock,status){
+       
+        $.ajax({
+            url: 'template-homes-ajax-lang-{$get_lang}',
+            type: 'POST', 
+            data: {action:'hiddenblock',arr: arrJs, id: idblock},
+            success: function(data){
+                console.log(data);
+                if (status=="show") {
+                    toastr.success("Hiện thị block thành công!");
+                }else{
+                    toastr.success(" block thành công !");
+                };
+                
+            }
+        });
+    }
+
+
+//     function reloadstore(){
+//         $('#loading_store').slideToggle('slow');
+//         $('#store_content').html('');
+//         $.ajax({
+//             url: 'template-block-ajax-lang-vi',
+//             type: 'POST',
+//             data: {action:'getstore'},
+//             success: function(data){
+//                 $('#loading_store').slideToggle('slow');
+//                 $.each( data.blocks, function( key, value ) { 
+// var html = '<li class="col-md-4" id="STORE'+value.id+'">'+
+// '<div class="rlm-item">'+
+// '    <div class="dragTool">'+
+// '       <div class="rlm-move">'+
+// '          <span class="fa fa-sort"></span>'+
+// '     </div>'+
+// '    <div class="rlm-current"></div>'+
+// '   <div class="rlm-tool">'+
+// '       <a title="Lên trên" class="rlm-up">'+
+// '           <span class="fa fa-arrow-circle-up"></span>'+
+// '       </a>'+
+// '       <a title="Xuống dưới" class="rlm-down">'+
+// '       <span class="fa fa-arrow-circle-down"></span>'+
+// '       </a>'+
+// '       <a title="Hiện thị" class="rlm-hidden">'+
+// '          <span class="fa fa-eye-slash"></span>'+
+// '       </a>'+
+// '    <a title="Xóa" class="rlm-del">'+
+// '         <span class="fa fa-times"></span>'+
+// '       </a>'+
+// '       <a title="Cài đặt" class="rlm-set" data-toggle="modal" data-target="#blockSetting">'+
+// '           <span class="fa fa-cog"></span>'+
+// '       </a>'+
+// '   </div>'+
+// ' </div>'+
+// ' <a class="rlm-use">Sử dụng</a>'+
+// ' <h2>'+value.name+'</h2>'+
+// ' <img class="img-responsive" src="'+value.thumb+'" />'+
+// '</div>'+
+// '</li> ';
+//                     $('#store_content').append(html);
+//                 });
+//             }
+//         });
+//     }
+        //Add block to position
+
+    function checkBlock(){
+
+
+    }
+    $("#store_content").on('click','.rlm-use',function() {
+
+
+        var divDrag = $("#rio-drag");      
+        var divDragOffset = divDrag.offset();
+
+        var currentClickDiv=$(this).parent().parent();
+
+        var newDiv = $("#store_content").append("<li class='col-md-4 divMove '>"+currentClickDiv.html()+"</li>");
+        // newDiv.css("position","absolute");
+        // alert(currentClickDiv.position.top);
+
+        var id_block = currentClickDiv.attr("id").replace(/STORE/i,"");
+                   var pos_block = currentClickDiv.attr("data-position");
+                   var current_sort = currentClickDiv.attr("data-sort");
+                   var name_block = currentClickDiv.find('h2').text();
+                   var module_name_block = currentClickDiv.attr("data-module");
+                   var module_id_block = currentClickDiv.attr("data-module-id");
+                    
+                   var file_block =  currentClickDiv.attr("data-file");
+
+                   var newBlock = "<li  data-idblock="+id_block+" data-file="+file_block+" data-module="+module_name_block+" data-module-id="+module_id_block+"   class='bounceIn' >" + currentClickDiv.html() + "</li>";
+                    divDrag.find("ul").prepend(newBlock);
+                    getArray('use-block');
+
+        currentClickDiv.find(".rlm-item").css({"background":"#C2C2C2","opacity":"0.5"});
+        //currentClickDiv.find("h2").text("");
+        currentClickDiv.find(".rlm-use").hide();
+        $(".divMove").css({top:currentClickDiv.position().top,left:currentClickDiv.position().left});
+        $(".divMove").animate({
+            top:10,
+            left:(divDragOffset.left - $(window).scrollLeft())- divDrag.width(),
+            opacity:0.2
+        },500,function(){
+             
+                 
+                   $(this).remove();
+        });
+          
+        currentClickDiv.fadeToggle(1000,"linear",function(){
+
+            currentClickDiv.remove();
+        });
+            
+
+
+
+
+        // var divDrag = $("#rio-drag");
+        // var topOfDrag = parseInt(divDrag.offset().top);
+        // var leftOfDrag = divDrag.offset().left;
+        // var topCurentDiv = $(this).offset().top;
+        // var leftCurentDiv = $(this).offset().left;
+        // var newOffsetTop = parseInt(topOfDrag - topCurentDiv + 70);
+        // var newOffsetLeft = parseInt(leftOfDrag - leftCurentDiv + 70);
+        // var currentClickDiv=$(this).parent().parent();
+        // //console.log(clickL);
+        // currentClickDiv.css({
+        //     "z-index": "9999"
+        // });
+ 
+        // //ham animation tam thoi ko dung ------------------------
+        //     $(this).parent().parent().animate({
+        //        top: newOffsetTop,
+        //         left: newOffsetLeft,
+        //         opacity: 0,
+        //         visibility:"hidden"
+        //     }, 1000, function() {
+
+        //         $(this).animate({
+        //            // width: 0,
+        //             padding: 0
+        //         }, 500, function() {
+                    
+        //             var id_block = $(this).attr("id").replace(/STORE/i,"");
+        //             var pos_block = $(this).attr("data-position");
+        //             var current_sort = $(this).attr("data-sort");
+        //             var name_block = $(this).find('h2').text();
+        //             var module_name_block = $(this).attr("data-module");
+        //             var module_id_block = $(this).attr("data-module-id");
+                    
+        //             var file_block =  $(this).attr("data-file");
+
+        //             var newBlock = "<li  data-idblock="+id_block+" data-file="+file_block+" data-module="+module_name_block+" data-module-id="+module_id_block+"   class='bounceIn' >" + $(this).html() + "</li>";
+        //             divDrag.find("ul").prepend(newBlock);
+        //             getArray('use-block');
+        //             $(this).remove();
+        //         });
+
+        //     });
+        //     // $(this).hide();
+        //     // $(this).parent().toggle("scale",400,function(){
+        //     // $(this).parent().remove();
+        //     //});
+        // //--------------------------------------------------------
+    });
+    
+    $("#rio-drag").on('click','.rlm-hidden',function(){
+        var parentDiv=$(this).parent().parent().parent().parent();
+        if (parentDiv.hasClass("noactive")) {
+             parentDiv.removeClass("noactive");
+            $(this).find("span").removeClass("fa-eye");
+            $(this).find("span").addClass("fa-eye-slash");
+            $(this).attr("title","Ẩn");
+            var id = parentDiv.attr('data-idblock');
+            getArray('show-block',id);
+        }else{
+             parentDiv.addClass("noactive");
+            $(this).find("span").removeClass("fa-eye-slash");
+            $(this).find("span").addClass("fa-eye");
+            $(this).attr("title","Hiện thị");
+            var id = parentDiv.attr('data-idblock');
+            getArray('hide-block',id);
+        };
+       
+    });
+
+    $("#rio-drag").on('click','.rlm-del',function(){
+        var parentDiv = $(this).parent().parent().parent().parent();
+        var id = parentDiv.attr('data-idblock');
+         
+        var curentBlockId = $(this).parent().parent().parent().parent().attr("data-idblock");
+        var file=parentDiv.attr("data-file");
+        var module=parentDiv.attr("data-module-id");
+        var namemodule=parentDiv.attr("data-module");
+
+        var curentDivPost = parentDiv.offset().left;
+        //alert($("#store_content li").size());
+            
+        if ($("#store_content li").size() >0) {
+             var lastchildBlockPos = $('#store_content li:first-child').offset().left;
+             var lastchildBlockPosTop = $('#store_content li:first-child').offset().top;
+        }else{
+            lastchildBlockPos=0;
+            lastchildBlockPosTop=0;
+        };
+       
+        var movePos = parseInt(lastchildBlockPos - curentDivPost);
+        //alert(curentDivPost +"-"+lastchildBlockPos);
+        parentDiv.removeClass("zoomInLeft");
+        parentDiv.removeClass("pulse");
+        //parentDiv.addClass("bounceOut");
+        setTimeout(function(){
+           parentDiv.css({'position':'absolute','width':'60%'});
+            
+        },300);
+            
+        var store_content = $("#store_content");
+        var newDiv = $("#rio-drag ul").append("<li class='divMovePos '>"+parentDiv.html()+"</li>"); 
+         $(".divMovePos").css({top:parentDiv.position().top,left:parentDiv.position().left});
+        $(".divMovePos").animate({
+            top:-10,
+            left:-(store_content.offset().left + store_content.width()) + parentDiv.width() - 30,
+            opacity:0.1,
+            width:"63%"
+        },500,function(){
+             
+                 
+                   $(this).remove();
+        }); 
+        
+        setTimeout(function(){
+            
+            $('#store_content').prepend("<li class='col-md-4' id='STORE"+curentBlockId+"' data-file='"+file+"' data-module='"+namemodule+"' data-module-id='"+module+"'>"+parentDiv.html()+"</li");
+            getArray('del-block',id);
+            parentDiv.remove();
+        },800);
+    });
+    
+    $("#rio-drag").on('click','.rlm-down',function(){
+        var parentDiv=$(this).parent().parent().parent().parent();
+        var nextDiv=parentDiv.next();
+       
+       if (parentDiv.is(":last-child")) {
+        parentDiv.removeClass("zoomInLeft");
+        parentDiv.removeClass("pulse");
+        parentDiv.removeClass("bounceOut");
+        parentDiv.addClass("shake");
+       }else{
+        var newDiv=parentDiv.clone();
+
+         $(newDiv).insertAfter(nextDiv);
+            parentDiv.remove();
+            getArray('drag-down-block');
+             $('html, body').animate({
+                            scrollTop: nextDiv.offset().top+100
+              }, 200);
+            newDiv.removeClass("zoomInLeft");
+            newDiv.removeClass("pulse");
+            newDiv.removeClass("bounceOut");
+            newDiv.removeClass("shake");
+            newDiv.addClass("pulse");
+       };
+    });
+     
+
+     $("#rio-drag").on('click','.rlm-up',function(){
+        var parentDiv=$(this).parent().parent().parent().parent();
+        var prevDiv=parentDiv.prev();
+       
+       if (parentDiv.is(":first-child")) {
+        parentDiv.removeClass("zoomInLeft");
+        parentDiv.removeClass("pulse");
+        parentDiv.removeClass("bounceOut");
+        parentDiv.addClass("shake");
+       }else{
+        var newDiv=parentDiv.clone();
+            
+            $(newDiv).insertBefore(prevDiv);
+            $('html, body').animate({
+                            scrollTop: newDiv.offset().top-100
+              }, 200);
+            parentDiv.remove();
+            getArray('drag-up-block');
+             
+            newDiv.removeClass("zoomInLeft");
+            newDiv.removeClass("pulse");
+            newDiv.removeClass("bounceOut");
+            newDiv.removeClass("shake");
+            newDiv.addClass("pulse");
+       };
+    });
+     
+     $("#rio-drag").on('click','.rlm-set',function(){
+        var name=$(this).parents('li').find('h2').text();
+        var id=$(this).parents('li').attr('id');
+        var HomeSetting=$('#blockSetting');
+        HomeSetting.find('input[name="titleHome"]').val(name);
+        HomeSetting.find('input[name="idHome"]').val(id);
+    }); 
+    
+    $('body').on('click','.save_changes',function(event) {
+            event.preventDefault();
+            var HomeSetting=$('#blockSetting');
+            var name=HomeSetting.find('input[name="titleHome"]').val();
+            var id=HomeSetting.find('input[name="idHome"]').val();
+            $.ajax({
+                url: $('base').attr('href')+'/template-homes-ajax-lang-'+$('base').attr('lang'),
+                type: 'POST',
+                dataType: 'json',
+                data: {action: 'savetitle',title:name,id:id},
+            })
+            .success(function(res) {
+               if(res.status==true){
+                    toastr.success(res.message);
+                    $("#rio-drag").find('li[id="'+id+'"]').find('h2').text(name);
+                    HomeSetting.modal('hide');
+               }
+            });
+    });
+
+});
+
+});
+</script>

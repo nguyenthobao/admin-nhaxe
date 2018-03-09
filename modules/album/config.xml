@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<config>
+    <name_modue>album</name_modue> 
+    <menus>
+        <menu>
+            <title>album</title>
+            <link>/album-albums</link>
+            <icon>icon-picture</icon>
+            <mod>album</mod>
+			<submenu>
+                <title>album_new</title>
+                <link>/album-albumNew</link>
+                <icon>icon-plus</icon>
+            </submenu>
+            <submenu>
+                <title>album_list</title>
+                <link>/album-albums</link>
+                <icon>icon-list</icon>
+            </submenu>
+            <submenu>
+                <title>album_category_new</title>
+                <link>/album-categoryNew</link>
+                <icon>icon-plus</icon>
+            </submenu>
+            <submenu>
+                <title>album_category_list</title>
+                <link>/album-category</link>
+                <icon>icon-list</icon>
+            </submenu> 
+        </menu> 
+    </menus> 
+</config>

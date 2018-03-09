@@ -1,0 +1,138 @@
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link href="{$_B['mod_theme']}css/style.css" rel="stylesheet" type="text/css" />
+<!-- END PAGE LEVEL STYLES -->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+	<div class="col-md-12"> 
+		<form class="form-horizontal form-row-seperated" action="" id="form_slide" enctype="multipart/form-data" method="POST" novalidate="novalidate">
+			<div class="portlet">
+				<div class="portlet-title">
+					<div class="caption">
+					<i class="icon-note"></i>{lang hotrotructuyen}</div> 
+					<!--{temp addSupportToolbar}-->
+				</div>
+				<div class="portlet-body">
+					<!--{temp notify_action}-->
+					<div class="tabbable">
+						<ul class="nav nav-tabs">
+							<!--{loop $_DATA['lang_tab'] $k_lang $v_lang}-->
+								<li <!--{if $k_lang==$_DATA['lang']}-->class="active"<!--{/if}--> >
+									<a href="{$v_lang['url']}" data-lang="{$k_lang}">{lang lang_{$k_lang}} </a>
+								</li>
+							<!--{/loop}-->
+						</ul>
+					</div>
+					<div class="tabbable">
+						<div class="tab-content no-space">
+							<div class="tab-pane active">
+								<div class="form-body">
+									<div class="portlet light bordered">
+										<div class="portlet-title">
+											<div class="caption">
+												<i class="icon-equalizer font-red-sunglo"></i>
+												<span class="caption-subject font-red-sunglo bold uppercase">{lang hotrotructuyen}</span>
+												
+											</div>
+											<div class="tools">
+												<a href="javascript:;" class="collapse"></a>
+											</div>
+										</div>
+										<div class="portlet-body form form_support">
+											
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang name_block} <span class="required" aria-required="true">* </span></label>
+												<div class="col-md-4">
+													<input type="text" class="form-control" name="title" value="<!--{if isset($_DATA['item'])}-->{$_DATA['item']['title']}<!--{/if}-->" data-error="Vui lòng nhập trường này" placeholder="Facebook">
+												</div>
+											</div>
+											<div class="divNick">
+												<!--{if isset($_DATA['item'])}-->
+													<!--{loop $_DATA['item']['data_custome'] $k $v}-->
+														<div class="form-group nick">
+															<label class="col-md-2 control-label"><!--{if $k==0}-->{lang taikhoan}<!--{/if}--><span class="required" aria-required="true">* </span></label>
+															<div class="col-md-3">
+															<input type="text" class="form-control" name="name" value="{$v['name']}"  data-error="Vui lòng nhập trường này">
+															<small>* {lang ten_nv}</small>
+														</div>
+															<div class="col-md-3">
+																<input type="text" class="form-control" name="nick" value="{$v['nick']}"  data-error="Vui lòng nhập trường này">
+																<small>* {lang thongtin}</small>
+															</div>
+															<div class="col-md-2">
+																<select name="type" class="form-control">
+																	<option value="1" >Skype</option>
+																	<option value="2" <!--{if $v['type']==2}-->selected="selected"<!--{/if}--> >Yahoo</option>
+																	<option value="3" <!--{if $v['type']==3}-->selected="selected"<!--{/if}-->>{lang sdt}</option>
+																</select>
+																<small>* {lang thuoctinh}</small>
+															</div>
+															<!--{if count($_DATA['item']['data_custome'])==1}-->
+																<a href="javascript:void(0)" class="btn green addNew">
+															      <span class="glyphicon glyphicon-plus"></span>
+															    </a>
+														    <!--{else}-->
+														    	<!--{if $k==count($_DATA['item']['data_custome'])-1}-->
+															    	<a href="javascript:void(0)" class="btn green addNew">
+																      <span class="glyphicon glyphicon-plus"></span>
+																    </a>
+															    <!--{else}-->
+															    	<a href="javascript:void(0)" class="btn green removeNew">
+																      <span class="glyphicon glyphicon-minus"></span>
+																    </a>
+															    <!--{/if}-->
+														    <!--{/if}-->
+														</div>
+													<!--{/loop}-->
+												<!--{else}-->
+													<div class="form-group nick">
+														<label class="col-md-2 control-label">{lang taikhoan} <span class="required" aria-required="true">* </span></label>
+														<div class="col-md-3">
+															<input type="text" class="form-control" name="name" value=""  data-error="Vui lòng nhập trường này">
+															<small>* {lang ten_nv}</small>
+														</div>
+															<div class="col-md-3">
+																<input type="text" class="form-control" name="nick" value=""  data-error="Vui lòng nhập trường này">
+																<small>* {lang thongtin}</small>
+															</div>
+															<div class="col-md-2">
+																<select name="type" class="form-control">
+																	<option value="1" selected="selected">Skype</option>
+																	<!-- <option value="2">Yahoo</option> -->
+																	<option value="3">{lang sdt}</option>
+																</select>
+																<small>* {lang thuoctinh}</small>
+															</div>
+														<a href="javascript:void(0)" class="btn green addNew">
+													      <span class="glyphicon glyphicon-plus"></span>
+													    </a>
+													</div>
+												<!--{/if}-->
+											</div>
+											<div class="form-group">
+												<label class="col-md-2 control-label">Vị trí <span class="required" aria-required="true">* </span></label>
+												<div class="col-md-4">
+													<select name="position" class="form-control">
+														<!--{loop $_DATA['position'] $k $v}-->
+															<option value="{$k}" <!--{if isset($_DATA['item']) && $k==$_DATA['item']['position']}-->selected<!--{/if}-->>{$v}</option>
+														<!--{/loop}-->
+													</select>
+												</div>
+											</div>
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="portlet-title topline">
+					<input type="hidden" name="id" value="<!--{if isset($_DATA['item'])}-->{$_DATA['item']['id']}<!--{/if}-->">
+					<!--{temp addSupportToolbar}-->
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="{$_B['mod_theme']}js/addsupport.js"></script> 
+

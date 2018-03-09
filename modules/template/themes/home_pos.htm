@@ -1,0 +1,92 @@
+<div class="todo-content">
+    <div class="portlet rio_custom_a">
+        <!-- PROJECT HEAD -->
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="icon-bar-chart font-green-sharp hide"></i>
+                <span class="caption-helper">Vị trí:</span>&nbsp;
+                <span class="caption-subject font-green-sharp bold uppercase">{lang {$nowPosition}}</span>
+            </div>
+            <div class="actions">
+                <div class="btn-group">
+                    <a class="btn green-haze btn-circle btn-sm" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                        {lang chonvitri}<i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu pull-right">
+                        <!--{loop $web['positions'] $k $v}-->
+                        <li>
+                            <a href="{$url_pos[$k]}">{lang {$v}}</a>
+                        </li>
+                        <!--{/loop}-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- end PROJECT HEAD -->
+        <div class="portlet-body">
+            <div class="rio-block-style">
+                <div id="rio-drag">
+                    <div class="rio-list-module">
+                        <ul class="row">
+                            <!--{loop $blockUse[$id] $k $v}-->
+                            <li data-sort="1" id="{$v['id']}" data-idblock="{$v['idblock']}" data-position="{$v['position']}" data-file="{$v['file']}" data-module="{$v['module_str']}" data-module-id="{$v['module']}"   class="<!--{if $v['status']==1}--> active <!--{else}--> noactive <!--{/if}--> ">
+                                <div class="rlm-item">
+                                    <div class="dragTool">
+                                        <div class="rlm-move">
+                                            <span class="fa fa-sort"></span>
+                                        </div>
+                                        <div class="rlm-current"></div>
+                                        <div class="rlm-tool">
+                                            <a title="Lên trên" class="rlm-up">
+                                                <span class="fa fa-arrow-circle-up"></span>
+                                            </a>
+                                            <a title="Xuống dưới" class="rlm-down">
+                                                <span class="fa fa-arrow-circle-down"></span>
+                                            </a>
+                                            <a title="<!--{if $v['status']==1}--> Ẩn  <!--{else}--> Hiện <!--{/if}-->" class="rlm-hidden">
+                                                <span class="<!--{if $v['status']==1}--> fa fa-eye-slash <!--{else}--> fa fa-eye <!--{/if}--> "></span>
+                                            </a>
+                                            <a title="Xóa" class="rlm-del">
+                                                <span class="fa fa-times"></span>
+                                            </a>
+                                            <a title="Cài đặt" class="rlm-set" data-toggle="modal" data-target="#blockSetting">
+                                                <span class="fa fa-cog"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <h2>{$v['title']}</h2>
+                                    <span class="tieude-df">{$v['name_default']} </span>
+                                     <a class="rlm-use">{lang sudung}</a>
+                                    <img class="img-responsive" src="{$v['thumb']}" />
+                                </div>
+                            </li>
+                            <!--{/loop}-->
+                            
+                        </ul>
+                        <div class="clearfix"></div>
+                        <!-- Đoạn load popup-->
+                        <!-- Modal -->
+                        <div class="modal fade" id="blockSetting" tabindex="-1" role="dialog" aria-labelledby="blockSettingLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                        <h4 class="modal-title" id="blockSettingLabel">Modal title</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        ...
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
