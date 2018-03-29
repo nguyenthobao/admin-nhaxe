@@ -74,6 +74,14 @@ $_L['bg_img']                 = 'Hình nền';
 $_L['check_all']              = 'Chọn tất cả';
 $_L['news_vip']               = 'Tin VIP';
 $_L['news_hot']               = 'Tin nổi bật';
+$_L['news_travel']            = 'Du lịch';
+$_L['label_name']             = 'Nhãn du lịch';
+$_L['original_price']         = 'Giá chuyến';
+$_L['sale_price']             = 'Giá khuyến mại';
+$_L['description1']           = 'Mô tả 1';
+$_L['description2']           = 'Mô tả 2';
+$_L['description3']           = 'Mô tả 3';
+
 $_L['is_home']                = 'Hiện trang chủ';
 $_L['news_new']               = 'Tin mới';
 $_L['news_random']            = 'Tin ngẫu nhiên';

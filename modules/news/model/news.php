@@ -36,6 +36,13 @@ class News extends GlobalNews {
 			$is_hot = 0;
 		}
 
+        //POST news travel
+        if ($this->r->get_string('news_travel', 'POST') == 'on') {
+            $is_travel = 1;
+        } else {
+            $is_travel = 0;
+        }
+
 		$id_cat = $this->r->get_array('cat_name', 'POST');
 		$cat_id = ',' . implode(',', $id_cat) . ',';
 
@@ -114,6 +121,7 @@ class News extends GlobalNews {
 				'sort'                => $this->r->get_int('sort', 'POST'),
 				'author'              => $this->r->get_string('author', 'POST'),
 				'news_source'         => $this->r->get_string('news_source', 'POST'),
+                'label_name'          => $this->r->get_string('label_name', 'POST'),
 				'tags'                => $tag_id,
 				'create_time'         => time(),
 				'meta_title'          => $this->r->get_string('meta_title', 'POST'),
@@ -121,6 +129,7 @@ class News extends GlobalNews {
 				'meta_description'    => $this->r->get_string('meta_description', 'POST'),
 				'is_vip'              => $is_vip,
 				'is_hot'              => $is_hot,
+				'is_travel'           => $is_travel,
 				'related_news'        => $related_news,
 				'config_news_cat'     => $config_news_cat,
 				'config_news_related' => $config_news_related,
@@ -165,6 +174,13 @@ class News extends GlobalNews {
 				'sort'                => $this->r->get_int('sort', 'POST'),
 				'author'              => $this->r->get_string('author', 'POST'),
 				'news_source'         => $this->r->get_string('news_source', 'POST'),
+				'label_name'          => $this->r->get_string('label_name', 'POST'),
+                'original_price'      => $this->r->get_float('original_price', 'POST'),
+                'sale_price'          => $this->r->get_float('sale_price', 'POST'),
+                'description1'        => $this->r->get_string('description1', 'POST'),
+                'description2'        => $this->r->get_string('description2', 'POST'),
+                'description3'        => $this->r->get_string('description3', 'POST'),
+
 				'tags'                => $tag_id,
 				'update_time'         => time(),
 				'meta_title'          => $this->r->get_string('meta_title', 'POST'),
@@ -172,6 +188,7 @@ class News extends GlobalNews {
 				'meta_description'    => $this->r->get_string('meta_description', 'POST'),
 				'is_vip'              => $is_vip,
 				'is_hot'              => $is_hot,
+				'is_travel'           => $is_travel,
 				'related_news'        => $related_news,
 				'config_news_cat'     => $config_news_cat,
 				'config_news_related' => $config_news_related,

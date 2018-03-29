@@ -72,6 +72,7 @@ $_L['bg_img']                 = 'Hình nền';
 $_L['check_all']              = 'Chọn tất cả';
 $_L['news_vip']               = 'Tin VIP';
 $_L['news_hot']               = 'Tin nổi bật';
+$_L['news_travel']            = 'Du lịch';
 $_L['is_home']                = 'Hiện trang chủ';
 $_L['news_new']               = 'Tin mới';
 $_L['news_random']            = 'Tin ngẫu nhiên';

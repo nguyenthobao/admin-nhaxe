@@ -163,15 +163,59 @@
 											<div class="form-group row-title-check">
 												<label class="col-md-2 control-label">{lang news_vip} </label>
 												<div class="col-md-8">
-													<input type="checkbox" name="news_vip" <!--{if isset($news_edit['is_vip'])&&($news_edit['is_vip'] == 1)}--> checked <!--{/if}-->>
+													<input type="checkbox" id="news_vip" name="news_vip" <!--{if isset($news_edit['is_vip'])&&($news_edit['is_vip'] == 1)}--> checked <!--{/if}-->>
 												</div>
 											</div>
 											<div class="form-group row-title-check">
 												<label class="col-md-2 control-label">{lang news_hot} </label>
 												<div class="col-md-8">
-													<input type="checkbox" name="news_hot" <!--{if isset($news_edit['is_hot'])&&($news_edit['is_hot'] == 1)}--> checked <!--{/if}-->>
+													<input type="checkbox" id="news_hot" name="news_hot" <!--{if isset($news_edit['is_hot'])&&($news_edit['is_hot'] == 1)}--> checked <!--{/if}-->>
 												</div>
 											</div>
+											<div class="form-group row-title-check">
+												<label class="col-md-2 control-label">{lang news_travel} </label>
+												<div class="col-md-8">
+													<input type="checkbox" id="news_travel" name="news_travel" <!--{if isset($news_edit['is_travel'])&&($news_edit['is_travel'] == 1)}--> checked <!--{/if}-->>
+												</div>
+											</div>
+
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang label_name}</label>
+												<div class="col-md-3">
+													<input type="text" class="form-control" name="label_name" value="<!--{if isset({$news_edit['label_name']})}-->{$news_edit['label_name']}<!--{/if}-->" >
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang original_price}</label>
+												<div class="col-md-3">
+													<input type="text" class="form-control" name="original_price" onkeypress='validate(event)' data-error="{lang number_error}" value="<!--{if isset({$news_edit['original_price']})}-->{$news_edit['original_price']}<!--{/if}-->" >
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang sale_price}</label>
+												<div class="col-md-3">
+													<input type="text" class="form-control" name="sale_price" onkeypress='validate(event)' data-error="{lang number_error}" value="<!--{if isset({$news_edit['sale_price']})}-->{$news_edit['sale_price']}<!--{/if}-->" >
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang description1}</label>
+												<div class="col-md-3">
+													<input type="text" class="form-control" name="description1" value="<!--{if isset({$news_edit['description1']})}-->{$news_edit['description1']}<!--{/if}-->" >
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang description2}</label>
+												<div class="col-md-3">
+													<input type="text" class="form-control" name="description2" value="<!--{if isset({$news_edit['description2']})}-->{$news_edit['description2']}<!--{/if}-->" >
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-md-2 control-label">{lang description3}</label>
+												<div class="col-md-3">
+													<input type="text" class="form-control" name="description3" value="<!--{if isset({$news_edit['description3']})}-->{$news_edit['description3']}<!--{/if}-->" >
+												</div>
+											</div>
+
 											<div class="form-group">
 												<label class="col-md-2 control-label">{lang source}</label>
 												<div class="col-md-3">
@@ -474,6 +518,17 @@
 <script type="text/javascript">
     jQuery(document).ready(function() {
        FormNews.init();
+
+       if($('#news_travel').is(':checked')) {
+
+	   }
+
+        $('#news_travel').change(function () {
+            if(this.checked) {
+
+            }
+        })
+
     });
 </script>
 <script type="text/javascript">

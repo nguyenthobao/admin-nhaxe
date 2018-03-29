@@ -360,7 +360,7 @@ var FormNews = function () {
             loadRelatedNews();
             //checkCharacterEdit();
             deleteSetting();
-            resetTextarea();
+            // resetTextarea();
             //checkTitleEditCopy();
             validationImgNews();
             //handleTabDetails();
