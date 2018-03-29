@@ -537,16 +537,16 @@ class Adminuser {
         $d['password'] = $password;
         $rt = $this->PostAnvui('https://dobody-anvui.appspot.com/user/rlogin',$d);
 
-       
+//       var_dump($rt);exit();
         if($rt['code'] == 200 ){
             $return['status'] = true;
 
              // echo '<pre>';
         // var_dump($rt['results']['token']['tokenKey']); die;
-        // var_dump($rt['results']['userInfo']['userId']); die;
+//         var_dump($rt['results']['userInfo']['userStatus']); die;
             $webM = new Model('web');
             $webM->where('userId',$rt['results']['userInfo']['userId']);
-            $webM->update(array('tokenKey'=>$rt['results']['token']['tokenKey']));
+            $webM->update(array('tokenKey'=>$rt['results']['token']['tokenKey'], 'userStatus'=>$rt['results']['userInfo']['userStatus']));
 
 
 

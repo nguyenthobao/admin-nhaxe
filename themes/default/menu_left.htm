@@ -33,12 +33,21 @@
 						<span class="title">Trang chủ</span> 
 					</a> 
 				</li>
+				<!--{if $_B['web']['userStatus'] != 1}-->
 				<li class="start">
-					<a target="_blank" href="http://admin.anvui.vn">
+					<a href="#" data-toggle="modal" data-target="#message">
 						<i class="fa fa-bus"></i>
 						<span class="title">Quản lý đặt xe</span> 
 					</a> 
 				</li>
+				<!--{else}-->
+				<li class="start">
+					<a target="_blank" href="http://admin.anvui.vn">
+						<i class="fa fa-bus"></i>
+						<span class="title">Quản lý đặt xe</span>
+					</a>
+				</li>
+				<!--{/if}-->
 
 
 				<!--{loop $_B['menu'] $v}-->
